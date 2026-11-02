@@ -1,7 +1,7 @@
 Module {
 	name: 'valibro'
-	description: 'valibro'
-	version: '0.0.0'
+	description: 'Composable, Valibot-inspired validation for V'
+	version: '0.2.0'
 	license: 'MIT'
 	dependencies: []
 }

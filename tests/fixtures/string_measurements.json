@@ -1,0 +1,176 @@
+[
+  {
+    "input": "",
+    "length": 0,
+    "bytes": 0,
+    "code_points": 0
+  },
+  {
+    "input": "a",
+    "length": 1,
+    "bytes": 1,
+    "code_points": 1
+  },
+  {
+    "input": "hello world",
+    "length": 11,
+    "bytes": 11,
+    "code_points": 11
+  },
+  {
+    "input": "  Alex  ",
+    "length": 8,
+    "bytes": 8,
+    "code_points": 8
+  },
+  {
+    "input": "é",
+    "length": 1,
+    "bytes": 2,
+    "code_points": 1
+  },
+  {
+    "input": "é",
+    "length": 2,
+    "bytes": 3,
+    "code_points": 2
+  },
+  {
+    "input": "🙂",
+    "length": 2,
+    "bytes": 4,
+    "code_points": 1
+  },
+  {
+    "input": "👩🏽‍💻",
+    "length": 7,
+    "bytes": 15,
+    "code_points": 4
+  },
+  {
+    "input": "🇷🇺",
+    "length": 4,
+    "bytes": 8,
+    "code_points": 2
+  },
+  {
+    "input": "👨‍👩‍👧‍👦",
+    "length": 11,
+    "bytes": 25,
+    "code_points": 7
+  },
+  {
+    "input": "\r\n",
+    "length": 2,
+    "bytes": 2,
+    "code_points": 2
+  },
+  {
+    "input": "क्‍ष",
+    "length": 4,
+    "bytes": 12,
+    "code_points": 4
+  },
+  {
+    "input": "東京に行きます",
+    "length": 7,
+    "bytes": 21,
+    "code_points": 7
+  },
+  {
+    "input": "ภาษาไทย",
+    "length": 7,
+    "bytes": 21,
+    "code_points": 7
+  },
+  {
+    "input": "don't stop!",
+    "length": 11,
+    "bytes": 11,
+    "code_points": 11
+  },
+  {
+    "input": "Straße",
+    "length": 6,
+    "bytes": 7,
+    "code_points": 6
+  },
+  {
+    "input": "İSTANBUL",
+    "length": 8,
+    "bytes": 9,
+    "code_points": 8
+  },
+  {
+    "input": "ΟΣ",
+    "length": 2,
+    "bytes": 4,
+    "code_points": 2
+  },
+  {
+    "input": "parseURLValue",
+    "length": 13,
+    "bytes": 13,
+    "code_points": 13
+  },
+  {
+    "input": "HTTP2Parser",
+    "length": 11,
+    "bytes": 11,
+    "code_points": 11
+  },
+  {
+    "input": "item2Name",
+    "length": 9,
+    "bytes": 9,
+    "code_points": 9
+  },
+  {
+    "input": "XMLHttpRequest",
+    "length": 14,
+    "bytes": 14,
+    "code_points": 14
+  },
+  {
+    "input": "__hello--WORLD__",
+    "length": 16,
+    "bytes": 16,
+    "code_points": 16
+  },
+  {
+    "input": "﻿ a  ",
+    "length": 5,
+    "bytes": 10,
+    "code_points": 5
+  },
+  {
+    "input": "a",
+    "length": 3,
+    "bytes": 5,
+    "code_points": 3
+  },
+  {
+    "input": "\u0000x",
+    "length": 2,
+    "bytes": 2,
+    "code_points": 2
+  },
+  {
+    "input": "ＡＢＣ ① ﬁ",
+    "length": 7,
+    "bytes": 17,
+    "code_points": 7
+  },
+  {
+    "input": "각",
+    "length": 1,
+    "bytes": 3,
+    "code_points": 1
+  },
+  {
+    "input": "𐐀𐐨",
+    "length": 4,
+    "bytes": 8,
+    "code_points": 2
+  }
+]
