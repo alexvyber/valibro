@@ -1,0 +1,15 @@
+module main
+
+import os
+import valibro as v
+
+fn main() {
+ match os.args[1] {
+  'number_messages' { v.number('one', 'two') }
+  'boolean_messages' { v.boolean('one', 'two') }
+  'bigint_messages' { v.bigint('one', 'two') }
+  'date_messages' { v.date('one', 'two') }
+  'action_messages' { v.integer('one', 'two') }
+  else { panic('Unknown case') }
+ }
+}

@@ -1,0 +1,44 @@
+import math.big
+import time
+import valibro as v
+import valibro.schemas
+import valibro.types
+
+struct Value { value int }
+pub fn (input Value) to_number() !f64 { return f64(input.value) }
+pub fn (input Value) to_bigint() !big.Integer { return big.integer_from_int(input.value) }
+pub fn (input Value) to_boolean() !bool { return input.value != 0 }
+pub fn (input Value) to_date() !time.Time { return time.unix(i64(input.value)) }
+pub fn (input Value) to_string() !string { return input.value.str() }
+pub fn (input Value) count() int { return input.value }
+fn number(input types.NumberProvider) !f64 { return input.to_number() }
+fn integer(input types.BigintProvider) !big.Integer { return input.to_bigint() }
+fn boolean(input types.BooleanProvider) !bool { return input.to_boolean() }
+fn date(input types.DateProvider) !time.Time { return input.to_date() }
+fn text(input types.StringProvider) !string { return input.to_string() }
+fn count(input types.Countable) int { return input.count() }
+fn main() {
+    assert v.parse(schemas.array_schema(v.string()), ['Alex'])! == ['Alex']
+    input := Value{42}
+    assert number(input)! == 42.0 && integer(input)!.str() == '42'
+    assert boolean(input)! && date(input)!.unix() == 42 && text(input)! == '42'
+    assert count(input) == 42
+    assert v.parse(v.pipe_to(v.schema[Value](),v.to_number_from[Value]()),input)! == 42.0
+    assert v.parse(v.pipe_to(v.schema[Value](),v.to_bigint_from[Value]()),input)!.str() == '42'
+    assert v.parse(v.pipe_to(v.schema[Value](),v.to_boolean_from[Value]()),input)!
+    assert v.parse(v.pipe_to(v.schema[Value](),v.to_date_from[Value]()),input)!.unix() == 42
+    assert v.parse(v.pipe_to(v.schema[Value](),v.to_string_from[Value]()),input)! == '42'
+    blob := types.Blob{data:[u8(1),2],mime_type:'text/plain'}
+    file := types.File{data:[u8(1)],mime_type:'text/plain',name:'a.txt'}
+    assert v.is_valid(v.pipe(v.blob(),v.mime_type[types.Blob](['text/plain'])),blob)!
+    assert v.is_valid(v.file(),file)!
+    assert blob.count() == 2 && file.count() == 1
+    set := types.new_set(['a','a'])
+    assert set.count() == 1
+    entries := types.entry_map([types.MapEntry[string,int]{key:'a',value:1}], fn (a string,b string) bool { return a==b })
+    assert entries.count() == 1
+    mapped := v.map_schema(v.number_of[int](),v.string())
+    assert v.parse(mapped,{1:'one'})! == {1:'one'}
+    refined := v.set_with(v.pipe(v.string(),v.to_lower_case()),fn (a string,b string) bool { return a==b })
+    assert v.parse(refined,types.new_set(['A','a']))!.count() == 1
+}

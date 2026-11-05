@@ -1,0 +1,295 @@
+{
+  "corpus": "numeric_representation",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 1795,
+  "input_outcomes": 1795,
+  "retained_rows": 1739,
+  "retained_outcomes": 1739,
+  "excluded_rows": 56,
+  "excluded_outcomes": 56,
+  "counts_by_tag": {
+    "native_float_spelling": 56
+  },
+  "exclusions": [
+    {
+      "id": "8c373f9c4328dfcf297f6ff2385a13f53dbe62e46404e5a713a3de63e2ff09b9",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "7d51f95ec78fc08d61736c7822d03d0ceb7049d96e4a1048071a1b80f3fe3670",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "0c88d8f70a63733a6d816202e9a0c838c1e10970feff80a6339e1a31c7e3e044",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "168763c414e7115b191846ab79ce07dbe188ce62bdaef883a77d4be71fdbae55",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "977a086686af9de74a6347a50c8ef3aad53c40def6adeb4f4211638aa662fdef",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "c1cabb798ba4128801686c47d31bb56f7eb2630a94221802240bf7f8fb1b6cb9",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "2c1c3ec1fa4ac6d65acd5c13b65cc52bf222c4a11313465b03d10eb9e2eebbdf",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "22e51f77f2de019328b0c18335c69df0256f83ba5a058eca2d8c5a89111b5a88",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "b176404cd93d012795e4830d8cbf6e97883fdfaf2e224d1f471440d203a85892",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "2bc77255f6cbc3356e84eba5f2e8c5dee93641b092218971c8159d23fa3d1b05",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "21f94a054de8757f2314f72a52172bce4f85dd8a2e029bc901a02768c23f34a8",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "22e68ee5ca2ebf7951d81f81454f2c5ade1b42ff080651add93749cf54c03cfd",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "f4ea77c43a7fba476fd0c7765621854effc1a480f6c766c87ae11a2c9a3ffe18",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "f94684ae47d93a025c461a7d9c11110864485a3ca5fd134a82cd230f8e56b623",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "29de7477ddeab4781a20f2abb95a804b528db88a1ac71a85519cc28f462af29b",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "760779ca5ae0327e4abba08d50a036851e95897a78b65b78d8463cc3e1fe1b43",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "4a6deeafce0e5ad772dfd59f6dea1ad0f7f0811f93371943e02086d2885f275c",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "8344cd872e28edb1bdd34470d6b575cf6cba8e91df919bbf7144ce90964c7dae",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "b35bbcf40b72ec5c9e97a9fd9ab8595a74a85c1b39bdb63632b10c305588b90b",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "61462f18000775749915628a0458ad9d5169ffe2b80bba2ea6e18b0846b88492",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "49cdbcbb4477bede7909b0bd44e158d755542c7ce57810daf7171e64b638e1d1",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "c625649cb192bf4673a8320e3568d2c51a4d3c2c1c418e5062003fda877e07c2",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "56b03fbcbc6d939567d8eb1be7fdb483900202af2d34a556dbba043175906e39",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "bf0c100571fdd554bc2d6f7038fc9b36445ac2f864cde9b1750338ac553655ce",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "d981952f21a567f6ae4bd3fc339bb3e4761ef06dff21a48bcd179ca5ca4d074a",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "62dab58478efe9cc986bc27ac6bc168106a56798ef18dddd47c37369295e03a4",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "4a9870c093fec1110a6cbc50e10f3ffeff02db53389a3169f4f2e4b096c04f29",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "2b040364f45352532a42f151dbea453ce45fa413645e8e3777bec7b4dda15607",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "04ddb729d10dff59c4ec8f1f645ba73d69074b39016f739963b9c0c9b447171f",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "75793bb500c3c07784d40107ebe3880f6c3546194d668bbf8a79e921d4ed5913",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "3e07ef1bb6fa24290fd514876b19b7e611e9c63690c38a805903f5b7bff277f6",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "0a7890cbcb4488f35af94a02844163fd47674cfb5ffea4dc31dfeb750b7a40c8",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "e5c817382f3b1a5f7d5afc67a581057342187ee8438fb25480feac719e656c06",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "063bc7897bfa710fed662553978ea517aa831bc7e4ba10a06d120680fb956c9b",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "38725cfefc6217afb762472093b0581fed671bb55523063a0efc65afc6a7674c",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "d55c3b0172fb544d9367aee9cecf7ee392cd9303ed34ee6665acbef3a43ed468",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "8300d6892e180b8957ba4d3c052edfffa6fd2d697d7e68c61aa7ee6108480dff",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "4c245f569fa761b2be5234f2161a7aeafc87101f662f61e4c954cf26d71daa6f",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "42e4c95deb1b542a6004800b9114bf90f37386cfeda30b3bcd03ac8290a60f62",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "583879041bd74b18cd6f4557f714d0163cb23f7782a2f8ed985d6d9e1166cfa3",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "ccc81acefd6ff5149688b4a66630ffad5c047dcaac3927de183fe1ea3cf93b44",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "f7baf56de0654298b13450880f3f96dc6cdb4c84b90c264b5f428571a2551bbb",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "c72a9fa7491256cf4179fe71769df8970c5feea9ca39be51bf98abb571c471c9",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "f62bae9b700096cc1926ebaf5b43b7b2109c1d4a82e847999eaef086ef818f82",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "93fb41ac072a48f99760ec8f20ec298860a59eb6801f766702489869b3e6c2de",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "0edb1d0238fcb733b976d9c87e899ed7a0c19749df37fca8716e9056aa8474be",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "5adae948b5a9b90fc9575924d3524eb73b314705756b5ed772e8071dcba4cbb4",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "2e728f365ee002532461b1dc6a30ddb56f1e148d4739fdca3e4560d0fd5a6848",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "00c62b89ec52ba9eb0deced52376d53bc42dad259c520b2bb355f3623b5e7406",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "d69096ac81a7dd7f295b6ef75b65e7f3b85d89c4d3f9217dee2e6faad24a4eb1",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "a8181a74430cc4e5b11f9b7937cfc56b2c71ae06bc4c144c5dd2064bba89ffc3",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "49dee554600ccc347ee57019748c49b24ec57fa25ea5635c70c03991352e498b",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "35e08970a362ed0370091889f8a7a3c4b7dd874708118e2e8f5f77e4c02035b7",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "3fec4506d83396e03f1744b5db00abb1893d13d28d7ce435a5b2e8915c030cb0",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "c1cdd6fe064baffc4ef45df0050810f1fe7641d2abe558aa7df7925f97e7d7a4",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    },
+    {
+      "id": "4849edfbfbe0f627667340e24f3c1282a8535a7ceb1dcca6380df81cf890a1f1",
+      "tag": "native_float_spelling",
+      "outcomes": 1
+    }
+  ]
+}

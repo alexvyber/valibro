@@ -1,0 +1,86 @@
+{
+  "corpus": "number",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 8535,
+  "input_outcomes": 8535,
+  "retained_rows": 8521,
+  "retained_outcomes": 8521,
+  "excluded_rows": 14,
+  "excluded_outcomes": 14,
+  "counts_by_tag": {
+    "nonempty_numeric_text": 2,
+    "native_whitespace": 12
+  },
+  "exclusions": [
+    {
+      "id": "858470c0b7768926f7f8c9d52b0400569f093cf34c10a398cc908fd20fe3ff7f",
+      "tag": "nonempty_numeric_text",
+      "outcomes": 1
+    },
+    {
+      "id": "bb66a028d724add7ecb5a3dd5d2b919e0a3336979cf5fbe401d0df800b1b9e88",
+      "tag": "nonempty_numeric_text",
+      "outcomes": 1
+    },
+    {
+      "id": "cd062087493214ac71e7036fc8f2cc166b6a2921bda537c534db5138b7da696e",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "30d124c09aec41479300db3bc71b9c14e383158960665085f036a9c577de8e4c",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "a262f38eadd43597f07941f54522f059d98c30c7d068a16fcff016e1847e66a3",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "042469a51b76e4c2bb91f7f7929f4280ed64f20b95f93ec00f76858772fe3697",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "76cec6e4d995dfcdbae5c1eec6917ee72b74fe17b14c6561cf52b95948482b2c",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "283c41add33879cbd09c3d4b33ebcbf0c0fb922a9f70bafe36b1d94cdb7fd58d",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "7fea21fc0166bedff21f24e0e830963ca28fa332a17e3d8bde81bbbf44a1abbc",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "4c5b9d9227bbe6d91e5dc16614778176a804fe35ac914f531d98422f92ba94bf",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "268bac23949f2b27522b5a85f4d60d04656b82727e6ede02ab5027c1b177adc1",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "fa27949535c8f882b804488effae88ab21024d25dd46655ecb3b275de1f6c42d",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "5e5b24ee526d04eda685bc99c107f134e621db30cf4ff0348770396e3f1ef36c",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    },
+    {
+      "id": "3d1e2ac4a63e7db5ec244dc726744f8820fd4e3bf8d5022288a79ea8f61c00b7",
+      "tag": "native_whitespace",
+      "outcomes": 1
+    }
+  ]
+}

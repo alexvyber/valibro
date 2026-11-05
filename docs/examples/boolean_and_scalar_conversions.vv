@@ -1,0 +1,13 @@
+import valibro as v
+
+assert !v.parse(v.pipe_to(v.string(), v.to_boolean()), 'unknown')!
+assert v.parse(v.pipe_to(v.number_of[int](), v.to_boolean_from[int]()), 1)!
+assert v.parse(v.pipe_to(v.number_of[int](), v.to_bigint_from[int]()), 42)!.str() == '42'
+assert v.parse(v.pipe_to(v.number_of[i64](), v.to_date_from[i64]()), i64(0))!.year == 1970
+assert v.parse(v.pipe_to(v.number_of[int](), v.parse_boolean_from[int]()), 1)!
+custom := v.pipe_to(v.string(), v.parse_boolean_with_config(v.ParseBooleanConfig{truthy: ['accepted'], falsy: ['rejected']}))
+assert v.parse(custom, 'accepted')!
+assert !v.is_valid(custom, 'unknown')!
+values := v.pipe_to(v.number_of[int](), v.parse_boolean_with_values([2], [0]))
+assert v.parse(values, 2)!
+assert !v.is_valid(values, 1)!

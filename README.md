@@ -1,125 +1,48 @@
 # Valibro
 
-Composable, Valibot-inspired validation written in V, using the V standard
-library only. Build and test with the normal V toolchain; no external packages,
-native libraries, or C++ compiler are required. Tested with V 0.5.2.
+Composable validation for native V values and runtime JSON. Valibro uses the standard V toolchain, with no external VPM dependencies. Tested with V 0.5.2.
 
 ## Quick start
 
 ```v
 import valibro as v
 
-username := v.pipe(
-    v.string(),
-    v.trim(),
-    v.to_lower_case(),
-    v.min_code_points(3, 'Use at least three characters'),
-    v.max_code_points(32),
-    v.regex(r'^[a-z0-9_]+$'),
-)
-
-result := v.safe_parse(username, '  Alex  ')
-if result.success {
-    output := result.output or { return }
-    println(output) // alex
-} else {
-    for issue in result.issues {
-        println('${issue.code}: ${issue.message}')
-    }
-}
+schema := v.pipe(v.string(), v.trim(), v.to_lower_case(), v.min_length(3))
+name := v.parse(schema, ' Alex ') or { eprintln(err); return }
+println(name) // alex
 ```
 
-`v.string()` accepts native, well-formed UTF-8 strings. Wrong native input types
-are compile-time errors; malformed UTF-8 returns a schema issue.
-
-## Capabilities
-
-- String lengths in UTF-8 bytes, Unicode code points, or UTF-16 code units,
-  with exact/minimum/maximum/exclusion checks.
-- Prefixes, suffixes, substrings, literal values, membership, and comparisons.
-- Email, domain, IP/MAC, ISO formats, identifiers, encodings, and checksum validators.
-- HTTP(S), WS(S), and FTP URL validation with documented host/port/escaping rules.
-- Regular expressions through V's pure V `regex.pcre` module.
-- Trimming, simple Unicode casing, and camel/Pascal/kebab/snake case formatting.
-- Typed number, bigint, boolean, date, and JSON conversions.
-- Custom validators/transformations, issue-aware messages, annotations, and brands.
-
-See the [API and supported behavior](docs/string_api.md). This library implements
-selected Valibot concepts with native V contracts; it does not claim full Valibot
-or JavaScript-runtime parity.
-
-Advanced Unicode normalization, grapheme segmentation, locale-aware word counting,
-and emoji validation are deferred. They have no placeholder implementations in
-the core. Casing uses V's simple mappings, so `Straße` uppercases to `STRAßE`.
-
-## Typed conversions
-
-`v.pipe` composes same-type actions. `v.pipe_to` changes the schema's output type:
+Parse returns a native `!T`. ValidationError retains structured issues. Inspect returns `!Dataset[T]` for advanced partial-value inspection. Is_valid returns `!bool`: validation rejection is false and callback errors propagate.
 
 ```v
-number := v.pipe_to(v.string(), v.to_number())
-value := v.parse(number, '42') or { panic(err) } // f64
-println(value)
+import valibro as v
 
-boolean := v.pipe_to(v.string(), v.parse_boolean())
-flag := v.parse(boolean, 'YES') or { panic(err) } // bool
-println(flag)
+age := v.pipe(v.number_of[int](), v.min_value(0), v.max_value(130))
+assert v.parse(age, 42)! == 42
+assert !v.is_valid(age, -1)!
+assert v.inspect(age, -1)!.issues.len == 1
 ```
 
-`safe_parse` returns `success`, optional `output`, and structured `issues`.
-Failed validation always has absent output. `parse` returns `!O`; its
-`types.ValidationError` retains the issues. The `_with_config` variants accept
-`v.Config{abort_early: true}`. Otherwise consecutive validations collect issues;
-transformations stop after any issue, and fatal failures stop all later actions.
+Native options are handled with ordinary V if/or expressions. Native functions and threads belong to the application. Runtime JSON supports missing-field and explicit-null policies through optional and nullable; there is no undefined value model or JavaScript callback protocol.
 
-Use `v.message_fn(fn (issue v.Issue) string { ... })` for dynamic messages.
-Canonical extension types live in `valibro.types`: `Schema[I, O]`, `Action[T]`,
-`Transformation[I, O]`, `Dataset[T]`, and `Issue`.
+Exact decimal/radix conversion rounds once to binary64 using ties-to-even. Native integer equality and serialization preserve supplied digits. Runtime JSON object schemas reject arrays. UTF-8 strings, native regex, strict calendar validation and bundled Unicode 17 algorithms retain their documented contracts.
 
-## Modules
+## Installation
 
-```text
-valibro*.v   Public facades: import valibro as v
-schemas/     Base schema factories
-actions/     One file per validation, transformation, or metadata feature
-methods/     Composition and parsing
-types/       Shared generic contracts, configuration, errors, annotations
-utils/       Pure V regex, URL, casing, patterns, and checksum helpers
-tests/       All tests and reference fixtures
-examples/    Runnable public API examples
-scripts/     Optional upstream fixture regeneration
-```
+The prepared VPM package name is `alexvyber.valibro`. Use `import alexvyber.valibro as v` in consumers, or `import valibro as v` inside a checkout. See [installation](docs/install.md) and [release preparation](docs/releasing.md).
 
-Facades import feature modules; feature modules use shared types and utilities.
-Shared types do not depend on feature modules. The executor operates on common
-contracts without switching on built-in action names. Consumers can also import
-`valibro.actions`, `valibro.schemas`, and `valibro.methods` directly.
+## Documentation
 
-## Verification
+Run `V_C_ERROR_BUG_REPORT_DISABLED=1 v run site` for a local native HTTP preview, or `v run site build` for static export. See [site development](site/README.md), [native API migration](docs/native_api_migration.md), [numeric behavior](docs/native_behavior.md), and the [API inventory](site/reference.json).
+
+## Validation
 
 ```sh
-v test .
-v fmt -verify .
-v run examples/username
-v run examples/strings
+V_C_ERROR_BUG_REPORT_DISABLED=1 VJOBS=1 v -no-parallel test .
+V_C_ERROR_BUG_REPORT_DISABLED=1 v fmt -verify .
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run scripts/check_architecture.vsh
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run scripts/check_package.vsh
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run site check
 ```
 
-The checked-in tests need V only. Selected upstream fixtures cover 2,046 format
-outcomes, 275 transformations, and 29 measurement inputs. Native URL, casing,
-regex, conversion, and extension contracts have separate regression tests.
-
-## Migration from the native-dependency prototype
-
-Ada, ICU, their build flags, and their adapters have been removed. The advanced
-Unicode factories (`normalize`, `emoji`, and the `graphemes`/`words` families)
-were removed from the public API. URL validation now follows the supported rules
-in the API notes. Regex uses V syntax with `$` as the end anchor; former `\z`,
-Unicode property escapes, lookarounds, and backreferences are unsupported.
-
-`length` still counts UTF-16 code units for Valibot familiarity: `🙂` has length 2,
-4 bytes, and 1 code point. Choose `code_points` for character-oriented limits.
-
-## License
-
-MIT. See `LICENSE` and `THIRD_PARTY_NOTICES.md` for the remaining adapted Valibot
-patterns, algorithms, and fixture attribution.
+The compiler diagnostic-upload flag should be set for all V invocations. The checked-in rounding and Unicode/reference data run offline. Maintainer reference generators are separate from the native package and documentation runtime.

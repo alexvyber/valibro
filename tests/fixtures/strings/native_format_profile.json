@@ -1,0 +1,14 @@
+[
+  {
+    "action": "base64",
+    "input": "dmFſaWJvdA==",
+    "native_valid": false,
+    "reason": "Base64 uses the ASCII alphabet; JavaScript Unicode case folding is outside the native format contract."
+  },
+  {
+    "action": "base64",
+    "input": "SGVſbG8ſIEKgYW0gVmFſaWJvdCBhbmQgSSB3b3VſZCBſaWtlIHRvIGhlbHAgeW91IHZhbGlKYXRlIGRhdGEgZWFzaWx5IHVzaW5nIGEgc2NoZW1hLg==",
+    "native_valid": false,
+    "reason": "Base64 uses the ASCII alphabet; JavaScript Unicode case folding is outside the native format contract."
+  }
+]

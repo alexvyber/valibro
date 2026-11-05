@@ -17,3 +17,25 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+## Unicode data
+
+Unicode 17.0.0 character, normalization, casing, emoji, grapheme, and word-break
+data and conformance fixtures are distributed under the Unicode data/software
+license reproduced in `unicode/LICENSE`. Source hashes and the pinned data URL
+are recorded in `unicode/SOURCES.json`. Algorithms implement UAX #15 and UAX #29.
+
+## emoji-regex-xs grammar
+
+The emoji sequence grammar follows the `emoji-regex-xs` v1.0.0 grammar included
+in the pinned Valibot source. Copyright (c) 2025 Steven Levithan, MIT license;
+see `unicode/EMOJI_REGEX_LICENSE`. The runtime implementation is pure V and uses
+Unicode property tables rather than JavaScript regular expressions.
+
+## IBM Plex documentation fonts
+
+The documentation site bundles unmodified IBM Plex Sans and
+IBM Plex Mono WOFF2 files from https://github.com/IBM/plex. Copyright © 2017 IBM
+Corp. with Reserved Font Name "Plex". Licensed under the SIL Open Font License
+1.1; the full notice and license are in `site/assets/fonts/LICENSE.txt`.
+`site/assets/fonts/SOURCES.json` records the upstream revision and file hashes.
+Fonts are local static assets; no font service or external runtime is required.

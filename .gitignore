@@ -29,3 +29,11 @@ modules/
 # Native build artifacts
 *.o
 *.a
+
+# Local documentation outputs
+/site/public/
+/site/.checks/
+/site/.inventory/
+/site/site
+
+/site/.checks-*/

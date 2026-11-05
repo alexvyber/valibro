@@ -1,8 +1,5 @@
-* text=auto eol=lf
-*.bat eol=crlf
+# Preserve official Unicode conformance files byte-for-byte.
+tests/fixtures/unicode/*.txt whitespace=-blank-at-eol
 
-*.v linguist-language=V
-*.vv linguist-language=V
-*.vsh linguist-language=V
-v.mod linguist-language=V
-.vdocignore linguist-language=ignore
+# Preserve the upstream font license byte-for-byte, including CRLF line endings.
+site/assets/fonts/LICENSE.txt -text whitespace=-blank-at-eol

@@ -1,0 +1,47 @@
+import valibro as v
+import valibro.types
+import valibro.json as j
+import valibro.jsoncodec
+import x.json2
+
+fn rebuild_shape(factory j.ShapeRebuilder, fields map[string]j.Schema) j.Schema { return factory(fields) }
+base := j.object({'name':j.string(), 'age':j.optional(j.number(), j.FieldConfig{default_value:json2.Any(42)})})
+assert j.is_valid(j.boolean(), true)!
+assert j.is_valid(j.unknown(), true)!
+assert !j.is_valid(j.never(), true)!
+assert j.is_valid(j.null_value(), json2.Null{})!
+assert j.is_valid(j.array(j.number()), json2.Any([json2.Any(1),json2.Any(2)]))!
+assert j.is_valid(j.picklist([json2.Any('a'),json2.Any(1)]), 1)!
+assert j.is_valid(j.custom(fn (value json2.Any) bool { return value is string }), 'a')!
+assert j.is_valid(j.keyof(base), 'name')!
+assert j.is_valid(j.omit(base, ['age']), json2.Any({'name':json2.Any('Alex')}))!
+assert !j.is_valid(j.required(j.partial(base)), json2.Any(map[string]json2.Any{}))!
+assert !j.is_valid(j.required_with_message(j.partial(base), 'Required'), json2.Any(map[string]json2.Any{}))!
+assert j.parse(j.fallback(j.string(), json2.Any('guest')), 42)! == json2.Any('guest')
+assert j.parse(j.intersect([j.string(),j.literal('Alex')]), 'Alex')! == json2.Any('Alex')
+assert j.parse(j.loose_object({'name':j.string()}), json2.Any({'name':json2.Any('Alex'), 'extra':json2.Any(true)}))!.as_map().len == 2
+assert j.is_valid(j.object_with_rest({'name':j.string()},j.boolean()), json2.Any({'name':json2.Any('Alex'),'extra':json2.Any(true)}))!
+assert j.is_valid(j.tuple([j.string()]), json2.Any([json2.Any('Alex')]))!
+assert j.is_valid(j.loose_tuple([j.string()]), json2.Any([json2.Any('Alex'),json2.Any(true)]))!
+assert j.is_valid(j.tuple_with_rest([j.string()], j.boolean()), json2.Any([json2.Any('Alex'),json2.Any(true)]))!
+assert v.parse(j.native(j.string()), json2.Any('Alex'))! == json2.Any('Alex')
+deferred := j.lazy(fn () j.Schema { return j.string() })
+chosen := j.lazy_with(fn (input json2.Any) j.Schema { return j.string() })
+assert j.is_valid(deferred, 'Alex')! && j.is_valid(chosen, 'Alex')!
+if rebuild := base.shape_rebuilder { assert j.is_valid(rebuild({'name':j.string()}), json2.Any({'name':json2.Any('Alex')}))! }
+settings := jsoncodec.ParseConfig{binary64_numbers:true}
+format := jsoncodec.StringifyConfig{space:jsoncodec.Indent(2)}
+assert jsoncodec.decode('42',settings)!.f64() == 42.0
+assert jsoncodec.stringify(json2.Any({'x':json2.Any(42)}),format)!.contains('\n')
+_ = v.ParseJsonConfig{}
+_ = v.StringifyJsonConfig{}
+
+inspection := j.inspect(j.string(), json2.Any(42))!
+assert inspection.issues.len == 1
+record := j.record(j.string(),j.number())
+assert j.parse_text(record,'{"a":1}')!.as_map().len == 1
+checked := j.pipe(j.string(),v.check[json2.Any](fn (input json2.Any) bool { return input.str().len >= 2 }))
+assert !j.is_valid(checked,'a')!
+partial := j.partial_check(j.array(j.number()), [[types.PathSegment(0)]], fn (input json2.Any) bool { return input.as_array()[0].f64() > 0 })
+assert !j.is_valid(partial,json2.Any([json2.Any(-1)]))!
+if factory := base.shape_rebuilder { assert j.is_valid(rebuild_shape(factory,{'name':j.string()}),json2.Any({'name':json2.Any('Alex')}))! }

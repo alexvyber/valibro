@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" class="handbook" data-theme="${theme}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="${escape(description)}">
+<meta name="color-scheme" content="light dark">
+<title>${escape(title)} · Valibro</title>
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="masthead"><div class="header-grid">
+<a class="wordmark" href="${home_url}">valibro<span class="wordmark-slash">/</span></a>
+<nav class="primary" aria-label="Primary"><a href="${home_url}"${guides_active}>Guides</a><a href="${api_url}"${api_active}>Reference</a><a class="search-link" href="${search_url}">Search</a></nav>
+<nav class="theme-switch" aria-label="Color theme"><a href="${light_url}" aria-label="Use light theme">Light</a><span aria-hidden="true">/</span><a href="${dark_url}" aria-label="Use dark theme">Dark</a></nav>
+</div></header>
+<div class="handbook-shell">
+<aside class="book-nav"><nav aria-label="Documentation">@nav</nav></aside>
+<details class="mobile-nav"><summary>Contents</summary><nav aria-label="Mobile documentation">@nav</nav></details>
+<main id="main" tabindex="-1">
+@crumbs
+<article class="doc-article ${page_class}${title_class}">
+<header class="page-heading"><p class="page-index">${escape(role)}<span>${escape(context)}</span></p><h1 id="${header_id}">${escape(title)}</h1><p class="lead">@lead</p>@contract</header>
+@mobile_toc
+<div class="reference-body">@body</div>
+</article>
+@pager
+<footer><a href="${source_url}">${source_label}</a><span>Native V · Local documentation</span></footer>
+</main>
+@toc_panel
+</div>
+</body>
+</html>

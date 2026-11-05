@@ -1,0 +1,36 @@
+import valibro as v
+import valibro.types
+
+struct Form {
+    age string
+}
+
+struct Account {
+    age f64
+}
+
+fn main() {
+    fields := [v.field[Form, Account, string, f64]('age', fn (form Form) string {
+        return form.age
+    }, fn (account Account, age f64) Account {
+        return Account{...account, age: age}
+    }, v.pipe_to(v.string(), v.to_number()))]
+    schema := v.object_from[Form, Account](fn (form Form) Account { return Account{} }, fields)
+    assert v.parse(schema, Form{age: '42'})!.age == 42.0
+    increment := v.pipe(v.number_of[int](), v.raw_transform(fn (value int) types.Dataset[int] {
+        return types.Dataset[int]{value: value + 1}
+    }))
+    assert v.parse(increment, 1)! == 2
+    contextual := v.pipe(v.number_of[int](), v.raw_transform_with_context(fn (dataset types.Dataset[int], config v.Config) types.Dataset[int] {
+        return types.Dataset[int]{...dataset, value: dataset.value + config.lang.len}
+    }))
+    assert v.parse(contextual, 1, v.Config{lang: 'en'})! == 3
+    text := v.pipe_to(v.number_of[int](), v.raw_transform_to(fn (value int) types.Dataset[string] {
+        return types.Dataset[string]{value: value.str()}
+    }))
+    assert v.parse(text, 42)! == '42'
+    named := v.pipe_to(v.number_of[int](), v.raw_transform_to_with_context(fn (dataset types.Dataset[int], config v.Config) types.Dataset[string] {
+        return types.Dataset[string]{value: config.lang + ':' + dataset.value.str()}
+    }))
+    assert v.parse(named, 42, v.Config{lang: 'en'})! == 'en:42'
+}

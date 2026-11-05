@@ -1,0 +1,24 @@
+import valibro as v
+import valibro.types
+
+schema := v.pipe(v.string(), v.min_length(3), v.starts_with('a'))
+bound := v.config(schema, v.Config{abort_early: true})
+assert v.inspect(bound, '', v.Config{abort_early: false})!.issues.len == 1
+mut context := types.Context{}
+context.config = v.Config{lang: 'en'}
+context.set_message('Fallback', 'en')
+context.set_schema_message('Schema failure', 'en')
+context.set_specific_message('min_length', 'Too short', 'en')
+assert context.message('en') != none
+assert context.schema_message('en') != none
+assert context.specific_message('min_length', 'en') != none
+outcome := v.inspect(schema, '', context.config)!
+assert outcome.issues[0].message == 'Too short'
+context.delete_specific_message('min_length', 'en')
+context.delete_schema_message('en')
+context.delete_message('en')
+assert context.specific_message('min_length', 'en') == none
+assert context.schema_message('en') == none
+assert context.message('en') == none
+context.config = v.Config{}
+assert context.config.lang == ''

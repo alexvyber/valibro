@@ -1,0 +1,14 @@
+import valibro as v
+import valibro.schemas
+import valibro.types
+
+fn build_set(values []string, equal schemas.SetEquality[string]) types.Set[string] {
+    return types.new_set_with(values, equal)
+}
+
+fn main() {
+    equal := fn (a string, b string) bool { return a.to_lower() == b.to_lower() }
+    input := build_set(['A', 'a'], equal)
+    schema := schemas.set_with(v.string(), equal)
+    assert v.parse(schema, input)!.values == ['A']
+}

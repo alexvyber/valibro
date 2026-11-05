@@ -1,0 +1,97 @@
+{
+  "native_date_validation": {
+    "fixture": "tests/fixtures/primitives/native_date_validation_differential.json",
+    "generator": "tools/oracle/generators/primitives/generate_native_date_validation_fixtures.mjs",
+    "scope": "Native Date schema validation at full TimeClip boundaries, malformed calendar components, invalid zero dates, nested array abort behavior, raw failed outputs and default/factory/config schema issue fields. Reference rows exclude JavaScript-specific date parsing/display behavior; native Date conformance is tested separately. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately."
+  },
+  "native_union": {
+    "fixture": "tests/fixtures/composition/native_union_differential.json",
+    "generator": "tools/oracle/generators/composition/generate_native_union_fixtures.mjs",
+    "scope": "Type-changing native union candidate selection, original inputs for aggregate failures, empty/single/multiple/mixed branches, transformations/fallbacks, nested array/map/set/struct raw outputs and nested generic struct callback compilation, callback traces, recursive issues, abort settings and factory/config messages. Reference rows exclude JavaScript-specific date parsing/display behavior; native Date conformance is tested separately. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately."
+  },
+  "numeric_representation": {
+    "fixture": "tests/fixtures/primitives/numeric_representation_differential.json",
+    "generator": "tools/oracle/generators/primitives/generate_numeric_representation_fixtures.mjs",
+    "scope": "Native signed/unsigned widths including isize/usize, narrow JSON numeric alternatives, checks/conversions/messages, native precision boundaries, boxed equality, JSON adapters and primitive hooks. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately."
+  },
+  "partial_equality": {
+    "fixture": "tests/fixtures/collections/partial_equality_differential.json",
+    "generator": "tools/oracle/generators/collections/generate_partial_equality_fixtures.mjs",
+    "scope": "Native scalar widths, NaN/signed zero and composite value equality in mixed failed sets/maps; explicit object interning models native value equality, with all abort settings."
+  },
+  "cache_identity_audit": {
+    "fixture": "tests/fixtures/execution/cache_identity_audit_differential.json",
+    "generator": "tools/oracle/generators/execution/generate_cache_identity_audit_fixtures.mjs",
+    "scope": "Forty cache observations across four identified message callback identity scenarios."
+  },
+  "raw_output_audit": {
+    "fixture": "tests/fixtures/composition/raw_output_audit_differential.json",
+    "generator": "tools/oracle/generators/composition/generate_raw_output_audit_fixtures.mjs",
+    "scope": "Type-changing failed outputs, invalid dates, skipped transformations and nested native partial collection/struct snapshots. Reference rows exclude JavaScript-specific date parsing/display behavior; native Date conformance is tested separately."
+  },
+  "entry_map_audit": {
+    "fixture": "tests/fixtures/collections/entry_map_audit_differential.json",
+    "generator": "tools/oracle/generators/collections/generate_entry_map_audit_fixtures.mjs",
+    "scope": "Arbitrary object keys, explicit identity/equality, transformed collisions in typed and raw output, exact path keys and abort behavior."
+  },
+  "native_value": {
+    "fixture": "tests/fixtures/primitives/native_value_differential.json",
+    "generator": "tools/oracle/generators/primitives/generate_native_value_fixtures.mjs",
+    "scope": "Date and bigint equality, bounds and memberships with full issue fields; extended ISO years and arbitrary integer precision. Reference rows exclude JavaScript-specific date parsing/display behavior; native Date conformance is tested separately."
+  },
+  "dynamic_set": {
+    "fixture": "tests/fixtures/collections/dynamic_set_differential.json",
+    "generator": "tools/oracle/generators/collections/generate_dynamic_set_fixtures.mjs",
+    "scope": "Deterministic mixed JSON scalar sets, numeric representation equality, NaN, infinities, insertion order and signed zero."
+  },
+  "custom_check": {
+    "fixture": "tests/fixtures/composition/custom_check_differential.json",
+    "generator": "tools/oracle/generators/composition/generate_custom_check_fixtures.mjs",
+    "scope": "Partial readiness, array wildcard paths, empty selections, guard kinds, canonical issues and all abort/message settings. Arrays-as-objects differences are tracked by exact json_object_boundary case IDs and native V callback regressions."
+  },
+  "error_path": {
+    "fixture": "tests/fixtures/execution/error_path_differential.json",
+    "generator": "tools/oracle/generators/execution/generate_error_path_fixtures.mjs",
+    "scope": "Dot paths, flatten groups, empty/unsupported keys and error summaries; native prototype-free map projection."
+  },
+  "action": {
+    "fixture": "tests/fixtures/strings/action_differential.json",
+    "generator": "tools/oracle/generators/strings/generate_action_fixtures.mjs",
+    "scope": "Full validation issue fields and UTF-16 fragments; factory/config messages. Word comparisons exclude Japanese/Thai dictionary tailoring; native tests cover those counts. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately."
+  },
+  "boolean_config": {
+    "fixture": "tests/fixtures/primitives/boolean_config_differential.json",
+    "generator": "tools/oracle/generators/primitives/generate_boolean_config_fixtures.mjs",
+    "scope": "Custom truthy/falsy lists, Unicode normalization and SameValueZero scalar equality."
+  },
+  "conversion": {
+    "fixture": "tests/fixtures/primitives/conversion_differential.json",
+    "generator": "tools/oracle/generators/primitives/generate_conversion_fixtures.mjs",
+    "scope": "String conversions, Unicode boolean lists and complete transformation issue fields. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately."
+  },
+  "forward": {
+    "fixture": "tests/fixtures/composition/forward_differential.json",
+    "generator": "tools/oracle/generators/composition/generate_forward_fixtures.mjs",
+    "scope": "Forwarded paths and existing issue paths. Exact case tags separate native presence-based map/index traversal from legacy truthiness and missing-path exceptions."
+  },
+  "message_context": {
+    "fixture": "tests/fixtures/execution/message_context_differential.json",
+    "generator": "tools/oracle/generators/execution/generate_message_context_fixtures.mjs",
+    "scope": "Message precedence, callback counts and issue metadata for both languages and all abort settings."
+  },
+  "native_collection": {
+    "fixture": "tests/fixtures/collections/native_collection_differential.json",
+    "generator": "tools/oracle/generators/collections/generate_native_collection_fixtures.mjs",
+    "scope": "Native array/set/map/record partial outputs, errors, flattening and abort behavior."
+  },
+  "pipeline": {
+    "fixture": "tests/fixtures/execution/pipeline_differential.json",
+    "generator": "tools/oracle/generators/execution/generate_pipeline_fixtures.mjs",
+    "scope": "Raw callback datasets, typed state, issue accumulation and transformation boundaries."
+  },
+  "number": {
+    "fixture": "tests/fixtures/engines/numbers.json",
+    "generator": "tools/oracle/generators/engines/generate_number_fixtures.mjs",
+    "scope": "Exact binary64 rounding bits, subnormals, overflow, radix boundaries and 8192 seeded floating inputs. Reviewed native text-policy differences are reported by explicit case ID."
+  }
+}

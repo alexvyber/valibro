@@ -1,0 +1,496 @@
+{
+  "corpus": "custom_check",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 948,
+  "input_outcomes": 948,
+  "retained_rows": 852,
+  "retained_outcomes": 852,
+  "excluded_rows": 96,
+  "excluded_outcomes": 96,
+  "counts_by_tag": {
+    "json_object_boundary": 84,
+    "native_path_presence": 12
+  },
+  "exclusions": [
+    {
+      "id": "960e0fd3fa9fbad02a90fe4ccad03a9f195a889204ef5ba7dd4b25a772d869f7",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "bf954995309be4a668b96269ba6ae751ef761f16508de4394d3d5ef449022d49",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "f1615a368cf6e90dcc33a1681eacfb27412561465d3163e394ceada45f3af0bf",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "5d9193f4aac036c0e594ad4ca650d76fb495d08930aef01f45601c136c2c39f7",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "432f8790f60fc82f448e2c7e5d5270181f33b40d6a4f9377b40a5d142b3c8c74",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "c2d05d8f49342906fcf4908559a6c24cd3ac5e8d1a855188283a6089548c5cee",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "9a8a24956879e0d575a29daaeebf213d1ddd9fbb872bb3b9630d05e4e831eb7e",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "92c2e2241cc714eabc9309ddc58db6e3dd9344a864ba48463ed4176d2ce392a0",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "8b1127f38248f448241456191c822e952a425a822910aeb8ff64dfbe4493e997",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "ba166ff9e0a591af1b1af0fc094fdb94a5007c0babd5176dd450af4a11d8d1a6",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "d0977c65953c0ed659d71e5e98866966fefdaddbeea221f56659a7de92f569a7",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "16a2d2f58df186cb54a67209d9f9dba057d95e8ec2245f58013e201c4618a421",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "54851e8c9c82ff44a20821b3e334c43acdd0afb896cee423812c4e230b5cab32",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "4efae3c2d2c6a9c1ba25da99ca2701f7713dfb9eca9d245dad1cfb6c4004a65d",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "4911eb04e9bde7ab78978afe08faa79eae685f042bc6ac99e77c0dd17d55704f",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "410572ed20f056d25f355a33436b0b9098c688539d359dc2b658674c5b13f5c3",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "17c6b05a941f9809a43ed122cbc163040a680c4561b17cd2eab53ee5d1c46cee",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "86ba80e8e6ae2267408c404eb447d6b590bd64f566c6dc9309b999f51ba04188",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "ac662c310299299e8b2c0526b44ce1036a2b80af38a0106772aab73e48159ce0",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "e4e75b4844994c5a42369cc3db1cbd53a249ed5fb358dd27e0bf57db2a9b59cc",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "225b22ddb488b812648a17145d05143355d5524bcb99cf9822934e2c6c5672a7",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "20c44becface645b41866a3e484c1e71f248f438817b5851b444958ff1e9894f",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "4f036b69fe145b96e975a1f34acd03f742937bc11ddc73640f80c0bb14aa9ae0",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "1eca57aceffe205231baccc4bd340e2b4ad540d81711eaf5524d862c97af6c1e",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "90e15f6008a01a90ceef98c9b91aa6a4e287515b373e057f397979d0a9e6ff36",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "0e95fcc329b9c028353b377a14f153759772999b7fc0c25a4c8dd63375b438c9",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "706421d51fcab35af9e8c6efb39c74cbfa59de8a9f6449e0bd40f04f1f2f375d",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "84b0cb5d0487b008552da4d21e1646123491e036a5310386d18ca6247d20900f",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "518d9fc8a76d5ccf413e7aa29bfdefcf0c4d90290a0b512b93afd62bdb3260b1",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "b9bc78c73ebeb5dd2c5f0abe12515fb744d943fac3ba6e4a756988f17c868f02",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "be148eabeadf9e3a3122b5d97dbc11b01c0090e6020e8f5da703da0f0060cd70",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "c7810fe58b543ac4ef459b8234b10131294d0b842f0e2cbded04ffd1950efc3f",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "c2bc1aeaa24d258c816bb1ce7d7e18870ac41a165defa23e277588fe728c7c02",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "f0f161b6b4b7e5ec2921d6295e1a3f192069e63d65a583f2fd005aa1e06d23d4",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "c13b9ce28ec60da2869ab8e5cf1c29ff4b0985aed70ec4a2e99f9c9bb1d389c1",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "8e934d7ee9a5c2fed188bdfd251669ddf182f84ee860de187257b2bd42b2141a",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "b326fda074669805cc9fa2852990a537073ef1fdb918d488ed5cb0cba7e3a81d",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "4d15f4c3fe04c2c397ac36de96fdd73a7495886e6ab59d54345ddbd92730cbd3",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "72104311042388cf4417e5ad425e34eda42bd8abbfbcf9f4fa66cc8cb0e9a1a9",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "d917c93c1c3fc0df150efd9fc25967609f61c3224972817e1d5741ec20278b85",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "31145a936c293e8573657b4d87f74b4eab574fc90abb086b64486eba16292736",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "f64b32bb025a964db2c0ccb4e5066881a5892a77d2b98c620c11c9fb9c474bbd",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "bfc7d639d35120ac784d59ee03899e38b830339c6bc50bfbb4f26bde52a766be",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "0368d54870cfbdb394a627dcd4c1bccca6dbe8bf00c7d38f3aac23201b4df902",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "45710156b164b7f8c19493cbf180fadbcc53242e37f413f24292669459c3d253",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "e35626236dcedb51623cf4082a07b3f6099f6f4a3e297c7361041e1e0112e2b0",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "afb8a0e085937f1ccbb78813d8e5c695c7b44b60b31689ea7977c243cfad0534",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "0bc47ac9c628769663975c610227cacc555d5f17085111925f027d62e8defb9b",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "938eddd26abc9a9e0e46595d776527991500d60c854f7e06b21781eff044f2de",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "8362f9ac97aa0e984c9921eaf9e868218a2d0bb154a94a84d6dc147df7ae312a",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "b22a1e00547b077937f6e244f995cafea680a90af09cf086c62e90e131f531b7",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "da964b0af36940798e19036514b32029b66873a7fe1e7be1cc1dd757379f6e04",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "1d13f222a6ea77812e4968a19d4ed98b087e82021136030f900548c669006abd",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "ffc22c270c682be22cfd31c822a56a148dbd68c4774193649ff0735daf654684",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "f251b0e76c0c33cd26192257d5bd37803634509968ed7b6e58e02ed0602b5569",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "cfd60a60db9bf71f09e73708eff638e5f94b8f3f472985c79b5e9d336dd1a01f",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "581d820b5fae6dc8976103298e69aa5ace01883001d0a90821b00de6e838f619",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "9fbc44be4d9f934a456f6fec376385785c2313e3fd6c782d5fe8f19889c14235",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "32c3cf2f5669d2349d5721d7587b9f005c0504474dbed9917600d6c0a805c9ea",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "8f81349b6c064d35dded8266770ba1015293e82530f9c8bdb5123579cec3c3c5",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "ccd9d5e31c37e84754bd6ad567c849c367ad65d83e216d7a62c10bb894b6352f",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "6e7aebe1964f97362ff961272814ee810e512c1777bdb48f31280bda1efdf0c1",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "8931acc6e4ea5a0a60521fbb4287a4737078527ff3bc16b4776b918d3d17caff",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "3e52958302016eef698144fddcd5921acc834ca1d4a75650d02d87e145b62e19",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "98c3d6c39e2c7800c72a374c51d2bc4b027261f9acbb2d78cfd4b6ab4026c4bd",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "bb5b5f2a6a0143075e186d038810dd1e9938d81cd7b67d61fde877731eaf05f8",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "d5a537d8d18e74203c8a72e1af40d7e2c2e2892d4e77bfeb9ac898a1eadfbb2b",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "2b5934ecfd3aaedf33311a25187d7e44b272b907224d6050eb30cd4a1baba89b",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "d77878292888f130d4cd2312c2ebee5cd3032dbd65008be8d8b31d1a409c94d0",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "72097eb1cd0c61bfc473d18c6d76ce2038b419e48c419220524c24e2c29c8f46",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "c29ad5b8fa9f3b628a2be2851996dcc5ccad1da66430c53da0cd912797fab9e4",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "18b9ea0da6e0b76534c53b36656e8797629779c4fa912e824eea3559ff093caa",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "a5e3282cab14e9ab75391e6bb0d8e0efb41bbeba76997dea0f0e498126ad08b8",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "60c56060460c1bf90dc0d7aa615f7648053a39b5c158001496355b318254ba10",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "e8dd159a64ecdc5337da2405e70d56f06fab9717aae8d616f97b15909e6a6f28",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "7e24fa24693be2fdfff219307b9a7b015d887940a160a404265524a6d6c2a6cf",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "3e3b1c4bd5f655cceb41ee244c808c9f15d64d2ad7fe02cdb13cc0b3eaa189cd",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "133064b749cb7968f73cd24e2d7b5b2665dff979853d11031d971d9e006ef340",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "90efdd913db477e233628824acabf08cde8aa4f909067f2db8fbd491621c3b0b",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "7ce01687f77e6473238eb256740da567a8e146e357258ba54a15dcde447fbde2",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "eda080b0efceb1a1030a518a7445b64312e74e9ff5fd148d092c763858a1f4b5",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "b41876200b0baee2cf0a48fc879dcbc4900126091ded5812f18376840ec75404",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "2f9982346bb1c3b15285975388d0b690dae8afb155555ca2b4bfb2b7e4c770bf",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "657ec2d9ae2147f7cc2c97feda5c0f26df959e4e042c17c28bb4866a4380ec5c",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "511dfc6dd5f5cd84d7c5cf6d0847fa20ebd03931b9e543c1cd070fa02f5eca2a",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "efe8a5b5a50941387bc1d14b0b430739a7e3d6838025fb5b579863fe34c62756",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "9a29d24708a57c3bf0d0a31706b0ac777bef8ab6bc3cae1349f2c02116d9ec5b",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "96c19d7338e5e779ff6cdb71f0d88bac8c2b33c336b0b564dfb55be2696d387b",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "d498e75d4dae894197dd3c8e05bb2e3700a23389a90e7483a3cb8c55c2026b85",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "3ca5bb8e0763216274a4600bf2dc3183e395d6437afdd9be71c432a423e3499d",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "75fd4bbfd64feb8f3bc4f3286f016efe32d85220057e19b8e6f201d43d706c26",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "175d4cd1539567f9726d82e90ff9f9992a47169d63c23d3d01f330b232c091a8",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "ef46cc5e209be313118dc006f2e26f640aa251f48168c075c9be2c5ad1c31b96",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "e411896424807915cf789d7e84e88d6ec0ec9a7818abe53f5c5408d690f93daa",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "f8e37d56911e9f468b562c1fc6a971ffa878ef28280c65138a74e0dd9815bff9",
+      "tag": "json_object_boundary",
+      "outcomes": 1
+    },
+    {
+      "id": "bb45b974384c75bfe18de5f835494fe3bfbc158c09448c69af49203a1506369b",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+import valibro as v
+
+base := v.array(v.number_of[int]())
+every := v.pipe(base, v.every_item(fn (value int, index int) bool { return value > 0 }))
+assert v.is_valid(every, [1,2])!
+some := v.pipe(base, v.some_item(fn (value int, index int) bool { return value > 0 }))
+assert v.is_valid(some, [-1,2])!
+checks := v.pipe(base, v.check_items(fn (value int, index int) bool { return value > 1 }))
+result := v.inspect(checks, [1,2,0])!
+assert result.issues.len == 2
+assert v.get_dot_path(result.issues[1]) == '2'

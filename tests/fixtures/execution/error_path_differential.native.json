@@ -1,0 +1,12 @@
+{
+  "corpus": "error_path",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 16,
+  "input_outcomes": 16,
+  "retained_rows": 16,
+  "retained_outcomes": 16,
+  "excluded_rows": 0,
+  "excluded_outcomes": 0,
+  "counts_by_tag": {},
+  "exclusions": []
+}
