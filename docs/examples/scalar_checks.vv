@@ -1,0 +1,30 @@
+import valibro as v
+import valibro.schemas
+import valibro.types
+import math
+import x.json2
+
+assert v.safe_parse(v.nan(), math.nan()).success
+assert !v.safe_parse(v.number(), math.nan()).success
+assert v.safe_parse(v.pipe(v.number(), v.safe_integer()), 42.0).success
+assert !v.safe_parse(v.pipe(v.number(), v.safe_integer()), 9007199254740992.0).success
+assert v.safe_parse(v.pipe(v.number_of[int](), v.finite_of[int](), v.integer_of[int](), v.safe_integer_of[int]()), 42).success
+assert v.safe_parse(v.pipe(v.number_of[int](), v.value(42), v.not_value(0), v.not_values([1, 2])), 42).success
+assert v.safe_parse(v.pipe(v.string(), v.empty()), '').success
+assert v.safe_parse(v.pipe(v.string(), v.includes('world'), v.ends_with('!')), 'hello world!').success
+assert v.safe_parse(v.pipe(v.string(), v.guard(fn (input string) bool { return input == 'ready' })), 'ready').success
+assert v.safe_parse(v.pipe(v.string(), v.hash([types.HashType.md5])), 'd41d8cd98f00b204e9800998ecf8427e').success
+assert v.parse(v.pipe(v.string(), v.to_camel_case()), 'Hello World')! == 'helloWorld'
+assert v.parse(v.pipe(v.string(), v.to_pascal_case()), 'hello world')! == 'HelloWorld'
+assert v.parse(v.pipe(v.string(), v.to_snake_case()), 'Hello World')! == 'hello_world'
+assert v.parse(v.pipe(v.number_of[int](), v.transform(fn (value int) int { return value * 2 })), 21)! == 42
+assert v.parse(v.pipe(v.string(), v.regex_with_flags(r'^[a-z]+$', 'i')), 'HELLO')! == 'HELLO'
+assert v.parse(v.pipe(v.number_of[int](), v.description_for[int]('Count'), v.metadata_for[int]({'unit': json2.Any('items')})), 42)! == 42
+assert v.safe_parse(v.enum_schema([1, 2]), 1).success
+assert v.safe_parse(v.any_value[int](), 1).success
+assert v.safe_parse(v.instance[int](), 1).success
+assert v.safe_parse(v.file(), types.File{name: 'a.txt'}).success
+assert v.safe_parse(v.undefined_schema(), types.Undefined{}).success
+assert v.safe_parse(v.void_schema(), types.Undefined{}).success
+assert v.parse(schemas.array_schema(v.number_of[int]()), [1, 2])! == [1, 2]
+assert v.parse(v.map_schema(v.number_of[int](), v.string()), {1: 'one'})! == {1: 'one'}

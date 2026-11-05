@@ -1,0 +1,26 @@
+import valibro.types
+import valibro.unicode
+import x.json2
+import math
+
+assert types.is_json_number(json2.Any(42))
+assert !types.is_json_number(json2.Any('42'))
+assert types.native_set_equal(math.nan(), math.nan())
+mut entries := []types.RawEntry{}
+equal := fn (a string, b string) bool { return a.to_lower() == b.to_lower() }
+types.raw_entry_set_with[string](mut entries, types.value_of('A'), types.value_of(1), equal)
+types.raw_entry_set_with[string](mut entries, types.value_of('a'), types.value_of(2), equal)
+assert entries.len == 1
+assert types.value_as[int](entries[0].value)! == 2
+assert types.raw_set_with[string]([types.value_of('A'), types.value_of('a')], equal).items.len == 1
+assert types.ActionKind.from('validation')! == .validation
+assert types.HashType.from('md5')! == .md5
+assert types.IssueKind.from('schema')! == .schema
+assert types.Presence.from('value')! == .value
+assert unicode.NormalizeForm.from('nfc')! == .nfc
+assert unicode.version == '17.0.0'
+assert unicode.is_emoji('🙂')
+assert unicode.to_upper('Straße') == 'STRASSE'
+assert unicode.word_boundaries('a b') == [0, 1, 2, 3]
+message := types.identified_message(fn (issue types.Issue) string { return issue.code })
+if message is types.MessageCallback { assert message.cache_identity() != '' }

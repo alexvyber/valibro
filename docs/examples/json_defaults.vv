@@ -1,0 +1,16 @@
+import valibro.json as j
+import x.json2
+
+schema := j.object({
+    'name': j.optional(j.string(), json2.Any('guest'))
+})
+output := j.parse(schema, json2.Any(map[string]json2.Any{}))!.as_map()
+assert (output['name'] or { panic('name') }).str() == 'guest'
+defaults := j.get_defaults(schema).as_map()
+assert (defaults['name'] or { panic('name') }).str() == 'guest'
+fallback := j.fallback(j.string(), 'anonymous')
+assert j.get_fallback(fallback)?.str() == 'anonymous'
+assert j.get_fallbacks(fallback).str() == 'anonymous'
+assert j.parse(fallback, 42)!.str() == 'anonymous'
+assert j.get_default(j.optional(j.string(), 'guest'))?.str() == 'guest'
+assert j.parse(j.unwrap(j.optional(j.string())), 'Alex')!.str() == 'Alex'

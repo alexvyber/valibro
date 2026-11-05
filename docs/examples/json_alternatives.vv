@@ -1,0 +1,27 @@
+import valibro.json as j
+import valibro as v
+import valibro.types
+import x.json2
+
+assert j.is_valid(j.any_value(), 42)
+assert j.is_valid(j.unknown(), true)
+assert !j.is_valid(j.never(), true)
+assert j.is_valid(j.null_value(), json2.Null{})
+assert j.is_valid(j.array(j.number()), json2.Any([json2.Any(1), json2.Any(2)]))
+assert j.is_valid(j.picklist([json2.Any('a'), json2.Any(1)]), 1)
+assert j.is_valid(j.custom(fn (value json2.Any) bool { return value is string }), 'a')
+assert j.equal(json2.Any(1), json2.Any(1.0))
+record := j.record(j.string(), j.number())
+assert j.parse_text(record, '{"a":1}')!.as_map().len == 1
+schema := j.pipe(j.string(), v.check(fn (value json2.Any) bool { return value.str().len > 1 }))
+assert !j.safe_parse_with_config(schema, 'x', v.Config{abort_early: true}).success
+assert !j.safe_parse_checked(schema, 'x')!.success
+assert j.parse_with_config(schema, 'ok', v.Config{})!.str() == 'ok'
+deferred := j.lazy(fn () j.Schema { return j.string() })
+chosen := j.lazy_with(fn (input json2.Any) j.Schema { return j.string() })
+assert j.is_valid(deferred, 'a')
+assert j.is_valid(chosen, 'a')
+partial := j.partial_check(j.array(j.number()), [[types.PathSegment(0)]], fn (input json2.Any) bool {
+    return input.as_array()[0].f64() > 0
+})
+assert !j.safe_parse(partial, json2.Any([json2.Any(-1)])).success

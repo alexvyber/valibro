@@ -1,0 +1,28 @@
+import valibro as v
+import valibro.methods
+import valibro.types
+
+entries := v.entries_from_list(['a', 'b'], 1)
+assert entries == {'a': 1, 'b': 1}
+later := {'b': 2}
+assert v.entries_from_objects[int](entries, later)['b'] == 2
+items := [v.min_length(2), v.starts_with('a')]
+schema := methods.pipe_from_actions(v.string(), items)
+assert v.safe_parse(schema, 'alex').success
+cached := v.cache_with_config(schema, fn (text string) string { return text }, v.CacheConfig{max_size: 2, max_age_ms: i64(1000)})
+assert v.safe_parse(cached, 'alex').success
+lazy := v.lazy_with(fn (text string) types.Schema[string, string] {
+    return if text == 'a' { v.literal('a') } else { v.literal('b') }
+})
+assert v.safe_parse(lazy, 'b').success
+forwarded := v.pipe(v.array(v.string()), v.forward(v.check(fn (items []string) bool {
+    return items[0] == items[1]
+}, 'Must match'), [types.PathSegment(1)]))
+assert v.get_dot_path(v.safe_parse(forwarded, ['a', 'b']).issues[0]) == '1'
+raw := v.pipe(v.number_of[int](), v.raw_check_with_context(fn (dataset types.Dataset[int], config v.Config) types.Dataset[int] {
+    return if dataset.value > 0 { dataset } else { types.Dataset[int]{...dataset, issues: [types.new_issue('positive', 'Positive', '>0', dataset.value.str())]} }
+}))
+assert !v.safe_parse(raw, -1).success
+function := types.FallibleFunction[string, int]{call: fn (text string) !int { return text.len }}
+validated := v.pipe_to(v.unknown[types.FallibleFunction[string, int]](), v.returns_checked[string, int, int](v.pipe(v.number_of[int](), v.min_value(1))))
+assert v.parse(validated, function)!.call('abc')! == 3

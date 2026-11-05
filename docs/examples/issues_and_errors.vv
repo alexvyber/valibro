@@ -1,0 +1,21 @@
+import valibro as v
+import valibro.types
+
+issue := types.issue_of_kind('custom', 'Rejected', 'allowed', 'received', .validation)
+assert issue.kind == .validation
+schema_issue := types.schema_issue('schema', 'Wrong shape', 'string', 'number')
+assert schema_issue.kind == .schema
+mismatch := types.schema_type_issue('string', 'Wrong type', 'string', 'number', 'type')
+assert mismatch.kind == .schema
+error := types.ValidationError{issues: [issue]}
+assert error.msg().contains('Rejected')
+_ = error.code()
+assert v.is_vali_error(error)
+units := types.utf16_units('🙂')
+assert units.len == 2
+assert types.utf16_display(units) == '🙂'
+boxed := types.value_of('abc')
+assert types.value_is[string](boxed)
+// The generic presence protocol is explicit: payload is meaningful only in value state.
+assert types.some(42).maybe_state() == .value
+assert types.undefined_value[int]().maybe_state() == .undefined

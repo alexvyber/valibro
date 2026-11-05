@@ -1,0 +1,24 @@
+import valibro as v
+import valibro.types
+
+action := types.contextual_action[int]('increment', .transformation, fn (dataset types.Dataset[int], config types.Config) types.Dataset[int] {
+    return types.Dataset[int]{...dataset, value: dataset.value + 1}
+})
+assert types.run_action(action, 1, types.Config{}).value == 2
+assert types.apply_action(action, types.Dataset[int]{value: 2}, types.Config{}).value == 3
+transformation := types.contextual_transformation[int, string]('render', fn (dataset types.Dataset[int], config types.Config) types.Dataset[string] {
+    return types.Dataset[string]{value: dataset.value.str()}
+})
+assert types.run_transformation(transformation, 42, types.Config{}).value == '42'
+wrapped := v.optional(v.string())
+inner := types.unwrap_schema[types.Maybe[string], types.Maybe[string], string, string](wrapped)!
+assert v.parse(inner, 'Alex')! == 'Alex'
+erased := types.wrap_schema(v.string())
+_ = erased
+issue := types.new_issue('custom', 'Rejected', 'valid', 'invalid')
+assert types.resolve_issue(issue, types.Config{}).message == 'Rejected'
+resolved := types.resolve_dataset(types.Dataset[int]{value: 1, issues: [issue]}, types.Config{})
+assert resolved.issues.len == 1
+assert types.utf16_display(types.utf16_units('🙂')) == '🙂'
+assert issue.message_units().len == 'Rejected'.len
+assert issue.received_units().len == 'invalid'.len

@@ -1,0 +1,21 @@
+import valibro as v
+import valibro.types
+import valibro.jsoncodec
+import x.json2
+
+assert v.parse(v.pipe(v.string(), v.stringify_json()), 'hello')! == '"hello"'
+configured := v.pipe_to(v.number_of[int](), v.stringify_json_value_with_config[int](v.StringifyJsonConfig{}))
+assert v.parse(configured, 42)! == '42'
+json_value := json2.Any({'name': json2.Any('Alex')})
+serializer := v.pipe_to(v.unknown[json2.Any](), v.stringify_json_with_config(v.StringifyJsonConfig{}))
+assert v.parse(serializer, json_value)!.contains('Alex')
+units := v.pipe_to(v.unknown[json2.Any](), v.stringify_json_with_config_utf16(v.StringifyJsonConfig{}))
+assert types.utf16_display(v.parse(units, json_value)!).contains('Alex')
+assert types.utf16_display(jsoncodec.stringify_utf16(json_value, jsoncodec.StringifyConfig{})!).contains('Alex')
+parsed := v.pipe_to(v.string(), v.parse_json_with_config(v.ParseJsonConfig{}))
+assert v.parse(parsed, '{"name":"Alex"}')!.state == .value
+source := jsoncodec.JsonSource{value: json2.Any('hello')}
+assert jsoncodec.stringify_source(source, jsoncodec.StringifyConfig{})! == '"hello"'
+undefined := jsoncodec.UndefinedOutput{}
+assert undefined.msg().contains('undefined')
+assert undefined.code() == 1

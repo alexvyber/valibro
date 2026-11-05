@@ -1,0 +1,21 @@
+import valibro as v
+import valibro.types
+
+schema := v.pipe(v.string(), v.trim())
+parser := v.parser_async(schema)
+future := parser(' Alex ')
+awaited := v.pipe_to(v.promise[string](), v.await_future[string]())
+assert v.parse(awaited, future)! == 'Alex'
+assert types.run_transformation(types.awaiting[string](), future, v.Config{}).value == 'Alex'
+channel_parser := v.safe_parser_async(schema)
+channel := channel_parser(' Alex ')
+assert (<-channel).output? == 'Alex'
+result_channel := v.safe_parse_async_with_config(schema, ' Alex ', v.Config{})
+other := types.new_future(result_channel)
+assert other.await()! == 'Alex'
+cached := v.cached(v.string(), fn (input string) string { return input }, v.CacheConfig{max_size: 2})
+key := cached.key('Alex', v.Config{})
+cached.set(key, types.Dataset[string]{value: 'replacement'})
+assert cached.get(key)?.value == 'replacement'
+cached.clear()
+assert cached.get(key) == none

@@ -1,0 +1,24 @@
+import valibro as v
+import valibro.types
+
+base := v.string()
+plain := [v.exact_optional(base, 'guest'), v.nullish(base, 'guest')]
+for schema in plain { assert v.parse(schema, types.missing[string]())!.value == 'guest' }
+assert !v.safe_parse(v.non_optional(v.optional(base)), types.missing[string]()).success
+assert !v.safe_parse(v.non_nullable(v.nullish(base)), types.null_value[string]()).success
+assert !v.safe_parse(v.non_nullish(v.nullish(base)), types.undefined_value[string]()).success
+getter := fn (config v.Config) string { return 'guest' }
+contextual := fn (dataset ?types.Dataset[types.Maybe[string]], config v.Config) string { return 'guest' }
+stateful := fn (dataset ?types.Dataset[types.Maybe[string]], config v.Config) types.Maybe[string] { return types.some('guest') }
+optional_defaults := [v.exact_optional_with_default(base, getter), v.nullish_with_default(base, getter)]
+for schema in optional_defaults { assert v.parse(schema, types.missing[string]())!.value == 'guest' }
+assert v.parse(v.nullable_with_default(base, getter), types.null_value[string]())!.value == 'guest'
+assert v.parse(v.undefinedable_with_default(base, getter), types.undefined_value[string]())!.value == 'guest'
+context_defaults := [v.exact_optional_with_default_context(base, contextual), v.nullish_with_default_context(base, contextual)]
+for schema in context_defaults { assert v.parse(schema, types.missing[string]())!.value == 'guest' }
+assert v.parse(v.nullable_with_default_context(base, contextual), types.null_value[string]())!.value == 'guest'
+assert v.parse(v.undefinedable_with_default_context(base, contextual), types.undefined_value[string]())!.value == 'guest'
+state_defaults := [v.optional_with_default_state(base, stateful), v.nullish_with_default_state(base, stateful)]
+for schema in state_defaults { assert v.parse(schema, types.missing[string]())!.value == 'guest' }
+assert v.parse(v.nullable_with_default_state(base, stateful), types.null_value[string]())!.value == 'guest'
+assert v.parse(v.undefinedable_with_default_state(base, stateful), types.undefined_value[string]())!.value == 'guest'

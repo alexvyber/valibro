@@ -1,0 +1,22 @@
+import valibro as v
+import valibro.types
+
+fn main() {
+    callable := types.Function[string, string]{call: fn (text string) string { return text }}
+    checked := types.FallibleFunction[string, string]{call: fn (text string) !string { return text }}
+    assert callable.function_value()
+    assert checked.function_value()
+    if _ := callable.to_json_value('') { panic('Expected a serialization error') }
+    if _ := checked.to_json_value('') { panic('Expected a serialization error') }
+    future := v.parse_async(v.string(), 'ready')
+    if _ := future.to_json_value('') { panic('Await the future before JSON serialization') }
+    assert future.await()! == 'ready'
+    invalid := types.InvalidDate{}
+    assert invalid.to_json_value('')!.state == .value
+    range_error := types.RangeError{message: 'Out of range'}
+    type_error := types.TypeError{message: 'Unsupported value'}
+    assert range_error.msg() == 'Out of range'
+    assert type_error.msg() == 'Unsupported value'
+    assert range_error.code() == 1
+    assert type_error.code() == 1
+}

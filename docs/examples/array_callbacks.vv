@@ -1,0 +1,47 @@
+import valibro as v
+
+base := v.array(v.number_of[int]())
+found := v.pipe_to(base, v.find_item(fn (value int, index int) bool {
+    return value > 5
+}))
+assert v.parse(found, [1, 8, 9])!.value == 8
+assert v.parse(found, [1, 2])!.state == .undefined
+mapped := v.pipe_to(base, v.map_items_with_array(fn (value int, index int, original []int) int {
+    return value + original.len + index
+}))
+assert v.parse(mapped, [1, 2])! == [3, 5]
+filtered := v.pipe(base, v.filter_items_with_array(fn (value int, index int, original []int) bool {
+    return index == original.len - 1
+}))
+assert v.parse(filtered, [1, 2, 3])! == [3]
+selected := v.pipe_to(base, v.find_item_with_array(fn (value int, index int, original []int) bool {
+    return index == original.len - 1
+}))
+assert v.parse(selected, [1, 2])!.value == 2
+sum := v.pipe_to(base, v.reduce_items(fn (acc int, value int, index int) int {
+    return acc + value
+}, 0))
+assert v.parse(sum, [1, 2, 3])! == 6
+indexed := v.pipe_to(base, v.reduce_items_with_array(fn (acc int, value int, index int, original []int) int {
+    return acc + value + index + original.len
+}, 0))
+assert v.parse(indexed, [1, 2])! == 8
+checked := v.pipe(base, v.check_items(fn (value int, index int) bool {
+    return value > 0
+}))
+result := v.safe_parse(checked, [-1, 2, -3])
+assert result.issues.len == 2
+assert v.get_dot_path(result.issues[1]) == '2'
+all := v.pipe(base, v.every_item(fn (value int, index int) bool { return value > 0 }))
+any := v.pipe(base, v.some_item(fn (value int, index int) bool { return value > 0 }))
+assert v.safe_parse(all, []int{}).success
+assert !v.safe_parse(any, []int{}).success
+sorted := v.pipe(base, v.sort_items(fn (a int, b int) int {
+    return if a < b { -1 } else if a > b { 1 } else { 0 }
+}))
+input := [3, 1, 2]
+assert v.parse(sorted, input)! == [1, 2, 3]
+assert input == [3, 1, 2]
+assert v.safe_parse(v.pipe(base, v.includes_item(2), v.excludes_item(4)), input).success
+assert v.safe_parse(v.pipe(base, v.empty_of[[]int]()), []int{}).success
+assert v.safe_parse(v.pipe(base, v.non_empty_of[[]int]()), [1]).success
