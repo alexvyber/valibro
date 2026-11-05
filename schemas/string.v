@@ -10,17 +10,21 @@ pub fn string(messages ...types.ErrorMessage) types.Schema[string, string] {
 	text := if messages.len == 1 {
 		messages[0]
 	} else {
-		types.ErrorMessage('Expected a valid UTF-8 string')
+		types.ErrorMessage(types.DefaultMessage{
+			text: 'Expected a valid UTF-8 string'
+		})
 	}
 	return types.Schema[string, string]{
 		type_name: 'string'
+		expects:   'string'
+		message:   text
 		run:       fn [text] (input string, config types.Config) types.Dataset[string] {
 			if !utf8.validate_str(input) {
 				return types.Dataset[string]{
 					typed:  false
 					value:  input
 					issues: [
-						types.new_issue('string', text, 'UTF-8 string', 'invalid UTF-8'),
+						types.schema_issue('string', text, 'UTF-8 string', 'invalid UTF-8'),
 					]
 				}
 			}

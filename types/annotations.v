@@ -22,3 +22,22 @@ pub:
 	value T
 	tag   ?B
 }
+
+pub struct Examples[T] {
+pub:
+	present bool
+	values  []T
+}
+
+pub struct DefaultProvider[T] {
+pub:
+	available bool
+	get       fn (Config) T @[required]
+}
+
+// A computed default can inspect an optional input dataset and configuration.
+pub struct DefaultContextProvider[T] {
+pub:
+	available bool
+	get       fn (?Dataset[T], Config) T @[required]
+}

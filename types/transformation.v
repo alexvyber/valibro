@@ -3,8 +3,10 @@ module types
 // Transformation changes the output type. Compose with methods.pipe_to.
 pub struct Transformation[I, O] {
 pub:
-	type_name string
-	run       fn (I) Dataset[O] @[required]
+	type_name      string
+	context_runner PipelineRunner[I, O]
+	kind           string = 'transformation'
+	run            fn (I) Dataset[O] @[required]
 }
 
 pub struct ParseBooleanConfig {
