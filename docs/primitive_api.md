@@ -180,6 +180,9 @@ Factory/config messages retain their precedence. `.output` is success-only;
 `.raw_output` retains original/partial failures according to the transformation.
 Date text failures have an explicit `InvalidDate` marker; schema failures retain
 the original native Time. JSON parsing uses exact decimal rounding for float
-tokens and preserves native integer values unless binary64 mode is requested.
+tokens and retains integer alternatives when the native decoder supplies them.
+The tested `x.json2` decoder can select `f64` for integer text; disabling binary64
+mode does not guarantee exact large-integer parsing. Explicit native integer
+values retain precision when serialized without binary64 projection.
 
 See [native behavior and migration](native_behavior.md) for the complete contract.

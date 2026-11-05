@@ -88,7 +88,10 @@ Finite JSON floats use native compact spelling and retain signed zero; nonfinite
 numbers become null. Native integers remain exact. `binary64_numbers: true`
 explicitly requests floating rounding for integer JSON tokens. Decimal float
 parsing uses the exact native parser in both modes. JSON callback/provider APIs,
-presence states and V field tags remain supported.
+presence states and V field tags remain supported. Dynamic JSON integer text
+uses the alternatives selected by `x.json2`; the tested decoder can choose `f64`,
+so disabling binary64 projection does not guarantee large-integer parsing.
+Explicit native integer serialization remains exact.
 
 Set, EntryMap, Blob and File values serialize their native struct fields, including
 nested providers, instead of producing empty JavaScript-style objects. For

@@ -197,7 +197,10 @@ output API; ordinary output remains valid UTF-8. V callback errors become issues
 
 Both parse and stringify configs accept `binary64_numbers: true` to round native
 integer JSON values to binary64. Parsing retains original reviver source
-text. The default preserves exact native integer representations.
+text. The default retains native integer alternatives when supplied by the decoder.
+The tested `x.json2` decoder can select `f64` for integer tokens, so large JSON
+integer text is not guaranteed to retain precision. Explicit native integer
+values retain precision when serialized without binary64 projection.
 
 Default `stringify_json_value[T]` handles native/JSON scalars, arrays, and maps:
 floats use native compact formatting, nonfinite numbers become null, signed zero
