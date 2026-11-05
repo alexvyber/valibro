@@ -48,15 +48,19 @@ models. Concrete mismatches within a selected native contract remain bugs.
 
 ## Evidence and reproduction
 
-The manifest records **121,780 differential outcomes across 40 corpora**. Native
+The manifest records **119,434 differential outcomes across 41 corpora**. Native
 Date/URL/regex conformance tests complement those comparisons. Date-related
 reference rows are restricted by an explicit shared native scope; retired
 JavaScript-specific parser/display corpora are removed from current counts.
-Native-only expected behavior is not relabeled as Valibot output.
+Native-only expected behavior is not relabeled as Valibot output. Exact-case
+accounting excludes 5,012 reviewed arrays-as-objects observations and now includes
+the legacy structural corpus. Native JSON map boundaries and exact integer
+equality are covered by `tests/json/json_precision_boundaries_test.v`.
 
 All 272 runtime-function exports remain mapped through native APIs or documented
 profiles. Mapping is availability evidence, not a parity percentage. The suite
-currently passes **64 test files**.
+includes dedicated JSON precision/boundary regressions; the documentation site
+has its own accuracy, coverage, rendering, and export tests.
 
 ```sh
 v test .

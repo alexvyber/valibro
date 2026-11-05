@@ -44,6 +44,12 @@ fn test_concrete_behavior_corrections_remain_documented() {
 	assert symbol_summary(api_item('valibro', 'iso_date', '')).contains('not Gregorian')
 	assert symbol_summary(api_item('valibro', 'jws_compact', '')).contains('verify a signature')
 	assert symbol_summary(api_item('valibro', 'nanoid', '')).contains('does not enforce')
+	assert symbol_summary(api_item('json', 'equal', '')).contains('integer precision')
+	assert symbol_summary(api_item('types', 'native_set_equal', '')).contains('match exactly')
+	assert accurate_notes(api_item('json', 'parse_text', '')).contains('ties-to-even')
+	for name in ['object', 'strict_object', 'loose_object', 'object_with_rest', 'record', 'variant'] {
+		assert accurate_notes(api_item('json', name, '')).to_lower().contains('arrays')
+	}
 }
 
 fn test_reference_pages_include_runnable_examples_for_audited_apis() {

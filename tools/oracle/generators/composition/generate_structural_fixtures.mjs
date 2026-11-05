@@ -1,4 +1,5 @@
 import {loadValibot} from '../../shared/reference.mjs';
+import {writeReferenceFixture} from '../../shared/native_cases.mjs';
 // Maintainer-only: node tools/oracle/generators/composition/generate_structural_fixtures.mjs UPSTREAM_CHECKOUT
 import fs from "node:fs";
 import path from "node:path";
@@ -173,7 +174,7 @@ if (import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
                     }),
                 });
             }
-    fs.writeFileSync("tests/fixtures/composition/structural_parity.json", JSON.stringify(rows, null, 2) + "\n");
+    writeReferenceFixture('structural', rows, {indent: 4});
     console.log(
         `${rows.length} structural cases from Valibot ${
             JSON.parse(fs.readFileSync(path.join(root, "library/package.json"))).version}`,

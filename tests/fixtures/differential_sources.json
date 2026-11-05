@@ -1,7 +1,7 @@
 {
   "native_cases": {
     "file": "tools/oracle/native_cases.json",
-    "sha256": "ebb056c3cc077e2c15b0795ec5a2e43af41d80ded669937ca931b5dc20a488d9"
+    "sha256": "91fd18d2b3db1a9ee7b2ad013d130005c1a07463dbdf8150c70740536463efd3"
   },
   "upstream": {
     "package": "valibot",
@@ -14,8 +14,8 @@
     "icu": "78.2",
     "unicode": "17.0"
   },
-  "outcomes": 121780,
-  "excluded_outcomes": 5644,
+  "outcomes": 119434,
+  "excluded_outcomes": 10656,
   "fixtures": [
     {
       "fixture": "tests/fixtures/primitives/native_date_validation_differential.json",
@@ -320,18 +320,19 @@
     {
       "fixture": "tests/fixtures/composition/custom_check_differential.json",
       "generator": "tools/oracle/generators/composition/generate_custom_check_fixtures.mjs",
-      "outcomes": 936,
-      "scope": "Partial readiness, array wildcard paths, empty selections, guard kinds, canonical issues and all abort/message settings.",
+      "outcomes": 852,
+      "scope": "Partial readiness, array wildcard paths, empty selections, guard kinds, canonical issues and all abort/message settings. Arrays-as-objects differences are tracked by exact json_object_boundary case IDs and native V callback regressions.",
       "native_profile": {
         "file": "tests/fixtures/composition/custom_check_differential.native.json",
-        "sha256": "c30c2240b4e20533834104072cdc2f82499ed253637996fe9c494077b196d8c9",
+        "sha256": "ddd03805a1a95140e317bef249b87de4d81243d4195d463dc1e4eab9e8ed8c66",
         "candidate_outcomes": 948,
-        "excluded_outcomes": 12,
+        "excluded_outcomes": 96,
         "counts_by_tag": {
+          "json_object_boundary": 84,
           "native_path_presence": 12
         }
       },
-      "sha256": "10a7e96cbdba709bf46404877967d38ec88aa4791c27298ef2968baa01e15631"
+      "sha256": "dd9e932fdf8a37712711d4ea3ab37513f9522575aa38bd84c7e570d1ffef9e90"
     },
     {
       "fixture": "tests/fixtures/composition/default_context_differential.json",
@@ -441,18 +442,19 @@
     {
       "fixture": "tests/fixtures/composition/composition_differential.json",
       "generator": "tools/oracle/generators/composition/generate_composition_fixtures.mjs",
-      "outcomes": 79278,
-      "scope": "531 recursive schema descriptors, all four abort settings, typed state, all JSON-projected outputs and full recursive issue fields. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately.",
+      "outcomes": 74518,
+      "scope": "531 recursive schema descriptors, all four abort settings, typed state, all JSON-projected outputs and full recursive issue fields. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately. Arrays-as-objects differences are tracked by the json_object_boundary tag and native V regression tests.",
       "native_profile": {
         "file": "tests/fixtures/composition/composition_differential.native.json",
-        "sha256": "cdecf00bce9cfbb79bb54af55d319686bb27d673d4d24145bf4de51603d338ec",
+        "sha256": "aa82c1fd6f5d2bde4f7ea89bcca92bcd5266e5e2bcbad969182ac684724f455c",
         "candidate_outcomes": 79556,
-        "excluded_outcomes": 278,
+        "excluded_outcomes": 5038,
         "counts_by_tag": {
+          "json_object_boundary": 4760,
           "ordinary_map_keys": 278
         }
       },
-      "sha256": "30faa3601c2e47a1e5a4b94fda9cd750be162b9ca2d43c17756b4cf7ca82fd73"
+      "sha256": "df748d41c2e98db3636006f0771eb26e5bb51000a431568603ebed0c39c36056"
     },
     {
       "fixture": "tests/fixtures/primitives/conversion_differential.json",
@@ -624,6 +626,22 @@
         }
       },
       "sha256": "1b1d4f7f40b066223d64ee5b9a5d84672f920ba1ee287f2b4fb271feb4df8ecd"
+    },
+    {
+      "fixture": "tests/fixtures/composition/structural_parity.json",
+      "generator": "tools/oracle/generators/composition/generate_structural_fixtures.mjs",
+      "outcomes": 2498,
+      "scope": "Legacy structural schema cases, including object/tuple modes, records, unions and variants. Exact arrays-as-objects observations are tagged native-only; native JSON boundary behavior is covered by separate V regressions.",
+      "native_profile": {
+        "file": "tests/fixtures/composition/structural_parity.native.json",
+        "sha256": "18c99422bc0b5789016a9cecc673d42eeaa4eefe8e0787394dbe27de953f3268",
+        "candidate_outcomes": 2666,
+        "excluded_outcomes": 168,
+        "counts_by_tag": {
+          "json_object_boundary": 168
+        }
+      },
+      "sha256": "fef62a5f2883fd45854fa56aee7bbc106cc537b4730ca98c55a2ffae0a19b9b6"
     }
   ]
 }

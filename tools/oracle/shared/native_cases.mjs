@@ -59,11 +59,11 @@ export function projectReferenceData(corpus, source, entries = registry.corpora[
   return {data, report};
 }
 
-export function writeReferenceFixture(corpus, source) {
+export function writeReferenceFixture(corpus, source, {indent} = {}) {
   const entry = catalog[corpus];
   if (!entry) throw new Error(`Unknown corpus: ${corpus}`);
   const {data, report} = projectReferenceData(corpus, source);
-  fs.writeFileSync(path.join(root, entry.fixture), JSON.stringify(data) + '\n');
+  fs.writeFileSync(path.join(root, entry.fixture), JSON.stringify(data, null, indent) + '\n');
   fs.writeFileSync(path.join(root, entry.fixture.replace(/\.json$/, '.native.json')), JSON.stringify(report, null, 2) + '\n');
   console.log(`${corpus}: ${report.retained_outcomes} shared outcomes; ${report.excluded_outcomes} explicitly tagged native-only outcomes`);
 }

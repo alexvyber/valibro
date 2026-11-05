@@ -425,7 +425,7 @@ fn specific_summary(item ApiSymbol) string {
 		'stringify_source':                 'Serialize a JsonSource tree, applying its deferred native hooks as each property is traversed.'
 		'from_schema':                      'Adapt a typed native schema to x.json2.Any, checking native input compatibility at runtime and projecting typed/partial output back to JSON.'
 		'native':                           'Adapt a runtime JSON schema into Schema[Any, Any] for composition with native pipeline methods.'
-		'equal':                            'Compare runtime JSON values recursively with the package’s native numeric/value equality rules.'
+		'equal':                            'Compare runtime JSON values recursively, preserving native integer precision; mixed integer/float values are equal only when their mathematical values match exactly. NaN remains unequal.'
 		'required_with_message':            'Require selected or all runtime JSON object fields, attaching a diagnostic for required missing entries.'
 	}
 	return descriptions[name] or { helper_summary(item) }
@@ -443,7 +443,7 @@ fn helper_summary(item ApiSymbol) string {
 		'new_future':                'Wrap a channel that will deliver a SafeParseResult into a synchronized reusable Future.'
 		'identified_message':        'Wrap a message function in a fresh stable identity used to distinguish callback configurations in cache keys.'
 		'is_json_number':            'Test whether a json2.Any value is one of its supported native numeric alternatives, without converting it.'
-		'native_set_equal':          'Compare native values for membership: floating NaN equals NaN and signed zeros compare equal.'
+		'native_set_equal':          'Compare native values for membership: JSON integer precision is preserved, mixed integer/float values must match exactly, floating NaN equals NaN, and signed zeros compare equal.'
 		'new_set':                   'Deduplicate a native list while preserving first-occurrence order; floating NaNs compare equal and signed zeros are normalized.'
 		'new_set_with':              'Deduplicate a native list with an explicit comparator while preserving the first matching value’s position.'
 		'raw_entry_set':             'Insert or replace a boxed key/value pair using native boxed equality, retaining the first key position on collision.'
@@ -478,6 +478,9 @@ fn accurate_notes(item ApiSymbol) string {
 	}
 	if name == 'config' {
 		return 'Binding is a replacement policy: parsing the configured schema with a different Config does not override the settings captured here. Configure an outer schema deliberately when composing wrappers.'
+	}
+	if item.module_name == 'json' && name == 'parse_text' {
+		return 'Uses jsoncodec.decode and exact ties-to-even binary64 rounding for floats at every nesting depth. Dynamic integer-token representation still follows x.json2; use an explicit integer decoder or string/BigInt conversion when required. Validation failures and decoder/runtime errors propagate through the ! result.'
 	}
 	if name in ['parse', 'parse_with_config', 'assert_valid', 'parser', 'parse_text']
 		&& item.module_name != 'jsoncodec' {
@@ -542,7 +545,11 @@ fn accurate_notes(item ApiSymbol) string {
 		}
 	 }
 	if item.module_name == 'json' && name == 'object' {
-		return 'Missing entries are handled by each field’s optional/default/fallback policy. Unknown input properties are stripped; choose strict_object, loose_object, or object_with_rest for a different policy.'
+		return 'Input must be a JSON object; arrays are rejected rather than converted to numeric-keyed objects. Missing entries are handled by each field’s optional/default/fallback policy. Unknown input properties are stripped; choose strict_object, loose_object, or object_with_rest for a different policy.'
+	}
+	if item.module_name == 'json'
+		&& name in ['strict_object', 'loose_object', 'object_with_rest', 'record', 'variant'] {
+		return 'Input must be a JSON object. Arrays, including empty arrays, are rejected at the object boundary; numeric-looking keys in actual objects remain ordinary string keys.'
 	}
 	if item.module_name == 'types' && item.name in ['NativeValue', 'WrappedSchema', 'Future'] {
 		return 'Construct this value through its public factory. Its private storage cannot be safely initialized by copying the displayed declaration or supplying a nil pointer.'

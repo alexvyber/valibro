@@ -33,6 +33,15 @@ test('identity is independent of object key order and detects changed expectatio
   assert.notEqual(caseIdentity({output:1}), caseIdentity({output:2}));
 });
 
+test('object-boundary tags retain unrelated arrays and changed observations', () => {
+  const tagged = {schema:{kind:'object'},input:[],success:true,output:{}};
+  const array = {schema:{kind:'array',item:{kind:'string'}},input:[],success:true,output:[]};
+  const changed = {...tagged,success:false,output:[]};
+  const {data, report} = projectReferenceData('unit',[tagged,array,changed],[{id:caseIdentity(tagged),tag:'json_object_boundary'}]);
+  assert.deepEqual(data,[array,changed]);
+  assert.equal(report.counts_by_tag.json_object_boundary,1);
+});
+
 test('stale IDs, unknown tags and conflicting tags fail explicitly', () => {
   const row={input:0};
   assert.throws(()=>projectReferenceData('unit',[],[entry(row)]), /Stale native case tag/);

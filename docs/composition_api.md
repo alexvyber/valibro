@@ -124,6 +124,13 @@ array policies. `record` validates keys and values. Record/rest traversal retain
 `__proto__`, `prototype`, and `constructor` as ordinary keys. Map iteration order
 is retained; numeric-looking keys are not reordered.
 
+Object modes, records, and variants require JSON objects. Arrays, including empty
+arrays, fail at the boundary instead of becoming objects with numeric keys.
+JSON equality preserves native integer precision; mixed integer/float values are
+equal only when the float represents the integer exactly. The same comparison
+is used for native JSON membership and sets, with NaNs equal for membership but
+unequal in recursive JSON equality. `j.parse_text` uses the exact-rounding decoder.
+
 `union_schema`, `intersect`, `variant`, and lazy schemas compose recursively.
 `variant` supports nested discriminators and reports invalid-discriminator
 expectations. Intersections evaluate branches before merging typed outputs.
