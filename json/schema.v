@@ -13,62 +13,38 @@ pub type ShapeRebuilder = fn (entries map[string]Schema) Schema
 // Schema validates unknown JSON values and retains structure for shape operations.
 pub struct Schema {
 pub:
-	type_name            string
-	shape_rebuilder      ?ShapeRebuilder
-	expects              string
-	message              ?types.ErrorMessage
-	kind                 string = 'schema'
-	discriminator        string
-	annotations          types.Annotations
-	native_examples      types.Examples[json2.Any]
-	entries              map[string]Schema
-	items                []Schema
-	wrapped              []Schema
-	optional             bool
-	default_value        ?json2.Any
-	has_default_provider bool
-	default_provider     fn (types.Config) json2.Any = absent_json_default
-	fallback_value       ?json2.Any
-	fallback_wrapped     []Schema
-	mode                 string
-	run                  fn (json2.Any, types.Config) types.Dataset[json2.Any] @[required]
+	type_name        string
+	shape_rebuilder  ?ShapeRebuilder
+	expects          string
+	message          ?types.ErrorMessage
+	kind             string = 'schema'
+	discriminator    string
+	annotations      types.Annotations
+	native_examples  types.Examples[json2.Any]
+	entries          map[string]Schema
+	items            []Schema
+	wrapped          []Schema
+	optional         bool
+	default_value    ?json2.Any
+	fallback_value   ?json2.Any
+	fallback_wrapped []Schema
+	mode             string
+	run              fn (json2.Any, types.Config) types.Dataset[json2.Any] @[required]
 }
 
 pub fn native(schema Schema) types.Schema[json2.Any, json2.Any] {
 	return types.Schema[json2.Any, json2.Any]{
-		default_value:    schema.default_value
-		fallback_value:   schema.fallback_value
-		default_provider: types.DefaultProvider[json2.Any]{
-			available: schema.has_default_provider
-			get:       schema.default_provider
-		}
-		type_name:        schema.type_name
-		expects:          schema.expects
-		message:          schema.message
-		annotations:      schema.annotations
-		native_examples:  schema.native_examples
-		run:              schema.run
+		type_name:       schema.type_name
+		expects:         schema.expects
+		message:         schema.message
+		annotations:     schema.annotations
+		native_examples: schema.native_examples
+		run:             schema.run
 	}
 }
 
-pub fn parse(schema Schema, input json2.Any) !json2.Any {
-	return methods.parse(native(schema), input)
-}
-
-pub fn safe_parse(schema Schema, input json2.Any) types.SafeParseResult[json2.Any] {
-	return methods.safe_parse(native(schema), input)
-}
-
-pub fn safe_parse_with_config(schema Schema, input json2.Any, config types.Config) types.SafeParseResult[json2.Any] {
-	return methods.safe_parse_with_config(native(schema), input, config)
-}
-
-pub fn parse_text(schema Schema, input string) !json2.Any {
-	return parse(schema, jsoncodec.decode(input)!)
-}
-
-pub fn is_valid(schema Schema, input json2.Any) bool {
-	return safe_parse(schema, input).success
+pub fn parse_text(schema Schema, input string, config types.Config) !json2.Any {
+	return parse(schema, jsoncodec.decode(input)!, config)
 }
 
 pub fn pipe(schema Schema, actions ...types.Action[json2.Any]) Schema {
@@ -192,14 +168,6 @@ pub fn unknown() Schema {
 	}
 }
 
-pub fn any_value() Schema {
-	return Schema{
-		...unknown()
-		type_name: 'any'
-		expects:   'any'
-	}
-}
-
 pub fn never() Schema {
 	return Schema{
 		type_name: 'never'
@@ -295,21 +263,8 @@ fn object_data(input json2.Any) !map[string]json2.Any {
 }
 
 // Validation failures are ordinary results; execution exceptions are returned.
-pub fn safe_parse_checked(schema Schema, input json2.Any, configs ...types.Config) !types.SafeParseResult[json2.Any] {
-	return methods.safe_parse_checked[json2.Any, json2.Any](native(schema), input, ...configs)
-}
-
-pub fn parse_with_config(schema Schema, input json2.Any, config types.Config) !json2.Any {
-	return methods.parse_with_config[json2.Any, json2.Any](native(schema), input, config)
-}
-
 fn run_json(schema Schema, input json2.Any, config types.Config) types.Dataset[json2.Any] {
 	return types.run[json2.Any, json2.Any](native(schema), input, config)
-}
-
-fn absent_json_default(config types.Config) json2.Any {
-	_ = config
-	return json2.Null{}
 }
 
 fn boxed_json_value(raw types.NativeValue) !json2.Any {
@@ -318,4 +273,16 @@ fn boxed_json_value(raw types.NativeValue) !json2.Any {
 	if types.value_is[bool](raw) { return json2.Any(types.value_as[bool](raw)!) }
 	if types.value_is[f64](raw) { return json2.Any(types.value_as[f64](raw)!) }
 	return error('Value is outside the native JSON representation')
+}
+
+pub fn parse(schema Schema, input json2.Any, config types.Config) !json2.Any {
+	return methods.parse(native(schema), input, config)
+}
+
+pub fn inspect(schema Schema, input json2.Any, config types.Config) !types.Dataset[json2.Any] {
+	return methods.inspect(native(schema), input, config)
+}
+
+pub fn is_valid(schema Schema, input json2.Any, config types.Config) !bool {
+	return methods.is_valid(native(schema), input, config)
 }

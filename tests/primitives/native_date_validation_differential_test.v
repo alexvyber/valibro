@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import valibro.internal.date as impl_date
 import os
 import time
@@ -13,7 +14,7 @@ fn native_date_validation_tag(input time.Time) string {
 	return value.unix_milli().str()
 }
 
-fn native_date_validation_check[T](row map[string]json2.Any, result types.SafeParseResult[T]) {
+fn native_date_validation_check[T](row map[string]json2.Any, result support.Observation[T]) {
 	assert result.success == (row['success'] or { panic('success') }).bool(), row.str()
 	assert result.typed == (row['typed'] or { panic('typed') }).bool(), row.str()
 	mut output := json2.Any(json2.Null{})
@@ -74,9 +75,9 @@ fn test_native_date_validation_issues_match_valibot() {
 			} }
 		item := v.date(...messages)
 		if row['placement']!.str() == 'root' {
-			native_date_validation_check(row, v.safe_parse_with_config(item, input, config))
+			native_date_validation_check(row, support.observe(item, input, config))
 		} else {
-			native_date_validation_check(row, v.safe_parse_with_config(v.array(item), [
+			native_date_validation_check(row, support.observe(v.array(item), [
 				input,
 				time.unix(0),
 			], config))

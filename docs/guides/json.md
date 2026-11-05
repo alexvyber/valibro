@@ -4,7 +4,7 @@ Import `valibro.json` for unknown JSON values and heterogeneous structures. Its 
 
 ## Objects and adapters
 
-`from_schema` adapts a typed schema to runtime JSON. `native` adapts a runtime schema to the typed pipeline machinery. `parse_text` decodes with `jsoncodec.decode`, preserving exact ties-to-even float rounding, then validates the value. `parse` and `safe_parse` operate on an existing JSON value.
+`from_schema` adapts a typed schema to runtime JSON. `native` adapts a runtime schema to the typed pipeline machinery. `parse_text` decodes with `jsoncodec.decode`, preserving exact ties-to-even float rounding, then validates the value. `parse` and `inspect` operate on an existing JSON value.
 
 ```v
 import valibro as v
@@ -17,7 +17,7 @@ schema := j.object({
 output := j.parse_text(schema, '{"name":" Alex ","age":42}')!
 object := output.as_map()
 assert (object['name'] or { panic('name') }).str() == 'Alex'
-assert !j.safe_parse(schema, 'wrong type').success
+assert !j.is_valid(schema, 'wrong type')!
 ```
 
 Ordinary objects strip unknown entries. `strict_object` rejects them, `loose_object` retains them, and `object_with_rest` validates them through a rest schema. `record` validates arbitrary string keys and values.
@@ -29,7 +29,7 @@ import valibro.json as j
 import x.json2
 
 schema := j.object({'0': j.string()})
-assert !j.safe_parse(schema, json2.Any([json2.Any('Alex')])).success
+assert !j.is_valid(schema, json2.Any([json2.Any('Alex')]))!
 assert j.parse_text(schema, '{"0":"Alex"}')!.as_map().len == 1
 ```
 
@@ -46,7 +46,7 @@ import x.json2
 left := json2.Any(i64(9007199254740992))
 right := json2.Any(i64(9007199254740993))
 assert !j.equal(left, right)
-assert !j.safe_parse(j.literal(left), right).success
+assert !j.is_valid(j.literal(left), right)!
 assert types.new_set([left, right]).values.len == 2
 assert j.equal(json2.Any(42), json2.Any(42.0))
 rounded := j.parse_text(j.number(), '1e23')!
@@ -67,15 +67,15 @@ import x.json2
 
 base := j.object({'name': j.string(), 'age': j.number()})
 partial := j.partial(base)
-assert j.safe_parse(partial, map[string]json2.Any{}).success
+assert j.is_valid(partial, map[string]json2.Any{})!
 picked := j.pick(base, ['name'])
 assert j.parse_text(picked, '{"name":"Alex"}')!.as_map().len == 1
 strict := j.strict_object({'name': j.string()})
 extra := json2.Any({'name': json2.Any('Alex'), 'extra': json2.Any(true)})
-assert !j.safe_parse(strict, extra).success
+assert !j.is_valid(strict, extra)!
 ```
 
-Presence wrappers, literal defaults, computed defaults, fallbacks, and recursive default/fallback extraction are available for JSON schemas. Missing properties differ from explicit null values.
+Missing fields use optional; explicit null uses nullable. See [presence](/guides/presence/).
 
 ## Tuples and alternatives
 
@@ -86,10 +86,10 @@ import valibro.json as j
 import x.json2
 
 tuple := j.strict_tuple([j.string(), j.number()])
-assert j.safe_parse(tuple, json2.Any([json2.Any('Alex'), json2.Any(42)])).success
+assert j.is_valid(tuple, json2.Any([json2.Any('Alex'), json2.Any(42)]))!
 alternative := j.union([j.string(), j.number()])
-assert j.safe_parse(alternative, 42).success
-assert !j.safe_parse(alternative, true).success
+assert j.is_valid(alternative, 42)!
+assert !j.is_valid(alternative, true)!
 variant := j.variant('kind', [j.object({'kind': j.literal('text'), 'value': j.string()}),
     j.object({'kind': j.literal('count'), 'value': j.number()})])
 assert j.parse_text(variant, '{"kind":"count","value":42}')!.as_map().len == 2

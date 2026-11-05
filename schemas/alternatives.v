@@ -78,14 +78,6 @@ pub fn custom[T](predicate fn (T) bool, messages ...types.ErrorMessage) types.Sc
 	}
 }
 
-pub fn unknown[T]() types.Schema[T, T] {
-	return native_schema[T]('unknown', [])
-}
-
-pub fn any_value[T]() types.Schema[T, T] {
-	return native_schema[T]('any', [])
-}
-
 pub fn never[T](messages ...types.ErrorMessage) types.Schema[T, T] {
 	text := schema_message(messages, 'Expected never')
 	return types.Schema[T, T]{

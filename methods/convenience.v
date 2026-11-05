@@ -3,26 +3,6 @@ module methods
 import valibro.internal.diagnostics
 import valibro.types
 
-pub fn is_valid[I, O](schema types.Schema[I, O], input I) bool {
-	return safe_parse(schema, input).success
-}
-
-pub fn assert_valid[I, O](schema types.Schema[I, O], input I) ! {
-	parse(schema, input)!
-}
-
-pub fn parser[I, O](schema types.Schema[I, O]) fn (I) !O {
-	return fn [schema] [I, O](input I) !O {
-		return parse(schema, input)
-	}
-}
-
-pub fn safe_parser[I, O](schema types.Schema[I, O]) fn (I) types.SafeParseResult[O] {
-	return fn [schema] [I, O](input I) types.SafeParseResult[O] {
-		return safe_parse(schema, input)
-	}
-}
-
 pub fn config[I, O](schema types.Schema[I, O], settings types.Config) types.Schema[I, O] {
 	return types.Schema[I, O]{
 		...schema
@@ -38,16 +18,13 @@ pub fn fallback[I, O](schema types.Schema[I, O], value O) types.Schema[I, O] {
 	})
 	return types.Schema[I, O]{
 		...result
-		fallback_value: value
 	}
 }
 
 pub fn fallback_fn[I, O](schema types.Schema[I, O], getter fn (I, []types.Issue) O) types.Schema[I, O] {
 	return types.Schema[I, O]{
 		...schema
-		fallback_value:    none
-		fallback_provider: types.FallbackProvider[O]{}
-		run:               fn [schema, getter] [I, O](input I, config types.Config) types.Dataset[O] {
+		run: fn [schema, getter] [I, O](input I, config types.Config) types.Dataset[O] {
 			result := run_schema(schema, input, config)
 			if result.exception != none { return result }
 			if result.typed && result.issues.len == 0 { return result }
@@ -95,20 +72,3 @@ pub fn forward[T](action types.Action[T], path []types.PathSegment) types.Action
 }
 
 // Context-aware counterpart of an upstream fallback factory callback.
-pub fn fallback_with_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[O], types.Config) O) types.Schema[I, O] {
-	return types.Schema[I, O]{
-		...schema
-		fallback_value:    none
-		fallback_provider: types.FallbackProvider[O]{
-			available: true
-			get:       getter
-		}
-		run:               fn [schema, getter] [I, O](input I, config types.Config) types.Dataset[O] {
-			result := run_schema(schema, input, config)
-			if result.exception != none || result.issues.len == 0 { return result }
-			return types.Dataset[O]{
-				value: getter(result, config)
-			}
-		}
-	}
-}

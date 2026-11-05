@@ -24,10 +24,14 @@ fn test_string_transformations_match_upstream() {
 		'to_pascal_case': v.to_pascal_case()
 		'to_kebab_case':  v.to_kebab_case()
 		'to_snake_case':  v.to_snake_case()
-		'to_string':      v.to_string()
+		'to_string':      v.transform[string](fn (value string) string {
+			return value
+		})
 		'to_min_value':   v.to_min_value('m')
 		'to_max_value':   v.to_max_value('m')
-		'stringify_json': v.stringify_json()
+		'stringify_json': v.transform[string](fn (value string) string {
+			return json2.encode(value)
+		})
 	}
 	for row in cases {
 		// BOM/NEL whitespace policies differ intentionally; direct native cases follow.

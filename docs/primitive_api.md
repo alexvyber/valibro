@@ -2,7 +2,7 @@
 
 Import `valibro as v`, or use `valibro.schemas`, `valibro.actions`, and
 `valibro.methods` directly. All primitives use `Schema[I, O]`, `pipe`, `parse`,
-and `safe_parse`. See the [build requirements](install.md).
+and `inspect`. See the [build requirements](install.md).
 
 ## Schemas
 
@@ -18,14 +18,14 @@ and `safe_parse`. See the [build requirements](install.md).
 Native type mismatches fail at compile time. Use `valibro.json` for runtime type
 validation. Factories accept at most one message string or `v.message_fn`.
 Schema failures are untyped; validation issues can retain a typed dataset.
-`safe_parse` exposes `.typed` and `.issues`, with absent `.output` on failure.
+Inspect exposes typed state, issues, current value, and optional boxed raw_value; parse returns !T.
 
 ```v
 import valibro as v
 
 age := v.pipe(v.number(), v.finite(), v.integer(), v.min_value(0.0), v.max_value(130.0))
 assert v.parse(age, 42.0) or { panic(err) } == 42.0
-assert !v.safe_parse(age, 1.5).success
+assert !v.is_valid(age, 1.5)!
 count := v.pipe(v.number_of[int](), v.min_value(0), v.multiple_of(2))
 assert v.parse(count, 42) or { panic(err) } == 42
 ```
@@ -65,7 +65,7 @@ numbers beyond the binary64 safe-integer range.
 
 Numeric zero/NaN divisors produce validation issues. Infinite divisors accept
 zero; negative divisors are supported. Big-integer division by zero raises
-`RangeError` through `parse`/`safe_parse_checked`; fallbacks preserve exceptions.
+`RangeError` through `parse`/`inspect`; fallbacks preserve exceptions.
 Signed integer minima with divisor `-1` are handled without overflow.
 Floating multiples use `fmod` without an epsilon: `1.5` is a multiple of `0.5`,
 while `0.3` fails `multiple_of(0.1)`.
@@ -93,7 +93,7 @@ callbacks receive canonical issue fields and the parsing configuration.
 
 ```v
 whole := v.pipe(v.number(), v.integer('Use a whole number'))
-assert v.safe_parse(whole, 1.5).issues[0].message == 'Use a whole number'
+assert v.inspect(whole, 1.5)!.issues[0].message == 'Use a whole number'
 ```
 
 ## Dates and conversions
@@ -147,7 +147,7 @@ pub fn (event Event) to_date() !time.Time {
 }
 
 fn main() {
-    schema := v.pipe_to(v.unknown[Event](), v.to_date_from[Event]())
+    schema := v.pipe_to(v.schema[Event](), v.to_date_from[Event]())
     value := v.parse(schema, Event{time.unix_nanosecond(0, 1)}) or { panic(err) }
     assert value.nanosecond == 1
 }
@@ -158,31 +158,12 @@ been removed. Applications should use the public constructors/actions and typed
 providers above. Internal modules are implementation details. For fixed arrays,
 use a dynamic slice if V 0.5.2 cannot box/pass the array through a schema callback.
 
-Present `Maybe[T]` values unwrap recursively. Missing/undefined numeric and Date
-conversions fail; null is not zero or the epoch:
+Native V options are unwrapped in application code before validation. Use an if
+binding or an or-default, then parse the resulting native value. There is no
+four-state presence container. Native results propagate errors with ! or or.
 
-| State | Number | BigInt | Boolean | Date | String |
-| --- | --- | --- | --- | --- | --- |
-| missing / undefined | Issue | Issue | false | Issue | `undefined` |
-| null | Issue | Issue | false | Issue | `null` |
-| value | Convert contained value | Convert contained value | Convert contained value | Convert contained value | Convert contained value |
-
-```v
-import valibro as v
-import valibro.types
-
-schema := v.pipe_to(v.optional(v.string()), v.to_number_from[types.Maybe[string]]())
-assert v.parse(schema, types.some('42')) or { panic(err) } == 42.0
-assert !v.safe_parse(schema, types.missing[string]()).success
-```
-
-Factory/config messages retain their precedence. `.output` is success-only;
-`.raw_output` retains original/partial failures according to the transformation.
-Date text failures have an explicit `InvalidDate` marker; schema failures retain
-the original native Time. JSON parsing uses exact decimal rounding for float
-tokens and retains integer alternatives when the native decoder supplies them.
-The tested `x.json2` decoder can select `f64` for integer text; disabling binary64
-mode does not guarantee exact large-integer parsing. Explicit native integer
-values retain precision when serialized without binary64 projection.
-
-See [native behavior and migration](native_behavior.md) for the complete contract.
+Inspection retains issues and partial/raw values. Date text failures have an
+InvalidDate marker; schema failures retain the original native Time. JSON floats
+use exact decimal rounding. Dynamic integer representation follows x.json2 and
+can select f64; explicit native integers serialize exactly unless binary64
+projection is requested. See [JSON conversion](guides/json-config.md).

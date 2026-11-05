@@ -55,12 +55,6 @@ pub fn value_as[T](value NativeValue) !T {
 // Invalid dates have an explicit native marker instead of malformed time.Time fields.
 pub struct InvalidDate {}
 
-pub fn (value InvalidDate) to_json_value(key string) !Maybe[json2.Any] {
-	_ = value
-	_ = key
-	return some(json2.Any(json2.Null{}))
-}
-
 pub struct RawArray {
 pub:
 	items []NativeValue

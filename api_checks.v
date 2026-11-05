@@ -50,8 +50,8 @@ pub fn integer(messages ...types.ErrorMessage) types.Action[f64] {
 	return actions.integer(...messages)
 }
 
-pub fn safe_integer(messages ...types.ErrorMessage) types.Action[f64] {
-	return actions.safe_integer(...messages)
+pub fn binary64_integer(messages ...types.ErrorMessage) types.Action[f64] {
+	return actions.binary64_integer(...messages)
 }
 
 pub fn multiple_of[T](requirement T, messages ...types.ErrorMessage) types.Action[T] {
@@ -358,6 +358,6 @@ pub fn integer_of[T](messages ...types.ErrorMessage) types.Action[T] {
 	return actions.integer_of[T](...messages)
 }
 
-pub fn safe_integer_of[T](messages ...types.ErrorMessage) types.Action[T] {
-	return actions.safe_integer_of[T](...messages)
+pub fn binary64_integer_of[T](messages ...types.ErrorMessage) types.Action[T] {
+	return actions.binary64_integer_of[T](...messages)
 }

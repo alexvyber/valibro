@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import valibro as v
 import valibro.types
 
@@ -8,34 +9,34 @@ fn test_literal_membership_and_comparisons() {
 		v.not_value('xyz'), v.values(['abc', 'def']), v.not_values(['xyz']),
 		v.min_value('abc'), v.max_value('abc'), v.gt_value('abb'),
 		v.lt_value('abd')] {
-		assert v.safe_parse(v.pipe(v.string(), action), 'abc').success, action.type_name
+		assert support.observe(v.pipe(v.string(), action), 'abc').success, action.type_name
 	}
 	for action in [v.includes('z'), v.excludes('bc'), v.value('xyz'),
 		v.not_value('abc'), v.values(['xyz']), v.not_values(['abc']),
 		v.min_value('abd'), v.max_value('abb'), v.gt_value('abc'),
 		v.lt_value('abc')] {
-		result := v.safe_parse(v.pipe(v.string(), action), 'abc')
+		result := support.observe(v.pipe(v.string(), action), 'abc')
 		assert !result.success, action.type_name
 		assert result.issues[0].code == action.type_name
 	}
-	assert v.safe_parse(v.pipe(v.string(), v.empty()), '').success
-	assert !v.safe_parse(v.pipe(v.string(), v.empty()), ' ').success
-	assert v.safe_parse(v.pipe(v.string(), v.non_empty()), ' ').success
-	assert !v.safe_parse(v.pipe(v.string(), v.non_empty()), '').success
+	assert support.observe(v.pipe(v.string(), v.empty()), '').success
+	assert !support.observe(v.pipe(v.string(), v.empty()), ' ').success
+	assert support.observe(v.pipe(v.string(), v.non_empty()), ' ').success
+	assert !support.observe(v.pipe(v.string(), v.non_empty()), '').success
 	// Valid UTF-8 strings use native V ordering.
-	assert v.safe_parse(v.pipe(v.string(), v.gt_value('\ue000')), '🙂').success
-	assert v.safe_parse(v.pipe(v.string(), v.includes('')), '').success
-	assert !v.safe_parse(v.pipe(v.string(), v.excludes('')), '').success
+	assert support.observe(v.pipe(v.string(), v.gt_value('\ue000')), '🙂').success
+	assert support.observe(v.pipe(v.string(), v.includes('')), '').success
+	assert !support.observe(v.pipe(v.string(), v.excludes('')), '').success
 }
 
 fn test_regex_search_and_flags() {
 	schema := v.pipe(v.string(), v.regex_with_flags(r'[a-z]+[0-9]', 'i'))
-	assert v.safe_parse(schema, '--ABC1--').success
-	assert !v.safe_parse(schema, '123').success
+	assert support.observe(schema, '--ABC1--').success
+	assert !support.observe(schema, '123').success
 	unicode := v.pipe(v.string(), v.regex(r'^[а-яё]+$'))
-	assert v.safe_parse(unicode, 'ёж').success
-	assert !v.safe_parse(unicode, '123').success
-	assert !v.safe_parse(v.pipe(v.string(), v.regex('x', 'Missing x')), 'y').success
+	assert support.observe(unicode, 'ёж').success
+	assert !support.observe(unicode, '123').success
+	assert !support.observe(v.pipe(v.string(), v.regex('x', 'Missing x')), 'y').success
 }
 
 fn test_all_hash_algorithms_and_custom_messages() {
@@ -44,14 +45,14 @@ fn test_all_hash_algorithms_and_custom_messages() {
 	lengths := [32, 32, 40, 64, 96, 128, 32, 40, 32, 40, 48, 8, 8, 8]
 	for i, algorithm in algorithms {
 		schema := v.pipe(v.string(), v.hash([algorithm]))
-		assert v.safe_parse(schema, 'a'.repeat(lengths[i])).success
-		assert !v.safe_parse(schema, 'a'.repeat(lengths[i] + 1)).success
-		assert !v.safe_parse(schema, 'g'.repeat(lengths[i])).success
+		assert support.observe(schema, 'a'.repeat(lengths[i])).success
+		assert !support.observe(schema, 'a'.repeat(lengths[i] + 1)).success
+		assert !support.observe(schema, 'g'.repeat(lengths[i])).success
 	}
-	assert v.safe_parse(v.pipe(v.string(), v.hash([.md5, .sha256])), 'a'.repeat(64)).success
-	assert v.safe_parse(v.pipe(v.string(), v.email('Bad email')), 'x').issues[0].message == 'Bad email'
-	assert v.safe_parse(v.pipe(v.string(), v.starts_with('x', 'Bad prefix')), 'y').issues[0].message == 'Bad prefix'
-	assert v.safe_parse(v.pipe(v.string(), v.min_code_points(3, 'Too short')), 'a').issues[0].message == 'Too short'
+	assert support.observe(v.pipe(v.string(), v.hash([.md5, .sha256])), 'a'.repeat(64)).success
+	assert support.observe(v.pipe(v.string(), v.email('Bad email')), 'x').issues[0].message == 'Bad email'
+	assert support.observe(v.pipe(v.string(), v.starts_with('x', 'Bad prefix')), 'y').issues[0].message == 'Bad prefix'
+	assert support.observe(v.pipe(v.string(), v.min_code_points(3, 'Too short')), 'a').issues[0].message == 'Too short'
 }
 
 fn test_custom_actions_and_fatal_guard() {
@@ -73,21 +74,21 @@ fn test_custom_actions_and_fatal_guard() {
 			},
 		]
 	}))
-	assert v.safe_parse(raw, 'ok').success
-	assert v.safe_parse(raw, 'bad').issues[0].path.len == 1
+	assert support.observe(raw, 'ok').success
+	assert support.observe(raw, 'bad').issues[0].path.len == 1
 	guard := v.pipe(v.string(), v.guard(fn (s string) bool {
 		return false
 	}, 'Guard failed'), v.check(fn (s string) bool {
 		panic('Check ran after guard')
 	}, 'Unexpected'))
-	result := v.safe_parse(guard, 'x')
+	result := support.observe(guard, 'x')
 	assert result.issues.len == 1
 	assert result.issues[0].code == 'guard'
 }
 
 fn test_invalid_utf8_fails_before_unicode_transforms() {
 	input := [u8(0xff)].bytestr()
-	result := v.safe_parse(v.pipe(v.string('Malformed'), v.to_upper_case()), input)
+	result := support.observe(v.pipe(v.string('Malformed'), v.to_upper_case()), input)
 	assert !result.success
 	assert result.output == none
 	assert result.issues[0].code == 'string'
@@ -98,18 +99,18 @@ fn test_issue_aware_messages_and_default_checks() {
 	schema := v.pipe(v.string(), v.min_length(3, v.message_fn(fn (issue v.Issue) string {
 		return '${issue.code}: wanted ${issue.expected}, got ${issue.received}'
 	})))
-	result := v.safe_parse(schema, 'a')
+	result := support.observe(schema, 'a')
 	assert result.issues[0].message == 'min_length: wanted >=3, got 1'
 	wrapped := v.pipe(v.string(), v.message(v.email(), v.message_fn(fn (issue v.Issue) string {
 		return 'Bad ${issue.code}'
 	})))
-	assert v.safe_parse(wrapped, 'x').issues[0].message == 'Bad email'
+	assert support.observe(wrapped, 'x').issues[0].message == 'Bad email'
 	converted := v.pipe_to(v.string(), v.to_number(v.message_fn(fn (issue v.Issue) string {
 		return 'Cannot parse ${issue.received}'
 	})))
-	assert v.safe_parse(converted, 'oops').issues[0].message == 'Cannot parse NaN'
+	assert support.observe(converted, 'oops').issues[0].message == 'Cannot parse NaN'
 	checked := v.pipe(v.string(), v.check(fn (s string) bool {
 		return s != ''
 	}))
-	assert !v.safe_parse(checked, '').success
+	assert !support.observe(checked, '').success
 }

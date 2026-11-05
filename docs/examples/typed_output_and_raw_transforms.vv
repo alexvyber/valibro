@@ -24,7 +24,7 @@ fn main() {
     contextual := v.pipe(v.number_of[int](), v.raw_transform_with_context(fn (dataset types.Dataset[int], config v.Config) types.Dataset[int] {
         return types.Dataset[int]{...dataset, value: dataset.value + config.lang.len}
     }))
-    assert v.parse_with_config(contextual, 1, v.Config{lang: 'en'})! == 3
+    assert v.parse(contextual, 1, v.Config{lang: 'en'})! == 3
     text := v.pipe_to(v.number_of[int](), v.raw_transform_to(fn (value int) types.Dataset[string] {
         return types.Dataset[string]{value: value.str()}
     }))
@@ -32,5 +32,5 @@ fn main() {
     named := v.pipe_to(v.number_of[int](), v.raw_transform_to_with_context(fn (dataset types.Dataset[int], config v.Config) types.Dataset[string] {
         return types.Dataset[string]{value: config.lang + ':' + dataset.value.str()}
     }))
-    assert v.parse_with_config(named, 42, v.Config{lang: 'en'})! == 'en:42'
+    assert v.parse(named, 42, v.Config{lang: 'en'})! == 'en:42'
 }

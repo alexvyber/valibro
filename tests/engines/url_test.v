@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import valibro as v
 
 fn test_native_absolute_urls() {
@@ -12,7 +13,7 @@ fn test_native_absolute_urls() {
 		'https://xn--bcher-kva.example/путь?q=ёж', 'mailto:alex@example.com',
 		'file:///tmp/example', 'file://server/share/file', 'data:text/plain,hello', 'custom:value',
 		'custom://example.com/path'] {
-		result := v.safe_parse(schema, input)
+		result := support.observe(schema, input)
 		assert result.success, input
 		assert result.output or { panic('output') } == input
 	}
@@ -31,7 +32,7 @@ fn test_native_url_rejects_malformed_or_repaired_inputs() {
 		'http://example.com\n', 'http://example.com\\evil', 'http://example.com/%',
 		'http://example.com/?x=%GG', 'http://bücher.example/', 'file:relative', 'custom:',
 		'http://example.com/\u0000', 'http://example.com/%0'] {
-		result := v.safe_parse(schema, input)
+		result := support.observe(schema, input)
 		assert !result.success, input
 		assert result.issues[0].code == 'url'
 		assert result.issues[0].message == 'Malformed URL'

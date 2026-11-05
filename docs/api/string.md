@@ -16,11 +16,11 @@ Call it as `v.string()` through the root module. `types` refers to `valibro.type
 import valibro as v
 
 schema := v.string()
-result := v.safe_parse(schema, 'Hello, 世界')
-assert result.success
+result := v.inspect(schema, 'Hello, 世界')!
+assert (result.issues.len == 0 && result.typed)
 assert result.typed
-assert result.output? == 'Hello, 世界'
-assert v.safe_parse(schema, '').success
+assert result.value == 'Hello, 世界'
+assert v.is_valid(schema, '')!
 ```
 
 
@@ -35,19 +35,19 @@ A reusable `types.Schema[string, string]`. Valid input is returned unchanged. Th
 
 ## Validation failures
 
-Malformed UTF-8 produces a schema issue with code `string`. The result has `success == false`, `typed == false`, and no typed output. The original bytes remain available through `raw_output`.
+Malformed UTF-8 produces a schema issue with code `string`. Parse returns a ValidationError. Inspection has typed == false and retains the original bytes in value.
 
 ```v
 import valibro as v
 
 schema := v.string('Use valid UTF-8')
 input := [u8(0xff)].bytestr()
-result := v.safe_parse(schema, input)
-assert !result.success
+result := v.inspect(schema, input)!
+assert !(result.issues.len == 0 && result.typed)
 assert !result.typed
 assert result.issues[0].code == 'string'
 assert result.issues[0].message == 'Use valid UTF-8'
-assert result.output == none
+assert result.issues.len > 0
 ```
 
 ## Native behavior
@@ -59,5 +59,5 @@ Use `min_code_points` to count Unicode code points, `min_bytes` to count UTF-8 b
 ## Related
 
 - [pipe](/api/pipe/): attach string checks and transformations.
-- [safe_parse](/api/safe_parse/): inspect validation output.
+- [parse](/api/parse/): inspect validation output.
 - [Quick start](/guides/quick-start/): compose a username schema.

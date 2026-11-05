@@ -1,81 +1,38 @@
 # JSON parsing and serialization
 
-The `jsoncodec` module controls JSON text conversion. Root actions expose these operations through typed pipelines. These are native JSON APIs, with explicit callbacks and supported value types.
-
-## Parse and stringify
-
-> Precision: dynamic JSON parsing can select `f64` for integer tokens. Use a JSON string and explicit BigInt conversion when large input integers must remain exact.
-
-Float decoding uses exact ties-to-even rounding. `binary64_numbers` explicitly forces floating-number projection; disabling it does not guarantee an integer alternative. Serialization of explicitly supplied native integers retains precision unless binary64 projection is requested.
-
-Runtime-schema `json.parse_text` uses the same exact decoder as `jsoncodec.decode`, including nested object/array values. JSON numeric equality preserves supplied native integer alternatives; it does not force them through binary64. Explicitly adapting an input through `json.number()` still targets `f64`.
+`jsoncodec.decode` parses text with exact ties-to-even binary64 rounding for float tokens. Runtime-schema parse_text uses that same decoder. The optional ParseConfig can explicitly project all numeric tokens to binary64; default dynamic integer representation follows x.json2 and can still select f64.
 
 ```v
+import math
 import valibro.jsoncodec
 import x.json2
 
-parsed := jsoncodec.decode('{"n":42}')!
-object := parsed.as_map()
-assert (object['n'] or { panic('n') }).f64() == 42.0
-native := json2.Any({'n': json2.Any(i64(9007199254740993))})
-output := jsoncodec.stringify(native, jsoncodec.StringifyConfig{})!
-assert output.contains('9007199254740993')
+value := jsoncodec.decode('1e23')!
+assert math.f64_bits(value.f64()) == u64(4950912855330343670)
+projected := jsoncodec.decode('9007199254740993', binary64_numbers:true)!
+assert projected.f64() == 9007199254740992.0
+assert jsoncodec.stringify(json2.Any(i64(9007199254740993)))! == '9007199254740993'
 ```
 
-For exact large integers arriving as text, encode the decimal digits as a JSON string and convert explicitly with `to_bigint`, or use a typed integer decoder with an explicit range policy. Do not rely on dynamic number decoding to retain those digits.
+For exact large integers arriving as text, use JSON strings plus explicit BigInt conversion or a typed integer decoder. Comparison cannot recover digits already lost during decoding. Native integer serialization preserves its supplied value unless binary64 projection is explicitly selected.
+
+## Formatting and native values
+
+StringifyConfig supports integer or string indentation, explicit binary64 projection, and an optional positive traversal-depth guard. Ordinary output is UTF-8; map order follows the native map. Nonfinite floating values serialize as null, and signed zero is retained.
 
 ```v
 import valibro as v
-import valibro.json as j
-
-text := j.parse_text(j.string(), '"9007199254740993"')!.str()
-integer := v.parse(v.pipe_to(v.string(), v.to_bigint()), text)!
-assert integer.str() == '9007199254740993'
-```
-
-## Reviver callbacks
-
-A parse reviver receives key, value, and a context. Primitive source text is available when provided by the decoder, while `holder` is a native snapshot of the containing object/array. Return a `Maybe[json2.Any]` to retain, replace, or omit a value. Callback errors remain fallible errors.
-
-```v
 import valibro.jsoncodec
-import valibro.types
 import x.json2
 
-config := jsoncodec.ParseConfig{reviver: fn (key string, value json2.Any, context jsoncodec.ReviverContext) !types.Maybe[json2.Any] {
-    if key == 'secret' { return types.undefined_value[json2.Any]() }
-    return types.some[json2.Any](value)
-}}
-result := jsoncodec.parse('{"name":"Alex","secret":"hidden"}', config)!
-assert result.state == .value
-assert 'secret' !in result.value.as_map()
+value := json2.Any({'name':json2.Any('Alex')})
+assert jsoncodec.stringify(value, space:2)!.contains('\n  "name": "Alex"')
+schema := v.pipe_to(v.number_of[i64](), v.stringify_json_value[i64]())
+assert v.parse(schema, i64(9007199254740993))! == '9007199254740993'
+parsed := v.pipe_to(v.string(), v.parse_json())
+assert v.parse(parsed, '{"ready":true}')!.as_map().len == 1
 ```
 
-## Replacers and output policy
+Native serialization visits struct fields, arrays, maps, pointers, and V options directly. Struct fields honor V JSON tags, including skip, omitempty, required and json_null. Native time values preserve nanoseconds. Standard x.json2 encoder interfaces can supply an explicit representation. Convert BigInt or other domain values explicitly before encoding.
 
-`StringifyConfig` supports plain, contextual, and presence-aware replacers. Presence-aware callbacks take precedence, then contextual callbacks. `property_list` selects properties; an absent list preserves native map iteration order, and an empty list selects no object properties. `space` controls indentation. `max_depth` can bound traversal; zero leaves it unbounded.
-
-```v
-import valibro.jsoncodec
-
-value := jsoncodec.decode('{"name":"Alex","secret":"hidden"}')!
-output := jsoncodec.stringify(value, jsoncodec.StringifyConfig{property_list: ['name'], space: 2})!
-assert output.contains('"name": "Alex"')
-assert !output.contains('secret')
-```
-
-## Pipelines and native values
-
-`parse_json` changes string input into `json2.Any`. Configured parsing can return `Maybe[json2.Any]` when a callback removes the root. `stringify_json_value[T]` handles native values; `stringify_json_with_config` handles JSON values. Explicit UTF-16 functions exist for interoperability; ordinary output stays UTF-8.
-
-```v
-import valibro as v
-
-schema := v.pipe_to(v.string(), v.parse_json())
-parsed := v.parse(schema, '{"ready":true}')!
-assert parsed.as_map().len == 1
-stringify := v.pipe_to(v.number_of[int](), v.stringify_json_value[int]())
-assert v.parse(stringify, 42)! == '42'
-```
-
-`JsonValueProvider` and `JsonSource` expose explicit native serialization hooks. Native sets/maps/blobs/files serialize their declared containers and fields. Functions and futures require explicit JSON hooks or awaiting; do not assume browser object serialization or implicit array-to-string coercion. See [jsoncodec reference](/api/jsoncodec/).
+Transform or select properties in ordinary V code before serialization or after decoding. JSON conversion has no revivers, replacers, holder snapshots, property-list option, root-omission state, or deferred toJSON hooks.

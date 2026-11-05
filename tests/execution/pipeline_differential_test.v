@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import os
 import x.json2
 import valibro as v
@@ -86,7 +87,7 @@ fn test_raw_callbacks_typed_state_and_abort_settings_differential() {
 			message:          types.ErrorMessage('Config ' + row['lang']!.str())
 		}
 		dataset := schema.run(row['input']!, config)
-		parsed := j.safe_parse_with_config(schema, row['input']!, config)
+		parsed := support.observe_json(schema, row['input']!, config)
 		// The second execution is only for native message-resolution boundaries.
 		actual_calls := calls.entries[..calls.entries.len / 2].clone()
 		codes := dataset.issues.map(json2.Any(it.code))
@@ -138,7 +139,7 @@ fn test_forward_paths_differential_including_existing_issue_paths() {
 			}
 		}
 		schema := j.pipe(j.unknown(), before, v.forward(action, path))
-		result := j.safe_parse_checked(schema, row['input']!) or {
+		result := j.inspect(schema, row['input']!) or {
 			assert err is types.TypeError
 			assert err.msg() == row['exception']!.str()
 			continue

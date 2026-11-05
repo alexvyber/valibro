@@ -3,6 +3,7 @@ module main
 import os
 
 fn build_site(root string, out string, pages []Page) ! {
+	remove_stale_exports(out, pages)!
 	os.mkdir_all(out)!
 	os.mkdir_all(os.join_path(out, 'assets'))!
 	for asset in site_asset_files {
@@ -39,6 +40,33 @@ fn build_site(root string, out string, pages []Page) ! {
 		listing, pages))!
 	os.write_file(os.join_path(out, '404.html'), render_message('Page not found',
 		'<p>Choose a page from the navigation.</p>', pages))!
+}
+
+// Remove obsolete generated API routes when rebuilding an existing export.
+// The previous llms index identifies owned output files; other files are retained.
+fn remove_stale_exports(out string, pages []Page) ! {
+	manifest := os.join_path(out, 'llms.txt')
+	if !os.is_file(manifest) { return }
+	mut current := map[string]bool{}
+	for page in pages {
+		current[page.url.trim_right('/') + '.md'] = true
+	}
+	for line in os.read_lines(manifest)! {
+		if !line.contains('](') { continue
+		 }
+		path := line.all_after('](').all_before(')')
+		if !path.starts_with('/api/') || !path.ends_with('.md') || path.contains('..')
+			|| path.contains('\\') || path in current {
+			continue
+		}
+		markdown_file := os.join_path(out, path.trim_left('/'))
+		folder := os.join_path(out, path.trim_left('/').trim_string_right('.md'))
+		html_file := os.join_path(folder, 'index.html')
+		for file in [markdown_file, html_file] {
+			if os.is_file(file) { os.rm(file)! }
+		}
+		if os.is_dir(folder) && os.ls(folder)!.len == 0 { os.rmdir(folder)! }
+	}
 }
 
 fn check_links(pages []Page) ! {

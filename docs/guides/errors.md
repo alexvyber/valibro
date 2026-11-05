@@ -1,59 +1,44 @@
 # Errors and issue paths
 
-A validation issue explains an invalid value. A runtime exception means execution failed. `safe_parse_checked` distinguishes them: ordinary issues are in the returned result, while runtime exceptions use V's error result.
+`parse` returns a native error on validation failure. Its ValidationError contains structured issues. Execution errors from callbacks propagate unchanged through parse, inspect and is_valid.
+
+```v
+import valibro as v
+import valibro.types
+
+schema := v.pipe(v.string(), v.min_length(3))
+if _ := v.parse(schema, 'x') { assert false } else {
+    if err is types.ValidationError { assert err.issues.len == 1 } else { assert false }
+}
+```
 
 ## Structured diagnostics
 
-An `Issue` includes `kind`, `code`, `message`, expected/received descriptions, and path segments. `get_dot_path` formats representable paths; `flatten` groups root, nested, and other messages. `summarize` formats a readable report. Not every arbitrary-key path has a dot representation.
+Issues retain kind, code, message, expected/received descriptions, and typed path segments. get_dot_path formats a display path; flatten groups messages by path, and summarize formats a readable report.
 
 ```v
 import valibro as v
 
 schema := v.array(v.pipe(v.string(), v.min_length(3, 'Too short')))
-result := v.safe_parse(schema, ['ok', 'valid'])
-assert !result.success
+result := v.inspect(schema, ['ok', 'valid'])!
+assert result.issues.len == 1
 assert v.get_dot_path(result.issues[0]) == '0'
 assert v.flatten(result.issues).nested['0'] == ['Too short']
 assert v.summarize(result.issues).contains('Too short')
 ```
 
-## Failure output
+## Partial values
 
-`.output` is absent on validation failure. `.raw_output` retains a boxed dataset value, including partial structures and original values for failed conversions. `typed` can remain true after a check failure; use `success` to decide whether validation succeeded.
-
-```v
-import valibro as v
-import valibro.types
-
-result := v.safe_parse(v.pipe(v.string(), v.min_length(3)), 'ab')
-assert !result.success
-assert result.typed
-assert result.output == none
-assert types.value_as[string](result.raw_output)! == 'ab'
-```
-
-## Fallible parsing
-
-A failed `parse` returns an inspectable `types.ValidationError`. Use `is_vali_error` when handling an `IError`; range and type errors are separate native errors. UTF-16 message/received accessors convert on demand and are only needed for interoperability.
+Inspection exposes Dataset.value and optional raw_value for debugging failed transformations and partial collections. A typed dataset can still contain validation issues. Parse is the entry point for callers who need a validated value.
 
 ```v
 import valibro as v
 import valibro.types
 
-fn main() {
-    v.parse(v.pipe(v.string(), v.min_length(3)), 'x') or {
-        assert v.is_vali_error(err)
-        if err is types.ValidationError {
-            assert err.issues.len == 1
-        }
-        return
-    }
-    panic('Expected a validation error')
-}
+result := v.inspect(v.pipe_to(v.schema[[]int](), v.to_number_from[[]int]()), [42])!
+assert result.issues.len == 1
+raw := result.raw_value or { panic('Expected original input') }
+assert types.value_as[[]int](raw)! == [42]
 ```
 
-## Forwarding paths
-
-`forward` assigns an action's issues to a selected existing path. Array paths use integer indexes and object paths use actual field/map keys. Missing paths retain the deepest existing prefix. This performs native structural lookup without JavaScript property emulation.
-
-See [custom validation](/guides/custom/) for cross-field dependencies and [types](/api/types/) for full issue declarations.
+Forward assigns new action issues to an existing field/key/index path. Missing paths retain their deepest existing prefix. Dot paths are display text; structured segments retain key/index identity. See [custom validation](/guides/custom/).

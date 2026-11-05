@@ -1,0 +1,67 @@
+import valibro as v
+import valibro.methods
+import valibro.types
+
+struct Record { name string }
+fn show_message(callback types.MessageFunction, issue types.Issue) string { return callback(issue) }
+fn main() {
+    issue := types.issue_of_kind('custom', 'Rejected', 'allowed', 'received', .validation)
+    assert issue.kind == .validation
+    assert types.schema_issue('shape', 'Wrong shape', 'string', 'number').kind == .schema
+    assert types.schema_type_issue('string', 'Wrong type', 'string', 'number', 'type').kind == .schema
+    failure := types.ValidationError{issues:[issue]}
+    assert failure.msg() == 'Rejected' && failure.code() == 1
+    range := types.RangeError{message:'Out of range'}
+    conversion := types.TypeError{message:'Unsupported value'}
+    assert range.msg() == 'Out of range' && range.code() == 1
+    assert conversion.msg() == 'Unsupported value' && conversion.code() == 1
+    _ = v.RangeError{message:'Range'}
+    _ = v.TypeError{message:'Type'}
+    callback := fn (issue types.Issue) string { return issue.code }
+    assert show_message(callback, issue) == 'custom'
+    default := types.DefaultMessage{text:'Default'}
+    assert types.resolve_message(default, issue) == 'Default'
+    provider := types.MessageProvider{active:true, get:fn (issue types.Issue) string { return 'Resolved' }}
+    deferred := types.Issue{...issue, message_provider:provider}
+    assert types.resolve_issue(deferred, types.Config{}).message == 'Resolved'
+    assert types.resolve_dataset(types.Dataset[int]{value:1, issues:[deferred]}, types.Config{}).issues[0].message == 'Resolved'
+    _ = types.Messages{defaults:{'en':types.ErrorMessage('Invalid')}}
+    annotations := types.Annotations{title:'Count'}
+    examples := types.Examples[int]{present:true,values:[1,2]}
+    action := types.Action[int]{kind:.validation,annotations:annotations,native_examples:examples,run:fn (input int) types.Dataset[int] { return types.Dataset[int]{value:input} }}
+    schema := methods.pipe_from_actions(v.number_of[int](), [action])
+    assert types.run(schema,42,types.Config{}).value == 42
+    assert types.run_action(action,42).value == 42
+    contextual := types.contextual_action[int]('increment',.transformation,fn (input types.Dataset[int], config types.Config) types.Dataset[int] { return types.Dataset[int]{...input,value:input.value+1} })
+    assert types.apply_action(contextual,types.Dataset[int]{value:1},types.Config{}).value == 2
+    transformed := types.contextual_transformation[int,string]('display',fn (input types.Dataset[int], config types.Config) types.Dataset[string] { return types.Dataset[string]{value:input.value.str()} })
+    assert types.run_transformation(transformed,42).value == '42'
+    runner := types.PipelineRunner[int,int]{available:true,run:fn (input types.Dataset[int], config types.Config) types.Dataset[int] { return input }}
+    assert runner.run(types.Dataset[int]{value:1}, types.Config{}).value == 1
+    entry := types.RawEntry{key:types.value_of('name'),value:types.value_of('Alex')}
+    mut entries := []types.RawEntry{}
+    types.raw_entry_set(mut entries,entry.key,entry.value)
+    assert entries.len == 1
+    raw_array := types.RawArray{items:[types.value_of(1)]}
+    raw_set := types.RawSet{items:raw_array.items}
+    assert types.raw_set([types.value_of(1),types.value_of(1)]).items.len == 1
+    raw_map := types.RawMap{entries:entries}
+    raw_object := types.RawObject{entries:entries}
+    raw_struct := types.RawStruct[Record]{value:Record{name:'Alex'},keys:['name'],fields:{'name':entry.value}}
+    assert raw_set.items.len == 1 && raw_map.entries.len == 1 && raw_object.entries.len == 1
+    assert raw_struct.value.name == 'Alex'
+    marker := types.InvalidDate{}
+    _ = marker
+    invalid := v.inspect(v.pipe_to(v.string(),v.to_date()),'bad')!
+    assert types.value_is[types.InvalidDate](invalid.raw_value?)
+    forwarded := v.pipe(v.array(v.string()),v.forward(v.check[[]string](fn (input []string) bool { return false }),[types.PathSegment(0)]))
+    assert v.get_dot_path(v.inspect(forwarded,['Alex'])!.issues[0]) == '0'
+    raw := v.pipe(v.string(),v.raw_check_with_context[string](fn (input types.Dataset[string], config types.Config) types.Dataset[string] { return input }))
+    assert v.parse(raw,'ok')! == 'ok'
+    cached := v.cached(v.string(),fn (input string) string { return input },v.CacheConfig{max_size:2})
+    key := cached.key('Alex',v.Config{})
+    cached.set(key,types.Dataset[string]{value:'Alex'})
+    assert cached.get(key)?.value == 'Alex'
+    cached.clear()
+    assert cached.get(key) == none
+}

@@ -32,113 +32,67 @@ use public conversion actions or standard V operations.
 `bytes` still counts UTF-8 bytes, and `graphemes` counts Unicode 17 grapheme
 clusters. `🙂` has length 1 and byte length 4. Ordering and clamps use native V
 string comparison. Prefix/suffix diagnostics retain whole code points instead
-of splitting surrogate pairs. Explicit UTF-16 encoding and issue-unit helpers
-remain available for interoperability; ordinary actions use valid UTF-8.
+of splitting surrogate pairs. Ordinary actions and diagnostics use valid UTF-8.
 
 Trimming uses V's Unicode whitespace predicate, without a separate ECMAScript
 whitespace table. In the tested V version NEL is whitespace and BOM is not.
 Case transformations classify whole Unicode characters, including supplementary
 letters. Unicode normalization, grapheme and default word algorithms are retained.
 
-## Conversions
+## Native API and conversions
 
-`to_boolean` uses V's `string.bool()` behavior (`true` and `t` are true in V
-0.5.2). Use `parse_boolean` when invalid spellings should produce issues, or a
-custom transformation for another policy. Numeric booleans test nonzero;
-array/map/Countable booleans test nonempty. Null/missing values are false.
-Dates and arbitrary structs require an explicit BooleanProvider or transformation;
-unsupported inputs produce issues rather than silently becoming true.
+Parse returns a native V result. Inspect exposes issues and partial values;
+callback errors propagate through parse, inspect and is_valid. Native options,
+functions, domain types and concurrency are handled directly by the application.
+See [migration](native_api_migration.md) for removed APIs and replacements.
 
-Null is not a number or Date. Booleans are not Dates. Arrays/maps require an
-explicit numeric/date conversion; there is no recursive comma joining or object
-`toString` lookup. Native arrays and JSON collections use their native string
-representations. A map key named `toString` has no special effect. Present
-Maybe values unwrap; absent/null numeric and Date conversions fail. Explicit
-typed `NumberProvider`, `BigintProvider`, `DateProvider`, `StringProvider`, and
-`BooleanProvider` methods return native target values directly. String hints and
-boxed primitive dispatch are removed. Date providers never round integer
-milliseconds through binary64. See [provider signatures](primitive_api.md#dates-and-conversions).
+Conversions target explicit native types. Numeric parsing retains the exact
+rounding algorithm above. Arrays/maps do not implicitly become numbers or Dates.
+Typed conversion providers return native target values directly. Integer epoch
+milliseconds retain every digit, including beyond binary64's exact-integer range.
 
-## Forwarded paths
+## JSON and object boundaries
 
-`forward` appends existing JSON map keys and integer array indexes to new issues.
-It stops at the deepest existing prefix when a key/index is missing or a scalar
-is reached. Zero, false, empty text and null do not affect key presence. Strings
-and arrays have no simulated `length` properties; strings are not indexed as
-objects, and string `"0"` is not an integer array index. Missing/null paths do not
-raise runtime exceptions. Existing issue paths remain intact.
+JSON objects, records and variants require maps; arrays are never projected into
+numeric-keyed objects. Native map keys, including constructor/prototype names,
+are ordinary keys. Native iteration order is retained.
 
-## Maps and JSON
+JSON optional handles missing fields and nullable accepts explicit null. A native
+V option uses its ordinary if/or handling. No undefined or four-state native value
+model is provided.
 
-Map iteration order is retained. Numeric-looking keys are ordinary keys;
-`__proto__`, `prototype`, and `constructor` are preserved and validated like any
-other key. This changes serialization order, callback order, and the first error
-when early-abort validation encounters those inputs. Property lists still select
-and order keys explicitly.
+Runtime-schema parse_text shares jsoncodec.decode and exact float rounding at all
+nesting depths. Native JSON integer equality compares exact signed/unsigned values;
+a float equals an integer only if their mathematical values match exactly.
+Recursive JSON equality keeps NaN unequal, while membership treats NaNs as equal.
+Signed zeros compare equal under both policies.
 
-Indentation is an integer width or literal string. Float indentation is removed;
-negative widths produce no padding. Widths/strings are not clipped to ten, and
-Unicode characters are never cut in half. Ordinary output uses a UTF-8 builder;
-UTF-16 output is converted only when explicitly requested. Diagnostics keep only
-UTF-8 strings; `received_units()` and `message_units()` encode on demand. The old
-`received_utf16`/`message_utf16` stored fields are removed. Serialization remains iterative, with
-an optional explicit depth guard.
+Dynamic integer-token representation follows x.json2, which can choose f64.
+Use explicit integer decoding or strings plus BigInt for exact large input values.
+Native integer serialization stays exact unless binary64 projection is selected.
+Float output uses native compact spelling; nonfinite values serialize as null.
 
-Finite JSON floats use native compact spelling and retain signed zero; nonfinite
-numbers become null. Native integers remain exact. `binary64_numbers: true`
-explicitly requests floating rounding for integer JSON tokens. Decimal float
-parsing uses the exact native parser in both modes. JSON callback/provider APIs,
-presence states and V field tags remain supported. Dynamic JSON integer text
-uses the alternatives selected by `x.json2`; the tested decoder can choose `f64`,
-so disabling binary64 projection does not guarantee large-integer parsing.
-Explicit native integer serialization remains exact.
+Encoding visits native struct fields, arrays, maps, pointers and options directly.
+V JSON tags and standard encoder interfaces select representations. Native time
+values retain nanoseconds. Functions and unsupported values must be converted
+explicitly. There are no revivers, replacers, deferred toJSON phases, property-list
+options or UTF-16 convenience APIs. Encoding remains iterative with an optional
+positive depth guard and integer/string indentation.
 
-Runtime-schema `json.parse_text` shares `jsoncodec.decode` and its exact float
-rounding at every nesting depth. JSON numeric equality and native membership
-checks compare supplied integers exactly, including mixed signed/unsigned widths.
-An integer equals a float only when their mathematical values are identical;
-distinct large integers are not merged by binary64 rounding. Recursive JSON
-equality keeps NaN unequal; native membership/set equality treats NaNs as equal.
-Signed zeros remain equal under both policies.
+## Dates and diagnostics
 
-JSON object modes, records and variants accept only JSON maps. Arrays are not
-converted into objects with stringified indexes, even when the array is empty.
-Numeric-looking keys in actual objects remain ordinary string keys.
+Date text uses strict ISO calendars with four-digit years, UTC defaults and
+explicit fixed offsets. Typed calendar values support years -999999 through
+999999. Invalid fields and timestamps beyond the supported native range fail.
+See [native URL and Date behavior](native_url_date.md).
 
-Set, EntryMap, Blob and File values serialize their native struct fields, including
-nested providers, instead of producing empty JavaScript-style objects. For
-example, a Set serializes as `{"values":[1,2]}`. Functions cannot be encoded as
-JSON; Futures must be awaited first. Use an explicit provider to select another
-representation. Date JSON preserves native nanoseconds.
-
-## Dates
-
-Date text retains the strict four-digit ISO/UTC/fixed-offset contract. Typed
-calendar values support years -999999 through 999999, within the supported
-V 0.5.2 date arithmetic and millisecond representation. JavaScript TimeClip bounds
-are removed. Integer epoch-millisecond inputs retain their exact values beyond
-binary64's safe-integer range. Invalid fields and timestamps outside the native range still fail.
-See [URL and Date behavior](native_url_date.md) for parsing and display details.
+Structured issue paths distinguish native string keys and integer indexes.
+Forwarding stops at the deepest existing prefix. Dot paths are display text;
+use structured segments when exact key identity matters.
 
 ## Verification
 
-`tests/engines/native_cleanup_test.v` and
-`tests/primitives/native_array_conversions_test.v` assert these native contracts.
-The rounding suite retains bit-level comparisons against independent reference
-observations. Differential tests compare only shared contracts; native-only
-expectations are never labeled as Valibot outputs.
-
-`tools/oracle/native_cases.json` lists reviewed observation IDs and native-only
-tags. Generators select those exact cases and write separate `.native.json`
-reports with retained/excluded counts and reasons. New untagged cases are included
-by default; stale IDs fail generation. There are no input-content heuristics.
-The cleanup restored 3,970 valid composition comparisons removed by broad filters.
-
-`generate_differential_manifest.mjs` reads fixtures and reports without rewriting
-them, and records their hashes and separate exclusion counts. Maintainer tests
-verify this property. `tests/support/reference.v` normalizes numeric spelling
-only for oracle comparisons; production does not import it.
-
-The exact rounding corpus also uses explicit case IDs for its numeric-text policy
-differences; the rounding test no longer skips Unicode/empty inputs heuristically.
-Both simple and configured JSON float parsing use the same exact decimal parser.
+Native API, numeric precision, JSON boundary, Unicode, calendar, regex, URL and
+collection tests run through the standard V toolchain. The retained reference
+manifest counts only corpora still used by current tests. Removed API corpora
+are retired rather than translated into claims of full Valibot compatibility.

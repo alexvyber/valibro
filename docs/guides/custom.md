@@ -10,11 +10,11 @@ import valibro as v
 schema := v.pipe(v.number_of[int](), v.check(fn (value int) bool {
     return value % 2 == 0
 }, 'Must be even'))
-assert v.safe_parse(schema, 4).success
-assert v.safe_parse(schema, 3).issues[0].message == 'Must be even'
-assert v.safe_parse(v.custom(fn (value string) bool {
+assert v.is_valid(schema, 4)!
+assert v.inspect(schema, 3)!.issues[0].message == 'Must be even'
+assert v.is_valid(v.custom(fn (value string) bool {
     return value == 'ready'
-}), 'ready').success
+}), 'ready')!
 ```
 
 ## Dataset-aware actions
@@ -31,8 +31,8 @@ schema := v.pipe(v.number_of[int](), v.raw_check(fn (value int) []types.Issue {
     }
     return []types.Issue{}
 }))
-assert v.safe_parse(schema, 1).success
-assert v.safe_parse(schema, -1).issues[0].code == 'positive'
+assert v.is_valid(schema, 1)!
+assert v.inspect(schema, -1)!.issues[0].code == 'positive'
 ```
 
 ## Cross-field dependencies
@@ -47,8 +47,8 @@ schema := v.partial_check(v.array(v.number_of[int]()), [[types.PathSegment(0)],
     [types.PathSegment(1)]], fn (values []int) bool {
     return values.len >= 2 && values[0] == values[1]
 }, 'Values must match')
-assert v.safe_parse(schema, [2, 2]).success
-assert !v.safe_parse(schema, [2, 3]).success
+assert v.is_valid(schema, [2, 2])!
+assert !v.is_valid(schema, [2, 3])!
 ```
 
 For custom transformations use `transform`, `transform_to`, or dataset/context variants of `raw_transform`. See [transformations](/guides/transforms/) and [errors](/guides/errors/).

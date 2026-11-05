@@ -214,9 +214,7 @@ fn parse_boolean_impl(config types.ParseBooleanConfig, defaults bool, messages [
 }
 
 fn default_boolean[T](input T) ?bool {
-	$if T is types.NativeMaybe {
-		return maybe_default_boolean[T](input)
-	} $else $if T is string {
+	$if T is string {
 		text := unicode.to_lower(input)
 		if text in ['true', '1', 'yes', 'y', 'on', 'enabled'] { return true }
 		if text in ['false', '0', 'no', 'n', 'off', 'disabled'] { return false }
@@ -295,14 +293,4 @@ pub fn parse_boolean_with_values[T](truthy []T, falsy []T, messages ...types.Err
 				diagnostics.issue_value[T](input), text)
 		}
 	}
-}
-
-fn maybe_default_boolean[T](input T) ?bool {
-	$if T is types.NativeMaybe {
-		if input.state != .value { return none }
-		$for field in T.fields {
-			$if field.name == 'value' { return default_boolean(input.$(field.name)) }
-		}
-	}
-	return none
 }

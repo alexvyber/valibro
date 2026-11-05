@@ -121,7 +121,7 @@ fn test_arbitrary_native_keys_and_explicit_set_comparators_match_valibot() {
 		assert j.equal(json2.Any(details), row['issues']!), row.str()
 		if row['family']!.str() == 'set' {
 			for issue in issues {
-				assert types.value_is[types.Null](issue.path_keys[0])
+				assert types.value_is[json2.Null](issue.path_keys[0])
 			}
 		}
 		flat := v.flatten(issues)

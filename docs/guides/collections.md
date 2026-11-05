@@ -1,6 +1,6 @@
 # Collections
 
-Collection schemas validate entries in order and preserve structured issue paths. On failure, typed `.output` is absent and boxed `.raw_output` can retain partial results.
+Collection schemas validate entries in order and preserve structured issue paths. Parse returns an error on failure; inspect can expose partial values through raw_value.
 
 ## Arrays and maps
 
@@ -11,29 +11,30 @@ import valibro as v
 
 array := v.array(v.pipe_to(v.string(), v.to_number()))
 assert v.parse(array, ['1', '2'])! == [1.0, 2.0]
-assert !v.safe_parse(array, ['1', 'bad']).success
+assert !v.is_valid(array, ['1', 'bad'])!
 record := v.record(v.string(), v.pipe(v.number_of[int](), v.min_value(0)))
-assert v.safe_parse(record, {'age': 42}).success
-assert !v.safe_parse(record, {'age': -1}).success
+assert v.is_valid(record, {'age': 42})!
+assert !v.is_valid(record, {'age': -1})!
 ```
 
-Use `length_of[T]` for sequence length, `entries[T]` for map entries or declared struct fields, and `size[T]` for countable values. Each has minimum, maximum, and exclusion forms. `mime_type` validates blob/file MIME metadata.
+Use `length_of[T]` and its min/max/not variants for native collection counts. mime_type validates MIME metadata; it does not inspect the bytes.
 
-## Item callbacks
+## Item validation and transformations
 
-Map, filter, find, reduce, sort, every, some, and check actions receive native callbacks. Index-aware callbacks use the original input indices; `_with_array` variants also receive the original input array. Use `pipe_to` for actions that change the result type, such as mapping or reducing.
+Check_items collects an indexed issue for every failing element. Every_item and some_item provide aggregate checks. Use ordinary V array mapping, filtering, loops and sorting inside a native transformation when needed.
 
 ```v
 import valibro as v
 
-schema := v.pipe_to(v.array(v.number_of[int]()), v.map_items(fn (value int, index int) int {
-    return value + index
+schema := v.pipe(v.array(v.number_of[int]()), v.min_length_of[[]int](1),
+    v.check_items(fn (value int, index int) bool { return value > 0 }))
+issues := v.inspect(schema, [1, -1])!.issues
+assert issues.len == 1
+assert v.get_dot_path(issues[0]) == '1'
+changed := v.pipe(v.array(v.number_of[int]()), v.transform[[]int](fn (input []int) []int {
+    return input.map(it + 1)
 }))
-assert v.parse(schema, [10, 10, 10])! == [10, 11, 12]
-filtered := v.pipe(v.array(v.number_of[int]()), v.filter_items(fn (value int, index int) bool {
-    return value > 0
-}))
-assert v.parse(filtered, [-1, 2, 0, 3])! == [2, 3]
+assert v.parse(changed, [1, 2])! == [2, 3]
 ```
 
 ## Ordered sets

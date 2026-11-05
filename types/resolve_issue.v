@@ -50,7 +50,9 @@ pub fn resolve_issue(issue Issue, config Config) Issue {
 		}
 	}
 	if message := config.message { return resolved_message(candidate, message) }
-	if message := config.messages.global[config.lang] { return resolved_message(candidate, message) }
+	if message := config.messages.defaults[config.lang] {
+		return resolved_message(candidate, message)
+	}
 	return candidate
 }
 

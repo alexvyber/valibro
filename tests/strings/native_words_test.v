@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import valibro as v
 import valibro.unicode
 
@@ -12,28 +13,28 @@ fn test_native_word_actions() {
 	for i, input in inputs {
 		count := counts[i]
 		assert unicode.word_count(input) == count, input
-		assert v.is_valid(v.pipe(v.string(), v.words(count)), input), input
-		assert v.is_valid(v.pipe(v.string(), v.min_words(count), v.max_words(count), v.not_words(
+		assert support.accepts(v.pipe(v.string(), v.words(count)), input), input
+		assert support.accepts(v.pipe(v.string(), v.min_words(count), v.max_words(count), v.not_words(
 			count + 1)), input), input
-		assert !v.is_valid(v.pipe(v.string(), v.words(count + 1)), input)
-		assert !v.is_valid(v.pipe(v.string(), v.min_words(count + 1)), input)
-		assert !v.is_valid(v.pipe(v.string(), v.max_words(count - 1)), input)
-		assert !v.is_valid(v.pipe(v.string(), v.not_words(count)), input)
+		assert !support.accepts(v.pipe(v.string(), v.words(count + 1)), input)
+		assert !support.accepts(v.pipe(v.string(), v.min_words(count + 1)), input)
+		assert !support.accepts(v.pipe(v.string(), v.max_words(count - 1)), input)
+		assert !support.accepts(v.pipe(v.string(), v.not_words(count)), input)
 	}
-	issue := v.safe_parse(v.pipe(v.string(), v.words(1)), 'hello world').issues[0]
+	issue := support.observe(v.pipe(v.string(), v.words(1)), 'hello world').issues[0]
 	assert issue.expected == '1'
 	assert issue.received == '2'
 	assert issue.message == 'Invalid words: Expected 1 but received 2'
-	assert v.safe_parse(v.pipe(v.string(), v.words(1, 'custom words')), 'hello world').issues[0].message == 'custom words'
+	assert support.observe(v.pipe(v.string(), v.words(1, 'custom words')), 'hello world').issues[0].message == 'custom words'
 }
 
 fn test_negative_measurements_are_checks_instead_of_factory_errors() {
 	for action in [v.length(-1), v.bytes(-1), v.code_points(-1),
 		v.graphemes(-1), v.words(-1)] {
-		assert !v.safe_parse(v.pipe(v.string(), action), '').success
+		assert !support.observe(v.pipe(v.string(), action), '').success
 	}
 	for action in [v.min_length(-1), v.min_bytes(-1), v.min_code_points(-1),
 		v.min_graphemes(-1), v.min_words(-1)] {
-		assert v.safe_parse(v.pipe(v.string(), action), '').success
+		assert support.observe(v.pipe(v.string(), action), '').success
 	}
 }

@@ -111,7 +111,7 @@ pub fn variant(key string, options []Schema) Schema {
 							diagnostics.join_expects(expected_discriminators), if value := data[invalid_key] {
 							diagnostics.issue_value(value)
 						} else {
-							'undefined'
+							'missing'
 						}, 'type')
 						path: [types.PathSegment(invalid_key)]
 					},

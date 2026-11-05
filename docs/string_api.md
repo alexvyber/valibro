@@ -90,8 +90,8 @@ ordering. These actions also support the types listed in the primitive guide.
 
 `trim`, `trim_start`, and `trim_end` use V's Unicode whitespace predicate; BOM is not stripped. `to_lower_case`/`to_upper_case` use Unicode 17 full default mappings.
 Camel/Pascal/kebab/snake actions use reference separator/acronym/digit rules.
-`to_min_value`/`to_max_value` clamp by native string order. `to_string` preserves a
-native string; `stringify_json` quotes/escapes it. `readonly` follows V immutability.
+`to_min_value`/`to_max_value` clamp by native string order. Use ordinary V strings and mutability rules. stringify_json_value[string] performs
+actual JSON quoting and escaping.
 
 Use `pipe_to` for conversions that change type:
 
@@ -104,13 +104,11 @@ Use `pipe_to` for conversions that change type:
 | `parse_boolean_with_config` | `bool` | Custom string lists |
 | `to_date` | `time.Time` | Strict ISO calendars; UTC default and explicit fixed offsets |
 | `parse_json` | `json2.Any` | Strict JSON into native JSON values |
-| `parse_json_with_config` | `Maybe[json2.Any]` | Reviver with primitive source context |
 | `stringify_json_value[T]` | `string` | Typed serialization with native scalar rules |
-| `stringify_json_with_config` | `string` | JSON replacer, property list, and indentation |
 
 Boolean parsing does not trim; truthy values take precedence on overlap.
 Typed `_from[T]` conversions accept other native/JSON inputs. See the
-[primitive guide](primitive_api.md) and [JSON configuration](composition_api.md#json-callbacks).
+[primitive guide](primitive_api.md) and [JSON configuration](guides/json-config.md).
 
 ## Extension and metadata
 

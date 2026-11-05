@@ -7,7 +7,7 @@ import valibro as v
 fn main() {
 	age := v.pipe(v.number(), v.finite(), v.integer(), v.min_value(0.0), v.max_value(130.0))
 	println(v.parse(age, 42.0) or { panic(err) })
-	assert !v.safe_parse(age, 1.5).success
+	assert !v.is_valid(age, 1.5)!
 
 	count := v.pipe(v.number_of[int](), v.min_value(0), v.multiple_of(2))
 	println(v.parse(count, 42) or { panic(err) })
@@ -25,6 +25,6 @@ fn main() {
 	})
 
 	// Validation actions also compose after a string conversion.
-	quantity := v.pipe(v.pipe_to(v.string(), v.to_number()), v.safe_integer(), v.min_value(1.0))
+	quantity := v.pipe(v.pipe_to(v.string(), v.to_number()), v.binary64_integer(), v.min_value(1.0))
 	println(v.parse(quantity, '12') or { panic(err) })
 }

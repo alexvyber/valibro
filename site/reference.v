@@ -16,13 +16,13 @@ fn api_guides() []Guide {
 		Guide{'transforms', 'Transformations', 'Compose same-type actions and transformations that change output types.'},
 		Guide{'collections', 'Collections', 'Validate arrays, maps, ordered sets, and custom-key entry maps.'},
 		Guide{'objects', 'Typed objects', 'Describe native struct fields with explicit getters and setters.'},
-		Guide{'presence', 'Presence and defaults', 'Distinguish missing, undefined, null, and present values.'},
+		Guide{'presence', 'Presence and defaults', 'Use V options and explicit JSON field policies.'},
 		Guide{'execution', 'Parsing and pipelines', 'Execute reusable schemas and understand output and abort behavior.'},
 		Guide{'errors', 'Errors and issue paths', 'Inspect validation issues, paths, partial outputs, and runtime errors.'},
 		Guide{'configuration', 'Configuration and messages', 'Scope messages, languages, and validation settings to a context.'},
-		Guide{'metadata', 'Metadata and brands', 'Attach titles, descriptions, examples, metadata, and marker types.'},
+		Guide{'metadata', 'Schema metadata', 'Attach titles, descriptions, examples, and metadata.'},
 		Guide{'custom', 'Custom validation', 'Write predicates, cross-field checks, and dataset-aware actions.'},
-		Guide{'async', 'Async and functions', 'Use channels, reusable futures, and validated function contracts.'},
+		Guide{'async', 'Native concurrency', 'Choose application-owned V concurrency and fallible functions.'},
 		Guide{'cache', 'Caching', 'Select cache keys, bounds, expiry, and inspect cache entries.'},
 		Guide{'json', 'Runtime JSON schemas', 'Validate unknown JSON shapes, tuples, unions, and discriminated variants.'},
 		Guide{'json-config', 'JSON parsing and serialization', 'Configure native JSON number handling, callbacks, and serialization.'},
@@ -33,11 +33,11 @@ fn api_guides() []Guide {
 }
 
 fn symbol_guide(item ApiSymbol, inventory []ApiSymbol) string {
+	if item.module_name == 'types' && item.receiver == 'Context' { return 'configuration' }
 	match item.module_name {
 		'json' { return 'json' }
 		'jsoncodec' { return 'json-config' }
 		'unicode' { return 'unicode' }
-		'storages' { return 'configuration' }
 		'types' { return 'types' }
 		else {}
 	}
@@ -114,7 +114,7 @@ fn reference_page(item ApiSymbol, inventory []ApiSymbol, authored []Page, extra 
 	example := reference_example(item, authored, extra)
 	if example != '' {
 		source += '## Example\n\n'
-		if item.module_name in ['actions', 'schemas', 'methods', 'storages']
+		if item.module_name in ['actions', 'schemas', 'methods']
 			&& example.contains('import valibro as v') {
 			source += 'This example uses the root convenience API for this implementation.\n\n'
 		}
@@ -211,7 +211,7 @@ fn symbol_summary(item ApiSymbol) string {
 		'lazy_with':              'Select a deferred schema using the current input value.'
 		'finite':                 'Require a finite floating value.'
 		'integer':                'Require a finite floating value without a fractional part.'
-		'safe_integer':           'Require an integer within the exact binary64 safe-integer range.'
+		'binary64_integer':       'Require an integer within the exact binary64 safe-integer range.'
 		'multiple_of':            'Require an exact native zero remainder, without floating epsilon tolerance.'
 		'gt_value':               'Require a value strictly greater than a bound.'
 		'lt_value':               'Require a value strictly less than a bound.'
@@ -239,25 +239,13 @@ fn symbol_summary(item ApiSymbol) string {
 		'transform':              'Apply a native callback without changing the declared output type.'
 		'transform_to':           'Apply a native callback with a different output type.'
 		'is_valid':               'Return whether input validates, while retaining the parser’s runtime-error policy.'
-		'assert_valid':           'Return a fallible error when input fails validation.'
 		'flatten':                'Group issue messages into root, nested-path, and other errors.'
 		'summarize':              'Format validation issues and available dot paths as readable text.'
 		'get_dot_path':           'Format an issue path as a dot path where representable.'
 		'forward':                'Attach action issues to the deepest existing prefix of a selected native path.'
-		'safe_parse_async':       'Run validation on a V worker and deliver its result through a channel.'
-		'parse_async':            'Run validation on a V worker and return a reusable native Future.'
-		'parser_async':           'Create a reusable function that returns native futures.'
-		'safe_parser_async':      'Create a reusable function that returns validation-result channels.'
-		'await':                  'Resolve a native future, reusing the stored result on subsequent calls.'
-		'function_schema':        'Validate a native function container.'
-		'args':                   'Wrap a native function with input validation and transformation.'
-		'returns':                'Wrap a native function with return-value validation and transformation.'
 		'value_of':               'Box a native value for diagnostics and partial-output inspection.'
 		'value_as':               'Recover an expected native value from a boxed view, returning an error on mismatch.'
 		'value_is':               'Check the native type stored in a boxed value.'
-		'some':                   'Construct an explicitly present native Maybe value.'
-		'missing':                'Construct an explicitly missing native Maybe value.'
-		'undefined_value':        'Construct an explicit undefined native Maybe value.'
 		'null_value':             'Construct an explicit null value in the module’s native representation.'
 		'decode':                 'Decode JSON text using native numeric alternatives and exact float rounding.'
 		'stringify':              'Serialize a JSON value with explicit native formatting and callback configuration.'

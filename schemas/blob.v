@@ -11,6 +11,3 @@ pub fn file() types.Schema[types.File, types.File] {
 }
 
 // Native V functions are checked by the compiler; no JS runtime typeof check is needed.
-pub fn instance[T]() types.Schema[T, T] {
-	return native_schema[T]('instance', [])
-}

@@ -1,7 +1,0 @@
-{
-  "node": "v24.14.1",
-  "revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
-  "parse": 95,
-  "stringify": 1029,
-  "scope": "Reviver postorder/context.source, deletion/root undefined, replacer preorder/errors, property-list selection/order, indentation and non-finite/negative-zero binary64 serialization. Array holes are compared through a JSON projection."
-}

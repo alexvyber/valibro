@@ -2,6 +2,7 @@ module diagnostics
 
 import valibro.internal.number as numbers
 import valibro.types
+import x.json2
 
 pub fn prepend_path(issues []types.Issue, key types.PathSegment, kinds ...string) []types.Issue {
 	mut result := []types.Issue{cap: issues.len}
@@ -17,7 +18,7 @@ pub fn prepend_path(issues []types.Issue, key types.PathSegment, kinds ...string
 		}
 		mut path_types := [kind]
 		raw_key := if kind == 'set' {
-			types.value_of(types.Null{})
+			types.value_of(json2.Null{})
 		} else {
 			match key {
 				int { types.value_of(key) }

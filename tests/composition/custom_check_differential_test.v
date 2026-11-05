@@ -68,7 +68,7 @@ fn test_partial_check_readiness_wildcards_and_guard_fields_match_upstream() {
 				return false
 			}, ...factory))
 		} else {
-			v.pipe(v.unknown[json2.Any](), v.guard[json2.Any](fn (value json2.Any) bool {
+			v.pipe(v.schema[json2.Any](), v.guard[json2.Any](fn (value json2.Any) bool {
 				if value is string { return value.len >= 2 }
 				return false
 			}, ...factory))
@@ -93,7 +93,7 @@ fn test_partial_check_readiness_wildcards_and_guard_fields_match_upstream() {
 			})
 		}
 		if result.typed != row['typed']!.bool() || !j.equal(result.value, row['output']!)
-			|| !j.equal(json2.Any(details), row['issues']!)
+			|| !j.equal(json2.Any(details), native_custom_issues(row['issues']!))
 			|| !j.equal(json2.Any(calls.values), row['calls']!) {
 			failures++
 			if failures <= 6 {
@@ -102,4 +102,19 @@ fn test_partial_check_readiness_wildcards_and_guard_fields_match_upstream() {
 		}
 	}
 	assert failures == 0, '${failures} partial/guard mismatches'
+}
+
+// Translate only the native missing-field diagnostic spelling; outcomes and paths stay unchanged.
+fn native_custom_issues(input json2.Any) json2.Any {
+	mut result := []json2.Any{}
+	for item in input.as_array() {
+		mut issue := item.as_map().clone()
+		if issue['received'] or { json2.Null{} } == json2.Any('undefined') {
+			issue['received'] = json2.Any('missing')
+			issue['message'] = json2.Any((issue['message'] or { json2.Null{} }).str().replace('received undefined',
+				'received missing'))
+		}
+		result << json2.Any(issue)
+	}
+	return json2.Any(result)
 }

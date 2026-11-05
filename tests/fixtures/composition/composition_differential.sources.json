@@ -1,9 +1,0 @@
-{
-  "node": "v24.14.1",
-  "upstream": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
-  "seed": "0x5eedc0de",
-  "descriptors": 531,
-  "outcomes": 79556,
-  "unique_issue_trees": 3117,
-  "scope": "JSON-expressible inputs; all JSON-projected dataset outputs, typed state, complete recursive issue fields; four abort settings. Missing entries and recursive compositions included."
-}

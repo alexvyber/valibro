@@ -52,12 +52,12 @@ fn load_pages(root string) ![]Page {
 			symbol:  'pipe'
 		},
 		Page{
-			url:     '/api/safe_parse/'
-			title:   'safe_parse'
+			url:     '/api/parse/'
+			title:   'parse'
 			section: 'Methods'
-			file:    'docs/api/safe_parse.md'
-			summary: 'Parse input and inspect the validation result.'
-			symbol:  'safe_parse'
+			file:    'docs/api/parse.md'
+			summary: 'Validate input and return a native V result.'
+			symbol:  'parse'
 		},
 	]
 	for guide in api_guides() {

@@ -40,40 +40,12 @@ pub fn parse_boolean_with_config(config types.ParseBooleanConfig, messages ...ty
 	return actions.parse_boolean_with_config(config, ...messages)
 }
 
-pub fn parse_json(messages ...types.ErrorMessage) types.Transformation[string, json2.Any] {
-	return actions.parse_json(...messages)
-}
-
-pub fn stringify_json() types.Action[string] {
-	return actions.stringify_json()
-}
-
-pub fn stringify_json_value[T](messages ...types.ErrorMessage) types.Transformation[T, string] {
-	return actions.stringify_json_value[T](...messages)
-}
-
-pub fn stringify_json_value_with_config[T](config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[T, string] {
-	return actions.stringify_json_value_with_config[T](config, ...messages)
-}
-
 pub fn raw_transform_with_context[T](operation fn (types.Dataset[T], types.Config) types.Dataset[T]) types.Action[T] {
 	return actions.raw_transform_with_context[T](operation)
 }
 
 pub fn raw_transform_to_with_context[I, O](operation fn (types.Dataset[I], types.Config) types.Dataset[O]) types.Transformation[I, O] {
 	return actions.raw_transform_to_with_context[I, O](operation)
-}
-
-pub fn parse_json_with_config(config jsoncodec.ParseConfig, messages ...types.ErrorMessage) types.Transformation[string, types.Maybe[json2.Any]] {
-	return actions.parse_json_with_config(config, ...messages)
-}
-
-pub fn stringify_json_with_config(config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[json2.Any, string] {
-	return actions.stringify_json_with_config(config, ...messages)
-}
-
-pub fn stringify_json_with_config_utf16(config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[json2.Any, []u16] {
-	return actions.stringify_json_with_config_utf16(config, ...messages)
 }
 
 pub fn to_number_from[T](messages ...types.ErrorMessage) types.Transformation[T, f64] {
@@ -132,10 +104,6 @@ pub fn to_snake_case() types.Action[string] {
 	return actions.to_snake_case()
 }
 
-pub fn to_string() types.Action[string] {
-	return actions.to_string()
-}
-
 pub fn to_min_value[T](requirement T) types.Action[T] {
 	return actions.to_min_value[T](requirement)
 }
@@ -166,4 +134,16 @@ pub fn guard[T](predicate fn (T) bool, messages ...types.ErrorMessage) types.Act
 
 pub fn normalize(forms ...unicode.NormalizeForm) types.Action[string] {
 	return actions.normalize(...forms)
+}
+
+pub fn try_transform[I, O](operation fn (I) !O) types.Transformation[I, O] {
+	return actions.try_transform(operation)
+}
+
+pub fn parse_json(config jsoncodec.ParseConfig) types.Transformation[string, json2.Any] {
+	return actions.parse_json(config)
+}
+
+pub fn stringify_json_value[T](config jsoncodec.StringifyConfig) types.Transformation[T, string] {
+	return actions.stringify_json_value[T](config)
 }

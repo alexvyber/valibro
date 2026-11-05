@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import os
 import x.json2
 import valibro as v
@@ -22,14 +23,14 @@ fn test_upstream_full_casing_and_emoji_fixtures() {
 
 fn test_unicode_pipeline_actions() {
 	assert v.parse(v.pipe(v.string(), v.normalize(.nfkc)), 'ＡＢＣ ① ﬁ') or { panic(err) } == 'ABC 1 fi'
-	assert v.is_valid(v.pipe(v.string(), v.graphemes(1)), '👩🏽‍💻')
-	assert v.is_valid(v.pipe(v.string(), v.min_graphemes(1), v.max_graphemes(1), v.not_graphemes(2)),
-		'e\u0301')
-	assert v.is_valid(v.pipe(v.string(), v.words(2)), "don't stop!")
-	assert v.is_valid(v.pipe(v.string(), v.min_words(1), v.max_words(2), v.not_words(3)),
+	assert support.accepts(v.pipe(v.string(), v.graphemes(1)), '👩🏽‍💻')
+	assert support.accepts(v.pipe(v.string(), v.min_graphemes(1), v.max_graphemes(1),
+		v.not_graphemes(2)), 'e\u0301')
+	assert support.accepts(v.pipe(v.string(), v.words(2)), "don't stop!")
+	assert support.accepts(v.pipe(v.string(), v.min_words(1), v.max_words(2), v.not_words(3)),
 		'hello world')
-	assert v.is_valid(v.pipe(v.string(), v.emoji()), '👨‍👩‍👧‍👦')
-	assert !v.is_valid(v.pipe(v.string(), v.emoji()), 'hello')
+	assert support.accepts(v.pipe(v.string(), v.emoji()), '👨‍👩‍👧‍👦')
+	assert !support.accepts(v.pipe(v.string(), v.emoji()), 'hello')
 }
 
 fn test_upstream_contextual_case_formats() {

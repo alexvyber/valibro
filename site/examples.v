@@ -83,19 +83,19 @@ fn measurement_example(name string) string {
 		good := if short { small } else { long }
 		bad := if short { long } else { small }
 		requirement := if relation == 'max' { 2 } else { 3 }
-		return "import valibro as v\n\nschema := v.pipe(v.string(), v.${name}(${requirement}))\nassert v.safe_parse(schema, '${good}').success\nassert !v.safe_parse(schema, '${bad}').success\n"
+		return "import valibro as v\n\nschema := v.pipe(v.string(), v.${name}(${requirement}))\nassert v.is_valid(schema, '${good}')!\nassert !v.is_valid(schema, '${bad}')!\n"
 	}
 	if base == 'length_of' {
 		good := if short { '[1]' } else { '[1, 2]' }
 		bad := if short { '[1, 2]' } else { '[1]' }
 		requirement := if relation == 'max' { 1 } else { 2 }
-		return 'import valibro as v\n\nschema := v.pipe(v.array(v.number_of[int]()), v.${name}[[]int](${requirement}))\nassert v.safe_parse(schema, ${good}).success\nassert !v.safe_parse(schema, ${bad}).success\n'
+		return 'import valibro as v\n\nschema := v.pipe(v.array(v.number_of[int]()), v.${name}[[]int](${requirement}))\nassert v.is_valid(schema, ${good})!\nassert !v.is_valid(schema, ${bad})!\n'
 	}
 	if base in ['entries', 'size'] {
 		good := if short { "{'a': 1}" } else { "{'a': 1, 'b': 2}" }
 		bad := if short { "{'a': 1, 'b': 2}" } else { "{'a': 1}" }
 		requirement := if relation == 'max' { 1 } else { 2 }
-		return 'import valibro as v\n\nschema := v.pipe(v.record(v.string(), v.number_of[int]()), v.${name}[map[string]int](${requirement}))\nassert v.safe_parse(schema, ${good}).success\nassert !v.safe_parse(schema, ${bad}).success\n'
+		return 'import valibro as v\n\nschema := v.pipe(v.record(v.string(), v.number_of[int]()), v.${name}[map[string]int](${requirement}))\nassert v.is_valid(schema, ${good})!\nassert !v.is_valid(schema, ${bad})!\n'
 	}
 	return ''
 }
@@ -107,11 +107,8 @@ fn example_has_receiver(receiver string, code string) bool {
 	}
 	constructors := {
 		'CachedSchema': ['v.cached(', 'methods.cached(']
-		'Future':       ['v.parse_async(', 'types.new_future(']
 		'Set':          ['types.new_set(', 'types.new_set_with(']
 		'EntryMap':     ['types.entry_map(']
-		'Maybe':        ['types.some(', 'types.missing[', 'types.undefined_value[',
-			'types.null_value[']
 		'Issue':        ['types.new_issue(', 'types.issue_of_kind(', 'types.schema_issue(']
 	}
 	for constructor in constructors[receiver] {
@@ -133,19 +130,13 @@ fn representation_example(item ApiSymbol, code string) bool {
 		'CachedSchema':       ['v.cached(', 'methods.cached(']
 		'FlatErrors':         ['v.flatten(', 'methods.flatten(']
 		'Action':             ['v.min_length(', 'types.contextual_action[']
-		'Branded':            ['v.brand[', 'v.brand_for[']
 		'EntryMap':           ['types.entry_map(']
 		'Field':              ['v.field[', 'v.field(']
-		'Flavored':           ['v.flavor[', 'v.flavor_for[']
-		'Future':             ['v.parse_async(', 'types.new_future(']
 		'MessageCallback':    ['types.identified_message(']
 		'NativeValue':        ['types.value_of[', 'types.value_of(']
 		'ParseBooleanConfig': ['v.ParseBooleanConfig{']
-		'SafeParseResult':    ['v.safe_parse(']
 		'Set':                ['types.new_set(', 'types.new_set_with(']
-		'Symbol':             ['types.symbol(']
 		'Transformation':     ['v.to_number(', 'v.transform_to(']
-		'WrappedSchema':      ['types.wrap_schema(']
 		'Regex':              ['v.compile_regex(']
 		'ErrorMessage':       ['types.identified_message(', 'v.message_fn(']
 	}

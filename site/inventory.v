@@ -4,7 +4,7 @@ import os
 import x.json2
 
 const api_modules = ['valibro', 'schemas', 'actions', 'methods', 'types', 'json', 'jsoncodec',
-	'storages', 'unicode']
+	'unicode']
 
 struct ApiSymbol {
 	module_name string

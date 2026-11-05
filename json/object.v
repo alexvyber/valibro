@@ -45,9 +45,7 @@ fn object_mode(entries map[string]Schema, mode string, rest []Schema, messages .
 				if found := data[key] {
 					value = found
 				} else {
-					if schema.optional && schema.has_default_provider {
-						value = schema.default_provider(config)
-					} else if schema.optional && schema.default_value != none {
+					if schema.optional && schema.default_value != none {
 						value = schema.default_value or { json2.Null{} }
 					} else if fallback := schema.fallback_value {
 						output[key] = fallback
@@ -57,7 +55,7 @@ fn object_mode(entries map[string]Schema, mode string, rest []Schema, messages .
 					} else {
 						issues << types.Issue{
 							...types.schema_type_issue(mode, text, diagnostics.issue_value(key),
-								'undefined', 'key')
+								'missing', 'key')
 							path: [types.PathSegment(key)]
 						}
 						typed = false
@@ -149,7 +147,11 @@ pub fn required(schema Schema, keys ...[]string) Schema {
 	assert keys.len <= 1, 'Expected at most one key list'
 	mut fields := map[string]Schema{}
 	for key, value in schema.entries {
-		fields[key] = if keys.len == 0 || key in keys[0] { non_optional(value) } else { value }
+		fields[key] = if keys.len == 0 || key in keys[0] {
+			require_field(value, types.DefaultMessage{})
+		} else {
+			value
+		}
 	}
 	return reshape_object(schema, fields)
 }
@@ -160,24 +162,6 @@ pub fn keyof(schema Schema) Schema {
 		keys << json2.Any(key)
 	}
 	return picklist(keys)
-}
-
-pub fn entries_from_list(keys []string, schema Schema) map[string]Schema {
-	mut entries := map[string]Schema{}
-	for key in keys {
-		entries[key] = schema
-	}
-	return entries
-}
-
-pub fn entries_from_objects(objects ...map[string]Schema) map[string]Schema {
-	mut entries := map[string]Schema{}
-	for object in objects {
-		for key, value in object {
-			entries[key] = value
-		}
-	}
-	return entries
 }
 
 // Shape operations retain schema annotations and factory error messages.
@@ -196,7 +180,7 @@ pub fn required_with_message(schema Schema, message types.ErrorMessage, keys ...
 	mut fields := map[string]Schema{}
 	for key, value in schema.entries {
 		fields[key] = if keys.len == 0 || key in keys[0] {
-			non_optional(value, message)
+			require_field(value, message)
 		} else {
 			value
 		}

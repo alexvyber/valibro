@@ -1,26 +1,6 @@
 [
     {
         "module_name": "actions",
-        "name": "args",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn args[I, O, R](schema types.Schema[I, O]) types.Transformation[types.Function[O, R], types.FallibleFunction[I, R]]",
-        "comment": "One native argument can pack several arguments in a struct or array.",
-        "file": "actions/function.v",
-        "line": 7
-    },
-    {
-        "module_name": "actions",
-        "name": "await_future",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn await_future[T]() types.Transformation[types.Future[T], T]",
-        "comment": "",
-        "file": "actions/function.v",
-        "line": 50
-    },
-    {
-        "module_name": "actions",
         "name": "base64",
         "receiver": "",
         "kind": "function",
@@ -41,23 +21,23 @@
     },
     {
         "module_name": "actions",
-        "name": "brand",
+        "name": "binary64_integer",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn brand[B]() types.Transformation[string, types.Branded[string, B]]",
+        "declaration": "fn binary64_integer(messages ...types.ErrorMessage) types.Action[f64]",
         "comment": "",
-        "file": "actions/metadata.v",
-        "line": 115
+        "file": "actions/numeric_checks.v",
+        "line": 21
     },
     {
         "module_name": "actions",
-        "name": "brand_for",
+        "name": "binary64_integer_of",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn brand_for[T, B]() types.Transformation[T, types.Branded[T, B]]",
+        "declaration": "fn binary64_integer_of[T](messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
-        "file": "actions/metadata.v",
-        "line": 72
+        "file": "actions/numeric_checks.v",
+        "line": 55
     },
     {
         "module_name": "actions",
@@ -87,17 +67,7 @@
         "declaration": "fn check_items[T](predicate fn (T, int) bool, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "actions/array_operations.v",
-        "line": 147
-    },
-    {
-        "module_name": "actions",
-        "name": "check_items_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn check_items_with_array[T](predicate fn (T, int, []T) bool, messages ...types.ErrorMessage) types.Action[[]T]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 153
+        "line": 95
     },
     {
         "module_name": "actions",
@@ -154,20 +124,10 @@
         "name": "description",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn description(text string) types.Action[string]",
+        "declaration": "fn description[T](text string) types.Action[T]",
         "comment": "",
         "file": "actions/metadata.v",
-        "line": 10
-    },
-    {
-        "module_name": "actions",
-        "name": "description_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn description_for[T](text string) types.Action[T]",
-        "comment": "",
-        "file": "actions/metadata.v",
-        "line": 52
+        "line": 23
     },
     {
         "module_name": "actions",
@@ -241,53 +201,23 @@
     },
     {
         "module_name": "actions",
-        "name": "entries",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn entries[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/collection_checks.v",
-        "line": 63
-    },
-    {
-        "module_name": "actions",
         "name": "every_item",
         "receiver": "",
         "kind": "function",
         "declaration": "fn every_item[T](predicate fn (T, int) bool, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "actions/array_operations.v",
-        "line": 93
-    },
-    {
-        "module_name": "actions",
-        "name": "every_item_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn every_item_with_array[T](predicate fn (T, int, []T) bool, messages ...types.ErrorMessage) types.Action[[]T]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 99
+        "line": 53
     },
     {
         "module_name": "actions",
         "name": "examples",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn examples(values []string) types.Action[string]",
+        "declaration": "fn examples[T](values []T) types.Action[T]",
         "comment": "",
         "file": "actions/metadata.v",
-        "line": 14
-    },
-    {
-        "module_name": "actions",
-        "name": "examples_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn examples_for[T](values []T) types.Action[T]",
-        "comment": "",
-        "file": "actions/metadata.v",
-        "line": 98
+        "line": 31
     },
     {
         "module_name": "actions",
@@ -307,47 +237,7 @@
         "declaration": "fn excludes_item[T](requirement T, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "actions/array_operations.v",
-        "line": 198
-    },
-    {
-        "module_name": "actions",
-        "name": "filter_items",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn filter_items[T](predicate fn (T, int) bool) types.Action[[]T]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 28
-    },
-    {
-        "module_name": "actions",
-        "name": "filter_items_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn filter_items_with_array[T](predicate fn (T, int, []T) bool) types.Action[[]T]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 34
-    },
-    {
-        "module_name": "actions",
-        "name": "find_item",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn find_item[T](predicate fn (T, int) bool) types.Transformation[[]T, types.Maybe[T]]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 50
-    },
-    {
-        "module_name": "actions",
-        "name": "find_item_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn find_item_with_array[T](predicate fn (T, int, []T) bool) types.Transformation[[]T, types.Maybe[T]]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 56
+        "line": 30
     },
     {
         "module_name": "actions",
@@ -368,26 +258,6 @@
         "comment": "",
         "file": "actions/numeric_checks.v",
         "line": 28
-    },
-    {
-        "module_name": "actions",
-        "name": "flavor",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn flavor[B]() types.Transformation[string, types.Flavored[string, B]]",
-        "comment": "",
-        "file": "actions/metadata.v",
-        "line": 128
-    },
-    {
-        "module_name": "actions",
-        "name": "flavor_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn flavor_for[T, B]() types.Transformation[T, types.Flavored[T, B]]",
-        "comment": "",
-        "file": "actions/metadata.v",
-        "line": 85
     },
     {
         "module_name": "actions",
@@ -477,7 +347,7 @@
         "declaration": "fn includes_item[T](requirement T, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "actions/array_operations.v",
-        "line": 175
+        "line": 7
     },
     {
         "module_name": "actions",
@@ -657,7 +527,7 @@
         "declaration": "fn length_of[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "actions/collection_checks.v",
-        "line": 47
+        "line": 32
     },
     {
         "module_name": "actions",
@@ -701,26 +571,6 @@
     },
     {
         "module_name": "actions",
-        "name": "map_items",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn map_items[I, O](operation fn (I, int) O) types.Transformation[[]I, []O]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 7
-    },
-    {
-        "module_name": "actions",
-        "name": "map_items_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn map_items_with_array[I, O](operation fn (I, int, []I) O) types.Transformation[[]I, []O]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 13
-    },
-    {
-        "module_name": "actions",
         "name": "max_bytes",
         "receiver": "",
         "kind": "function",
@@ -738,16 +588,6 @@
         "comment": "",
         "file": "actions/string_measurements.v",
         "line": 65
-    },
-    {
-        "module_name": "actions",
-        "name": "max_entries",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn max_entries[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/collection_checks.v",
-        "line": 71
     },
     {
         "module_name": "actions",
@@ -777,17 +617,7 @@
         "declaration": "fn max_length_of[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "actions/collection_checks.v",
-        "line": 55
-    },
-    {
-        "module_name": "actions",
-        "name": "max_size",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn max_size[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/collection_checks.v",
-        "line": 87
+        "line": 40
     },
     {
         "module_name": "actions",
@@ -815,29 +645,19 @@
         "receiver": "",
         "kind": "function",
         "declaration": "fn message[T](action types.Action[T], text types.ErrorMessage) types.Action[T]",
-        "comment": "",
+        "comment": "Native V strings already have immutable contents.",
         "file": "actions/metadata.v",
-        "line": 154
+        "line": 49
     },
     {
         "module_name": "actions",
         "name": "metadata",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn metadata(entries map[string]json2.Any) types.Action[string]",
+        "declaration": "fn metadata[T](entries map[string]json2.Any) types.Action[T]",
         "comment": "",
         "file": "actions/metadata.v",
-        "line": 18
-    },
-    {
-        "module_name": "actions",
-        "name": "metadata_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn metadata_for[T](entries map[string]json2.Any) types.Action[T]",
-        "comment": "",
-        "file": "actions/metadata.v",
-        "line": 56
+        "line": 27
     },
     {
         "module_name": "actions",
@@ -847,7 +667,7 @@
         "declaration": "fn mime_type[T](requirements []string, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "actions/collection_checks.v",
-        "line": 95
+        "line": 48
     },
     {
         "module_name": "actions",
@@ -868,16 +688,6 @@
         "comment": "",
         "file": "actions/string_measurements.v",
         "line": 59
-    },
-    {
-        "module_name": "actions",
-        "name": "min_entries",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn min_entries[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/collection_checks.v",
-        "line": 67
     },
     {
         "module_name": "actions",
@@ -907,17 +717,7 @@
         "declaration": "fn min_length_of[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "actions/collection_checks.v",
-        "line": 51
-    },
-    {
-        "module_name": "actions",
-        "name": "min_size",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn min_size[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/collection_checks.v",
-        "line": 83
+        "line": 36
     },
     {
         "module_name": "actions",
@@ -1011,16 +811,6 @@
     },
     {
         "module_name": "actions",
-        "name": "not_entries",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn not_entries[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/collection_checks.v",
-        "line": 75
-    },
-    {
-        "module_name": "actions",
         "name": "not_graphemes",
         "receiver": "",
         "kind": "function",
@@ -1047,17 +837,7 @@
         "declaration": "fn not_length_of[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "actions/collection_checks.v",
-        "line": 59
-    },
-    {
-        "module_name": "actions",
-        "name": "not_size",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn not_size[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/collection_checks.v",
-        "line": 91
+        "line": 44
     },
     {
         "module_name": "actions",
@@ -1117,7 +897,7 @@
         "declaration": "fn parse_boolean_from[T](messages ...types.ErrorMessage) types.Transformation[T, bool]",
         "comment": "",
         "file": "actions/conversions.v",
-        "line": 245
+        "line": 243
     },
     {
         "module_name": "actions",
@@ -1137,27 +917,17 @@
         "declaration": "fn parse_boolean_with_values[T](truthy []T, falsy []T, messages ...types.ErrorMessage) types.Transformation[T, bool]",
         "comment": "",
         "file": "actions/conversions.v",
-        "line": 271
+        "line": 269
     },
     {
         "module_name": "actions",
         "name": "parse_json",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn parse_json(messages ...types.ErrorMessage) types.Transformation[string, json2.Any]",
+        "declaration": "fn parse_json(config jsoncodec.ParseConfig) types.Transformation[string, json2.Any]",
         "comment": "",
         "file": "actions/json.v",
-        "line": 8
-    },
-    {
-        "module_name": "actions",
-        "name": "parse_json_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parse_json_with_config(config jsoncodec.ParseConfig, messages ...types.ErrorMessage) types.Transformation[string, types.Maybe[json2.Any]]",
-        "comment": "",
-        "file": "actions/json.v",
-        "line": 25
+        "line": 7
     },
     {
         "module_name": "actions",
@@ -1221,46 +991,6 @@
     },
     {
         "module_name": "actions",
-        "name": "readonly",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn readonly() types.Action[string]",
-        "comment": "Native V strings already have immutable contents.",
-        "file": "actions/metadata.v",
-        "line": 142
-    },
-    {
-        "module_name": "actions",
-        "name": "readonly_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn readonly_for[T]() types.Action[T]",
-        "comment": "",
-        "file": "actions/metadata.v",
-        "line": 60
-    },
-    {
-        "module_name": "actions",
-        "name": "reduce_items",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn reduce_items[T, A](operation fn (A, T, int) A, initial A) types.Transformation[[]T, A]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 72
-    },
-    {
-        "module_name": "actions",
-        "name": "reduce_items_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn reduce_items_with_array[T, A](operation fn (A, T, int, []T) A, initial A) types.Transformation[[]T, A]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 78
-    },
-    {
-        "module_name": "actions",
         "name": "regex",
         "receiver": "",
         "kind": "function",
@@ -1291,26 +1021,6 @@
     },
     {
         "module_name": "actions",
-        "name": "returns",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn returns[I, R, S](schema types.Schema[R, S]) types.Transformation[types.Function[I, R], types.FallibleFunction[I, S]]",
-        "comment": "",
-        "file": "actions/function.v",
-        "line": 22
-    },
-    {
-        "module_name": "actions",
-        "name": "returns_checked",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn returns_checked[I, R, S](schema types.Schema[R, S]) types.Transformation[types.FallibleFunction[I, R], types.FallibleFunction[I, S]]",
-        "comment": "",
-        "file": "actions/function.v",
-        "line": 36
-    },
-    {
-        "module_name": "actions",
         "name": "rfc_email",
         "receiver": "",
         "kind": "function",
@@ -1318,36 +1028,6 @@
         "comment": "Pattern supplied by pinned Valibot; see THIRD_PARTY_NOTICES.md.",
         "file": "actions/format_network.v",
         "line": 15
-    },
-    {
-        "module_name": "actions",
-        "name": "safe_integer",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_integer(messages ...types.ErrorMessage) types.Action[f64]",
-        "comment": "",
-        "file": "actions/numeric_checks.v",
-        "line": 21
-    },
-    {
-        "module_name": "actions",
-        "name": "safe_integer_of",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_integer_of[T](messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/numeric_checks.v",
-        "line": 55
-    },
-    {
-        "module_name": "actions",
-        "name": "size",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn size[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "actions/collection_checks.v",
-        "line": 79
     },
     {
         "module_name": "actions",
@@ -1367,27 +1047,7 @@
         "declaration": "fn some_item[T](predicate fn (T, int) bool, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "actions/array_operations.v",
-        "line": 120
-    },
-    {
-        "module_name": "actions",
-        "name": "some_item_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn some_item_with_array[T](predicate fn (T, int, []T) bool, messages ...types.ErrorMessage) types.Action[[]T]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 126
-    },
-    {
-        "module_name": "actions",
-        "name": "sort_items",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn sort_items[T](compare fn (T, T) int) types.Action[[]T]",
-        "comment": "",
-        "file": "actions/array_operations.v",
-        "line": 221
+        "line": 74
     },
     {
         "module_name": "actions",
@@ -1401,73 +1061,23 @@
     },
     {
         "module_name": "actions",
-        "name": "stringify_json",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_json() types.Action[string]",
-        "comment": "On strings, JSON.stringify returns a quoted JSON string.",
-        "file": "actions/stringify_json.v",
-        "line": 12
-    },
-    {
-        "module_name": "actions",
         "name": "stringify_json_value",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn stringify_json_value[T](messages ...types.ErrorMessage) types.Transformation[T, string]",
-        "comment": "",
+        "declaration": "fn stringify_json_value[T](config jsoncodec.StringifyConfig) types.Transformation[T, string]",
+        "comment": "Serialize a native V value; unsupported values return a validation issue.",
         "file": "actions/stringify_json.v",
-        "line": 24
-    },
-    {
-        "module_name": "actions",
-        "name": "stringify_json_value_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_json_value_with_config[T](config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[T, string]",
-        "comment": "",
-        "file": "actions/stringify_json.v",
-        "line": 28
-    },
-    {
-        "module_name": "actions",
-        "name": "stringify_json_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_json_with_config(config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[json2.Any, string]",
-        "comment": "",
-        "file": "actions/json.v",
-        "line": 41
-    },
-    {
-        "module_name": "actions",
-        "name": "stringify_json_with_config_utf16",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_json_with_config_utf16(config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[json2.Any, []u16]",
-        "comment": "",
-        "file": "actions/json.v",
-        "line": 66
+        "line": 12
     },
     {
         "module_name": "actions",
         "name": "title",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn title(text string) types.Action[string]",
+        "declaration": "fn title[T](text string) types.Action[T]",
         "comment": "",
         "file": "actions/metadata.v",
-        "line": 6
-    },
-    {
-        "module_name": "actions",
-        "name": "title_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn title_for[T](text string) types.Action[T]",
-        "comment": "",
-        "file": "actions/metadata.v",
-        "line": 48
+        "line": 19
     },
     {
         "module_name": "actions",
@@ -1621,16 +1231,6 @@
     },
     {
         "module_name": "actions",
-        "name": "to_string",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn to_string() types.Action[string]",
-        "comment": "",
-        "file": "actions/string_transforms.v",
-        "line": 129
-    },
-    {
-        "module_name": "actions",
         "name": "to_string_from",
         "receiver": "",
         "kind": "function",
@@ -1701,6 +1301,16 @@
     },
     {
         "module_name": "actions",
+        "name": "try_transform",
+        "receiver": "",
+        "kind": "function",
+        "declaration": "fn try_transform[I, O](operation fn (I) !O) types.Transformation[I, O]",
+        "comment": "Compose a native fallible function; its errors propagate through parse and inspect.",
+        "file": "actions/custom.v",
+        "line": 136
+    },
+    {
+        "module_name": "actions",
         "name": "ulid",
         "receiver": "",
         "kind": "function",
@@ -1761,16 +1371,6 @@
     },
     {
         "module_name": "json",
-        "name": "any_value",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn any_value() Schema",
-        "comment": "",
-        "file": "json/schema.v",
-        "line": 195
-    },
-    {
-        "module_name": "json",
         "name": "array",
         "receiver": "",
         "kind": "function",
@@ -1787,7 +1387,7 @@
         "declaration": "fn boolean() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 179
+        "line": 155
     },
     {
         "module_name": "json",
@@ -1797,27 +1397,7 @@
         "declaration": "fn custom(predicate fn (json2.Any) bool) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 255
-    },
-    {
-        "module_name": "json",
-        "name": "entries_from_list",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn entries_from_list(keys []string, schema Schema) map[string]Schema",
-        "comment": "",
-        "file": "json/object.v",
-        "line": 165
-    },
-    {
-        "module_name": "json",
-        "name": "entries_from_objects",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn entries_from_objects(objects ...map[string]Schema) map[string]Schema",
-        "comment": "",
-        "file": "json/object.v",
-        "line": 173
+        "line": 223
     },
     {
         "module_name": "json",
@@ -1827,27 +1407,7 @@
         "declaration": "fn equal(a json2.Any, b json2.Any) bool",
         "comment": "",
         "file": "json/schema.v",
-        "line": 268
-    },
-    {
-        "module_name": "json",
-        "name": "exact_optional",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional(schema Schema, defaults ...json2.Any) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 10
-    },
-    {
-        "module_name": "json",
-        "name": "exact_optional_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional_with_default(schema Schema, getter fn (types.Config) json2.Any) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 193
+        "line": 236
     },
     {
         "module_name": "json",
@@ -1857,7 +1417,7 @@
         "declaration": "fn fallback(schema Schema, value json2.Any) Schema",
         "comment": "",
         "file": "json/optional.v",
-        "line": 141
+        "line": 39
     },
     {
         "module_name": "json",
@@ -1867,47 +1427,17 @@
         "declaration": "fn from_schema[I, O](schema types.Schema[I, O]) Schema",
         "comment": "from_schema adapts a native pipeline, with runtime JSON type checks at its boundary.",
         "file": "json/schema.v",
-        "line": 105
+        "line": 81
     },
     {
         "module_name": "json",
-        "name": "get_default",
+        "name": "inspect",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn get_default(schema Schema, configs ...types.Config) ?json2.Any",
+        "declaration": "fn inspect(schema Schema, input json2.Any, config types.Config) !types.Dataset[json2.Any]",
         "comment": "",
-        "file": "json/optional.v",
-        "line": 110
-    },
-    {
-        "module_name": "json",
-        "name": "get_defaults",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_defaults(schema Schema, configs ...types.Config) json2.Any",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 121
-    },
-    {
-        "module_name": "json",
-        "name": "get_fallback",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_fallback(schema Schema) ?json2.Any",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 117
-    },
-    {
-        "module_name": "json",
-        "name": "get_fallbacks",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_fallbacks(schema Schema) json2.Any",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 161
+        "file": "json/schema.v",
+        "line": 282
     },
     {
         "module_name": "json",
@@ -1924,10 +1454,10 @@
         "name": "is_valid",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn is_valid(schema Schema, input json2.Any) bool",
+        "declaration": "fn is_valid(schema Schema, input json2.Any, config types.Config) !bool",
         "comment": "",
         "file": "json/schema.v",
-        "line": 70
+        "line": 286
     },
     {
         "module_name": "json",
@@ -1937,7 +1467,7 @@
         "declaration": "fn keyof(schema Schema) Schema",
         "comment": "",
         "file": "json/object.v",
-        "line": 157
+        "line": 159
     },
     {
         "module_name": "json",
@@ -1967,7 +1497,7 @@
         "declaration": "fn literal(value json2.Any) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 226
+        "line": 194
     },
     {
         "module_name": "json",
@@ -1997,7 +1527,7 @@
         "declaration": "fn native(schema Schema) types.Schema[json2.Any, json2.Any]",
         "comment": "",
         "file": "json/schema.v",
-        "line": 37
+        "line": 35
     },
     {
         "module_name": "json",
@@ -2007,37 +1537,7 @@
         "declaration": "fn never() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 203
-    },
-    {
-        "module_name": "json",
-        "name": "non_nullable",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_nullable(schema Schema, messages ...types.ErrorMessage) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 63
-    },
-    {
-        "module_name": "json",
-        "name": "non_nullish",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_nullish(schema Schema, messages ...types.ErrorMessage) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 67
-    },
-    {
-        "module_name": "json",
-        "name": "non_optional",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_optional(schema Schema, messages ...types.ErrorMessage) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 49
+        "line": 171
     },
     {
         "module_name": "json",
@@ -2047,47 +1547,17 @@
         "declaration": "fn null_value() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 213
+        "line": 181
     },
     {
         "module_name": "json",
         "name": "nullable",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn nullable(schema Schema, defaults ...json2.Any) Schema",
-        "comment": "",
+        "declaration": "fn nullable(schema Schema) Schema",
+        "comment": "Accept explicit JSON null; missing-field policy is configured with optional.",
         "file": "json/optional.v",
-        "line": 14
-    },
-    {
-        "module_name": "json",
-        "name": "nullable_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable_with_default(schema Schema, getter fn (types.Config) json2.Any) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 185
-    },
-    {
-        "module_name": "json",
-        "name": "nullish",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish(schema Schema, defaults ...json2.Any) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 18
-    },
-    {
-        "module_name": "json",
-        "name": "nullish_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish_with_default(schema Schema, getter fn (types.Config) json2.Any) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 189
+        "line": 25
     },
     {
         "module_name": "json",
@@ -2097,7 +1567,7 @@
         "declaration": "fn number() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 175
+        "line": 151
     },
     {
         "module_name": "json",
@@ -2127,57 +1597,37 @@
         "declaration": "fn omit(schema Schema, keys []string) Schema",
         "comment": "",
         "file": "json/object.v",
-        "line": 131
+        "line": 129
     },
     {
         "module_name": "json",
         "name": "optional",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn optional(schema Schema, defaults ...json2.Any) Schema",
-        "comment": "",
+        "declaration": "fn optional(schema Schema, config FieldConfig) Schema",
+        "comment": "Accept a missing object field; explicit null is validated by the wrapped schema.",
         "file": "json/optional.v",
-        "line": 6
-    },
-    {
-        "module_name": "json",
-        "name": "optional_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional_with_default(schema Schema, getter fn (types.Config) json2.Any) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 181
+        "line": 13
     },
     {
         "module_name": "json",
         "name": "parse",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn parse(schema Schema, input json2.Any) !json2.Any",
+        "declaration": "fn parse(schema Schema, input json2.Any, config types.Config) !json2.Any",
         "comment": "",
         "file": "json/schema.v",
-        "line": 54
+        "line": 278
     },
     {
         "module_name": "json",
         "name": "parse_text",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn parse_text(schema Schema, input string) !json2.Any",
+        "declaration": "fn parse_text(schema Schema, input string, config types.Config) !json2.Any",
         "comment": "",
         "file": "json/schema.v",
-        "line": 66
-    },
-    {
-        "module_name": "json",
-        "name": "parse_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parse_with_config(schema Schema, input json2.Any, config types.Config) !json2.Any",
-        "comment": "",
-        "file": "json/schema.v",
-        "line": 302
+        "line": 46
     },
     {
         "module_name": "json",
@@ -2187,7 +1637,7 @@
         "declaration": "fn partial(schema Schema, keys ...[]string) Schema",
         "comment": "",
         "file": "json/object.v",
-        "line": 139
+        "line": 137
     },
     {
         "module_name": "json",
@@ -2207,7 +1657,7 @@
         "declaration": "fn pick(schema Schema, keys []string) Schema",
         "comment": "",
         "file": "json/object.v",
-        "line": 123
+        "line": 121
     },
     {
         "module_name": "json",
@@ -2217,7 +1667,7 @@
         "declaration": "fn picklist(values []json2.Any) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 239
+        "line": 207
     },
     {
         "module_name": "json",
@@ -2227,7 +1677,7 @@
         "declaration": "fn pipe(schema Schema, actions ...types.Action[json2.Any]) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 74
+        "line": 50
     },
     {
         "module_name": "json",
@@ -2247,7 +1697,7 @@
         "declaration": "fn required(schema Schema, keys ...[]string) Schema",
         "comment": "",
         "file": "json/object.v",
-        "line": 148
+        "line": 146
     },
     {
         "module_name": "json",
@@ -2257,37 +1707,7 @@
         "declaration": "fn required_with_message(schema Schema, message types.ErrorMessage, keys ...[]string) Schema",
         "comment": "",
         "file": "json/object.v",
-        "line": 194
-    },
-    {
-        "module_name": "json",
-        "name": "safe_parse",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse(schema Schema, input json2.Any) types.SafeParseResult[json2.Any]",
-        "comment": "",
-        "file": "json/schema.v",
-        "line": 58
-    },
-    {
-        "module_name": "json",
-        "name": "safe_parse_checked",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_checked(schema Schema, input json2.Any, configs ...types.Config) !types.SafeParseResult[json2.Any]",
-        "comment": "Validation failures are ordinary results; execution exceptions are returned.",
-        "file": "json/schema.v",
-        "line": 298
-    },
-    {
-        "module_name": "json",
-        "name": "safe_parse_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_with_config(schema Schema, input json2.Any, config types.Config) types.SafeParseResult[json2.Any]",
-        "comment": "",
-        "file": "json/schema.v",
-        "line": 62
+        "line": 178
     },
     {
         "module_name": "json",
@@ -2317,7 +1737,7 @@
         "declaration": "fn string() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 171
+        "line": 147
     },
     {
         "module_name": "json",
@@ -2357,17 +1777,7 @@
         "declaration": "fn unknown() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 183
-    },
-    {
-        "module_name": "json",
-        "name": "unwrap",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn unwrap(schema Schema) Schema",
-        "comment": "",
-        "file": "json/optional.v",
-        "line": 105
+        "line": 159
     },
     {
         "module_name": "json",
@@ -2381,10 +1791,20 @@
     },
     {
         "module_name": "json",
+        "name": "FieldConfig",
+        "receiver": "",
+        "kind": "struct",
+        "declaration": "struct FieldConfig {\npub:\n\tdefault_value ?json2.Any\n}",
+        "comment": "",
+        "file": "json/optional.v",
+        "line": 7
+    },
+    {
+        "module_name": "json",
         "name": "Schema",
         "receiver": "",
         "kind": "struct",
-        "declaration": "struct Schema {\npub:\n\ttype_name            string\n\tshape_rebuilder      ?ShapeRebuilder\n\texpects              string\n\tmessage              ?types.ErrorMessage\n\tkind                 string = 'schema'\n\tdiscriminator        string\n\tannotations          types.Annotations\n\tnative_examples      types.Examples[json2.Any]\n\tentries              map[string]Schema\n\titems                []Schema\n\twrapped              []Schema\n\toptional             bool\n\tdefault_value        ?json2.Any\n\thas_default_provider bool\n\tdefault_provider     fn (types.Config) json2.Any = absent_json_default\n\tfallback_value       ?json2.Any\n\tfallback_wrapped     []Schema\n\tmode                 string\n\trun                  fn (json2.Any, types.Config) types.Dataset[json2.Any] @[required]\n}",
+        "declaration": "struct Schema {\npub:\n\ttype_name        string\n\tshape_rebuilder  ?ShapeRebuilder\n\texpects          string\n\tmessage          ?types.ErrorMessage\n\tkind             string = 'schema'\n\tdiscriminator    string\n\tannotations      types.Annotations\n\tnative_examples  types.Examples[json2.Any]\n\tentries          map[string]Schema\n\titems            []Schema\n\twrapped          []Schema\n\toptional         bool\n\tdefault_value    ?json2.Any\n\tfallback_value   ?json2.Any\n\tfallback_wrapped []Schema\n\tmode             string\n\trun              fn (json2.Any, types.Config) types.Dataset[json2.Any] @[required]\n}",
         "comment": "Schema validates unknown JSON values and retains structure for shape operations.",
         "file": "json/schema.v",
         "line": 14
@@ -2404,20 +1824,10 @@
         "name": "decode",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn decode(input string) !json2.Any",
-        "comment": "Decode native JSON values without constructing reviver holder snapshots.",
+        "declaration": "fn decode(input string, config ParseConfig) !json2.Any",
+        "comment": "Decode JSON with exact ties-to-even float rounding.",
         "file": "jsoncodec/parse.v",
-        "line": 116
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "parse",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parse(input string, config ParseConfig) !types.Maybe[json2.Any]",
-        "comment": "",
-        "file": "jsoncodec/parse.v",
-        "line": 134
+        "line": 88
     },
     {
         "module_name": "jsoncodec",
@@ -2425,109 +1835,29 @@
         "receiver": "",
         "kind": "function",
         "declaration": "fn stringify(input json2.Any, config StringifyConfig) !string",
-        "comment": "",
+        "comment": "Serialize JSON values with native integer precision and UTF-8 output.",
         "file": "jsoncodec/stringify.v",
-        "line": 54
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "stringify_source",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_source(source JsonSource, config StringifyConfig) !string",
-        "comment": "",
-        "file": "jsoncodec/stringify.v",
-        "line": 35
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "stringify_utf16",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_utf16(input json2.Any, config StringifyConfig) ![]u16",
-        "comment": "UTF-16 is an explicit interoperability conversion after native serialization.",
-        "file": "jsoncodec/stringify.v",
-        "line": 59
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "JsonValueProvider",
-        "receiver": "",
-        "kind": "interface",
-        "declaration": "interface JsonValueProvider {\n\tto_json_value(key string) !types.Maybe[json2.Any]\n}",
-        "comment": "A native toJSON equivalent. Undefined omits a property; callback errors become issues.",
-        "file": "jsoncodec/config.v",
-        "line": 55
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "JsonSource",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct JsonSource {\npub:\n\t// Native identity projections set this false; actual toJSON hooks run once.\n\tto_json_applied bool = true\n\tmissing         bool\n\tvalue           json2.Any = json2.Null{}\n\thook            ?JsonSourceHook\n\tchildren        map[string]JsonSource\n}",
-        "comment": "",
-        "file": "jsoncodec/stringify.v",
-        "line": 25
+        "line": 26
     },
     {
         "module_name": "jsoncodec",
         "name": "ParseConfig",
         "receiver": "",
         "kind": "struct",
-        "declaration": "struct ParseConfig {\npub:\n\tbinary64_numbers bool\n\treviver          Reviver = fn (key string, value json2.Any, context ReviverContext) !types.Maybe[json2.Any] {\n\t\treturn types.some[json2.Any](value)\n\t}\n}",
+        "declaration": "struct ParseConfig {\npub:\n\tbinary64_numbers bool\n}",
         "comment": "",
         "file": "jsoncodec/config.v",
-        "line": 30
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "ReplacerContext",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct ReplacerContext {\npub:\n\tholder json2.Any = json2.Null{}\n}",
-        "comment": "Holder is the containing object/array before replacer substitution.",
-        "file": "jsoncodec/config.v",
-        "line": 16
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "ReviverContext",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct ReviverContext {\npub:\n\tsource ?string\n\tholder json2.Any = json2.Null{}\n}",
-        "comment": "Holder is an immutable native snapshot of the containing object or array.",
-        "file": "jsoncodec/config.v",
-        "line": 7
+        "line": 6
     },
     {
         "module_name": "jsoncodec",
         "name": "StringifyConfig",
         "receiver": "",
         "kind": "struct",
-        "declaration": "struct StringifyConfig {\npub:\n\tbinary64_numbers bool\n\treplacer         Replacer = fn (key string, value json2.Any) !types.Maybe[json2.Any] {\n\t\treturn types.some[json2.Any](value)\n\t}\n\t// Presence-aware replacers take precedence, followed by contextual replacers.\n\treplacer_with_presence ?PresenceReplacer\n\treplacer_with_context  ?ContextReplacer\n\t// None preserves native map iteration order; an empty list selects no properties.\n\tproperty_list ?[]string\n\tspace         Indent\n\t// Zero means no explicit depth bound; traversal is iterative.\n\tmax_depth int\n}",
+        "declaration": "struct StringifyConfig {\npub:\n\tbinary64_numbers bool\n\tspace            Indent\n\tmax_depth        int\n}",
         "comment": "",
         "file": "jsoncodec/config.v",
-        "line": 38
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "UndefinedOutput",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct UndefinedOutput {}",
-        "comment": "",
-        "file": "jsoncodec/stringify.v",
         "line": 12
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "ContextReplacer",
-        "receiver": "",
-        "kind": "typedef",
-        "declaration": "type ContextReplacer = fn (string, json2.Any, ReplacerContext) !types.Maybe[json2.Any]",
-        "comment": "",
-        "file": "jsoncodec/config.v",
-        "line": 21
     },
     {
         "module_name": "jsoncodec",
@@ -2537,117 +1867,17 @@
         "declaration": "type Indent = int | string",
         "comment": "",
         "file": "jsoncodec/config.v",
-        "line": 28
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "JsonSourceHook",
-        "receiver": "",
-        "kind": "typedef",
-        "declaration": "type JsonSourceHook = fn (key string) !types.Maybe[json2.Any]",
-        "comment": "Native trees retain deferred toJSON hooks until their property is traversed.",
-        "file": "jsoncodec/stringify.v",
-        "line": 23
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "PresenceReplacer",
-        "receiver": "",
-        "kind": "typedef",
-        "declaration": "type PresenceReplacer = fn (key string, value types.Maybe[json2.Any], context ReplacerContext) !types.Maybe[json2.Any]",
-        "comment": "Presence-aware callbacks can replace undefined as well as ordinary JSON values.",
-        "file": "jsoncodec/config.v",
-        "line": 24
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "Replacer",
-        "receiver": "",
-        "kind": "typedef",
-        "declaration": "type Replacer = fn (string, json2.Any) !types.Maybe[json2.Any]",
-        "comment": "",
-        "file": "jsoncodec/config.v",
-        "line": 26
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "Reviver",
-        "receiver": "",
-        "kind": "typedef",
-        "declaration": "type Reviver = fn (string, json2.Any, ReviverContext) !types.Maybe[json2.Any]",
-        "comment": "",
-        "file": "jsoncodec/config.v",
-        "line": 13
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "code",
-        "receiver": "UndefinedOutput",
-        "kind": "method",
-        "declaration": "fn (err UndefinedOutput) code() int",
-        "comment": "",
-        "file": "jsoncodec/stringify.v",
-        "line": 18
-    },
-    {
-        "module_name": "jsoncodec",
-        "name": "msg",
-        "receiver": "UndefinedOutput",
-        "kind": "method",
-        "declaration": "fn (err UndefinedOutput) msg() string",
-        "comment": "",
-        "file": "jsoncodec/stringify.v",
-        "line": 14
-    },
-    {
-        "module_name": "methods",
-        "name": "action_is_of_kind",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn action_is_of_kind[T](action types.Action[T], kind types.ActionKind) bool",
-        "comment": "",
-        "file": "methods/introspection.v",
-        "line": 17
-    },
-    {
-        "module_name": "methods",
-        "name": "action_is_of_type",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn action_is_of_type[T](action types.Action[T], name string) bool",
-        "comment": "",
-        "file": "methods/introspection.v",
-        "line": 13
-    },
-    {
-        "module_name": "methods",
-        "name": "assert_valid",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn assert_valid[I, O](schema types.Schema[I, O], input I) !",
-        "comment": "",
-        "file": "methods/convenience.v",
-        "line": 10
+        "line": 3
     },
     {
         "module_name": "methods",
         "name": "cache",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn cache[I, O](schema types.Schema[I, O], key fn (I) string, capacity int) types.Schema[I, O]",
+        "declaration": "fn cache[I, O](schema types.Schema[I, O], key fn (I) string, config CacheConfig) types.Schema[I, O]",
         "comment": "",
         "file": "methods/cache.v",
-        "line": 131
-    },
-    {
-        "module_name": "methods",
-        "name": "cache_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn cache_with_config[I, O](schema types.Schema[I, O], key fn (I) string, config CacheConfig) types.Schema[I, O]",
-        "comment": "",
-        "file": "methods/cache.v",
-        "line": 127
+        "line": 152
     },
     {
         "module_name": "methods",
@@ -2657,7 +1887,7 @@
         "declaration": "fn cached[I, O](schema types.Schema[I, O], key fn (I) string, config CacheConfig) CachedSchema[I, O]",
         "comment": "Explicit keys make native input value/reference identity a caller decision.",
         "file": "methods/cache.v",
-        "line": 99
+        "line": 100
     },
     {
         "module_name": "methods",
@@ -2667,27 +1897,7 @@
         "declaration": "fn config[I, O](schema types.Schema[I, O], settings types.Config) types.Schema[I, O]",
         "comment": "",
         "file": "methods/convenience.v",
-        "line": 26
-    },
-    {
-        "module_name": "methods",
-        "name": "entries_from_list",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn entries_from_list[T](keys []string, value T) map[string]T",
-        "comment": "",
-        "file": "methods/defaults.v",
-        "line": 38
-    },
-    {
-        "module_name": "methods",
-        "name": "entries_from_objects",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn entries_from_objects[T](objects ...map[string]T) map[string]T",
-        "comment": "",
-        "file": "methods/defaults.v",
-        "line": 46
+        "line": 6
     },
     {
         "module_name": "methods",
@@ -2697,7 +1907,7 @@
         "declaration": "fn fallback[I, O](schema types.Schema[I, O], value O) types.Schema[I, O]",
         "comment": "",
         "file": "methods/convenience.v",
-        "line": 35
+        "line": 15
     },
     {
         "module_name": "methods",
@@ -2707,17 +1917,7 @@
         "declaration": "fn fallback_fn[I, O](schema types.Schema[I, O], getter fn (I, []types.Issue) O) types.Schema[I, O]",
         "comment": "",
         "file": "methods/convenience.v",
-        "line": 45
-    },
-    {
-        "module_name": "methods",
-        "name": "fallback_with_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn fallback_with_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[O], types.Config) O) types.Schema[I, O]",
-        "comment": "Context-aware counterpart of an upstream fallback factory callback.",
-        "file": "methods/convenience.v",
-        "line": 98
+        "line": 24
     },
     {
         "module_name": "methods",
@@ -2737,27 +1937,7 @@
         "declaration": "fn forward[T](action types.Action[T], path []types.PathSegment) types.Action[T]",
         "comment": "",
         "file": "methods/convenience.v",
-        "line": 61
-    },
-    {
-        "module_name": "methods",
-        "name": "get_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_default[I, O](schema types.Schema[I, O], configs ...types.Config) ?I",
-        "comment": "",
-        "file": "methods/defaults.v",
-        "line": 5
-    },
-    {
-        "module_name": "methods",
-        "name": "get_default_with_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_default_with_context[I, O](schema types.Schema[I, O], dataset ?types.Dataset[I], configs ...types.Config) ?I",
-        "comment": "",
-        "file": "methods/defaults.v",
-        "line": 9
+        "line": 38
     },
     {
         "module_name": "methods",
@@ -2771,83 +1951,33 @@
     },
     {
         "module_name": "methods",
-        "name": "get_fallback",
+        "name": "inspect",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn get_fallback[I, O](schema types.Schema[I, O], configs ...types.Config) ?O",
-        "comment": "",
-        "file": "methods/defaults.v",
-        "line": 19
-    },
-    {
-        "module_name": "methods",
-        "name": "get_fallback_with_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_fallback_with_context[I, O](schema types.Schema[I, O], dataset ?types.Dataset[O], configs ...types.Config) ?O",
-        "comment": "",
-        "file": "methods/defaults.v",
-        "line": 23
-    },
-    {
-        "module_name": "methods",
-        "name": "is_vali_error",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn is_vali_error(err IError) bool",
-        "comment": "",
-        "file": "methods/introspection.v",
-        "line": 5
+        "declaration": "fn inspect[I, O](schema types.Schema[I, O], input I, config types.Config) !types.Dataset[O]",
+        "comment": "Inspect returns validation issues and partial output; execution errors propagate.",
+        "file": "methods/parse.v",
+        "line": 15
     },
     {
         "module_name": "methods",
         "name": "is_valid",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn is_valid[I, O](schema types.Schema[I, O], input I) bool",
+        "declaration": "fn is_valid[I, O](schema types.Schema[I, O], input I, config types.Config) !bool",
         "comment": "",
-        "file": "methods/convenience.v",
-        "line": 6
+        "file": "methods/parse.v",
+        "line": 21
     },
     {
         "module_name": "methods",
         "name": "parse",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn parse[I, O](schema types.Schema[I, O], input I) !O",
-        "comment": "",
+        "declaration": "fn parse[I, O](schema types.Schema[I, O], input I, config types.Config) !O",
+        "comment": "Parse returns a value or a native error; validation errors retain all issues.",
         "file": "methods/parse.v",
-        "line": 5
-    },
-    {
-        "module_name": "methods",
-        "name": "parse_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parse_with_config[I, O](schema types.Schema[I, O], input I, config types.Config) !O",
-        "comment": "",
-        "file": "methods/parse.v",
-        "line": 9
-    },
-    {
-        "module_name": "methods",
-        "name": "parser",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parser[I, O](schema types.Schema[I, O]) fn (I) !O",
-        "comment": "",
-        "file": "methods/convenience.v",
-        "line": 14
-    },
-    {
-        "module_name": "methods",
-        "name": "parser_async",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parser_async[I, O](schema types.Schema[I, O]) fn (I) types.Future[O]",
-        "comment": "",
-        "file": "methods/async.v",
-        "line": 25
+        "line": 6
     },
     {
         "module_name": "methods",
@@ -2891,86 +2021,6 @@
     },
     {
         "module_name": "methods",
-        "name": "safe_parse",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse[I, O](schema types.Schema[I, O], input I) types.SafeParseResult[O]",
-        "comment": "",
-        "file": "methods/safe_parse.v",
-        "line": 5
-    },
-    {
-        "module_name": "methods",
-        "name": "safe_parse_async",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_async[I, O](schema types.Schema[I, O], input I) chan types.SafeParseResult[O]",
-        "comment": "V callbacks can perform I/O directly. These adapters move the whole parse onto a worker.",
-        "file": "methods/async.v",
-        "line": 6
-    },
-    {
-        "module_name": "methods",
-        "name": "safe_parse_async_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_async_with_config[I, O](schema types.Schema[I, O], input I, config types.Config) chan types.SafeParseResult[O]",
-        "comment": "",
-        "file": "methods/async.v",
-        "line": 10
-    },
-    {
-        "module_name": "methods",
-        "name": "safe_parse_checked",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_checked[I, O](schema types.Schema[I, O], input I, configs ...types.Config) !types.SafeParseResult[O]",
-        "comment": "",
-        "file": "methods/safe_parse.v",
-        "line": 13
-    },
-    {
-        "module_name": "methods",
-        "name": "safe_parse_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_with_config[I, O](schema types.Schema[I, O], input I, config types.Config) types.SafeParseResult[O]",
-        "comment": "",
-        "file": "methods/safe_parse.v",
-        "line": 9
-    },
-    {
-        "module_name": "methods",
-        "name": "safe_parser",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parser[I, O](schema types.Schema[I, O]) fn (I) types.SafeParseResult[O]",
-        "comment": "",
-        "file": "methods/convenience.v",
-        "line": 20
-    },
-    {
-        "module_name": "methods",
-        "name": "safe_parser_async",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parser_async[I, O](schema types.Schema[I, O]) fn (I) chan types.SafeParseResult[O]",
-        "comment": "",
-        "file": "methods/async.v",
-        "line": 31
-    },
-    {
-        "module_name": "methods",
-        "name": "schema_is_of_type",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn schema_is_of_type[I, O](schema types.Schema[I, O], name string) bool",
-        "comment": "",
-        "file": "methods/introspection.v",
-        "line": 9
-    },
-    {
-        "module_name": "methods",
         "name": "summarize",
         "receiver": "",
         "kind": "function",
@@ -2981,33 +2031,13 @@
     },
     {
         "module_name": "methods",
-        "name": "unwrap",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn unwrap[I, O](schema types.Schema[types.Maybe[I], types.Maybe[O]]) types.Schema[I, O]",
-        "comment": "",
-        "file": "methods/defaults.v",
-        "line": 30
-    },
-    {
-        "module_name": "methods",
-        "name": "unwrap_as",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn unwrap_as[I, O, P, Q](schema types.Schema[I, O]) !types.Schema[P, Q]",
-        "comment": "",
-        "file": "methods/defaults.v",
-        "line": 34
-    },
-    {
-        "module_name": "methods",
         "name": "CacheConfig",
         "receiver": "",
         "kind": "struct",
         "declaration": "struct CacheConfig {\npub:\n\tmax_size int = 1000\n\t// None is unlimited; expiration is strictly greater than max_age_ms.\n\tmax_age_ms ?i64\n\tnow        fn () i64 = fn () i64 {\n\t\treturn time.now().unix_milli()\n\t}\n}",
         "comment": "",
         "file": "methods/cache.v",
-        "line": 7
+        "line": 8
     },
     {
         "module_name": "methods",
@@ -3017,7 +2047,7 @@
         "declaration": "struct CachedSchema[I, O] {\npub:\n\tschema       types.Schema[I, O]\n\tconfig       CacheConfig\n\tkey_function fn (I) string  @[required]\n\tstate        &CacheState[O] @[required]\n}",
         "comment": "",
         "file": "methods/cache.v",
-        "line": 25
+        "line": 26
     },
     {
         "module_name": "methods",
@@ -3037,7 +2067,7 @@
         "declaration": "fn (cached CachedSchema[I, O]) clear()",
         "comment": "",
         "file": "methods/cache.v",
-        "line": 89
+        "line": 90
     },
     {
         "module_name": "methods",
@@ -3047,7 +2077,7 @@
         "declaration": "fn (cached CachedSchema[I, O]) get(key string) ?types.Dataset[O]",
         "comment": "",
         "file": "methods/cache.v",
-        "line": 37
+        "line": 38
     },
     {
         "module_name": "methods",
@@ -3057,7 +2087,7 @@
         "declaration": "fn (cached CachedSchema[I, O]) key(input I, config types.Config) string",
         "comment": "",
         "file": "methods/cache.v",
-        "line": 33
+        "line": 34
     },
     {
         "module_name": "methods",
@@ -3067,17 +2097,7 @@
         "declaration": "fn (cached CachedSchema[I, O]) set(key string, value types.Dataset[O])",
         "comment": "",
         "file": "methods/cache.v",
-        "line": 65
-    },
-    {
-        "module_name": "schemas",
-        "name": "any_value",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn any_value[T]() types.Schema[T, T]",
-        "comment": "",
-        "file": "schemas/alternatives.v",
-        "line": 85
+        "line": 66
     },
     {
         "module_name": "schemas",
@@ -3151,56 +2171,6 @@
     },
     {
         "module_name": "schemas",
-        "name": "enum_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn enum_schema[T](values []T, messages ...types.ErrorMessage) types.Schema[T, T]",
-        "comment": "",
-        "file": "schemas/values.v",
-        "line": 25
-    },
-    {
-        "module_name": "schemas",
-        "name": "exact_optional",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional[I, O](wrapped types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 71
-    },
-    {
-        "module_name": "schemas",
-        "name": "exact_optional_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 197
-    },
-    {
-        "module_name": "schemas",
-        "name": "exact_optional_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 251
-    },
-    {
-        "module_name": "schemas",
-        "name": "exact_optional_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 306
-    },
-    {
-        "module_name": "schemas",
         "name": "field",
         "receiver": "",
         "kind": "function",
@@ -3221,33 +2191,13 @@
     },
     {
         "module_name": "schemas",
-        "name": "function_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn function_schema[I, O]() types.Schema[types.Function[I, O], types.Function[I, O]]",
-        "comment": "",
-        "file": "schemas/function.v",
-        "line": 5
-    },
-    {
-        "module_name": "schemas",
-        "name": "instance",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn instance[T]() types.Schema[T, T]",
-        "comment": "Native V functions are checked by the compiler; no JS runtime typeof check is needed.",
-        "file": "schemas/blob.v",
-        "line": 14
-    },
-    {
-        "module_name": "schemas",
         "name": "lazy",
         "receiver": "",
         "kind": "function",
         "declaration": "fn lazy[I, O](getter fn () types.Schema[I, O]) types.Schema[I, O]",
         "comment": "",
         "file": "schemas/alternatives.v",
-        "line": 108
+        "line": 100
     },
     {
         "module_name": "schemas",
@@ -3257,7 +2207,7 @@
         "declaration": "fn lazy_with[I, O](getter fn (I) types.Schema[I, O]) types.Schema[I, O]",
         "comment": "",
         "file": "schemas/alternatives.v",
-        "line": 163
+        "line": 155
     },
     {
         "module_name": "schemas",
@@ -3297,127 +2247,7 @@
         "declaration": "fn never[T](messages ...types.ErrorMessage) types.Schema[T, T]",
         "comment": "",
         "file": "schemas/alternatives.v",
-        "line": 89
-    },
-    {
-        "module_name": "schemas",
-        "name": "non_nullable",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_nullable[I, O](wrapped types.Schema[types.Maybe[I], types.Maybe[O]], messages ...types.ErrorMessage) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 87
-    },
-    {
-        "module_name": "schemas",
-        "name": "non_nullish",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_nullish[I, O](wrapped types.Schema[types.Maybe[I], types.Maybe[O]], messages ...types.ErrorMessage) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 91
-    },
-    {
-        "module_name": "schemas",
-        "name": "non_optional",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_optional[I, O](wrapped types.Schema[types.Maybe[I], types.Maybe[O]], messages ...types.ErrorMessage) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 83
-    },
-    {
-        "module_name": "schemas",
-        "name": "null_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn null_schema() types.Schema[types.Null, types.Null]",
-        "comment": "",
-        "file": "schemas/values.v",
-        "line": 5
-    },
-    {
-        "module_name": "schemas",
-        "name": "nullable",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable[I, O](wrapped types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 75
-    },
-    {
-        "module_name": "schemas",
-        "name": "nullable_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 201
-    },
-    {
-        "module_name": "schemas",
-        "name": "nullable_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 255
-    },
-    {
-        "module_name": "schemas",
-        "name": "nullable_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 310
-    },
-    {
-        "module_name": "schemas",
-        "name": "nullish",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish[I, O](wrapped types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 79
-    },
-    {
-        "module_name": "schemas",
-        "name": "nullish_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 205
-    },
-    {
-        "module_name": "schemas",
-        "name": "nullish_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 259
-    },
-    {
-        "module_name": "schemas",
-        "name": "nullish_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 314
+        "line": 81
     },
     {
         "module_name": "schemas",
@@ -3461,46 +2291,6 @@
     },
     {
         "module_name": "schemas",
-        "name": "optional",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional[I, O](wrapped types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 67
-    },
-    {
-        "module_name": "schemas",
-        "name": "optional_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 193
-    },
-    {
-        "module_name": "schemas",
-        "name": "optional_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 247
-    },
-    {
-        "module_name": "schemas",
-        "name": "optional_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 302
-    },
-    {
-        "module_name": "schemas",
         "name": "picklist",
         "receiver": "",
         "kind": "function",
@@ -3511,16 +2301,6 @@
     },
     {
         "module_name": "schemas",
-        "name": "promise",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn promise[T]() types.Schema[types.Future[T], types.Future[T]]",
-        "comment": "",
-        "file": "schemas/values.v",
-        "line": 21
-    },
-    {
-        "module_name": "schemas",
         "name": "record",
         "receiver": "",
         "kind": "function",
@@ -3528,6 +2308,16 @@
         "comment": "record validates and transforms both keys and values of a native string-keyed map.",
         "file": "schemas/record.v",
         "line": 7
+    },
+    {
+        "module_name": "schemas",
+        "name": "schema",
+        "receiver": "",
+        "kind": "function",
+        "declaration": "fn schema[T]() types.Schema[T, T]",
+        "comment": "Start a pipeline for a statically known V type without a runtime type test.",
+        "file": "schemas/primitive.v",
+        "line": 32
     },
     {
         "module_name": "schemas",
@@ -3561,93 +2351,13 @@
     },
     {
         "module_name": "schemas",
-        "name": "symbol",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn symbol() types.Schema[types.Symbol, types.Symbol]",
-        "comment": "",
-        "file": "schemas/values.v",
-        "line": 17
-    },
-    {
-        "module_name": "schemas",
-        "name": "undefined_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefined_schema() types.Schema[types.Undefined, types.Undefined]",
-        "comment": "",
-        "file": "schemas/values.v",
-        "line": 9
-    },
-    {
-        "module_name": "schemas",
-        "name": "undefinedable",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefinedable[I, O](schema types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/values.v",
-        "line": 47
-    },
-    {
-        "module_name": "schemas",
-        "name": "undefinedable_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefinedable_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 209
-    },
-    {
-        "module_name": "schemas",
-        "name": "undefinedable_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefinedable_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 263
-    },
-    {
-        "module_name": "schemas",
-        "name": "undefinedable_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefinedable_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "schemas/optional.v",
-        "line": 318
-    },
-    {
-        "module_name": "schemas",
         "name": "union",
         "receiver": "",
         "kind": "function",
         "declaration": "fn union[I, O](options []types.Schema[I, O], messages ...types.ErrorMessage) types.Schema[I, O]",
         "comment": "",
         "file": "schemas/alternatives.v",
-        "line": 118
-    },
-    {
-        "module_name": "schemas",
-        "name": "unknown",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn unknown[T]() types.Schema[T, T]",
-        "comment": "",
-        "file": "schemas/alternatives.v",
-        "line": 81
-    },
-    {
-        "module_name": "schemas",
-        "name": "void_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn void_schema() types.Schema[types.Undefined, types.Undefined]",
-        "comment": "",
-        "file": "schemas/values.v",
-        "line": 13
+        "line": 110
     },
     {
         "module_name": "schemas",
@@ -3658,126 +2368,6 @@
         "comment": "",
         "file": "schemas/set.v",
         "line": 10
-    },
-    {
-        "module_name": "storages",
-        "name": "delete_global_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn delete_global_config(mut context types.Context)",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 18
-    },
-    {
-        "module_name": "storages",
-        "name": "delete_global_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn delete_global_message(mut context types.Context, languages ...string)",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 75
-    },
-    {
-        "module_name": "storages",
-        "name": "delete_schema_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn delete_schema_message(mut context types.Context, languages ...string)",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 87
-    },
-    {
-        "module_name": "storages",
-        "name": "delete_specific_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn delete_specific_message(mut context types.Context, kind string, languages ...string)",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 99
-    },
-    {
-        "module_name": "storages",
-        "name": "get_global_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_global_config(context types.Context) types.Config",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 10
-    },
-    {
-        "module_name": "storages",
-        "name": "get_global_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_global_message(context types.Context, languages ...string) ?types.ErrorMessage",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 22
-    },
-    {
-        "module_name": "storages",
-        "name": "get_schema_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_schema_message(context types.Context, languages ...string) ?types.ErrorMessage",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 26
-    },
-    {
-        "module_name": "storages",
-        "name": "get_specific_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_specific_message(context types.Context, kind string, languages ...string) ?types.ErrorMessage",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 30
-    },
-    {
-        "module_name": "storages",
-        "name": "set_global_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn set_global_config(mut context types.Context, config types.Config)",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 14
-    },
-    {
-        "module_name": "storages",
-        "name": "set_global_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn set_global_message(mut context types.Context, message types.ErrorMessage, languages ...string)",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 35
-    },
-    {
-        "module_name": "storages",
-        "name": "set_schema_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn set_schema_message(mut context types.Context, message types.ErrorMessage, languages ...string)",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 47
-    },
-    {
-        "module_name": "storages",
-        "name": "set_specific_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn set_specific_message(mut context types.Context, kind string, message types.ErrorMessage, languages ...string)",
-        "comment": "",
-        "file": "storages/messages.v",
-        "line": 59
     },
     {
         "module_name": "types",
@@ -3811,16 +2401,6 @@
     },
     {
         "module_name": "types",
-        "name": "Presence",
-        "receiver": "",
-        "kind": "enum",
-        "declaration": "enum Presence {\n\tmissing\n\tundefined\n\tnull\n\tvalue\n}",
-        "comment": "Presence distinguishes absent entries, explicit undefined, null, and a value.",
-        "file": "types/maybe.v",
-        "line": 4
-    },
-    {
-        "module_name": "types",
         "name": "apply_action",
         "receiver": "",
         "kind": "function",
@@ -3828,16 +2408,6 @@
         "comment": "",
         "file": "types/pipeline_runner.v",
         "line": 36
-    },
-    {
-        "module_name": "types",
-        "name": "awaiting",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn awaiting[T]() Transformation[Future[T], T]",
-        "comment": "",
-        "file": "types/values.v",
-        "line": 66
     },
     {
         "module_name": "types",
@@ -3901,16 +2471,6 @@
     },
     {
         "module_name": "types",
-        "name": "missing",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn missing[T]() Maybe[T]",
-        "comment": "",
-        "file": "types/maybe.v",
-        "line": 23
-    },
-    {
-        "module_name": "types",
         "name": "native_set_equal",
         "receiver": "",
         "kind": "function",
@@ -3918,16 +2478,6 @@
         "comment": "Shared by typed collections and boxed partial outputs.",
         "file": "types/collections.v",
         "line": 79
-    },
-    {
-        "module_name": "types",
-        "name": "new_future",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn new_future[T](result chan SafeParseResult[T]) Future[T]",
-        "comment": "",
-        "file": "types/values.v",
-        "line": 37
     },
     {
         "module_name": "types",
@@ -3961,23 +2511,13 @@
     },
     {
         "module_name": "types",
-        "name": "null_value",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn null_value[T]() Maybe[T]",
-        "comment": "",
-        "file": "types/maybe.v",
-        "line": 35
-    },
-    {
-        "module_name": "types",
         "name": "raw_entry_set",
         "receiver": "",
         "kind": "function",
         "declaration": "fn raw_entry_set(mut entries []RawEntry, key NativeValue, value NativeValue)",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 97
+        "line": 91
     },
     {
         "module_name": "types",
@@ -3987,7 +2527,7 @@
         "declaration": "fn raw_entry_set_with[T](mut entries []RawEntry, key NativeValue, value NativeValue, equal fn (T, T) bool)",
         "comment": "Compare valid output keys using the caller's native equality even in mixed raw output.",
         "file": "types/native_value.v",
-        "line": 139
+        "line": 133
     },
     {
         "module_name": "types",
@@ -3997,7 +2537,7 @@
         "declaration": "fn raw_set(items []NativeValue) RawSet",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 113
+        "line": 107
     },
     {
         "module_name": "types",
@@ -4007,7 +2547,7 @@
         "declaration": "fn raw_set_with[T](items []NativeValue, equal fn (T, T) bool) RawSet",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 161
+        "line": 155
     },
     {
         "module_name": "types",
@@ -4047,27 +2587,27 @@
         "declaration": "fn run[I, O](schema Schema[I, O], input I, config Config) Dataset[O]",
         "comment": "Keep pointers, sum types, and value calls in separate compiler branches.\nV 0.5.2 otherwise retains argument coercions across generic instantiations.",
         "file": "types/schema.v",
-        "line": 33
+        "line": 27
     },
     {
         "module_name": "types",
         "name": "run_action",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn run_action[T](action Action[T], input T, configs ...Config) Dataset[T]",
+        "declaration": "fn run_action[T](action Action[T], input T, settings Config) Dataset[T]",
         "comment": "",
         "file": "types/schema.v",
-        "line": 64
+        "line": 57
     },
     {
         "module_name": "types",
         "name": "run_transformation",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn run_transformation[I, O](action Transformation[I, O], input I, configs ...Config) Dataset[O]",
+        "declaration": "fn run_transformation[I, O](action Transformation[I, O], input I, settings Config) Dataset[O]",
         "comment": "",
         "file": "types/schema.v",
-        "line": 46
+        "line": 40
     },
     {
         "module_name": "types",
@@ -4088,66 +2628,6 @@
         "comment": "",
         "file": "types/message.v",
         "line": 76
-    },
-    {
-        "module_name": "types",
-        "name": "some",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn some[T](value T) Maybe[T]",
-        "comment": "",
-        "file": "types/maybe.v",
-        "line": 16
-    },
-    {
-        "module_name": "types",
-        "name": "symbol",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn symbol(description string) Symbol",
-        "comment": "",
-        "file": "types/values.v",
-        "line": 17
-    },
-    {
-        "module_name": "types",
-        "name": "undefined_value",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefined_value[T]() Maybe[T]",
-        "comment": "",
-        "file": "types/maybe.v",
-        "line": 29
-    },
-    {
-        "module_name": "types",
-        "name": "unwrap_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn unwrap_schema[I, O, P, Q](schema Schema[I, O]) !Schema[P, Q]",
-        "comment": "",
-        "file": "types/wrapped_schema.v",
-        "line": 22
-    },
-    {
-        "module_name": "types",
-        "name": "utf16_display",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn utf16_display(input []u16) string",
-        "comment": "Valid pairs become UTF-8; unpaired surrogates have an escaped display spelling.",
-        "file": "types/utf16.v",
-        "line": 19
-    },
-    {
-        "module_name": "types",
-        "name": "utf16_units",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn utf16_units(input string) []u16",
-        "comment": "Explicit UTF-16 encoding/accessors for interoperability; ordinary diagnostics use whole characters.",
-        "file": "types/utf16.v",
-        "line": 4
     },
     {
         "module_name": "types",
@@ -4178,16 +2658,6 @@
         "comment": "",
         "file": "types/native_value.v",
         "line": 18
-    },
-    {
-        "module_name": "types",
-        "name": "wrap_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn wrap_schema[I, O](schema Schema[I, O]) WrappedSchema",
-        "comment": "",
-        "file": "types/wrapped_schema.v",
-        "line": 11
     },
     {
         "module_name": "types",
@@ -4228,26 +2698,6 @@
         "comment": "",
         "file": "types/conversion.v",
         "line": 14
-    },
-    {
-        "module_name": "types",
-        "name": "FunctionValue",
-        "receiver": "",
-        "kind": "interface",
-        "declaration": "interface FunctionValue {\n\tfunction_value() bool\n}",
-        "comment": "",
-        "file": "types/json_values.v",
-        "line": 17
-    },
-    {
-        "module_name": "types",
-        "name": "NativeMaybe",
-        "receiver": "",
-        "kind": "interface",
-        "declaration": "interface NativeMaybe {\n\tstate Presence\n\tmaybe_state() Presence\n}",
-        "comment": "Internal generic-presence protocol shared with native adapters. Not a custom-value hook.",
-        "file": "types/maybe.v",
-        "line": 42
     },
     {
         "module_name": "types",
@@ -4301,16 +2751,6 @@
     },
     {
         "module_name": "types",
-        "name": "Presence.from",
-        "receiver": "",
-        "kind": "method",
-        "declaration": "fn Presence.from[W](input W) !Presence",
-        "comment": "",
-        "file": "types/maybe.v",
-        "line": 3
-    },
-    {
-        "module_name": "types",
         "name": "Action",
         "receiver": "",
         "kind": "struct",
@@ -4324,7 +2764,7 @@
         "name": "Annotations",
         "receiver": "",
         "kind": "struct",
-        "declaration": "struct Annotations {\npub:\n\ttitle       ?string\n\tdescription ?string\n\texamples    ?[]string\n\tmetadata    map[string]json2.Any\n}",
+        "declaration": "struct Annotations {\npub:\n\ttitle       ?string\n\tdescription ?string\n\tmetadata    map[string]json2.Any\n}",
         "comment": "",
         "file": "types/annotations.v",
         "line": 5
@@ -4341,23 +2781,13 @@
     },
     {
         "module_name": "types",
-        "name": "Branded",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct Branded[T, B] {\npub:\n\tvalue T\n\ttag   ?B\n}",
-        "comment": "Marker types make brands/flavors distinct at compile time in V.",
-        "file": "types/annotations.v",
-        "line": 14
-    },
-    {
-        "module_name": "types",
         "name": "Config",
         "receiver": "",
         "kind": "struct",
         "declaration": "struct Config {\npub:\n\t// Stop after the first issue; otherwise collect consecutive validation issues.\n\tabort_early      bool\n\tabort_pipe_early bool\n\tlang             string\n\tmessage          ?ErrorMessage\n\tmessages         Messages\n}",
         "comment": "",
         "file": "types/config.v",
-        "line": 3
+        "line": 4
     },
     {
         "module_name": "types",
@@ -4381,16 +2811,6 @@
     },
     {
         "module_name": "types",
-        "name": "DefaultContextProvider",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct DefaultContextProvider[T] {\npub:\n\tavailable bool\n\tget       fn (?Dataset[T], Config) T @[required]\n}",
-        "comment": "A computed default can inspect an optional input dataset and configuration.",
-        "file": "types/annotations.v",
-        "line": 39
-    },
-    {
-        "module_name": "types",
         "name": "DefaultMessage",
         "receiver": "",
         "kind": "struct",
@@ -4398,16 +2818,6 @@
         "comment": "",
         "file": "types/messages.v",
         "line": 16
-    },
-    {
-        "module_name": "types",
-        "name": "DefaultProvider",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct DefaultProvider[T] {\npub:\n\tavailable bool\n\tget       fn (Config) T @[required]\n}",
-        "comment": "",
-        "file": "types/annotations.v",
-        "line": 32
     },
     {
         "module_name": "types",
@@ -4427,27 +2837,7 @@
         "declaration": "struct Examples[T] {\npub:\n\tpresent bool\n\tvalues  []T\n}",
         "comment": "",
         "file": "types/annotations.v",
-        "line": 26
-    },
-    {
-        "module_name": "types",
-        "name": "FallbackProvider",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct FallbackProvider[T] {\npub:\n\tavailable bool\n\tget       fn (?Dataset[T], Config) T @[required]\n}",
-        "comment": "Fallback providers can inspect the failed output and its resolved issues.\nIntrospection without a parse supplies none for the dataset.",
-        "file": "types/fallback.v",
-        "line": 5
-    },
-    {
-        "module_name": "types",
-        "name": "FallibleFunction",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct FallibleFunction[I, O] {\npub:\n\tcall fn (I) !O @[required]\n}",
-        "comment": "",
-        "file": "types/function.v",
-        "line": 8
+        "line": 12
     },
     {
         "module_name": "types",
@@ -4468,36 +2858,6 @@
         "comment": "",
         "file": "types/collections.v",
         "line": 60
-    },
-    {
-        "module_name": "types",
-        "name": "Flavored",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct Flavored[T, B] {\npub:\n\tvalue T\n\ttag   ?B\n}",
-        "comment": "",
-        "file": "types/annotations.v",
-        "line": 20
-    },
-    {
-        "module_name": "types",
-        "name": "Function",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct Function[I, O] {\npub:\n\tcall fn (I) O @[required]\n}",
-        "comment": "",
-        "file": "types/function.v",
-        "line": 3
-    },
-    {
-        "module_name": "types",
-        "name": "Future",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct Future[T] {\npub:\n\tstate &FutureState[T] @[required]\n}",
-        "comment": "",
-        "file": "types/values.v",
-        "line": 32
     },
     {
         "module_name": "types",
@@ -4531,16 +2891,6 @@
     },
     {
         "module_name": "types",
-        "name": "Maybe",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct Maybe[T] {\npub:\n\tstate Presence\n\tvalue T\n}",
-        "comment": "",
-        "file": "types/maybe.v",
-        "line": 10
-    },
-    {
-        "module_name": "types",
         "name": "MessageCallback",
         "receiver": "",
         "kind": "struct",
@@ -4564,7 +2914,7 @@
         "name": "Messages",
         "receiver": "",
         "kind": "struct",
-        "declaration": "struct Messages {\npub:\n\tglobal   map[string]ErrorMessage\n\tschema   map[string]ErrorMessage\n\tspecific map[string]map[string]ErrorMessage\n}",
+        "declaration": "struct Messages {\npub:\n\tdefaults map[string]ErrorMessage\n\tschema   map[string]ErrorMessage\n\tspecific map[string]map[string]ErrorMessage\n}",
         "comment": "Context owns configuration and localization; no process-global mutable state is required.",
         "file": "types/messages.v",
         "line": 4
@@ -4578,16 +2928,6 @@
         "comment": "A GC-owned, signature-checked native value preserves outputs across type changes.",
         "file": "types/native_value.v",
         "line": 8
-    },
-    {
-        "module_name": "types",
-        "name": "Null",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct Null {}",
-        "comment": "",
-        "file": "types/values.v",
-        "line": 7
     },
     {
         "module_name": "types",
@@ -4627,7 +2967,7 @@
         "declaration": "struct RawArray {\npub:\n\titems []NativeValue\n}",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 64
+        "line": 58
     },
     {
         "module_name": "types",
@@ -4637,7 +2977,7 @@
         "declaration": "struct RawEntry {\npub:\n\tkey   NativeValue\n\tvalue NativeValue\n}",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 74
+        "line": 68
     },
     {
         "module_name": "types",
@@ -4647,7 +2987,7 @@
         "declaration": "struct RawMap {\npub:\n\tentries []RawEntry\n}",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 80
+        "line": 74
     },
     {
         "module_name": "types",
@@ -4657,7 +2997,7 @@
         "declaration": "struct RawObject {\npub:\n\tentries []RawEntry\n}",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 85
+        "line": 79
     },
     {
         "module_name": "types",
@@ -4667,7 +3007,7 @@
         "declaration": "struct RawSet {\npub:\n\titems []NativeValue\n}",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 69
+        "line": 63
     },
     {
         "module_name": "types",
@@ -4677,24 +3017,14 @@
         "declaration": "struct RawStruct[T] {\npub:\n\tvalue  T\n\tkeys   []string\n\tfields map[string]NativeValue\n}",
         "comment": "",
         "file": "types/native_value.v",
-        "line": 90
-    },
-    {
-        "module_name": "types",
-        "name": "SafeParseResult",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct SafeParseResult[T] {\npub:\n\traw_output NativeValue\n\tsuccess    bool\n\ttyped      bool\n\texception  ?IError\n\t// Output is absent whenever validation fails.\n\toutput ?T\n\tissues []Issue\n}",
-        "comment": "",
-        "file": "types/result.v",
-        "line": 3
+        "line": 84
     },
     {
         "module_name": "types",
         "name": "Schema",
         "receiver": "",
         "kind": "struct",
-        "declaration": "struct Schema[I, O] {\npub:\n\ttype_name                string\n\twrapped_schema           ?WrappedSchema\n\texpects                  string\n\tmessage                  ?ErrorMessage\n\tkind                     string = 'schema'\n\tdefault_value            ?I\n\tdefault_provider         DefaultProvider[I]\n\tdefault_context_provider DefaultContextProvider[I]\n\tfallback_value           ?O\n\tfallback_provider        FallbackProvider[O]\n\tannotations              Annotations\n\tnative_examples          Examples[O]\n\trun                      fn (I, Config) Dataset[O] @[required]\n}",
+        "declaration": "struct Schema[I, O] {\npub:\n\ttype_name       string\n\texpects         string\n\tmessage         ?ErrorMessage\n\tkind            string = 'schema'\n\tannotations     Annotations\n\tnative_examples Examples[O]\n\trun             fn (I, Config) Dataset[O] @[required]\n}",
         "comment": "Schema is immutable and can be reused across parsing calls.",
         "file": "types/schema.v",
         "line": 14
@@ -4707,16 +3037,6 @@
         "declaration": "struct Set[T] {\npub:\n\tvalues []T\n}",
         "comment": "Set preserves insertion order; floats use SameValueZero (including NaN).",
         "file": "types/collections.v",
-        "line": 11
-    },
-    {
-        "module_name": "types",
-        "name": "Symbol",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct Symbol {\n\tid string\npub:\n\tdescription string\n}",
-        "comment": "",
-        "file": "types/values.v",
         "line": 11
     },
     {
@@ -4741,16 +3061,6 @@
     },
     {
         "module_name": "types",
-        "name": "Undefined",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct Undefined {}",
-        "comment": "",
-        "file": "types/values.v",
-        "line": 9
-    },
-    {
-        "module_name": "types",
         "name": "ValidationError",
         "receiver": "",
         "kind": "struct",
@@ -4758,16 +3068,6 @@
         "comment": "",
         "file": "types/issue.v",
         "line": 27
-    },
-    {
-        "module_name": "types",
-        "name": "WrappedSchema",
-        "receiver": "",
-        "kind": "struct",
-        "declaration": "struct WrappedSchema {\n\tinput_type  string\n\toutput_type string\n\tdata        voidptr = unsafe { nil }\n}",
-        "comment": "Private, immutable type erasure retains a differently typed wrapped schema.\nThe pointer owns a GC-managed heap allocation; signature checks precede casts.",
-        "file": "types/wrapped_schema.v",
-        "line": 5
     },
     {
         "module_name": "types",
@@ -4811,6 +3111,96 @@
     },
     {
         "module_name": "types",
+        "name": "delete_message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (mut context Context) delete_message(lang string)",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 56
+    },
+    {
+        "module_name": "types",
+        "name": "delete_schema_message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (mut context Context) delete_schema_message(lang string)",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 68
+    },
+    {
+        "module_name": "types",
+        "name": "delete_specific_message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (mut context Context) delete_specific_message(kind string, lang string)",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 80
+    },
+    {
+        "module_name": "types",
+        "name": "message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (context Context) message(lang string) ?ErrorMessage",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 3
+    },
+    {
+        "module_name": "types",
+        "name": "schema_message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (context Context) schema_message(lang string) ?ErrorMessage",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 7
+    },
+    {
+        "module_name": "types",
+        "name": "set_message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (mut context Context) set_message(message ErrorMessage, lang string)",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 16
+    },
+    {
+        "module_name": "types",
+        "name": "set_schema_message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (mut context Context) set_schema_message(message ErrorMessage, lang string)",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 28
+    },
+    {
+        "module_name": "types",
+        "name": "set_specific_message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (mut context Context) set_specific_message(kind string, message ErrorMessage, lang string)",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 40
+    },
+    {
+        "module_name": "types",
+        "name": "specific_message",
+        "receiver": "Context",
+        "kind": "method",
+        "declaration": "fn (context Context) specific_message(kind string, lang string) ?ErrorMessage",
+        "comment": "",
+        "file": "types/context.v",
+        "line": 11
+    },
+    {
+        "module_name": "types",
         "name": "count",
         "receiver": "EntryMap[K, V]",
         "kind": "method",
@@ -4821,26 +3211,6 @@
     },
     {
         "module_name": "types",
-        "name": "function_value",
-        "receiver": "FallibleFunction[I, O]",
-        "kind": "method",
-        "declaration": "fn (value FallibleFunction[I, O]) function_value() bool",
-        "comment": "",
-        "file": "types/json_values.v",
-        "line": 25
-    },
-    {
-        "module_name": "types",
-        "name": "to_json_value",
-        "receiver": "FallibleFunction[I, O]",
-        "kind": "method",
-        "declaration": "fn (value FallibleFunction[I, O]) to_json_value(key string) !Maybe[json2.Any]",
-        "comment": "",
-        "file": "types/json_values.v",
-        "line": 11
-    },
-    {
-        "module_name": "types",
         "name": "count",
         "receiver": "File",
         "kind": "method",
@@ -4848,86 +3218,6 @@
         "comment": "",
         "file": "types/collections.v",
         "line": 68
-    },
-    {
-        "module_name": "types",
-        "name": "function_value",
-        "receiver": "Function[I, O]",
-        "kind": "method",
-        "declaration": "fn (value Function[I, O]) function_value() bool",
-        "comment": "",
-        "file": "types/json_values.v",
-        "line": 21
-    },
-    {
-        "module_name": "types",
-        "name": "to_json_value",
-        "receiver": "Function[I, O]",
-        "kind": "method",
-        "declaration": "fn (value Function[I, O]) to_json_value(key string) !Maybe[json2.Any]",
-        "comment": "",
-        "file": "types/json_values.v",
-        "line": 5
-    },
-    {
-        "module_name": "types",
-        "name": "await",
-        "receiver": "Future[T]",
-        "kind": "method",
-        "declaration": "fn (future Future[T]) await() !T",
-        "comment": "",
-        "file": "types/values.v",
-        "line": 45
-    },
-    {
-        "module_name": "types",
-        "name": "to_json_value",
-        "receiver": "Future[T]",
-        "kind": "method",
-        "declaration": "fn (future Future[T]) to_json_value(key string) !Maybe[json2.Any]",
-        "comment": "",
-        "file": "types/values.v",
-        "line": 87
-    },
-    {
-        "module_name": "types",
-        "name": "to_json_value",
-        "receiver": "InvalidDate",
-        "kind": "method",
-        "declaration": "fn (value InvalidDate) to_json_value(key string) !Maybe[json2.Any]",
-        "comment": "",
-        "file": "types/native_value.v",
-        "line": 58
-    },
-    {
-        "module_name": "types",
-        "name": "message_units",
-        "receiver": "Issue",
-        "kind": "method",
-        "declaration": "fn (issue Issue) message_units() []u16",
-        "comment": "",
-        "file": "types/utf16.v",
-        "line": 40
-    },
-    {
-        "module_name": "types",
-        "name": "received_units",
-        "receiver": "Issue",
-        "kind": "method",
-        "declaration": "fn (issue Issue) received_units() []u16",
-        "comment": "",
-        "file": "types/utf16.v",
-        "line": 36
-    },
-    {
-        "module_name": "types",
-        "name": "maybe_state",
-        "receiver": "Maybe[T]",
-        "kind": "method",
-        "declaration": "fn (value Maybe[T]) maybe_state() Presence",
-        "comment": "",
-        "file": "types/maybe.v",
-        "line": 47
     },
     {
         "module_name": "types",
@@ -5121,73 +3411,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "action_is_of_kind",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn action_is_of_kind[T](action types.Action[T], kind types.ActionKind) bool",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 185
-    },
-    {
-        "module_name": "valibro",
-        "name": "action_is_of_type",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn action_is_of_type[T](action types.Action[T], name string) bool",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 181
-    },
-    {
-        "module_name": "valibro",
-        "name": "any_value",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn any_value[T]() types.Schema[T, T]",
-        "comment": "",
-        "file": "api_schema.v",
-        "line": 28
-    },
-    {
-        "module_name": "valibro",
-        "name": "args",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn args[I, O, R](schema types.Schema[I, O]) types.Transformation[types.Function[O, R], types.FallibleFunction[I, R]]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 125
-    },
-    {
-        "module_name": "valibro",
         "name": "array",
         "receiver": "",
         "kind": "function",
         "declaration": "fn array[I, O](item types.Schema[I, O]) types.Schema[[]I, []O]",
-        "comment": "",
+        "comment": "Array-aware callbacks receive the original input array.",
         "file": "api_collections.v",
-        "line": 134
-    },
-    {
-        "module_name": "valibro",
-        "name": "assert_valid",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn assert_valid[I, O](schema types.Schema[I, O], input I) !",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 33
-    },
-    {
-        "module_name": "valibro",
-        "name": "await_future",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn await_future[T]() types.Transformation[types.Future[T], T]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 165
+        "line": 53
     },
     {
         "module_name": "valibro",
@@ -5217,7 +3447,27 @@
         "declaration": "fn bigint(messages ...types.ErrorMessage) types.Schema[big.Integer, big.Integer]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 64
+        "line": 56
+    },
+    {
+        "module_name": "valibro",
+        "name": "binary64_integer",
+        "receiver": "",
+        "kind": "function",
+        "declaration": "fn binary64_integer(messages ...types.ErrorMessage) types.Action[f64]",
+        "comment": "",
+        "file": "api_checks.v",
+        "line": 53
+    },
+    {
+        "module_name": "valibro",
+        "name": "binary64_integer_of",
+        "receiver": "",
+        "kind": "function",
+        "declaration": "fn binary64_integer_of[T](messages ...types.ErrorMessage) types.Action[T]",
+        "comment": "",
+        "file": "api_checks.v",
+        "line": 361
     },
     {
         "module_name": "valibro",
@@ -5227,7 +3477,7 @@
         "declaration": "fn blob() types.Schema[types.Blob, types.Blob]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 104
+        "line": 76
     },
     {
         "module_name": "valibro",
@@ -5237,27 +3487,7 @@
         "declaration": "fn boolean(messages ...types.ErrorMessage) types.Schema[bool, bool]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 60
-    },
-    {
-        "module_name": "valibro",
-        "name": "brand",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn brand[B]() types.Transformation[string, types.Branded[string, B]]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 43
-    },
-    {
-        "module_name": "valibro",
-        "name": "brand_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn brand_for[T, B]() types.Transformation[T, types.Branded[T, B]]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 67
+        "line": 52
     },
     {
         "module_name": "valibro",
@@ -5274,20 +3504,10 @@
         "name": "cache",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn cache[I, O](schema types.Schema[I, O], key fn (I) string, capacity int) types.Schema[I, O]",
+        "declaration": "fn cache[I, O](schema types.Schema[I, O], key fn (I) string, config methods.CacheConfig) types.Schema[I, O]",
         "comment": "",
         "file": "api_execution.v",
-        "line": 133
-    },
-    {
-        "module_name": "valibro",
-        "name": "cache_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn cache_with_config[I, O](schema types.Schema[I, O], key fn (I) string, config methods.CacheConfig) types.Schema[I, O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 153
+        "line": 50
     },
     {
         "module_name": "valibro",
@@ -5297,7 +3517,7 @@
         "declaration": "fn cached[I, O](schema types.Schema[I, O], key fn (I) string, config methods.CacheConfig) methods.CachedSchema[I, O]",
         "comment": "",
         "file": "api_execution.v",
-        "line": 157
+        "line": 30
     },
     {
         "module_name": "valibro",
@@ -5317,17 +3537,7 @@
         "declaration": "fn check_items[T](predicate fn (T, int) bool, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 84
-    },
-    {
-        "module_name": "valibro",
-        "name": "check_items_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn check_items_with_array[T](predicate fn (T, int, []T) bool, messages ...types.ErrorMessage) types.Action[[]T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 130
+        "line": 31
     },
     {
         "module_name": "valibro",
@@ -5357,7 +3567,7 @@
         "declaration": "fn config[I, O](schema types.Schema[I, O], settings types.Config) types.Schema[I, O]",
         "comment": "",
         "file": "api_execution.v",
-        "line": 45
+        "line": 10
     },
     {
         "module_name": "valibro",
@@ -5397,7 +3607,7 @@
         "declaration": "fn date(messages ...types.ErrorMessage) types.Schema[time.Time, time.Time]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 68
+        "line": 60
     },
     {
         "module_name": "valibro",
@@ -5411,63 +3621,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "delete_global_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn delete_global_config(mut context types.Context)",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 109
-    },
-    {
-        "module_name": "valibro",
-        "name": "delete_global_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn delete_global_message(mut context types.Context, languages ...string)",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 73
-    },
-    {
-        "module_name": "valibro",
-        "name": "delete_schema_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn delete_schema_message(mut context types.Context, languages ...string)",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 85
-    },
-    {
-        "module_name": "valibro",
-        "name": "delete_specific_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn delete_specific_message(mut context types.Context, kind string, languages ...string)",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 97
-    },
-    {
-        "module_name": "valibro",
         "name": "description",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn description(text string) types.Action[string]",
+        "declaration": "fn description[T](text string) types.Action[T]",
         "comment": "",
         "file": "api_metadata.v",
-        "line": 11
-    },
-    {
-        "module_name": "valibro",
-        "name": "description_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn description_for[T](text string) types.Action[T]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 55
+        "line": 23
     },
     {
         "module_name": "valibro",
@@ -5527,7 +3687,7 @@
         "declaration": "fn empty_of[T](messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 96
+        "line": 43
     },
     {
         "module_name": "valibro",
@@ -5541,53 +3701,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "entries",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn entries[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 24
-    },
-    {
-        "module_name": "valibro",
-        "name": "entries_from_list",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn entries_from_list[T](keys []string, value T) map[string]T",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 142
-    },
-    {
-        "module_name": "valibro",
-        "name": "entries_from_objects",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn entries_from_objects[T](objects ...map[string]T) map[string]T",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 146
-    },
-    {
-        "module_name": "valibro",
         "name": "entry_map",
         "receiver": "",
         "kind": "function",
         "declaration": "fn entry_map[K, L, I, O](key types.Schema[K, L], value types.Schema[I, O], equal fn (L, L) bool) types.Schema[types.EntryMap[K, I], types.EntryMap[L, O]]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 162
-    },
-    {
-        "module_name": "valibro",
-        "name": "enum_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn enum_schema[T](values []T, messages ...types.ErrorMessage) types.Schema[T, T]",
-        "comment": "",
-        "file": "api_schema.v",
-        "line": 88
+        "line": 73
     },
     {
         "module_name": "valibro",
@@ -5597,77 +3717,17 @@
         "declaration": "fn every_item[T](predicate fn (T, int) bool, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 76
-    },
-    {
-        "module_name": "valibro",
-        "name": "every_item_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn every_item_with_array[T](predicate fn (T, int, []T) bool, messages ...types.ErrorMessage) types.Action[[]T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 122
-    },
-    {
-        "module_name": "valibro",
-        "name": "exact_optional",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional[I, O](wrapped types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 11
-    },
-    {
-        "module_name": "valibro",
-        "name": "exact_optional_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 67
-    },
-    {
-        "module_name": "valibro",
-        "name": "exact_optional_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 91
-    },
-    {
-        "module_name": "valibro",
-        "name": "exact_optional_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn exact_optional_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 115
+        "line": 23
     },
     {
         "module_name": "valibro",
         "name": "examples",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn examples(values []string) types.Action[string]",
+        "declaration": "fn examples[T](values []T) types.Action[T]",
         "comment": "",
         "file": "api_metadata.v",
-        "line": 15
-    },
-    {
-        "module_name": "valibro",
-        "name": "examples_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn examples_for[T](values []T) types.Action[T]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 75
+        "line": 31
     },
     {
         "module_name": "valibro",
@@ -5687,7 +3747,7 @@
         "declaration": "fn excludes_item[T](requirement T, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 92
+        "line": 39
     },
     {
         "module_name": "valibro",
@@ -5697,7 +3757,7 @@
         "declaration": "fn fallback[I, O](schema types.Schema[I, O], value O) types.Schema[I, O]",
         "comment": "",
         "file": "api_presence.v",
-        "line": 35
+        "line": 6
     },
     {
         "module_name": "valibro",
@@ -5707,17 +3767,7 @@
         "declaration": "fn fallback_fn[I, O](schema types.Schema[I, O], getter fn (I, []types.Issue) O) types.Schema[I, O]",
         "comment": "",
         "file": "api_presence.v",
-        "line": 39
-    },
-    {
-        "module_name": "valibro",
-        "name": "fallback_with_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn fallback_with_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[O], types.Config) O) types.Schema[I, O]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 55
+        "line": 10
     },
     {
         "module_name": "valibro",
@@ -5727,7 +3777,7 @@
         "declaration": "fn field[P, Q, I, O](name string, getter fn (P) I, setter fn (Q, O) Q, schema types.Schema[I, O]) types.Field[P, Q]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 92
+        "line": 64
     },
     {
         "module_name": "valibro",
@@ -5737,47 +3787,7 @@
         "declaration": "fn file() types.Schema[types.File, types.File]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 108
-    },
-    {
-        "module_name": "valibro",
-        "name": "filter_items",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn filter_items[T](predicate fn (T, int) bool) types.Action[[]T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 60
-    },
-    {
-        "module_name": "valibro",
-        "name": "filter_items_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn filter_items_with_array[T](predicate fn (T, int, []T) bool) types.Action[[]T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 110
-    },
-    {
-        "module_name": "valibro",
-        "name": "find_item",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn find_item[T](predicate fn (T, int) bool) types.Transformation[[]T, types.Maybe[T]]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 64
-    },
-    {
-        "module_name": "valibro",
-        "name": "find_item_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn find_item_with_array[T](predicate fn (T, int, []T) bool) types.Transformation[[]T, types.Maybe[T]]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 114
+        "line": 80
     },
     {
         "module_name": "valibro",
@@ -5807,27 +3817,7 @@
         "declaration": "fn flatten(issues []types.Issue) methods.FlatErrors",
         "comment": "",
         "file": "api_execution.v",
-        "line": 57
-    },
-    {
-        "module_name": "valibro",
-        "name": "flavor",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn flavor[B]() types.Transformation[string, types.Flavored[string, B]]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 47
-    },
-    {
-        "module_name": "valibro",
-        "name": "flavor_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn flavor_for[T, B]() types.Transformation[T, types.Flavored[T, B]]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 71
+        "line": 22
     },
     {
         "module_name": "valibro",
@@ -5837,37 +3827,7 @@
         "declaration": "fn forward[T](action types.Action[T], path []types.PathSegment) types.Action[T]",
         "comment": "",
         "file": "api_execution.v",
-        "line": 49
-    },
-    {
-        "module_name": "valibro",
-        "name": "function_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn function_schema[I, O]() types.Schema[types.Function[I, O], types.Function[I, O]]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 121
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_default[I, O](schema types.Schema[I, O], configs ...types.Config) ?I",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 43
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_default_with_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_default_with_context[I, O](schema types.Schema[I, O], dataset ?types.Dataset[I], configs ...types.Config) ?I",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 83
+        "line": 14
     },
     {
         "module_name": "valibro",
@@ -5877,7 +3837,7 @@
         "declaration": "fn get_description[I, O](schema types.Schema[I, O]) ?string",
         "comment": "",
         "file": "api_metadata.v",
-        "line": 27
+        "line": 11
     },
     {
         "module_name": "valibro",
@@ -5887,67 +3847,17 @@
         "declaration": "fn get_dot_path(issue types.Issue) string",
         "comment": "",
         "file": "api_execution.v",
-        "line": 53
+        "line": 18
     },
     {
         "module_name": "valibro",
         "name": "get_examples",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn get_examples[I, O](schema types.Schema[I, O]) ?[]string",
+        "declaration": "fn get_examples[I, O](schema types.Schema[I, O]) ?[]O",
         "comment": "",
         "file": "api_metadata.v",
-        "line": 31
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_examples_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_examples_for[I, O](schema types.Schema[I, O]) ?[]O",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 79
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_fallback",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_fallback[I, O](schema types.Schema[I, O], configs ...types.Config) ?O",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 47
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_fallback_with_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_fallback_with_context[I, O](schema types.Schema[I, O], dataset ?types.Dataset[O], configs ...types.Config) ?O",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 51
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_global_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_global_config(context types.Context) types.Config",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 101
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_global_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_global_message(context types.Context, languages ...string) ?types.ErrorMessage",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 65
+        "line": 35
     },
     {
         "module_name": "valibro",
@@ -5957,27 +3867,7 @@
         "declaration": "fn get_metadata[I, O](schema types.Schema[I, O]) map[string]json2.Any",
         "comment": "",
         "file": "api_metadata.v",
-        "line": 35
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_schema_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_schema_message(context types.Context, languages ...string) ?types.ErrorMessage",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 77
-    },
-    {
-        "module_name": "valibro",
-        "name": "get_specific_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn get_specific_message(context types.Context, kind string, languages ...string) ?types.ErrorMessage",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 89
+        "line": 15
     },
     {
         "module_name": "valibro",
@@ -5987,7 +3877,7 @@
         "declaration": "fn get_title[I, O](schema types.Schema[I, O]) ?string",
         "comment": "",
         "file": "api_metadata.v",
-        "line": 23
+        "line": 7
     },
     {
         "module_name": "valibro",
@@ -6017,7 +3907,7 @@
         "declaration": "fn guard[T](predicate fn (T) bool, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 163
+        "line": 131
     },
     {
         "module_name": "valibro",
@@ -6077,17 +3967,17 @@
         "declaration": "fn includes_item[T](requirement T, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 88
+        "line": 35
     },
     {
         "module_name": "valibro",
-        "name": "instance",
+        "name": "inspect",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn instance[T]() types.Schema[T, T]",
+        "declaration": "fn inspect[I, O](schema types.Schema[I, O], input I, config types.Config) !types.Dataset[O]",
         "comment": "",
-        "file": "api_schema.v",
-        "line": 112
+        "file": "api_execution.v",
+        "line": 42
     },
     {
         "module_name": "valibro",
@@ -6141,43 +4031,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "is_of_kind",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn is_of_kind[T](item T, kind string) bool",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 189
-    },
-    {
-        "module_name": "valibro",
-        "name": "is_of_type",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn is_of_type[T](item T, name string) bool",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 193
-    },
-    {
-        "module_name": "valibro",
-        "name": "is_vali_error",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn is_vali_error(err IError) bool",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 173
-    },
-    {
-        "module_name": "valibro",
         "name": "is_valid",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn is_valid[I, O](schema types.Schema[I, O], input I) bool",
+        "declaration": "fn is_valid[I, O](schema types.Schema[I, O], input I, config types.Config) !bool",
         "comment": "",
         "file": "api_execution.v",
-        "line": 29
+        "line": 46
     },
     {
         "module_name": "valibro",
@@ -6297,7 +4157,7 @@
         "declaration": "fn lazy[I, O](getter fn () types.Schema[I, O]) types.Schema[I, O]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 36
+        "line": 28
     },
     {
         "module_name": "valibro",
@@ -6307,7 +4167,7 @@
         "declaration": "fn lazy_with[I, O](getter fn (I) types.Schema[I, O]) types.Schema[I, O]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 48
+        "line": 40
     },
     {
         "module_name": "valibro",
@@ -6327,7 +4187,7 @@
         "declaration": "fn length_of[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 8
+        "line": 7
     },
     {
         "module_name": "valibro",
@@ -6381,33 +4241,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "map_items",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn map_items[I, O](operation fn (I, int) O) types.Transformation[[]I, []O]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 56
-    },
-    {
-        "module_name": "valibro",
-        "name": "map_items_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn map_items_with_array[I, O](operation fn (I, int, []I) O) types.Transformation[[]I, []O]",
-        "comment": "Array-aware callbacks receive the original input array.",
-        "file": "api_collections.v",
-        "line": 106
-    },
-    {
-        "module_name": "valibro",
         "name": "map_schema",
         "receiver": "",
         "kind": "function",
         "declaration": "fn map_schema[K, L, I, O](key types.Schema[K, L], value types.Schema[I, O]) types.Schema[map[K]I, map[L]O]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 154
+        "line": 65
     },
     {
         "module_name": "valibro",
@@ -6428,16 +4268,6 @@
         "comment": "",
         "file": "api_checks.v",
         "line": 229
-    },
-    {
-        "module_name": "valibro",
-        "name": "max_entries",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn max_entries[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 32
     },
     {
         "module_name": "valibro",
@@ -6467,17 +4297,7 @@
         "declaration": "fn max_length_of[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 16
-    },
-    {
-        "module_name": "valibro",
-        "name": "max_size",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn max_size[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 48
+        "line": 15
     },
     {
         "module_name": "valibro",
@@ -6524,20 +4344,10 @@
         "name": "metadata",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn metadata(entries map[string]json2.Any) types.Action[string]",
+        "declaration": "fn metadata[T](entries map[string]json2.Any) types.Action[T]",
         "comment": "",
         "file": "api_metadata.v",
-        "line": 19
-    },
-    {
-        "module_name": "valibro",
-        "name": "metadata_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn metadata_for[T](entries map[string]json2.Any) types.Action[T]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 59
+        "line": 27
     },
     {
         "module_name": "valibro",
@@ -6547,7 +4357,7 @@
         "declaration": "fn mime_type[T](requirements []string, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 158
+        "line": 69
     },
     {
         "module_name": "valibro",
@@ -6568,16 +4378,6 @@
         "comment": "",
         "file": "api_checks.v",
         "line": 225
-    },
-    {
-        "module_name": "valibro",
-        "name": "min_entries",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn min_entries[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 28
     },
     {
         "module_name": "valibro",
@@ -6607,17 +4407,7 @@
         "declaration": "fn min_length_of[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 12
-    },
-    {
-        "module_name": "valibro",
-        "name": "min_size",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn min_size[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 44
+        "line": 11
     },
     {
         "module_name": "valibro",
@@ -6657,7 +4447,7 @@
         "declaration": "fn nan(messages ...types.ErrorMessage) types.Schema[f64, f64]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 44
+        "line": 36
     },
     {
         "module_name": "valibro",
@@ -6677,7 +4467,7 @@
         "declaration": "fn never[T](messages ...types.ErrorMessage) types.Schema[T, T]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 32
+        "line": 24
     },
     {
         "module_name": "valibro",
@@ -6697,37 +4487,7 @@
         "declaration": "fn non_empty_of[T](messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 100
-    },
-    {
-        "module_name": "valibro",
-        "name": "non_nullable",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_nullable[I, O](wrapped types.Schema[types.Maybe[I], types.Maybe[O]], messages ...types.ErrorMessage) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 27
-    },
-    {
-        "module_name": "valibro",
-        "name": "non_nullish",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_nullish[I, O](wrapped types.Schema[types.Maybe[I], types.Maybe[O]], messages ...types.ErrorMessage) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 31
-    },
-    {
-        "module_name": "valibro",
-        "name": "non_optional",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn non_optional[I, O](wrapped types.Schema[types.Maybe[I], types.Maybe[O]], messages ...types.ErrorMessage) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 23
+        "line": 47
     },
     {
         "module_name": "valibro",
@@ -6737,7 +4497,7 @@
         "declaration": "fn normalize(forms ...unicode.NormalizeForm) types.Action[string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 167
+        "line": 135
     },
     {
         "module_name": "valibro",
@@ -6758,16 +4518,6 @@
         "comment": "",
         "file": "api_checks.v",
         "line": 233
-    },
-    {
-        "module_name": "valibro",
-        "name": "not_entries",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn not_entries[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 36
     },
     {
         "module_name": "valibro",
@@ -6797,17 +4547,7 @@
         "declaration": "fn not_length_of[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 20
-    },
-    {
-        "module_name": "valibro",
-        "name": "not_size",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn not_size[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 52
+        "line": 19
     },
     {
         "module_name": "valibro",
@@ -6841,103 +4581,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "null_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn null_schema() types.Schema[types.Null, types.Null]",
-        "comment": "",
-        "file": "api_schema.v",
-        "line": 72
-    },
-    {
-        "module_name": "valibro",
-        "name": "nullable",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable[I, O](wrapped types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 15
-    },
-    {
-        "module_name": "valibro",
-        "name": "nullable_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 71
-    },
-    {
-        "module_name": "valibro",
-        "name": "nullable_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 95
-    },
-    {
-        "module_name": "valibro",
-        "name": "nullable_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullable_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 119
-    },
-    {
-        "module_name": "valibro",
-        "name": "nullish",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish[I, O](wrapped types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 19
-    },
-    {
-        "module_name": "valibro",
-        "name": "nullish_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 75
-    },
-    {
-        "module_name": "valibro",
-        "name": "nullish_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 99
-    },
-    {
-        "module_name": "valibro",
-        "name": "nullish_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn nullish_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 123
-    },
-    {
-        "module_name": "valibro",
         "name": "number",
         "receiver": "",
         "kind": "function",
         "declaration": "fn number(messages ...types.ErrorMessage) types.Schema[f64, f64]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 52
+        "line": 44
     },
     {
         "module_name": "valibro",
@@ -6947,7 +4597,7 @@
         "declaration": "fn number_of[T](messages ...types.ErrorMessage) types.Schema[T, T]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 56
+        "line": 48
     },
     {
         "module_name": "valibro",
@@ -6957,7 +4607,7 @@
         "declaration": "fn object[T](fields ...types.Field[T, T]) types.Schema[T, T]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 96
+        "line": 68
     },
     {
         "module_name": "valibro",
@@ -6967,7 +4617,7 @@
         "declaration": "fn object_from[I, O](initial fn (I) O, fields []types.Field[I, O]) types.Schema[I, O]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 100
+        "line": 72
     },
     {
         "module_name": "valibro",
@@ -6981,63 +4631,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "optional",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional[I, O](wrapped types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 7
-    },
-    {
-        "module_name": "valibro",
-        "name": "optional_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 63
-    },
-    {
-        "module_name": "valibro",
-        "name": "optional_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 87
-    },
-    {
-        "module_name": "valibro",
-        "name": "optional_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn optional_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 111
-    },
-    {
-        "module_name": "valibro",
         "name": "parse",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn parse[I, O](schema types.Schema[I, O], input I) !O",
+        "declaration": "fn parse[I, O](schema types.Schema[I, O], input I, config types.Config) !O",
         "comment": "",
         "file": "api_execution.v",
-        "line": 21
-    },
-    {
-        "module_name": "valibro",
-        "name": "parse_async",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parse_async[I, O](schema types.Schema[I, O], input I) types.Future[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 169
+        "line": 38
     },
     {
         "module_name": "valibro",
@@ -7057,7 +4657,7 @@
         "declaration": "fn parse_boolean_from[T](messages ...types.ErrorMessage) types.Transformation[T, bool]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 99
+        "line": 71
     },
     {
         "module_name": "valibro",
@@ -7077,57 +4677,17 @@
         "declaration": "fn parse_boolean_with_values[T](truthy []T, falsy []T, messages ...types.ErrorMessage) types.Transformation[T, bool]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 103
+        "line": 75
     },
     {
         "module_name": "valibro",
         "name": "parse_json",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn parse_json(messages ...types.ErrorMessage) types.Transformation[string, json2.Any]",
+        "declaration": "fn parse_json(config jsoncodec.ParseConfig) types.Transformation[string, json2.Any]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 43
-    },
-    {
-        "module_name": "valibro",
-        "name": "parse_json_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parse_json_with_config(config jsoncodec.ParseConfig, messages ...types.ErrorMessage) types.Transformation[string, types.Maybe[json2.Any]]",
-        "comment": "",
-        "file": "api_transform.v",
-        "line": 67
-    },
-    {
-        "module_name": "valibro",
-        "name": "parse_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parse_with_config[I, O](schema types.Schema[I, O], input I, config types.Config) !O",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 25
-    },
-    {
-        "module_name": "valibro",
-        "name": "parser",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parser[I, O](schema types.Schema[I, O]) fn (I) !O",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 37
-    },
-    {
-        "module_name": "valibro",
-        "name": "parser_async",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn parser_async[I, O](schema types.Schema[I, O]) fn (I) types.Future[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 141
+        "line": 143
     },
     {
         "module_name": "valibro",
@@ -7157,7 +4717,7 @@
         "declaration": "fn pipe[I, O](schema types.Schema[I, O], items ...types.Action[O]) types.Schema[I, O]",
         "comment": "",
         "file": "api_execution.v",
-        "line": 9
+        "line": 6
     },
     {
         "module_name": "valibro",
@@ -7167,17 +4727,7 @@
         "declaration": "fn pipe_to[I, O, N](schema types.Schema[I, O], action types.Transformation[O, N]) types.Schema[I, N]",
         "comment": "",
         "file": "api_execution.v",
-        "line": 197
-    },
-    {
-        "module_name": "valibro",
-        "name": "promise",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn promise[T]() types.Schema[types.Future[T], types.Future[T]]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 161
+        "line": 34
     },
     {
         "module_name": "valibro",
@@ -7207,7 +4757,7 @@
         "declaration": "fn raw_transform[T](operation fn (T) types.Dataset[T]) types.Action[T]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 155
+        "line": 123
     },
     {
         "module_name": "valibro",
@@ -7217,7 +4767,7 @@
         "declaration": "fn raw_transform_to[I, O](operation fn (I) types.Dataset[O]) types.Transformation[I, O]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 159
+        "line": 127
     },
     {
         "module_name": "valibro",
@@ -7227,7 +4777,7 @@
         "declaration": "fn raw_transform_to_with_context[I, O](operation fn (types.Dataset[I], types.Config) types.Dataset[O]) types.Transformation[I, O]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 63
+        "line": 47
     },
     {
         "module_name": "valibro",
@@ -7237,27 +4787,7 @@
         "declaration": "fn raw_transform_with_context[T](operation fn (types.Dataset[T], types.Config) types.Dataset[T]) types.Action[T]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 59
-    },
-    {
-        "module_name": "valibro",
-        "name": "readonly",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn readonly() types.Action[string]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 39
-    },
-    {
-        "module_name": "valibro",
-        "name": "readonly_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn readonly_for[T]() types.Action[T]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 63
+        "line": 43
     },
     {
         "module_name": "valibro",
@@ -7267,27 +4797,7 @@
         "declaration": "fn record[I, O](key types.Schema[string, string], value types.Schema[I, O]) types.Schema[map[string]I, map[string]O]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 138
-    },
-    {
-        "module_name": "valibro",
-        "name": "reduce_items",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn reduce_items[T, A](operation fn (A, T, int) A, initial A) types.Transformation[[]T, A]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 68
-    },
-    {
-        "module_name": "valibro",
-        "name": "reduce_items_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn reduce_items_with_array[T, A](operation fn (A, T, int, []T) A, initial A) types.Transformation[[]T, A]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 118
+        "line": 57
     },
     {
         "module_name": "valibro",
@@ -7321,26 +4831,6 @@
     },
     {
         "module_name": "valibro",
-        "name": "returns",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn returns[I, R, S](schema types.Schema[R, S]) types.Transformation[types.Function[I, R], types.FallibleFunction[I, S]]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 129
-    },
-    {
-        "module_name": "valibro",
-        "name": "returns_checked",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn returns_checked[I, R, S](schema types.Schema[R, S]) types.Transformation[types.FallibleFunction[I, R], types.FallibleFunction[I, S]]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 137
-    },
-    {
-        "module_name": "valibro",
         "name": "rfc_email",
         "receiver": "",
         "kind": "function",
@@ -7351,103 +4841,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "safe_integer",
+        "name": "schema",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn safe_integer(messages ...types.ErrorMessage) types.Action[f64]",
+        "declaration": "fn schema[T]() types.Schema[T, T]",
         "comment": "",
-        "file": "api_checks.v",
-        "line": 53
-    },
-    {
-        "module_name": "valibro",
-        "name": "safe_integer_of",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_integer_of[T](messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_checks.v",
-        "line": 361
-    },
-    {
-        "module_name": "valibro",
-        "name": "safe_parse",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse[I, O](schema types.Schema[I, O], input I) types.SafeParseResult[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 13
-    },
-    {
-        "module_name": "valibro",
-        "name": "safe_parse_async",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_async[I, O](schema types.Schema[I, O], input I) chan types.SafeParseResult[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 113
-    },
-    {
-        "module_name": "valibro",
-        "name": "safe_parse_async_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_async_with_config[I, O](schema types.Schema[I, O], input I, config types.Config) chan types.SafeParseResult[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 117
-    },
-    {
-        "module_name": "valibro",
-        "name": "safe_parse_checked",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_checked[I, O](schema types.Schema[I, O], input I, configs ...types.Config) !types.SafeParseResult[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 149
-    },
-    {
-        "module_name": "valibro",
-        "name": "safe_parse_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parse_with_config[I, O](schema types.Schema[I, O], input I, config types.Config) types.SafeParseResult[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 17
-    },
-    {
-        "module_name": "valibro",
-        "name": "safe_parser",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parser[I, O](schema types.Schema[I, O]) fn (I) types.SafeParseResult[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 41
-    },
-    {
-        "module_name": "valibro",
-        "name": "safe_parser_async",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn safe_parser_async[I, O](schema types.Schema[I, O]) fn (I) chan types.SafeParseResult[O]",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 145
-    },
-    {
-        "module_name": "valibro",
-        "name": "schema_is_of_type",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn schema_is_of_type[I, O](schema types.Schema[I, O], name string) bool",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 177
+        "file": "api_schema.v",
+        "line": 84
     },
     {
         "module_name": "valibro",
@@ -7457,47 +4857,7 @@
         "declaration": "fn set[I, O](item types.Schema[I, O]) types.Schema[types.Set[I], types.Set[O]]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 150
-    },
-    {
-        "module_name": "valibro",
-        "name": "set_global_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn set_global_config(mut context types.Context, config types.Config)",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 105
-    },
-    {
-        "module_name": "valibro",
-        "name": "set_global_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn set_global_message(mut context types.Context, message types.ErrorMessage, languages ...string)",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 69
-    },
-    {
-        "module_name": "valibro",
-        "name": "set_schema_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn set_schema_message(mut context types.Context, message types.ErrorMessage, languages ...string)",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 81
-    },
-    {
-        "module_name": "valibro",
-        "name": "set_specific_message",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn set_specific_message(mut context types.Context, kind string, message types.ErrorMessage, languages ...string)",
-        "comment": "",
-        "file": "api_execution.v",
-        "line": 93
+        "line": 61
     },
     {
         "module_name": "valibro",
@@ -7507,17 +4867,7 @@
         "declaration": "fn set_with[I, O](item types.Schema[I, O], equal fn (O, O) bool) types.Schema[types.Set[I], types.Set[O]]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 166
-    },
-    {
-        "module_name": "valibro",
-        "name": "size",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn size[T](requirement int, messages ...types.ErrorMessage) types.Action[T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 40
+        "line": 77
     },
     {
         "module_name": "valibro",
@@ -7537,27 +4887,7 @@
         "declaration": "fn some_item[T](predicate fn (T, int) bool, messages ...types.ErrorMessage) types.Action[[]T]",
         "comment": "",
         "file": "api_collections.v",
-        "line": 80
-    },
-    {
-        "module_name": "valibro",
-        "name": "some_item_with_array",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn some_item_with_array[T](predicate fn (T, int, []T) bool, messages ...types.ErrorMessage) types.Action[[]T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 126
-    },
-    {
-        "module_name": "valibro",
-        "name": "sort_items",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn sort_items[T](compare fn (T, T) int) types.Action[[]T]",
-        "comment": "",
-        "file": "api_collections.v",
-        "line": 72
+        "line": 27
     },
     {
         "module_name": "valibro",
@@ -7581,53 +4911,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "stringify_json",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_json() types.Action[string]",
-        "comment": "",
-        "file": "api_transform.v",
-        "line": 47
-    },
-    {
-        "module_name": "valibro",
         "name": "stringify_json_value",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn stringify_json_value[T](messages ...types.ErrorMessage) types.Transformation[T, string]",
+        "declaration": "fn stringify_json_value[T](config jsoncodec.StringifyConfig) types.Transformation[T, string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 51
-    },
-    {
-        "module_name": "valibro",
-        "name": "stringify_json_value_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_json_value_with_config[T](config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[T, string]",
-        "comment": "",
-        "file": "api_transform.v",
-        "line": 55
-    },
-    {
-        "module_name": "valibro",
-        "name": "stringify_json_with_config",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_json_with_config(config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[json2.Any, string]",
-        "comment": "",
-        "file": "api_transform.v",
-        "line": 71
-    },
-    {
-        "module_name": "valibro",
-        "name": "stringify_json_with_config_utf16",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn stringify_json_with_config_utf16(config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[json2.Any, []u16]",
-        "comment": "",
-        "file": "api_transform.v",
-        "line": 75
+        "line": 147
     },
     {
         "module_name": "valibro",
@@ -7637,37 +4927,17 @@
         "declaration": "fn summarize(issues []types.Issue) string",
         "comment": "",
         "file": "api_execution.v",
-        "line": 61
-    },
-    {
-        "module_name": "valibro",
-        "name": "symbol",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn symbol() types.Schema[types.Symbol, types.Symbol]",
-        "comment": "",
-        "file": "api_schema.v",
-        "line": 84
+        "line": 26
     },
     {
         "module_name": "valibro",
         "name": "title",
         "receiver": "",
         "kind": "function",
-        "declaration": "fn title(text string) types.Action[string]",
+        "declaration": "fn title[T](text string) types.Action[T]",
         "comment": "",
         "file": "api_metadata.v",
-        "line": 7
-    },
-    {
-        "module_name": "valibro",
-        "name": "title_for",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn title_for[T](text string) types.Action[T]",
-        "comment": "",
-        "file": "api_metadata.v",
-        "line": 51
+        "line": 19
     },
     {
         "module_name": "valibro",
@@ -7687,7 +4957,7 @@
         "declaration": "fn to_bigint_from[T](messages ...types.ErrorMessage) types.Transformation[T, big.Integer]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 83
+        "line": 55
     },
     {
         "module_name": "valibro",
@@ -7707,7 +4977,7 @@
         "declaration": "fn to_boolean_from[T](messages ...types.ErrorMessage) types.Transformation[T, bool]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 87
+        "line": 59
     },
     {
         "module_name": "valibro",
@@ -7717,7 +4987,7 @@
         "declaration": "fn to_camel_case() types.Action[string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 119
+        "line": 91
     },
     {
         "module_name": "valibro",
@@ -7737,7 +5007,7 @@
         "declaration": "fn to_date_from[T](messages ...types.ErrorMessage) types.Transformation[T, time.Time]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 91
+        "line": 63
     },
     {
         "module_name": "valibro",
@@ -7747,7 +5017,7 @@
         "declaration": "fn to_kebab_case() types.Action[string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 127
+        "line": 99
     },
     {
         "module_name": "valibro",
@@ -7767,7 +5037,7 @@
         "declaration": "fn to_max_value[T](requirement T) types.Action[T]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 143
+        "line": 111
     },
     {
         "module_name": "valibro",
@@ -7777,7 +5047,7 @@
         "declaration": "fn to_min_value[T](requirement T) types.Action[T]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 139
+        "line": 107
     },
     {
         "module_name": "valibro",
@@ -7797,7 +5067,7 @@
         "declaration": "fn to_number_from[T](messages ...types.ErrorMessage) types.Transformation[T, f64]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 79
+        "line": 51
     },
     {
         "module_name": "valibro",
@@ -7807,7 +5077,7 @@
         "declaration": "fn to_pascal_case() types.Action[string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 123
+        "line": 95
     },
     {
         "module_name": "valibro",
@@ -7817,17 +5087,7 @@
         "declaration": "fn to_snake_case() types.Action[string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 131
-    },
-    {
-        "module_name": "valibro",
-        "name": "to_string",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn to_string() types.Action[string]",
-        "comment": "",
-        "file": "api_transform.v",
-        "line": 135
+        "line": 103
     },
     {
         "module_name": "valibro",
@@ -7837,7 +5097,7 @@
         "declaration": "fn to_string_from[T](messages ...types.ErrorMessage) types.Transformation[T, string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 95
+        "line": 67
     },
     {
         "module_name": "valibro",
@@ -7847,7 +5107,7 @@
         "declaration": "fn to_upper_case() types.Action[string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 115
+        "line": 87
     },
     {
         "module_name": "valibro",
@@ -7857,7 +5117,7 @@
         "declaration": "fn transform[T](operation fn (T) T) types.Action[T]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 147
+        "line": 115
     },
     {
         "module_name": "valibro",
@@ -7867,7 +5127,7 @@
         "declaration": "fn transform_to[I, O](operation fn (I) O) types.Transformation[I, O]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 151
+        "line": 119
     },
     {
         "module_name": "valibro",
@@ -7887,7 +5147,7 @@
         "declaration": "fn trim_end() types.Action[string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 111
+        "line": 83
     },
     {
         "module_name": "valibro",
@@ -7897,7 +5157,17 @@
         "declaration": "fn trim_start() types.Action[string]",
         "comment": "",
         "file": "api_transform.v",
-        "line": 107
+        "line": 79
+    },
+    {
+        "module_name": "valibro",
+        "name": "try_transform",
+        "receiver": "",
+        "kind": "function",
+        "declaration": "fn try_transform[I, O](operation fn (I) !O) types.Transformation[I, O]",
+        "comment": "",
+        "file": "api_transform.v",
+        "line": 139
     },
     {
         "module_name": "valibro",
@@ -7911,93 +5181,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "undefined_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefined_schema() types.Schema[types.Undefined, types.Undefined]",
-        "comment": "",
-        "file": "api_schema.v",
-        "line": 76
-    },
-    {
-        "module_name": "valibro",
-        "name": "undefinedable",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefinedable[I, O](schema types.Schema[I, O], defaults ...I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 131
-    },
-    {
-        "module_name": "valibro",
-        "name": "undefinedable_with_default",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefinedable_with_default[I, O](schema types.Schema[I, O], getter fn (types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 79
-    },
-    {
-        "module_name": "valibro",
-        "name": "undefinedable_with_default_context",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefinedable_with_default_context[I, O](schema types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) I) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 103
-    },
-    {
-        "module_name": "valibro",
-        "name": "undefinedable_with_default_state",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn undefinedable_with_default_state[I, O](wrapped types.Schema[I, O], getter fn (?types.Dataset[types.Maybe[I]], types.Config) types.Maybe[I]) types.Schema[types.Maybe[I], types.Maybe[O]]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 127
-    },
-    {
-        "module_name": "valibro",
         "name": "union",
         "receiver": "",
         "kind": "function",
         "declaration": "fn union[I, O](options []types.Schema[I, O], messages ...types.ErrorMessage) types.Schema[I, O]",
         "comment": "",
         "file": "api_schema.v",
-        "line": 40
-    },
-    {
-        "module_name": "valibro",
-        "name": "unknown",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn unknown[T]() types.Schema[T, T]",
-        "comment": "",
-        "file": "api_schema.v",
-        "line": 24
-    },
-    {
-        "module_name": "valibro",
-        "name": "unwrap",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn unwrap[I, O](schema types.Schema[types.Maybe[I], types.Maybe[O]]) types.Schema[I, O]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 59
-    },
-    {
-        "module_name": "valibro",
-        "name": "unwrap_as",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn unwrap_as[I, O, P, Q](schema types.Schema[I, O]) !types.Schema[P, Q]",
-        "comment": "",
-        "file": "api_presence.v",
-        "line": 107
+        "line": 32
     },
     {
         "module_name": "valibro",
@@ -8038,16 +5228,6 @@
         "comment": "",
         "file": "api_checks.v",
         "line": 273
-    },
-    {
-        "module_name": "valibro",
-        "name": "void_schema",
-        "receiver": "",
-        "kind": "function",
-        "declaration": "fn void_schema() types.Schema[types.Undefined, types.Undefined]",
-        "comment": "",
-        "file": "api_schema.v",
-        "line": 80
     },
     {
         "module_name": "valibro",
@@ -8117,7 +5297,7 @@
         "declaration": "type HashType = types.HashType",
         "comment": "",
         "file": "valibro.v",
-        "line": 39
+        "line": 35
     },
     {
         "module_name": "valibro",
@@ -8131,33 +5311,13 @@
     },
     {
         "module_name": "valibro",
-        "name": "JsonReplacerContext",
-        "receiver": "",
-        "kind": "typedef",
-        "declaration": "type JsonReplacerContext = jsoncodec.ReplacerContext",
-        "comment": "",
-        "file": "valibro.v",
-        "line": 35
-    },
-    {
-        "module_name": "valibro",
-        "name": "JsonReviverContext",
-        "receiver": "",
-        "kind": "typedef",
-        "declaration": "type JsonReviverContext = jsoncodec.ReviverContext",
-        "comment": "",
-        "file": "valibro.v",
-        "line": 33
-    },
-    {
-        "module_name": "valibro",
         "name": "NormalizeForm",
         "receiver": "",
         "kind": "typedef",
         "declaration": "type NormalizeForm = unicode.NormalizeForm",
         "comment": "",
         "file": "valibro.v",
-        "line": 43
+        "line": 39
     },
     {
         "module_name": "valibro",
@@ -8167,7 +5327,7 @@
         "declaration": "type ParseBooleanConfig = types.ParseBooleanConfig",
         "comment": "",
         "file": "valibro.v",
-        "line": 41
+        "line": 37
     },
     {
         "module_name": "valibro",
@@ -8207,7 +5367,7 @@
         "declaration": "type Regex = pcre.Regex",
         "comment": "",
         "file": "valibro.v",
-        "line": 37
+        "line": 33
     },
     {
         "module_name": "valibro",

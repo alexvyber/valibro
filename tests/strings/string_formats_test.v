@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import x.json2
 import valibro as v
 
@@ -46,7 +47,7 @@ fn test_string_formats_match_reference_and_explicit_native_profile() {
 		for row in cases {
 			if row.action != action.type_name { continue
 			 }
-			result := v.safe_parse(schema, row.input)
+			result := support.observe(schema, row.input)
 			mut expected := row.valid
 			for profile in profiles {
 				if profile.action == row.action && profile.input == row.input {

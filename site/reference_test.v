@@ -19,10 +19,9 @@ fn test_complete_public_reference_and_examples() {
 
 fn test_reference_includes_generic_receiver_methods_and_constants() {
 	inventory := read_inventory(@VMODROOT)!
-	assert inventory.any(it.module_name == 'types' && it.receiver == 'Future[T]'
-		&& it.name == 'await')
-	assert inventory.any(it.module_name == 'types' && it.receiver == 'Maybe[T]'
-		&& it.name == 'maybe_state')
+	assert inventory.any(it.module_name == 'types' && it.receiver == 'Set[T]' && it.name == 'count')
+	assert inventory.any(it.module_name == 'types' && it.receiver == 'EntryMap[K, V]'
+		&& it.name == 'count')
 	assert inventory.any(it.module_name == 'methods' && it.receiver == 'CachedSchema[I, O]'
 		&& it.name == 'clear')
 	assert inventory.any(it.module_name == 'unicode' && it.name == 'version' && it.kind == 'const')
@@ -38,7 +37,7 @@ fn test_reference_includes_generic_receiver_methods_and_constants() {
 		assert url !in urls, url
 		urls[url] = true
 	}
-	assert inventory.filter(it.module_name == 'valibro' && it.name == 'safe_parse')[0].url() == '/api/safe_parse/'
+	assert inventory.filter(it.module_name == 'valibro' && it.name == 'parse')[0].url() == '/api/parse/'
 }
 
 fn test_api_coverage_rejects_missing_and_stale_reference() {
@@ -67,7 +66,7 @@ fn test_inline_code_is_not_a_link_and_multiple_links_are_checked() {
 
 fn test_search_ranks_exact_root_api_above_signature_mentions() {
 	pages := load_pages(@VMODROOT)!
-	results := search_html(pages, 'safe_parse').all_after('<ul class="results">')
-	assert results.starts_with('<li><a href="/api/safe_parse/">safe_parse</a>')
+	results := search_html(pages, 'parse').all_after('<ul class="results">')
+	assert results.starts_with('<li><a href="/api/parse/">parse</a>')
 	assert results.count('<li>') <= 50
 }

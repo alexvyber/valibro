@@ -11,14 +11,6 @@ pub fn issue_value[T](input T) string {
 	$if T is $pointer {
 		if input == unsafe { nil } { return 'null' }
 		return issue_value(*input)
-	} $else $if T is types.NativeMaybe {
-		state := input.state
-		if state == .null { return 'null' }
-		if state in [.missing, .undefined] { return 'undefined' }
-		$for field in T.fields {
-			$if field.name == 'value' { return issue_value(input.$(field.name)) }
-		}
-		return 'Object'
 	} $else $if T is json2.Any {
 		return match input {
 			string { '"' + input + '"' }
@@ -36,10 +28,6 @@ pub fn issue_value[T](input T) string {
 		return 'Date'
 	} $else $if T is $function {
 		return 'Function'
-	} $else $if T is types.FunctionValue {
-		return 'Function'
-	} $else $if T is types.Symbol {
-		return 'symbol'
 	} $else $if T is types.Blob {
 		return 'Blob'
 	} $else $if T is types.File {
@@ -50,8 +38,6 @@ pub fn issue_value[T](input T) string {
 		return 'Object'
 	} $else $if T is string {
 		return '"' + input + '"'
-	} $else $if T is types.Null || T is types.Undefined {
-		return coerce.native_string[T](input)
 	} $else $if T is $struct {
 		return 'Object'
 	} $else {

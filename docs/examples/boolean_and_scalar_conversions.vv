@@ -7,7 +7,7 @@ assert v.parse(v.pipe_to(v.number_of[i64](), v.to_date_from[i64]()), i64(0))!.ye
 assert v.parse(v.pipe_to(v.number_of[int](), v.parse_boolean_from[int]()), 1)!
 custom := v.pipe_to(v.string(), v.parse_boolean_with_config(v.ParseBooleanConfig{truthy: ['accepted'], falsy: ['rejected']}))
 assert v.parse(custom, 'accepted')!
-assert !v.safe_parse(custom, 'unknown').success
+assert !v.is_valid(custom, 'unknown')!
 values := v.pipe_to(v.number_of[int](), v.parse_boolean_with_values([2], [0]))
 assert v.parse(values, 2)!
-assert !v.safe_parse(values, 1).success
+assert !v.is_valid(values, 1)!

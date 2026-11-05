@@ -3,22 +3,22 @@ import valibro.types
 
 schema := v.pipe(v.string(), v.min_length(3), v.starts_with('a'))
 bound := v.config(schema, v.Config{abort_early: true})
-assert v.safe_parse_with_config(bound, '', v.Config{abort_early: false}).issues.len == 1
+assert v.inspect(bound, '', v.Config{abort_early: false})!.issues.len == 1
 mut context := types.Context{}
-v.set_global_config(mut context, v.Config{lang: 'en'})
-v.set_global_message(mut context, 'Fallback', 'en')
-v.set_schema_message(mut context, 'Schema failure', 'en')
-v.set_specific_message(mut context, 'min_length', 'Too short', 'en')
-assert v.get_global_message(context, 'en') != none
-assert v.get_schema_message(context, 'en') != none
-assert v.get_specific_message(context, 'min_length', 'en') != none
-outcome := v.safe_parse_with_config(schema, '', v.get_global_config(context))
+context.config = v.Config{lang: 'en'}
+context.set_message('Fallback', 'en')
+context.set_schema_message('Schema failure', 'en')
+context.set_specific_message('min_length', 'Too short', 'en')
+assert context.message('en') != none
+assert context.schema_message('en') != none
+assert context.specific_message('min_length', 'en') != none
+outcome := v.inspect(schema, '', context.config)!
 assert outcome.issues[0].message == 'Too short'
-v.delete_specific_message(mut context, 'min_length', 'en')
-v.delete_schema_message(mut context, 'en')
-v.delete_global_message(mut context, 'en')
-assert v.get_specific_message(context, 'min_length', 'en') == none
-assert v.get_schema_message(context, 'en') == none
-assert v.get_global_message(context, 'en') == none
-v.delete_global_config(mut context)
-assert v.get_global_config(context).lang == ''
+context.delete_specific_message('min_length', 'en')
+context.delete_schema_message('en')
+context.delete_message('en')
+assert context.specific_message('min_length', 'en') == none
+assert context.schema_message('en') == none
+assert context.message('en') == none
+context.config = v.Config{}
+assert context.config.lang == ''
