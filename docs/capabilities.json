@@ -1,0 +1,2664 @@
+{
+  "upstream": {
+    "package": "valibot",
+    "version": "1.5.0",
+    "revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11"
+  },
+  "scope": "Public runtime functions, including aliases. Internal underscore helpers, TS-only types, JS regex instances, and ecosystem packages are not native V API functions.",
+  "meaning": "Availability and documented profiles do not establish exhaustive functional parity.",
+  "counts": {
+    "total": 272,
+    "available_native": 230,
+    "documented_profile": 42,
+    "missing": 0
+  },
+  "functions": [
+    {
+      "valibot": "ValiError",
+      "status": "available_native",
+      "equivalents": [
+        "types.ValidationError"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "any",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.any_value",
+        "valibro.json.any_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "args",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.args"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "argsAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.args"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "array",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.array",
+        "valibro.json.array"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/native_union_differential_test.v",
+        "tests/primitives/native_date_validation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "arrayAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.array",
+        "valibro.json.array"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/native_union_differential_test.v",
+        "tests/primitives/native_date_validation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "assert",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.assert_valid"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "awaitAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.await_future"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "base64",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.base64"
+      ],
+      "notes": "Native ASCII Base64 alphabet; JavaScript Unicode-folded letters are rejected. Two explicit format profile cases document this boundary.",
+      "evidence": [
+        "tests/strings/string_formats_test.v",
+        "tests/fixtures/strings/native_format_profile.json"
+      ]
+    },
+    {
+      "valibot": "bic",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.bic"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "bigint",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.bigint"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "blob",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.blob"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "boolean",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.boolean",
+        "valibro.json.boolean"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "brand",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.brand"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "bytes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.bytes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "cache",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.cache"
+      ],
+      "notes": "Bounded native LRU with expiration and controls. message_fn/identified_message provide stable callback identity; bare unidentified functions bypass caching.",
+      "evidence": [
+        "tests/execution/execution_test.v",
+        "tests/execution/cache_identity_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "cacheAsync",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.cache"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Bounded native LRU with expiration and controls. message_fn/identified_message provide stable callback identity; bare unidentified functions bypass caching.",
+      "evidence": [
+        "tests/execution/execution_test.v",
+        "tests/execution/cache_identity_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "check",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.check"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "checkAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.check"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "checkItems",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.check_items",
+        "valibro.check_items_with_array"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/collections/array_callback_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "checkItemsAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.check_items",
+        "valibro.check_items_with_array"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/collections/array_callback_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "codePoints",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.code_points"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "config",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.config"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "creditCard",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.credit_card"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "cuid2",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.cuid2"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "custom",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.custom",
+        "valibro.json.custom"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "customAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.custom",
+        "valibro.json.custom"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "date",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.date"
+      ],
+      "notes": "Native calendar validation for years -999999 through 999999; preserves native nanoseconds and has no mutable invalid-Date object.",
+      "evidence": [
+        "tests/primitives/native_date_validation_differential_test.v",
+        "tests/engines/native_dates_test.v"
+      ]
+    },
+    {
+      "valibot": "decimal",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.decimal"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "deleteGlobalConfig",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.delete_global_config"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "deleteGlobalMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.delete_global_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "deleteSchemaMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.delete_schema_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "deleteSpecificMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.delete_specific_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "description",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.description"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "digits",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.digits"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "domain",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.domain"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "email",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.email"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "emoji",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.emoji"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "empty",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.empty"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "endsWith",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.ends_with"
+      ],
+      "notes": "Native UTF-8 suffixes with whole-code-point diagnostic fragments."
+    },
+    {
+      "valibot": "entries",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.entries"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "entriesFromList",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.entries_from_list",
+        "valibro.json.entries_from_list"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "entriesFromObjects",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.entries_from_objects",
+        "valibro.json.entries_from_objects"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "enum",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.enum_schema"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "enum_",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.enum_schema"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "everyItem",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.every_item",
+        "valibro.every_item_with_array"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/collections/array_callback_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "exactOptional",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.exact_optional",
+        "valibro.exact_optional_with_default_state",
+        "valibro.json.exact_optional"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/default_state_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "exactOptionalAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.exact_optional",
+        "valibro.exact_optional_with_default_state",
+        "valibro.json.exact_optional"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/default_state_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "examples",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.examples"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "excludes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.excludes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "fallback",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.fallback",
+        "valibro.fallback_fn",
+        "valibro.fallback_with_context",
+        "valibro.json.fallback"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/fallback_context_differential_test.v",
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "fallbackAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.fallback",
+        "valibro.fallback_fn",
+        "valibro.fallback_with_context",
+        "valibro.json.fallback"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/fallback_context_differential_test.v",
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "file",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.file"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "filterItems",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.filter_items",
+        "valibro.filter_items_with_array"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/collections/array_callback_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "findItem",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.find_item",
+        "valibro.find_item_with_array"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/collections/array_callback_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "finite",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.finite"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "flatten",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.flatten"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/execution/error_path_differential_test.v",
+        "tests/collections/native_collection_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "flavor",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.flavor"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "forward",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.forward"
+      ],
+      "notes": "Existing JSON map keys and integer array indexes; missing paths stop at the deepest existing prefix. No truthiness or simulated properties.",
+      "evidence": [
+        "tests/execution/pipeline_differential_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "forwardAsync",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.forward"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Existing JSON map keys and integer array indexes; missing paths stop at the deepest existing prefix. No truthiness or simulated properties.",
+      "evidence": [
+        "tests/execution/pipeline_differential_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "function",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.function_schema"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "function_",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.function_schema"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getDefault",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_default",
+        "valibro.get_default_with_context",
+        "valibro.json.get_default"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/default_context_differential_test.v",
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "getDefaults",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.get_defaults"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getDefaultsAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.get_defaults"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getDescription",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_description"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getDotPath",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_dot_path"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getExamples",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_examples"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getFallback",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_fallback",
+        "valibro.get_fallback_with_context",
+        "valibro.json.get_fallback"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/fallback_context_differential_test.v",
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "getFallbacks",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.get_fallbacks"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getFallbacksAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.get_fallbacks"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getGlobalConfig",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_global_config"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "getGlobalMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_global_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "getMetadata",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_metadata"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "getSchemaMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_schema_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "getSpecificMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_specific_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "getTitle",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.get_title"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "graphemes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.graphemes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "gtValue",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.gt_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "guard",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.guard"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/custom_check_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "hash",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.hash"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "hexColor",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.hex_color"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "hexadecimal",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.hexadecimal"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "imei",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.imei"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "includes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.includes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "instance",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.instance"
+      ],
+      "notes": "Native type checking; JS class identity and instanceof are outside the V value model."
+    },
+    {
+      "valibot": "integer",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.integer"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "intersect",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.intersect"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "intersectAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.intersect"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "ip",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.ip"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "ipv4",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.ipv4"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "ipv6",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.ipv6"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "is",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.is_valid"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isOfKind",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.is_of_kind"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isOfType",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.is_of_type"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isValiError",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.is_vali_error"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isbn",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.isbn"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isoDate",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.iso_date"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isoDateTime",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.iso_date_time"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isoDateTimeSecond",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.iso_date_time_second"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isoTime",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.iso_time"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isoTimeSecond",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.iso_time_second"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isoTimestamp",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.iso_timestamp"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isoWeek",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.iso_week"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "isrc",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.isrc"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "jwsCompact",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.jws_compact"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "keyof",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.keyof"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "ksuid",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.ksuid"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "lazy",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.lazy",
+        "valibro.json.lazy"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "lazyAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.lazy",
+        "valibro.json.lazy"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "length",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.length"
+      ],
+      "notes": "Native Unicode scalar length, rather than UTF-16 units."
+    },
+    {
+      "valibot": "literal",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.literal",
+        "valibro.json.literal"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "looseObject",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.json.loose_object"
+      ],
+      "notes": "Native map iteration and ordinary extra keys."
+    },
+    {
+      "valibot": "looseObjectAsync",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.json.loose_object"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native map iteration and ordinary extra keys."
+    },
+    {
+      "valibot": "looseTuple",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.loose_tuple"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "looseTupleAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.loose_tuple"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "ltValue",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.lt_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "mac",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.mac"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "mac48",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.mac48"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "mac64",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.mac64"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "map",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.map_schema",
+        "valibro.entry_map"
+      ],
+      "notes": "map_schema supports native hash keys; entry_map supports arbitrary keys with explicit equality/identity.",
+      "evidence": [
+        "tests/collections/entry_map_audit_differential_test.v",
+        "tests/collections/partial_equality_differential_test.v",
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "mapAsync",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.map_schema",
+        "valibro.entry_map"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. map_schema supports native hash keys; entry_map supports arbitrary keys with explicit equality/identity.",
+      "evidence": [
+        "tests/collections/entry_map_audit_differential_test.v",
+        "tests/collections/partial_equality_differential_test.v",
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "mapItems",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.map_items",
+        "valibro.map_items_with_array"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/collections/array_callback_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "maxBytes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.max_bytes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "maxCodePoints",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.max_code_points"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "maxEntries",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.max_entries"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "maxGraphemes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.max_graphemes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "maxLength",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.max_length"
+      ],
+      "notes": "Native Unicode scalar string lengths; native collection counts."
+    },
+    {
+      "valibot": "maxSize",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.max_size"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "maxValue",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.max_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/strings/action_differential_test.v",
+        "tests/primitives/native_value_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "maxWords",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.max_words"
+      ],
+      "notes": "Native Unicode 17 default word segmentation without locale dictionaries.",
+      "evidence": [
+        "tests/strings/native_words_test.v"
+      ]
+    },
+    {
+      "valibot": "message",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.message"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "metadata",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.metadata"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "mimeType",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.mime_type"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "minBytes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.min_bytes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "minCodePoints",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.min_code_points"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "minEntries",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.min_entries"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "minGraphemes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.min_graphemes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "minLength",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.min_length"
+      ],
+      "notes": "Native Unicode scalar string lengths; native collection counts."
+    },
+    {
+      "valibot": "minSize",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.min_size"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "minValue",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.min_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/strings/action_differential_test.v",
+        "tests/primitives/native_value_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "minWords",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.min_words"
+      ],
+      "notes": "Native Unicode 17 default word segmentation without locale dictionaries.",
+      "evidence": [
+        "tests/strings/native_words_test.v"
+      ]
+    },
+    {
+      "valibot": "multipleOf",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.multiple_of"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_checks_test.v",
+        "tests/execution/runtime_errors_test.v",
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "nan",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.nan"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nanoid",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.nanoid"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "never",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.never",
+        "valibro.json.never"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nonEmpty",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.non_empty"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nonNullable",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.non_nullable",
+        "valibro.json.non_nullable"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nonNullableAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.non_nullable",
+        "valibro.json.non_nullable"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nonNullish",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.non_nullish",
+        "valibro.json.non_nullish"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nonNullishAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.non_nullish",
+        "valibro.json.non_nullish"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nonOptional",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.non_optional",
+        "valibro.json.non_optional"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nonOptionalAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.non_optional",
+        "valibro.json.non_optional"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "normalize",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.normalize"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "notBytes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.not_bytes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "notCodePoints",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.not_code_points"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "notEntries",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.not_entries"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "notGraphemes",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.not_graphemes"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "notLength",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.not_length"
+      ],
+      "notes": "Native Unicode scalar string lengths; native collection counts."
+    },
+    {
+      "valibot": "notSize",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.not_size"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "notValue",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.not_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "notValues",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.not_values"
+      ],
+      "notes": "Native action codes/names remain explicit; native date equality includes nanosecond precision."
+    },
+    {
+      "valibot": "notWords",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.not_words"
+      ],
+      "notes": "Native Unicode 17 default word segmentation without locale dictionaries.",
+      "evidence": [
+        "tests/strings/native_words_test.v"
+      ]
+    },
+    {
+      "valibot": "null",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.null_schema",
+        "valibro.json.null_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "null_",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.null_schema",
+        "valibro.json.null_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "nullable",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.nullable",
+        "valibro.nullable_with_default_state",
+        "valibro.json.nullable"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/default_state_audit_differential_test.v",
+        "tests/json/maybe_json_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "nullableAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.nullable",
+        "valibro.nullable_with_default_state",
+        "valibro.json.nullable"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/default_state_audit_differential_test.v",
+        "tests/json/maybe_json_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "nullish",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.nullish",
+        "valibro.nullish_with_default_state",
+        "valibro.json.nullish"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/default_state_audit_differential_test.v",
+        "tests/json/maybe_json_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "nullishAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.nullish",
+        "valibro.nullish_with_default_state",
+        "valibro.json.nullish"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/default_state_audit_differential_test.v",
+        "tests/json/maybe_json_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "number",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.number",
+        "valibro.json.number"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "object",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.object",
+        "valibro.json.object"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "objectAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.object",
+        "valibro.json.object"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "objectWithRest",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.json.object_with_rest"
+      ],
+      "notes": "Native map iteration and ordinary extra keys."
+    },
+    {
+      "valibot": "objectWithRestAsync",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.json.object_with_rest"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native map iteration and ordinary extra keys."
+    },
+    {
+      "valibot": "octal",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.octal"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "omit",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.omit"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/wrapper_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "optional",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.optional",
+        "valibro.optional_with_default_state",
+        "valibro.json.optional"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/default_state_audit_differential_test.v",
+        "tests/json/maybe_json_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "optionalAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.optional",
+        "valibro.optional_with_default_state",
+        "valibro.json.optional"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/default_state_audit_differential_test.v",
+        "tests/json/maybe_json_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "parse",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.parse",
+        "valibro.json.parse"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "parseAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.parse",
+        "valibro.json.parse"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "parseBoolean",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.parse_boolean",
+        "valibro.parse_boolean_from",
+        "valibro.parse_boolean_with_config",
+        "valibro.parse_boolean_with_values"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/conversion_differential_test.v",
+        "tests/primitives/boolean_config_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v",
+        "tests/primitives/maybe_conversion_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "parseJson",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.parse_json",
+        "valibro.parse_json_with_config"
+      ],
+      "notes": "Native JSON parser with reviver, source text, holder snapshots, explicit root deletion and opt-in binary64_numbers; V parser diagnostics.",
+      "evidence": [
+        "tests/json/json_config_differential_test.v",
+        "tests/json/json_holder_differential_test.v",
+        "tests/json/json_number_audit_differential_test.v",
+        "tests/json/maybe_json_differential_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "parser",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.parser"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "parserAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.parser"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "partial",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.partial"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/wrapper_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "partialAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.partial"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/wrapper_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "partialCheck",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.partial_check",
+        "valibro.json.partial_check"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/custom_check_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "partialCheckAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.partial_check",
+        "valibro.json.partial_check"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/custom_check_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "pick",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.pick"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/wrapper_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "picklist",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.picklist",
+        "valibro.json.picklist"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "pipe",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.pipe",
+        "valibro.json.pipe"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "pipeAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.pipe",
+        "valibro.json.pipe"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "promise",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.promise"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "rawCheck",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.raw_check",
+        "valibro.raw_check_with_context"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "rawCheckAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.raw_check",
+        "valibro.raw_check_with_context"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "rawTransform",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.raw_transform",
+        "valibro.raw_transform_with_context",
+        "valibro.raw_transform_to_with_context"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "rawTransformAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.raw_transform",
+        "valibro.raw_transform_with_context",
+        "valibro.raw_transform_to_with_context"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "readonly",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.readonly"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "record",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.record",
+        "valibro.json.record"
+      ],
+      "notes": "Native map iteration and ordinary keys, including constructor and __proto__.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "recordAsync",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.record",
+        "valibro.json.record"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native map iteration and ordinary keys, including constructor and __proto__.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "reduceItems",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.reduce_items",
+        "valibro.reduce_items_with_array"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/collections/array_callback_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "regex",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.regex"
+      ],
+      "notes": "Native V regex.pcre subset: stateless UTF-8 searches, native i/m/s modifiers and strict anchors; JavaScript regex grammar/state APIs are outside scope.",
+      "evidence": [
+        "tests/engines/native_regex_test.v",
+        "tests/engines/regex_test.v"
+      ]
+    },
+    {
+      "valibot": "required",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.required"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/wrapper_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "requiredAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.required"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/wrapper_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "returns",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.returns"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "returnsAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.returns"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "rfcEmail",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.rfc_email"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "safeInteger",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.safe_integer"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "safeParse",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.safe_parse",
+        "valibro.json.safe_parse"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/presence_differential_test.v",
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/raw_output_audit_differential_test.v",
+        "tests/collections/partial_equality_differential_test.v",
+        "tests/json/json_interaction_differential_test.v",
+        "tests/composition/native_union_differential_test.v",
+        "tests/primitives/native_date_validation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "safeParseAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.safe_parse",
+        "valibro.json.safe_parse"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/presence_differential_test.v",
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/raw_output_audit_differential_test.v",
+        "tests/collections/partial_equality_differential_test.v",
+        "tests/json/json_interaction_differential_test.v",
+        "tests/composition/native_union_differential_test.v",
+        "tests/primitives/native_date_validation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "safeParser",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.safe_parser"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "safeParserAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.safe_parser"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "set",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.set",
+        "valibro.set_with"
+      ],
+      "notes": "Insertion-ordered Set defaults to native equality and numeric SameValueZero; set_with and new_set_with accept explicit equality/identity.",
+      "evidence": [
+        "tests/collections/native_collection_differential_test.v",
+        "tests/collections/dynamic_set_differential_test.v",
+        "tests/collections/entry_map_audit_differential_test.v",
+        "tests/collections/partial_equality_differential_test.v",
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "setAsync",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.set",
+        "valibro.set_with"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Insertion-ordered Set defaults to native equality and numeric SameValueZero; set_with and new_set_with accept explicit equality/identity.",
+      "evidence": [
+        "tests/collections/native_collection_differential_test.v",
+        "tests/collections/dynamic_set_differential_test.v",
+        "tests/collections/entry_map_audit_differential_test.v",
+        "tests/collections/partial_equality_differential_test.v",
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "setGlobalConfig",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.set_global_config"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "setGlobalMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.set_global_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "setSchemaMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.set_schema_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "setSpecificMessage",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.set_specific_message"
+      ],
+      "notes": "Explicit Context owns configuration and language-specific messages; no process-global mutable state."
+    },
+    {
+      "valibot": "size",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.size"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "slug",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.slug"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "someItem",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.some_item",
+        "valibro.some_item_with_array"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/collections/array_callback_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "sortItems",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.sort_items"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "startsWith",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.starts_with"
+      ],
+      "notes": "Native UTF-8 prefixes with whole-code-point diagnostic fragments."
+    },
+    {
+      "valibot": "strictObject",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.strict_object"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "strictObjectAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.strict_object"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "strictTuple",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.strict_tuple"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "strictTupleAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.strict_tuple"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "string",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.string",
+        "valibro.json.string"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "stringifyJson",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.stringify_json",
+        "valibro.stringify_json_value",
+        "valibro.stringify_json_with_config",
+        "valibro.stringify_json_value_with_config",
+        "valibro.stringify_json_with_config_utf16"
+      ],
+      "notes": "Iterative native/JSON serialization, recursive struct field hooks with V JSON tags, presence-aware replacers, holder context, whitelist, optional depth guard, binary64 numbers and exact UTF-16 output.",
+      "evidence": [
+        "tests/json/json_config_differential_test.v",
+        "tests/json/json_holder_differential_test.v",
+        "tests/json/json_runtime_audit_differential_test.v",
+        "tests/json/json_number_audit_differential_test.v",
+        "tests/json/native_hook_audit_differential_test.v",
+        "tests/json/json_presence_differential_test.v",
+        "tests/json/struct_json_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v",
+        "tests/json/json_interaction_differential_test.v",
+        "tests/json/maybe_json_differential_test.v",
+        "tests/json/boxed_date_differential_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "summarize",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.summarize"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "symbol",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.symbol"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "title",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.title"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "toBigint",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.to_bigint"
+      ],
+      "notes": "Native big.Integer and typed to_bigint_from variants.",
+      "evidence": [
+        "tests/json/native_hook_audit_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v",
+        "tests/json/boxed_date_differential_test.v",
+        "tests/primitives/maybe_conversion_differential_test.v",
+        "tests/primitives/native_array_conversions_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "toBoolean",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.to_boolean"
+      ],
+      "notes": "Native string.bool(), numeric nonzero, collection/countable nonempty, and explicit BooleanProvider conversions. Unsupported structs and Dates produce issues.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v",
+        "tests/json/boxed_date_differential_test.v",
+        "tests/primitives/maybe_conversion_differential_test.v",
+        "tests/primitives/native_array_conversions_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "toCamelCase",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.to_camel_case"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "toDate",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.to_date"
+      ],
+      "notes": "Native strict ISO calendar parsing with UTC defaults, explicit fixed offsets, nanosecond fractions, and native Date and epoch-millisecond conversions; null/boolean/collection conversions fail. Legacy JavaScript date strings and IANA timezone parsing are outside scope.",
+      "evidence": [
+        "tests/engines/native_dates_test.v",
+        "tests/json/native_hook_audit_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v",
+        "tests/json/boxed_date_differential_test.v",
+        "tests/primitives/maybe_conversion_differential_test.v",
+        "tests/primitives/native_array_conversions_test.v",
+        "tests/engines/native_dates_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "toKebabCase",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.to_kebab_case"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "toLowerCase",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.to_lower_case"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "toMaxValue",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.to_max_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "toMinValue",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.to_min_value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "toNumber",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.to_number"
+      ],
+      "notes": "Exact native rounding for string/native/JSON scalars; collections and null require explicit conversion; Typed NumberProvider and DateProvider preserve native conversions without boxed primitive dispatch.",
+      "evidence": [
+        "tests/engines/number_parity_test.v",
+        "tests/json/native_hook_audit_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v",
+        "tests/json/boxed_date_differential_test.v",
+        "tests/primitives/maybe_conversion_differential_test.v",
+        "tests/primitives/native_array_conversions_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "toPascalCase",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.to_pascal_case"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "toSnakeCase",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.to_snake_case"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "toString",
+      "status": "documented_profile",
+      "notes": "Binary64 number formatting and native UTC ISO Date display; Typed StringProvider supplies explicit string conversion; structs and collections retain V representation; no implicit comma joining.",
+      "evidence": [
+        "tests/engines/number_parity_test.v",
+        "tests/json/native_hook_audit_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v",
+        "tests/json/boxed_date_differential_test.v",
+        "tests/primitives/maybe_conversion_differential_test.v",
+        "tests/primitives/native_array_conversions_test.v",
+        "tests/engines/native_dates_test.v",
+        "tests/engines/native_simplification_test.v"
+      ]
+    },
+    {
+      "valibot": "toUpperCase",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.to_upper_case"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "transform",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.transform"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "transformAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.transform"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "trim",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.trim"
+      ],
+      "notes": "V Unicode whitespace, without ECMAScript BOM trimming."
+    },
+    {
+      "valibot": "trimEnd",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.trim_end"
+      ],
+      "notes": "V Unicode whitespace."
+    },
+    {
+      "valibot": "trimStart",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.trim_start"
+      ],
+      "notes": "V Unicode whitespace."
+    },
+    {
+      "valibot": "tuple",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.tuple"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "tupleAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.tuple"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "tupleWithRest",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.tuple_with_rest"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "tupleWithRestAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.tuple_with_rest"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "ulid",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.ulid"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "undefined",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.undefined_schema"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "undefined_",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.undefined_schema"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "undefinedable",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.undefinedable",
+        "valibro.undefinedable_with_default_state",
+        "valibro.json.undefinedable"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/default_state_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "undefinedableAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.undefinedable",
+        "valibro.undefinedable_with_default_state",
+        "valibro.json.undefinedable"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/default_state_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "union",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.union",
+        "valibro.json.union"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "unionAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.union",
+        "valibro.json.union"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v",
+        "tests/composition/native_union_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "unknown",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.unknown",
+        "valibro.json.unknown"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "unwrap",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.unwrap",
+        "valibro.unwrap_as"
+      ],
+      "notes": "Native and JSON unwrap return the original stored schema; unwrap_as checks alternate native inner signatures.",
+      "evidence": [
+        "tests/composition/wrapper_audit_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "url",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.url"
+      ],
+      "notes": "Native net.urllib absolute-URI validation with strict host/port/escape checks; no browser repair, IDNA conversion, or WHATWG normalization.",
+      "evidence": [
+        "tests/engines/url_test.v"
+      ]
+    },
+    {
+      "valibot": "uuid",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.uuid"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "value",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.value"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/strings/action_differential_test.v",
+        "tests/primitives/native_value_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "values",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.values"
+      ],
+      "notes": "Native action codes/names remain explicit; native date equality includes nanosecond precision.",
+      "evidence": [
+        "tests/strings/action_differential_test.v",
+        "tests/primitives/native_value_differential_test.v",
+        "tests/primitives/numeric_representation_differential_test.v"
+      ]
+    },
+    {
+      "valibot": "variant",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.variant"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "variantAsync",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.json.variant"
+      ],
+      "notes": "Native callbacks can perform I/O directly; use safe_parse_async, parser_async, parse_async, or Future.await to schedule/await execution. Native V API; see docs/compatibility.md for shared language differences.",
+      "evidence": [
+        "tests/composition/structural_parity_test.v"
+      ]
+    },
+    {
+      "valibot": "void",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.void_schema"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "void_",
+      "status": "available_native",
+      "equivalents": [
+        "valibro.void_schema"
+      ],
+      "notes": "Native V API; see docs/compatibility.md for shared language differences."
+    },
+    {
+      "valibot": "words",
+      "status": "documented_profile",
+      "equivalents": [
+        "valibro.words"
+      ],
+      "notes": "Native Unicode 17 default UAX #29 word boundaries; counts segments containing a Unicode letter or number. No locale or dictionary tailoring.",
+      "evidence": [
+        "tests/strings/native_words_test.v"
+      ]
+    }
+  ]
+}

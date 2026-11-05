@@ -1,0 +1,51 @@
+module main
+
+import alexvyber.valibro as v
+import alexvyber.valibro.json as j
+import alexvyber.valibro.types
+import x.json2
+import time
+
+struct Event {
+ occurred_at time.Time
+}
+
+pub fn (event Event) to_date() !time.Time {
+ return event.occurred_at
+}
+
+fn main() {
+	username := v.pipe(v.string(), v.trim(), v.to_lower_case(), v.min_length(3))
+	assert v.parse(username, '  Alex  ') or { panic(err) } == 'alex'
+	numbers := v.array(v.pipe_to(v.string(), v.to_number()))
+	assert v.parse(numbers, ['1', '2']) or { panic(err) } == [1.0, 2.0]
+	assert v.is_valid(v.pipe(v.string(), v.url()), 'https://xn--bcher-kva.example/')
+	assert v.is_valid(v.pipe(v.string(), v.regex(r'^[A-Za-z]+$')), 'Alex')
+	assert v.is_valid(v.pipe(v.string(), v.graphemes(1)), '👩🏽‍💻')
+	assert v.is_valid(v.pipe(v.string(), v.words(2)), 'hello world')
+ assert v.is_valid(v.pipe(v.string(), v.length(1)), '🙂')
+ assert v.parse(v.pipe_to(v.string(), v.to_number()), '9007199254740993') or { panic(err) } == 9007199254740992.0
+	assert v.is_valid(v.pipe(v.string(), v.words(7)), 'ภาษาไทย')
+	assert v.is_valid(v.pipe(v.string(), v.min_words(4), v.max_words(4), v.not_words(2)), '你好世界')
+	date := v.parse(v.pipe_to(v.string(), v.to_date()), '2024-02-29T00:00:00Z') or {
+		panic(err)
+	}
+	assert date.year == 2024 && date.month == 2 && date.day == 29
+	present := types.some('42')
+	assert v.parse(v.pipe_to(v.unknown[types.Maybe[string]](),
+		v.to_number_from[types.Maybe[string]]()), present) or { panic(err) } == 42.0
+	schema := j.object({
+		'age': j.number()
+	})
+	input := json2.decode[json2.Any]('{"age":42,"extra":true}') or { panic(err) }
+	output := j.parse(schema, input) or { panic(err) }
+	assert output.as_map().len == 1
+	age := output.as_map()['age'] or { panic('age') }
+	assert age.f64() == 42.0
+	assert !v.safe_parse(v.pipe_to(v.unknown[[]int](), v.to_number_from[[]int]()), [42]).success
+ small := f32(0.1)
+ assert v.parse(v.pipe_to(v.number_of[f32](), v.to_string_from[f32]()), small) or { panic(err) } == '0.1'
+ event := Event{time.unix_nanosecond(0, 1)}
+ assert (v.parse(v.pipe_to(v.unknown[Event](), v.to_date_from[Event]()), event) or { panic(err) }).nanosecond == 1
+ println('VPM consumer smoke test passed')
+}

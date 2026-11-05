@@ -1,0 +1,41 @@
+name: Package
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, macos-15]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: vlang/setup-v@f39f0937037ba37f04636f065002867f28c51cc8
+        with:
+          version-file: .v-version
+      - name: Check module boundaries
+        run: v run scripts/check_architecture.vsh
+      - name: Verify formatting
+        run: v fmt -verify .
+      - name: Build and test isolated VPM consumer
+        run: v run scripts/check_package.vsh
+      - name: Test native core
+        run: >-
+          v test tests/primitives/primitive_schemas_test.v tests/primitives/numeric_checks_test.v
+          tests/collections/collections_test.v tests/json/json_schemas_test.v
+          tests/composition/native_union_differential_test.v tests/primitives/native_date_validation_differential_test.v
+          tests/engines/url_test.v tests/engines/native_dates_test.v tests/engines/native_regex_test.v
+          tests/strings/native_words_test.v tests/strings/unicode_conformance_test.v
+          tests/engines/native_cleanup_test.v tests/engines/number_parity_test.v
+          tests/primitives/native_array_conversions_test.v tests/engines/native_simplification_test.v
+          tests/execution/oracle_metadata_test.v
