@@ -1,0 +1,75 @@
+{
+  "corpus": "json_runtime_audit",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 51,
+  "input_outcomes": 51,
+  "retained_rows": 39,
+  "retained_outcomes": 39,
+  "excluded_rows": 12,
+  "excluded_outcomes": 12,
+  "counts_by_tag": {
+    "native_indentation": 12
+  },
+  "exclusions": [
+    {
+      "id": "1a2743834d470419cb58fd289e99d150ac418a5eeda162f2f96c2216670e7529",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "1bb32c9f7c47109d8c2c4aabebb5afed00fa39bffa5e7dc000a2dae0704981b9",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "088b538af46c2346f42509799e2ff292593f42a0b961a24183397026c82beb60",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "e14b61a3eff8eefbbbc3643130523b817d83f9b644c5f320d31893796e242c38",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "ed983558807cb463c1b44dfd182426e9c7a3f1024ca52da5ca1039d98e5685dd",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "5bc392b64bae369c037612f4016953d9c2084b3bfa1f0af38c05bb1ebc60c397",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "21ae5ccce2e3bffe7a6d16fddd6dfa11b5e30379c69f0d9e9e6628e7f232c1e2",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "26b4b30eaa6782d20df78037f0e2efed4b894af94d2555db6ca21b100230b9b5",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "36fb563b9eefbfcb4f4c2a29bcf01e8e2d8b2621706ef5837287865b4241a08e",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "ab08296d4f4ed28d1c93df7fffc426b879daaf4a6cc338cbf29834eef2be253a",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "1311c104c34451223e836625de7eafeeedfade36b8605fae0212419fba09d081",
+      "tag": "native_indentation",
+      "outcomes": 1
+    },
+    {
+      "id": "09d8ec5295d7c41d2e38e1b97d9299663702e5d31d40dd2d42ee2109e93ad7ce",
+      "tag": "native_indentation",
+      "outcomes": 1
+    }
+  ]
+}

@@ -1,0 +1,936 @@
+{
+  "corpus": "boxed_date",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 378,
+  "input_outcomes": 378,
+  "retained_rows": 194,
+  "retained_outcomes": 194,
+  "excluded_rows": 184,
+  "excluded_outcomes": 184,
+  "counts_by_tag": {
+    "explicit_boolean_conversion": 48,
+    "native_date_projection": 136
+  },
+  "exclusions": [
+    {
+      "id": "5746c17fec5675116d17c7b4c02b2b2c2292b20087b1a3e0977fce12ac36d578",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a96de76e452f0337587d6c47ab3a752409576f145dfd7a2a90965cc02ac4a5be",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "cbede4c3c3da798d3f89f65fa0acfd93427559dda5846aaa0a2eff1f96a5aca7",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "6f0e35efb8eca2d90f467b781ac90dec28b0a9e163b49b1a7353d583cb948b83",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "b2b573d300da217e3a71bf6c13128348f653c58fa55654fd262a2716afe51110",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "8fd12a5c2e2d81ea6a14d5597aafddfb549435bd3b9bb43494bdd4cf7e5b8fe6",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "90a94fec25528dc79ee01317cd52702061e6ca2fd77b2225a754e0df5bc2e1ac",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "4ddb006ab74f436434aac5a8fdc3c075f1de62cc2ffad171c9bcead39119c592",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "748fd45d5696237d59109d8c9ade28b83f40f44ef69ecd4d19d3a1d49ef346ce",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "4c7872354c29aa3dde33ca648cd645f8d66a46bfd6dc1452afc8ae98a52ac866",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "9f53af55f8fda55280d98562e8115d1212cef36bda0ee78863755d50d5f25309",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "5be407e558f2efaa11601492871eb86d231b170cbb2e46d9150b2a4ecef2cdac",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "547b00d2e169eab14f1b929b4a8da8ccaedc4521b12be37f148e4ca5b1c58523",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "24e4199d81498423d553b99cf5652eb1c1c8a46d680f117210a89110e6f09654",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "b059caf448dd2eac0add67981c1116711d861fb70c9e25c272e974b7ba47eced",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "62f524cfd8a7bbbed46e82557652b135fd748f0f61fe3230e256e7a0ac6f7fb3",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "4a4b8a837249d47fdaaf700ebe866bf112dc788a5632f12d73dd99816047567b",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "17c7a0efd2c067321cb069678ec75f4fff4a763a42887be0e617cf54162fb6f5",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "447355501d9b9c42b546edef976bcecf226fbc935385ac543a6125e604ecb1b9",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "d9eb1eac859985aa3d70121588ed0d05512779ad98ead4af20c8b6d0abeba2ce",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "3470e8141beebb47d14c2dadcdf85a44d5f13b48e84cd47da9aac779c9bc41b5",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "cabc327f7dec0951e5658285fb5c37e47464877a0e4ecd9fafb3d10dc06a1cae",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "65d0e9b916bf07201ebf39db01c41bdcab4d7fb0127b513f000c4fc9f80743ec",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "9d1ab7a3bbac5ae6c38a3f2530bcca7eda73930a6e6c349d00778350877cc8ed",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "88ab8243ae32a7b632328ebf0bfc7994ab30f50e5f71d752fff0093fa01391f6",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c0e9f847dacee1aedac5a586e9bee314a3fcf34fdad75b663ef39245a78e4746",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "be67b531fdb2572640e582f4b4d4c7d5c6533f209908a961c37d1b538274a618",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "49141bb1fb0370e628a1f828a442b05777eca4725127049e82125781e39da560",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "9f99be5d04b9840d07ed322af83d0bee827ebd5a3103a6e947db588cd4122caf",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "860cbfdea9caa85bb79109c29cbbfa7006c8c9c2fac41e4e9e5ff926c416eec0",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "2bef6cc6491619c89d87e0b571e6ac52371679c0b6828e6f290a577df0e60f76",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "aa1e6287bfbedc918fac29a37dd6f94a4efa1c4cd938fae4b58f77bae56f6cee",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a681128fd81573e867dce310e7d0a26a9433d418f00c3e9d647073ecfa40fa8c",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "756ce0209ae7152026291cce0189abd214082b5ffaf73ce02e5fc8e1d7c0eee8",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a28afe638fc7c2750837a21f479461331a7ebaab85a67137eebe6ac05e13782c",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "4f3a43776b7b3048efa9cddf4dff5e078596b0aaa92d906f7e0e7f3bc1f8c9bb",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "224c9aa1367b816cd21e441f58aabf8bcf7d65e9d3e8a099fca54fd3c74ed180",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "f487681f5f732aeaa98f0affb358f6d011c4494e1dffe4cd7bc3a5477cacdecd",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "d3ab6a9d519d33cc114ffe507e564cd60f9654686c4dbbbfd42861f3aa11b588",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "3214f6e53a456ce987d92f40691b76c59349b5d147822e54727a1ac962b94051",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a139dc5f80990816764917bd67d717537353aa51174dcba82918c46f9b2ea44f",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e8c15e490a17645dd375df6d180dc470d7e0c8b4707783a1b40599156d0dffc9",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "816f8f79fe9e7247bf8447071b1c3b5950aba0fab81dc84eba67c49fe2ba2625",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "7f4cfd914ea29dfd30e1972ef2c055c9703b7788063912630efa9a6a23a31822",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "9bd68539bda1982a4c359dfb4d55c081497906dd6c9dae37945e7c1db57b3cc6",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "d191adb1477941e0851d38d82e45dc007468217e0d0cb86f02a026af4ac3153a",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "4477b2e7721ad88827e1279edcdad0c12b0275531727b74150e8c90dbba74682",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "35ce675c4327c4f8213d7782d2fbe27d763abdb6c877f4e8007a133bc0a461c7",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "0437b7b82cce601fdd858fc90c8e406e8aadffe1f42fdea90b81251c4e9f48b1",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "86532893c776e77f4a833fade0aa9b6efbcf3e863c2b1d6c92d2ce0c96b216e8",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "bc8585a2e67a442414226f50a9db85d04a508739faf51ebb1023498d3f27ac36",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "0b1b1208e5a130d70c01af9fe1770b98abdf909d26b945e06764e79776689865",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "383bd0e8b053be371ddb3d25313ca76ccb9ae8436cda7a974e28cf6759012322",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "1d6fb624ce22d7154803c8b6817fde5602101c0bff9fd30a31ce33ea1c298303",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "706bb59949e8c9aa4fa088496b3aaee8c0040b7944b7e29b2296b1ed3090dd89",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "092ee60bb0e6a0c188f44fa68387db5b432071a8a9bc0a930791f96159d61d06",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "0a56f2c381a475139cb643101c1ae1e76619e6991906b331d5252f1ca76765fa",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "ece43776466a4c344e971c12b4263be851918da2bb55f0d70cd1a032e676fd40",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "ddb40d38a15603584b475ed54df27ebba9c9593cffc16eb3d0d04a405cf49d05",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "b7f9f74abb52fb05e41957c6be48d6b5064450c9af14c9bf6f868393e7c7fc54",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a03a174d937352fe51ce02c75add8ef1bd9881370a3074b5962f50dfb6795593",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "1accbf061fad207d986b7046c9517e2cd81ac32e8a09312c503203e5b2b7b787",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "dcb87fec2674c7f530a2629823fe1d6c60355242ac1da9706191142ea4a2465e",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "95f80480153edb7e45dfe7079bc5b70ef86b68297fa454efa0a49607575ec3b6",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "f5338517959501492f6332198b94015479487bfa72f3a5ea58c12a6b1109ebfd",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "3fd6a0148dda5c1213d05784c6ae15adba06f1c16ba5ee00de9f440ede0a142c",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "632bc1533c60c32c2e10b0c736054e2ce83ee5a6dd01a7d0bff7838140822579",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e0d8b5f5d377ac5cefcae5c204a15d4825141dc48a3660cdc08e9c44437a281a",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e1fc794da4bcb472dc0dd30f33d63838f31da33dc9af58129f5b53c9b7c296fe",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "9032c06aa6cd7fc9a1e039b0fb2161e508da04da37775d2e6085778f3e82f67a",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "78ceaf4c64db9ea7015ee2afc66b9e2f0cf1eaf5c461ad4b0a136e8e33491f00",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "12955dec55b92b61cc4de79747f1a72f4108139b3b73f51cb1132ae3eb8bdc5e",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "01f1570dbcbef4df9b16f23fde81fe08ab2be93209d50ca65548e2417b3a78ee",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "2582c8c47f0d9d21fb0206aa2bef7cb7f8d086fd3805edc3f8a07866f71476fb",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e1d205329fc3df4b8cfa7c5e5b1b058391e86d3beb8a6902cf619ca305dce761",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "397d577718d40679acb64909e6e3500a25e966936b470c796c3c0ddd1126f405",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "5e1a7dfbdd7a2d9c89ba84ab08b474701bf5208910b15fd2512b0ef00e15638f",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "ba903cfbf07cb17448267123da4de5217a0bdfc58a98a34f474638c0d8adadc4",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "13eb6fb9dfbe4ad9e201d25c746693b268644051dbc9b2d7f79e086590b3e52c",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "38a5e413d6e3acef4a61a7a5da118d3b29d418fd749fdb6c6b38124c8aa42015",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "faee15bd30a3a7b248b76f74045e15dfb59fc34267351eeb4e7afa45d7372a64",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "13bc992271b0f7b51f8267d84923db168277615f586d695fb52dcbe1066c3371",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "478139785d46ac03fe2655d4ba554940dd5a0f95cb62e1391652af750a06a4da",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a50c366d5d73b1a77da6b976b930246a339a6593bb30c8537502ae31eb70843b",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "0c16d2aabd74e39b7e3e3ee2f10d088d620edf370ca3d611d79e4a9788cae91c",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "50fa6d57a254019a2e9f423382ed464c483791f1a8963ac4d56d1106b51f2f48",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "5479e8963c29fd747cbdc3d8bf98f433a8c6bf0f662ade8c11aacaa4bfeea1b6",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "bb19355dc5c8cea1bc3b6900eddc338d262163fc95d8e788a9672d1fcaca22c0",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "389c5d4481e4f6958ee71a32e4f92e2599f02b8dbe3dc66d69f55330c82c3f28",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "4c1401706a61a5a39875c9096ff5462da548457d77c3c2234b4413d43539cfb3",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "bae446bc0bf7948f5140dbbbc74206f1d269cdb77146d42b5b5b3e1f0f45a4d3",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "34eda3154ded628e3aa15abed361f540a915c83af27a9e2d35ac710bd4dde3ae",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "f4685b187312fa15eb8698995991b25f3b90c76b239e08de0167865ee14b17e1",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "c306dc88c6ffe56bfc690b471451dec22e21414a31f41a5ce26a5c9a783e9d38",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "a416d126c8303ef6867fcab961dcb0ddcb37322d5cc228e60f0c6ffa83e9b2c7",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "7d4faca8766453a4f511e5ce7fa43df055bb9189a470b5a416d698a0c12f350a",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "4b346ad1021f09e5b095f21bc6516a28a6fe6b48b668eafc0c962cd666f0f024",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "397de78cfb83f149be1e24cf006016a194d5e2db7f1c6976e7014933b3df1744",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "22a1282a8b0ad7d020a40fe9be0050478d7947dcd425365dfdb9afaa0b1fea9e",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "5a751f6228d427a064278447c9e3a2342accc0d140b608e3678b377db716b9b5",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "77123d669c7adb8baa13603d813f1cb2daa5a5d396cf5cf0a20a2c7da0835288",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "155b55231008028ced48681df15483ec1562b7fbc53197221450dcf6ebad04da",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "6050afbf6a7b13a1f4d4f1e87dcedb2242012b11775aff82f127b50ddce949c7",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "65b601b0ec5f431ec2754f084959087cf1f263dbe15bf4e118f60eeb3eae3586",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "120522a65d6e1de4dce3c69ba8564ec1a5088eaa4585c478b8623413387985e9",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "1f004bd2ed7b56499fc0923728e1d7a238486aa303fd5ed9af54c3c5c7441e1c",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "3f99a4e160b50df070077cecd19781d9140d34d2c3bb867a40fbbc3735fd85e1",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "fe72c63a71d3125200c50ca845b3df76431b3d2e9ad67530a8d4067216f69478",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "1f3faa4b9f556c408a79653e66b53605a6dbbc1d404b40c4eafd2d6d58a71024",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "1b568c1eb2749bca7f206a5b4a0e74a287c02552863152ab6a36f14a03ba5617",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "533f8b5aafdf98af442687149a45f4ab000337ea1af45edb9b03ed2722c4d18a",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "3650ad1c810050a7a6fe11d67d40804191e8d171ca93b8da6d2e543117a860f1",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "6c7dea122f249c97c273a41b83c9e76066ce49ab98b4c8d54f29bec09f634d1b",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "455c244a2e8b3145c6834f5a66258cd1dc1df0199f4400010d291c58cd10c532",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "246afaeb4dc2fc6cfa2d05119e328d92b7e946150b7bee44ef519382e866bc43",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "9f17333c856640969a0c327e304ab0ac2298cede9d442f66aec54fe6c3b1ffe9",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "8aa5b82e59575d538d6d947aa01f77b7de46257c884ac9aea2f29ee67818dacb",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "c24d5fc91b4b2eae17e1f72301e6cf56eedb7a0b2399e49f46a3932368ef69c3",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "df15154080b045da2ccaab863eae1607626d1f53d6f5c5c98de38538952b10f2",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "1d992013737e4a01c850d8c9f8af6de7f453466bfb39f8824f6f37bd83eb770d",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "464b6fabb85fa3eaf42b9e4a9ffa55ce9b3ab4f65ef6a3162ca5c438f994fee7",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "57002efefcf60cb4c727b725cfe0a264758fced205db5d64dffc07e329acd0e2",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "312f9c1e580e1d6e9573076ee72e34b88e1ee06b045429b9f9776f912135446b",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "113a41153478eca3f87a49162fb1decfdd26a5eb031ba8a5188d221a8ac0e376",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "ffd2b7711b327567a028f81864c281f53cce96bc047adbf60ff2c9652435bebe",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "1f9dc38397ce5608a1fce6314d41c4f7a83947206aba866d014b51bc11ebd228",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "0180d63040784891589972f8a8bc253465002d1889914d1f31b5f91c2ec42d56",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "210f72db632f605458160a4967525a1bc25943a4caba0b436dca6a0e6e5e58ae",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "4bd96e95695952b4d5b09bcb61488a0ec6689712cfbc5144b3dcc0b6040e819c",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "89ecc5c635d6f868748a3b67feff62512862c83ef80390cb060d20739d53f1e2",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "55277ea64c4b40fda42fa53122f1fb3b8cff43e831e1c64630046ec48ac3947e",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "7e0341ab15eff8e83ce2369f7c111e2b84f9837293d383b893411621f4c525fb",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "c0e61da51aa38fc966baf68cf339e5506f5175a78f35035cdbd18a7e61cac83b",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "da5564f71b94165848d03b10200228b6d06d02b6ce44b0fbb2a8e4134158d4c5",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "623d51da331c588800bc9cf00d3c349e68fa84f6977db7821f5d71ed7cc3cdde",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "5c62f95c688faaf15b6b4b0258f0561bc1bca23f9a109b198298484b2ec921b5",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "9366ac3debba7e50966faa555f15cb9888de9ebe9567a498fc5aa94cd04ab620",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "a0701e7e5fd00c3e9f6187076d002e454d27849f2c196d5d2cccb9d38cadf6c5",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "206f121f04e411fa47dd906c941d8839246012834c33af4c20e1d1cd5cf12aca",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "5186305cdc3eae4519f132dcca0d537559e3a29261246dcdc51624548d340ec6",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "fcec95239f8c25c94b5f2a5472b5fce1861e555106933becf33dd28cb784695e",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "40f83533d5b16d1dff19f0526d2569978e7073d8b76f5f0eba4212aae1e0a18e",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "cf532f73d8aa9b239cbb914d0bde142d37a1669084b6fc6183e7d5694c0a5782",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "44a7dccb7d73da270530946fd5a2e3293302c8f9e8a74bced1ad4e21c3e5a6dd",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "02871cb514f746506b67b9ff2842e76b5bcde18a9b7ad7f67adfb71647412098",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "8761df1c5e308a949b67f26b9a4101180983532c27c42a2045e11d7e0a52a9ed",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "e1c5cb2977fb4e07eab778358595b50913f3822148e40e54db58f600f86f4d45",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "c56410c3638bfd2174a473395e6752a5de9ceb3f708641fe316bf9fe1b9b0a5e",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "3c77a90a01a2930903838fc98765b3d2f43ca86b7112eb6a32a11af1f8f22ecb",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "8f55c693e7b0e131bb7d3625eda7c4207417cadb75f48e807c0e788e20d23a6d",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "6a751d83ee5a0a3b4a5ddae15bc400f5c48918dcc2abf9873df5d2eba104757f",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "9ca4247e8ad5114eab79c16700a3ec996ac81164bc87ed6fb20aeb0f871ee2e9",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "a70327edbf22ef920e09b8d978df26b0b2346c0d0928dbe44240b485f4b2ce61",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "0c4dbd630ee6c22b61b2c5daaf32d467e4b14e6c24605ae90257dd3c39faa588",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "1dc3eaf2e2c1e592799fb4f90bef30e31837ff31885936736e747ac4a8da1228",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "f15f737c16c638a1f81f25f255810a42adfcd70ac4d0d238161b409fd775c028",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "ccdbc83d3164d0c980b1222c1a36ba3697cd12efd28f157a48322ac2e2292228",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "68326bff4ad32277ae32e55b611d9a15f69a4673dcdeb435952d20cde2a9e2c8",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "14153ca53773b5d07d8b938f6cdb8fde9faaac9cea599f5847b5714c22f83b9a",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "3c0e80963ea360cf8b50137b54256f80ea5190596347f8e362539b8fdfb82620",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "f36dd585351ac3ae25bbf143a783e99798e918826d9d56fb7e790c60d374a666",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "9e52e5e63ee0253b45e77c8e8b660713395a1434c22d13589e785169c894bff6",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "a6fa95a0c56d9315b304db5176539abb7c8c7f046e13a7b6114a5e1f715115a9",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "5f2fc24fe7a4b37b3d69c5df214a8df5b462a672fa057d39b5057e455addc6e8",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "c40812862ab9ce4011127ab227be7391476f95d5a6cc0b00d1c2de6e054e7ba6",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "476f0d42522719450620c43b38038e4cf33d9eed680fbe655efd64ada0dd2a33",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "a5dc0bb10cebe27148e8f786a163e5f5ee0adb16223ab58e39c1ab63bf8122b0",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "4cfdc287612a9f087b2e46c407e68bdd3f40ce5736ef6d0acaf102567c8f55d8",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "10f93ee66d24ed0b22f455ad42d4c298028d9f813d351171a8d8533b6cfa4bbc",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "8a2a9fcc95959baf55645a3e1a8ae34a0145c2d65cd37dcbd303cdfb3d93a774",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "f0cc47f2426471ed1ca01e23d941b1ec70cc1b5f189b17dd926651073c97f1bd",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "10314a2f40f6cd6625c6401c0394639d3bdc6cadc564129923aa5658470962a6",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "9123288113bc04984cc507d33345cd50fa83a9fa9af109e93d4b0da0a4593e6b",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "e1f032058bb0fbe9233c5acb71426c5a50e5e5f0f20603006b2a1e1dca33d6fb",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "a6f47cf867233ce9ca7c05d478b1fe9da054e7ac5dc097bbbf1638ddc4b1a868",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "c6659f6db2e9236ebb49c40c0c18ce21a19cbb1dfdbed15216d6e0eff587036c",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "8587aa475341a0adf205767c57762977c92eed6ac0c3d415949b741289725d0a",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "4ec1ecafa5c0d139754a5f3ed56704dac021b7763365e178d8ea9e9f0ad21de0",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "d8cdbbcf0e7eea80db1deb8508d952b6f20b2064d1375892e08b966bb4a0816d",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "dfd98a1c6e0e37905568916be0f6b70aaaca187d45b98893374e6997bb9aeb4c",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "2c0cb64af0008c5d4cea462dd3bf51dd46eee2fff0eeedb7095f6945b7c74b63",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "5a4288463e1f1f419c57b7750183ef73a9cbede83b85981f22a510b69568da6e",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "d9e653b245f6ba610eb8c5d3f4370d2607bca97b1ae21a98e8924bc906db74ea",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    },
+    {
+      "id": "f0973d4cbbed2bd3103d0640fedb4b4193a25683febd123b2198edcd4a5203f5",
+      "tag": "native_date_projection",
+      "outcomes": 1
+    }
+  ]
+}

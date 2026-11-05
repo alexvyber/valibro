@@ -1,0 +1,45 @@
+{
+  "corpus": "json_holder",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 48,
+  "input_outcomes": 48,
+  "retained_rows": 42,
+  "retained_outcomes": 42,
+  "excluded_rows": 6,
+  "excluded_outcomes": 6,
+  "counts_by_tag": {
+    "native_map_order": 6
+  },
+  "exclusions": [
+    {
+      "id": "e49de2cd7191cd80b901029b18c3a1df7e5184b216be2e4df28c61423507d21e",
+      "tag": "native_map_order",
+      "outcomes": 1
+    },
+    {
+      "id": "2bd3d9542809bf36342ed84d2c5849cf611c90c67b6cae71b0a69474d7eef895",
+      "tag": "native_map_order",
+      "outcomes": 1
+    },
+    {
+      "id": "d1f589774baea248788d28b320dc3a3baf6cdf6abf56a97c1da3251ad0e39e79",
+      "tag": "native_map_order",
+      "outcomes": 1
+    },
+    {
+      "id": "a5e7fe7714a5c37971a200298f8eb1e34a6de061fa124ff6bd5bd962af8dfc73",
+      "tag": "native_map_order",
+      "outcomes": 1
+    },
+    {
+      "id": "b76fe635f6a28c141939c8526abb23751020bc536c0dfc75c47b5f682d09b62a",
+      "tag": "native_map_order",
+      "outcomes": 1
+    },
+    {
+      "id": "cc67d2c12bafe02eb33e19a63fca97c5121e8d958b5d52eddac639d7f961ace6",
+      "tag": "native_map_order",
+      "outcomes": 1
+    }
+  ]
+}

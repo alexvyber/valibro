@@ -1,0 +1,135 @@
+{
+  "corpus": "native_date_validation",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 528,
+  "input_outcomes": 528,
+  "retained_rows": 504,
+  "retained_outcomes": 504,
+  "excluded_rows": 24,
+  "excluded_outcomes": 24,
+  "counts_by_tag": {
+    "native_calendar_range": 24
+  },
+  "exclusions": [
+    {
+      "id": "c72e58003bad07659145375d965919c115f5bc5218e439021bc7be2c8735408d",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "2566e64552970370858383325f7cbde82ce80ff419ab0d09ada683d57b2d43a1",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "7899bf523e1efc7bcc857ac4ef73f79ea9368116b2469f2aa90bf931dd673901",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "4d8cd949dff8b411d36939cadf3f1d2da95e707ea86c5a330dc5bac783bb8d78",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "233bebe4abc454c2f14723aba68f3f6aad8043f4a8ec74323016db36f32ff390",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "41651fe1afeeb7ad6d593c839442723259f49b6389e263364205b5b9a3ecc750",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "a3079c134862670e47384d72aafc2152591938e70d674c92b1cfa2c5a1c30447",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "98c22cfbf93cdd0235375b2662220d781b57fe82fe40a4d97a0d4e3693df51c7",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "74624390cecf5edf2dda2a8245892b5d7b75c9f51a8ea5d9619e3e6cb4d88b67",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "9bd9f36d970d2de7f9dd3138c8e954b79545c865d3f6c09deba5d35016c3707c",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "9d7096393c0bde97f32644d63fd36e3436785077b520065f948bb1886f1fe1d1",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "a3b0acb71228c446a07ab599822dd4ccf73c0f4e530e672396575bc55fc437c7",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "fc55e2656468d3cb13d23929a832d641de58dabadbc5f8d2f58d4c8ff3c4881f",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "d33b06fa51736cc770043d23a36d57febaeaec81bc2de34fbdf751d240cd1338",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "0761ab5baa8d04974e339f78ce2ca29dc56c98d2ff1dbd7b57b0bfb39ee1b531",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "2687e92a2d29ef17517ae1c27ee5a63b6edbb72974a737d2c6cc6edd4beda431",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "ed328d92e416e65b8b70ca59657bd40a7ee2e56b9ac1a0d9c1816cd19d8c7382",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "442c3e478cdaa0ba10213ad36b3f7c9454e2ce73066f2f6b5b8c02340985e0a1",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "44400f187021c330270859917dd426ec3a14b0c78d58d42a6ef2ccba97b1e239",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "77b35cd41126196008a5b1408523afdda020ff166ebbaadc4cab359f550c00f3",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "2bff16ee13842a143225d27721d8670e0b9e3c7fcf3d7eeb84061f0ab032c097",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "7338728df3e3656042a9c7a642cb5679e0fa559196d372461a0b3088652ca873",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "ae9ef0c25309d2fd901dd78fec276808fac54a024bc2f983e6821ec4453a2f99",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    },
+    {
+      "id": "66d44ceff16cae57fd5109d2200d9eccee85cb43e0f701563930900997420f49",
+      "tag": "native_calendar_range",
+      "outcomes": 1
+    }
+  ]
+}

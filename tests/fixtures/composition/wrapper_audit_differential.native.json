@@ -1,0 +1,12 @@
+{
+  "corpus": "wrapper_audit",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 2265,
+  "input_outcomes": 2265,
+  "retained_rows": 2265,
+  "retained_outcomes": 2265,
+  "excluded_rows": 0,
+  "excluded_outcomes": 0,
+  "counts_by_tag": {},
+  "exclusions": []
+}

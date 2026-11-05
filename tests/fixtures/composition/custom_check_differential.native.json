@@ -1,0 +1,75 @@
+{
+  "corpus": "custom_check",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 948,
+  "input_outcomes": 948,
+  "retained_rows": 936,
+  "retained_outcomes": 936,
+  "excluded_rows": 12,
+  "excluded_outcomes": 12,
+  "counts_by_tag": {
+    "native_path_presence": 12
+  },
+  "exclusions": [
+    {
+      "id": "92c2e2241cc714eabc9309ddc58db6e3dd9344a864ba48463ed4176d2ce392a0",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "410572ed20f056d25f355a33436b0b9098c688539d359dc2b658674c5b13f5c3",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "1eca57aceffe205231baccc4bd340e2b4ad540d81711eaf5524d862c97af6c1e",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "c7810fe58b543ac4ef459b8234b10131294d0b842f0e2cbded04ffd1950efc3f",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "d917c93c1c3fc0df150efd9fc25967609f61c3224972817e1d5741ec20278b85",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "0bc47ac9c628769663975c610227cacc555d5f17085111925f027d62e8defb9b",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "cfd60a60db9bf71f09e73708eff638e5f94b8f3f472985c79b5e9d336dd1a01f",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "3e52958302016eef698144fddcd5921acc834ca1d4a75650d02d87e145b62e19",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "18b9ea0da6e0b76534c53b36656e8797629779c4fa912e824eea3559ff093caa",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "7ce01687f77e6473238eb256740da567a8e146e357258ba54a15dcde447fbde2",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "96c19d7338e5e779ff6cdb71f0d88bac8c2b33c336b0b564dfb55be2696d387b",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    },
+    {
+      "id": "bb45b974384c75bfe18de5f835494fe3bfbc158c09448c69af49203a1506369b",
+      "tag": "native_path_presence",
+      "outcomes": 1
+    }
+  ]
+}

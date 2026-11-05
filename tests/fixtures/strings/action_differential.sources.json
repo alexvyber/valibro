@@ -1,0 +1,6 @@
+{
+  "node": "v24.14.1",
+  "upstream": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "outcomes": 12486,
+  "scope": "String, binary64 and array validations; word comparisons exclude Japanese/Thai dictionary tailoring (covered by native conformance tests). Success, code, expected, received and default/factory/config messages."
+}

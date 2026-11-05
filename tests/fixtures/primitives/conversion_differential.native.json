@@ -1,0 +1,616 @@
+{
+  "corpus": "conversion",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 888,
+  "input_outcomes": 888,
+  "retained_rows": 768,
+  "retained_outcomes": 768,
+  "excluded_rows": 120,
+  "excluded_outcomes": 120,
+  "counts_by_tag": {
+    "explicit_scalar_conversion": 18,
+    "explicit_boolean_conversion": 102
+  },
+  "exclusions": [
+    {
+      "id": "3df1fc347d8b7feda6c71cd4e2880f688cf36724a10343bf5fd485d06a83f2df",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "ebfd5df91aa3354a2f333705c82f033efd506f9d8b9aaea21fb24a68ed7547ba",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "9e744c8e487515726f5aeb5da9cfa8e61bc7862c5a4b18f33498291afa4df3e6",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c10f1e565d1a7c9a12a302310c4b11e98e24fd3951e45047a1df79c3805c69bd",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "93ef6ef5d443995645dcfa7388770ec8c956b25f92da31c14009e717fa88e1bb",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "82a54f5c95d1e5cf805159372d1c6947cb11e972fb569f933ddfe437ff35c89b",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "7f36cf8b0ac58d14550f5dd2a0177e4ea42223fc39622f84ad609123359c479a",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "957f49dfd2883508ef189b4f495fcb458fbd6228061f0f5aa67895f89c842e1b",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "42db34963afac434dd759dbb7b6e63472bc5afe27e9b6e8cca8de93cd0ef1e8e",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "ea5173d5e7ab3a454461fe2dcf4ddf0539341848a0b494f80977ccda5b5e8b00",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "921a30e8f6e9b5e26cef12ab58f8c7c80b5b3653120e38b4b2eb9714d657e4b7",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "2313c82e69b49f546f508a87d61b0d90caa625e13a3baaf0da2dd58722d9f5b0",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "b310b1ea52afae71f9c917f44b840749b1a20c29f370662a911c601681d8d09e",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e8f7c877f00d8373b3f746ae55247c65b6742354ec05e077266baebad5b29527",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "6a99a2a908d0e1df04b6bead9e377d3e0f303f919927232c9fbc9488f4f579e0",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "ebbd29fc376777f75e8a66d9c62c3ac3641d33f9b4db70937b963ed8a1d887d3",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "31322d85d44b560d7eca545dddb79197c955c42e92bc42819ed91f53a85e7f90",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "961d0700c4e0d060a27a746bc7aaf01f809fd21883bbe4180d025ec2fa9e7bef",
+      "tag": "explicit_scalar_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e782cab537a806063163abf2797dad2da260e40621b0f2394efa0236410dd32b",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c1c429034285d9879439a988d1c9ee2cb99c9405456ee9c569035cef20299b56",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "05f5af7bfdc93672c2359d7fb5ac8d6775cb39568d6124570c203ab08341de6b",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "b9a33c63e877a63668dc8f0d82602da6c90585fa522e89c586f8cfb8f7dfc1da",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c803f42c9d4e5f4c52b6829d52fa5e2264889f054df08d710aa60827dd754e8c",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "6a9a526eeac9ca30efdeb3562bb7c26abe991e190600c4a1f2e8750deb3ed646",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c9c0955c2a83132f4f1eea8666a445f898757236d8f163d82e2bb7af9c2701fa",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "7647cefffb4d0ddaf9dc7bc8d79f5ce4853bde8640fd77e53f152ee94886fe97",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "2055bfea938383b281a064dd067d22ffa1440a518817cca1e33bad7c92d3699f",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "510a53ee735563a1f02db1ea25325e6bab094c75e226e38f381ae43f3308551c",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "9081cfb7a4c89eb0813ab26ce69243a99e21cadefac668b2b85c4dcccfb0d5fc",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "3bf6e47de3098f0f141958feeda4c38f86cd02983b5ce668e98c53a2f20f0d4d",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "cd827fb1a8bff54bd818b0293bcfb59eb4106b7bd15d5968aeb48e1f024c24a4",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "1cabda13e2902b8b34428a735b0e2d3a5689b28fa9a2422fd7ec947e03817394",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a2ff1fb8e4484a90ca161dbcbbdefc5c567aa954db49e3c25f03ea50bf67c427",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "bb0ff2831c81cfaec13b54ab948841b5fb4be13e6787d5aa2f68425a6fe2f779",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "37c48ed282edbd6f839e65a98c81f9c4a05b3295f83cb3be98f6e07ae4e9302b",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "09d9e256a336554a5b8ec5c552ebaffde7fa8d2754d22294e697b6c2062a0927",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "f4e6694e36fb6e5b55b4551371eda2b2a41c3f940f6276c3f5376c4929311799",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "9dd8f0dc8c582ecf3b3620b42f80f69d605b2cd3840e2bdfe1288f2a9a1fe461",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "f47855571f0ec0690e06a25ca25eea383c4f0401dd197c33913e6df37499285f",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "646e3415566ddb38ac1e106ac0267900ad3a696fffff4c80a8cf16b309199f33",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "cd6651ae0cbe086d0f4f9ef7ec2267ae13e3db30ae080eba3c89ef2071dc3cfd",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "89f9bf4c4438f13cfebdffd75f781ee62db30ad0dd48a4fa55b47f4d91ba5c82",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "192d14398a255a79c669a5b1ca9fffbf48987616465b30905003b28b4d6012d8",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "45921fec40e4d179da39edd7c4b90ac5743d8410e27504e6acafd1e857ef4be5",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "7a1972c294aa8cae57ffd51102b206baf74a42f005433ce861ba62c9155cd16b",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "7a4017badebc2cb0ab30fad55a9f2091c47e31790698b850007094e25af41d3c",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "b589017c72d6453c03b4b61e9a64a279f50691e2982ee6f2a148fdf8d8feb76f",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "01c51cbeca0b20f16e8bfff73c58dc9fb7e40e9bcd7282176b00bd7fcc548c36",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "64c3a858b17f409d45a0ca1591a2c12af9205c7b11726a3f8b7375f603fe1c52",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "93e6a0034b9df572abb0d236dbf22a212594a3c32623255f26d06fcf85c143f7",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "eb8409020ab667ae87fdae3019eb66dfa434e77be8b1fa90887f98b3ec8e3d19",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e67ad62be9684fae38cb247a1b5c0e5e17b79b9e84f9c7b434f7d1a509c4c98e",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "b1cf30d896e451ee03037a87147981cdb3a2ecd148a308e53f4e6eff6592f06e",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "00a85eeb591fc47233052c1a90529276d8ab7d3b9499d28ae6cd8658248e4426",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "b3e7a3c1b4350f40a7aee5c2220575ebd72dc477c25a77083574a1093fff112f",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "89fd8b9e311ac70e86907cf4ad6f1e2c602b65eaf6283fe08a4ec8e24ea51067",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c057c983a928e971e531b6564587d621554c284f9a6fe32d16353dcf7d9014d6",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a369ffaabbace3f606ff5a9f441ec4b97e4ffa5979813c6598ab0fd35360de36",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "6848f47abaedd55fe92ab393a6d42584c19e428ab4c7cb6a232d115381340d4b",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "fc2cf8f41bd643ea19093012b233ded66f184611c639ddb95816a5afdbf2ab09",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "9e2538465556c5bd596bf83f05f5a8f173b1f37779023493d6d518caf1eef47c",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "d542922ff6e06510376b52f17d6a5432874d782731b76b1183ba115c6080f744",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "8c723618e07b70bb99060a97ac347195512569ecffd4754582e249cb73a25015",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "ce190efab531c6fb02a74426ce825ee935a1007d8243fd73216b980e203074f6",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "1069dbbdfae0b2a8573113f76449c67c447a773ed4fbe0628dad25ba6a01eb1f",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c048b418b07d7403648ef1424ac68e265138b5d1243f551395f0fe70f1634e7c",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "416ec878f63e85154a493960c76a0ef94e9513cc31d8b02a2f3afc03606a461d",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "81c6104890ccad6aa4010c3531bac4b0dddbe9f928df05f4e6b32acd506ecb2a",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a7ff3fea52ad2d8cffd5001032e41fbf8dbb7244f5f42449aa91875c8ad03b80",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "7b8b3fb2acb61d47444b3e8cf1542f25f45ab998763d20358812ca44dac1c86d",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "d94eea907fde21f7d8e9c83626e0608827c5a7bd162b26fafaf1e4440c2e4224",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "ee5a3340972a713f09ccdbaa3614b80fe40501a9a9e09ebc6042ca380b2805c2",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "03dcc49cd8e54c003cfecce315dbf4d9925ac91300e537d42d51717879d3912e",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "2ff28231f1fa662ca0a4b378ed44d0171818ffa3c707bf7dd2c629a9c9962907",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "6f6a7ba86931ffdb249089cd01d37521627f9c6e5a823861db66d88f0d520972",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "1c62d0ef5e8719ee74248b8d65a9235adb2240539826da2d4346b98143d5c4c2",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "2d5b5c2f6103d1895e46fbd6f37f7a0cffbd966fe66ded8733e2610f1efcb396",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "996ee51d45153f26781d24dd798f2ad1d29f85b1a58db3ad4038242b7c6983f6",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "3f2ca03e3c61f2f947558a9b2acb44b28ad0dd43efc82f91fdb4ffe35a2d8c16",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "b0e45bb68ee1867ea6db0646243a25554fabd2b9c683a553b00760c734bc3726",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "2913efddd420ceb5cce7f7b5811c59da3f0e2b1e5280b8e44033ccd97e51cd42",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "ed11d36b5a349d08e609c876582fc60e85081201eeb95460d1b7136793b2fe50",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "0e20451fde13888d01539d86eea652564fdde6a31b60b1897124a089f337b47e",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "8350167a579e013e4c33ea9cb59218fa808fb0fda0a7012657e418a261c73fb8",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "545416fcfa1ae304d05ce6fa17e38f3948fdd90c9ce0b90254ec00b7e5522531",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "6e096c6f56769e4667479666f14c81f72151d1303ad3b2bc4d3dcc50fb8da935",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "0562d9583015e3caeb17ada2c5be9636a36771fb134b290bc5f9a311db3c4aa6",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "def9c56581cf083de205205c05eafe1f8033a3cb7976b0468642b34c42d60e3b",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "2c4f69a72165b8d6481a40ad1cef4d49b8b35bbb077f6b4d8cf3d27967fd9664",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "64f6c9cf025d819d46bb18095dd42e14fb4aeae1db5da6711ae0dc5a5c040ef6",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "1ca51904ac701119cab306c56e72e0b1411482e277676a46f1b97a827d9230bd",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "cc1bf68265cba6e72ab09c49fe281b3a02d2ccba1d8aaa9efd91c277978055d0",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a30032a20364696a5ec1dccea18170cda95de6151c8b168163f1732c5222756a",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "3d448d4dca05209815936f7b113977b9a76f4ad516ebb38ff027eddf0b6af057",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "0fef74d57d631912ebcd64706852a7a7a4970bc65835b6fabac86d98f5c4f037",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "9f1e933c5a8a7df33984e76b9e508ebf975dd9f823c72e9944fc9448e1779473",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "11f12e9f5f34f6d156361dffda85cb2fa213976718581fa340fb4f85a8174b8f",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e5d681d4217629ff472658af09198b11c4a8bba3c6e0826fe5907c82f41183cd",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "492efcc132c91817bc8b72d9a6808de44adcc1486eedfd9abe7096ca00d81553",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "24e41d85ff0aa886ca059bea0a81b317194181e5f90f47afd1ee5a9ab1d3b810",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "9c4fbb794b1720ca7470ce025426e11663b1ca8d7b6b4d343dc3875e36d3bdf7",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "8ab21d5e752e177cc3706a5337e99bd0856ff66b1e1fc97731b0ad8187a5a0b9",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "092d44204a1f6a4ce7c7b724a0c322a31dc8d58fb31a7a7262029761f607fbbc",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "0004a9fe4b2886b753f1252704b2e0938d42f40497c64db1a38665895a8451fa",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "503f2e42f6ebb5fc46fe2ad757d79bd4bdb0c9a7b1a4668f32f1e7f4748d8fcd",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "df295d8ce3b8623cc97a533f5e425b9ef360ba85668b79e97d4f2241cab78ee5",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "692b78e838bbfe32b25b4fb13aec19f004c2312949bd564962a425d5c6653891",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "189b07e91b44b23777d8ec375c2a6d40ea0acae757917970623686c9a875dae4",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "24f23db401d724ef171d5c88b91adcd33d323e9f826d87dde9361cb7f5c899fe",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "a96bb9cd0298be49ea842b825aad311fb603598b6b7dae1e0ea7e4b58d666b45",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "5bf129a1e3fcb1d2a53d7837b1b4d01690e02412fee65699dab8db6966b3bec7",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c7cd8ab5f1fe4b579c0d5e660d90b7b566fcf7196b4bfd9ffdafe8e04ff00bc6",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c0ba906a26efa2c7afb2e086b58a35b2cd72bfbe6af45714a7a9cc482374fc12",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "6e4c16c8d0d16718ba8bb15979e71d28b934632a712424207ce60ec818e1aa05",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "bf43a2a4a344133e6c933183ed662b7956ce49d059bc99e8ca270d0834f37122",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "de04f63b6713c6195a0933d84387565c6d243fc839f222ceda2b2ecd6c6aa034",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "c1014372adef4351b35b831859a860d50117ef3d02c4fc6887bc06855417cbfa",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "e213ba4ed1e353780fd0a9dbbb615dbdce639bd1e57fd882cf90107eaa54f81e",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "b9c386113081ecaf2a8f8f12168c979e4ff0314a9dad9540cad8bc1a04f7ab81",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    },
+    {
+      "id": "1ecbaed423db020955a79ec3198ac2cebe1e2d95ce8a636dd536ba3cb1f267ac",
+      "tag": "explicit_boolean_conversion",
+      "outcomes": 1
+    }
+  ]
+}

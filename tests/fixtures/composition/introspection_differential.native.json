@@ -1,0 +1,12 @@
+{
+  "corpus": "introspection",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 531,
+  "input_outcomes": 531,
+  "retained_rows": 531,
+  "retained_outcomes": 531,
+  "excluded_rows": 0,
+  "excluded_outcomes": 0,
+  "counts_by_tag": {},
+  "exclusions": []
+}

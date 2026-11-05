@@ -1,0 +1,12 @@
+{
+  "corpus": "maybe_json",
+  "upstream_revision": "d72f76fcf70ccfa0a5ca341b80da1d440ac60b11",
+  "input_rows": 441,
+  "input_outcomes": 441,
+  "retained_rows": 441,
+  "retained_outcomes": 441,
+  "excluded_rows": 0,
+  "excluded_outcomes": 0,
+  "counts_by_tag": {},
+  "exclusions": []
+}

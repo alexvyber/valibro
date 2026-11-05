@@ -1,0 +1,10232 @@
+[
+  {
+    "action": "base64",
+    "input": "",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "Zg==",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "Zm8=",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "Zm9v",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "Zm9vYg==",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "Zm9vYmE=",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "Zm9vYmFy",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "dmFsaWJvdA==",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "SGVsbG8sIEkgYW0gVmFsaWJvdCBhbmQgSSB3b3VsZCBsaWtlIHRvIGhlbHAgeW91IHZhbGlkYXRlIGRhdGEgZWFzaWx5IHVzaW5nIGEgc2NoZW1hLg==",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "8J+Mrg==",
+    "valid": true
+  },
+  {
+    "action": "base64",
+    "input": "foo`",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo~",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo!",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo@",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo#",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo$",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo%",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo^",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo&",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo*",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo(",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo)",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo-",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo_",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo[",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo]",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo{",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo}",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo\\",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo|",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo;",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo:",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo'",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo\"",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo,",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo.",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo<",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo>",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "foo?",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "dmFsaWJvdA",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "dmFsaWJvdA=",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "dmFsaWJvdA===",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "Zm9vYmE",
+    "valid": false
+  },
+  {
+    "action": "base64",
+    "input": "Zm9vYmE==",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "DEUTDEFF",
+    "valid": true
+  },
+  {
+    "action": "bic",
+    "input": "DEUTDEFF400",
+    "valid": true
+  },
+  {
+    "action": "bic",
+    "input": "NEDSZAJJXXX",
+    "valid": true
+  },
+  {
+    "action": "bic",
+    "input": "MLCOUS33",
+    "valid": true
+  },
+  {
+    "action": "bic",
+    "input": "EBATFRPPEB1",
+    "valid": true
+  },
+  {
+    "action": "bic",
+    "input": "deutdeff",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "DEUtDEFF400",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "nEDSZAJJXXX",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "MLcouS33",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "EBATFRPPEb1",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "DE8TDEFF",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "3EUTDEFF400",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "NEDSZ8JJXXX",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "M2COUS33",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "EBAT4RPPEB1",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "DEUTDEF",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "MLCOUS",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "DEUTDEFF4000",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "NEDSZAJJXXXX",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "EBATFRPPEB123",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "DEUTDE00",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "NEDSZA00XXX",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "DEU@DEFF",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "DEUTDEFF$00",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "NEDSZAJJXX%",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "MLCOU€33",
+    "valid": false
+  },
+  {
+    "action": "bic",
+    "input": "EB#TFRPPEB1",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "x",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "a",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "b",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "y",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "z",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "ab",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "cd",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "wx",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "yz",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "a1",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "b2",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "y8",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "z9",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "o2dyrckf0vbqhftbcx8ex7r8",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "pj17j4wheabtydu00x2yuo8s",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "vkydd2qpoediyioixyeh8zyo",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "ja3j1arc87i80ys1zxk8iyiv",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": "pbe6zw7wikj83vv5knjk1wx8",
+    "valid": true
+  },
+  {
+    "action": "cuid2",
+    "input": " o2dyr",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "o2dyr ",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "o2d yr",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "1",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "9",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "1a",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "9z",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "A",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "Bc",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "De",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "F1",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "o2Dyr",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "@",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "#",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "$",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "%",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "&",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "a@",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "b#",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "x$",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "z%",
+    "valid": false
+  },
+  {
+    "action": "cuid2",
+    "input": "y&",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "123",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "0",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "1",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "2",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "3",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "4",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "5",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "6",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "7",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "8",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "9",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "00",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "01",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "12",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "99",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "1234",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "0123456789",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "0.1",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "123.456",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "+1",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "-1",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "+123",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "-123",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "+001",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "-001",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "-2.0",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "-52.61",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "+4.0",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "-11.31",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": ".6",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": ".763",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "-.2",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "-.922",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "+.5",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "+.452",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "000",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "000123",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "000.123",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": "00012.3",
+    "valid": true
+  },
+  {
+    "action": "decimal",
+    "input": " 1",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1 ",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": " 1 ",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1 2",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1,000",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1_000",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1 000",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1e3",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1e-3",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1e+3",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1.",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "342.",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1.2.3",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1..23",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "12..3",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "12.3.4",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1.23.4",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1.2.34",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "a",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "A",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "abc",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "ABC",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "-",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "+",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "#",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "#1",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "$",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "$1",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "%",
+    "valid": false
+  },
+  {
+    "action": "decimal",
+    "input": "1%",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "123",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "0",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "1",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "2",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "3",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "4",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "5",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "6",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "7",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "8",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "9",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "00",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "01",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "12",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "99",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": "0123456789",
+    "valid": true
+  },
+  {
+    "action": "digits",
+    "input": " 1",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1 ",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": " 1 ",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1 2",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1,000",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1_000",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1 000",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "+1",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "-1",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "+123",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "-123",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "0.1",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "123.456",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1e3",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1e-3",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1e+3",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "a",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "A",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "abc",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "ABC",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "-",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "+",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "#",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "#1",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "$",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "$1",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "%",
+    "valid": false
+  },
+  {
+    "action": "digits",
+    "input": "1%",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "example.com",
+    "valid": true
+  },
+  {
+    "action": "domain",
+    "input": "EXAMPLE.COM",
+    "valid": true
+  },
+  {
+    "action": "domain",
+    "input": "sub.example.com",
+    "valid": true
+  },
+  {
+    "action": "domain",
+    "input": "sub.sub2.example.co.uk",
+    "valid": true
+  },
+  {
+    "action": "domain",
+    "input": "a.example",
+    "valid": true
+  },
+  {
+    "action": "domain",
+    "input": "\t",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "localhost",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "intranet",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "example",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "-example.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "example-.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": ".example.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "example..com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "example.com.",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "example.c",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "exa mple.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "example!.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "exa*mple.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "ex_amp.le.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "*.example.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "http://example.com",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "127.0.0.1",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "example.123",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "bücher.example",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "почта.рф",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "xn--bcher-kva.example",
+    "valid": false
+  },
+  {
+    "action": "domain",
+    "input": "xn--80a1acny.xn--p1ai",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "Email@Example.COM",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "a@b.cd",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "_email@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "-email@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "+email@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email_@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email-@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email+@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "firstname.lastname@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "firstname_lastname@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "firstname-lastname@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "firstname+lastname@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "1234567890@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "_______@example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email@example-domain.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email@subdomain.example.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email@subdomain.example-domain.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email@example.technology",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email@example.co.uk",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email@subdomain.example.co.uk",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email@123.com",
+    "valid": true
+  },
+  {
+    "action": "email",
+    "input": "email",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "emailexamplecom",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": " email@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "e mail@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email @example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@ example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@exa mple.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example. com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example.com ",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email.example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email..email@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example..com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": ".email@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email.@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@_example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@-example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@+example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@.example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example_.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example-.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example+.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example.123",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example.a",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "#$&%@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@#$&%.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example.#$&%",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "あいうえお@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@あいうえお.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example.あいう",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "K@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "ſ@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "Kſ@example.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@K.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@ſ.com",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example.Kſ",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "Joe Smith <email@example.com>",
+    "valid": false
+  },
+  {
+    "action": "email",
+    "input": "email@example.com (Joe Smith)",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "123",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "1",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "2",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "3",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "4",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "5",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "6",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "7",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "8",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "9",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "a",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "b",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "c",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "d",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "e",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "f",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "A",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "B",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "C",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "D",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "E",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "F",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "00",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "12",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "FF",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "000000000000000",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "123456789abcdef",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "123456789ABCDEF",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "FFFFFFFFFFFFFFF",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0h000000000000000",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0h123456789abcdef",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0h123456789ABCDEF",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0hFFFFFFFFFFFFFFF",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0x000000000000000",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0x123456789abcdef",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0x123456789ABCDEF",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0xFFFFFFFFFFFFFFF",
+    "valid": true
+  },
+  {
+    "action": "hexadecimal",
+    "input": " 1",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "1 ",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": " 1 ",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "1 2",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "+1",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "-1",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "+123",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "-123",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "0.1",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "123.456",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "1e-3",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "1e+3",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "g",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "G",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "z",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "Z",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "123456789abcdefg",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "123456789ABCDEFG",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "123456789abcdefghijklmnopqrstuvwxyz",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "-",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "+",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "#",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "#1",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "$",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "$1",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "%",
+    "valid": false
+  },
+  {
+    "action": "hexadecimal",
+    "input": "1%",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#000",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#F00",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#0F0",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#00F",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#123",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#abc",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#0000",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFFF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#F00F",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#0F0F",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#00FF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#1234",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#abcd",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#000000",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFFFFF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#FF0000",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#00FF00",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#0000FF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#123456",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#abcdef",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#00000000",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFFFFFFF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#FF0000FF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#00FF00FF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#0000FFFF",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#12345678",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "#abcdefab",
+    "valid": true
+  },
+  {
+    "action": "hex_color",
+    "input": "FFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "FFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "FFFFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "FFFFFFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "##FFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "##FFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "##FFFFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "##FFFFFFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": " #FFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFF ",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFF FFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#0",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#F",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#1",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#a",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#00",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#FF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#12",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#ab",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#00000",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#12345",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#abcde",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#0000000",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFFFFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#1234567",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#abcdefa",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#000000000",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#FFFFFFFFF",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#123456789",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#abcdefabc",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#GGG",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#zzz",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#GGGG",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#zzzz",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#GGGGGG",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#zzzzzz",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#GGGGGGGG",
+    "valid": false
+  },
+  {
+    "action": "hex_color",
+    "input": "#zzzzzzzz",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "192.168.1.1",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "127.0.0.1",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "10.10.10.10",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "90.90.90.90",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "50.60.70.80",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "100.100.100.100",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "190.190.190.190",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "150.150.150.150",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "200.200.200.200",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "240.240.240.240",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "0.0.0.0",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "9.9.9.9",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "5.5.5.5",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "250.250.250.250",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "255.255.255.255",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "19.19.19.19",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "99.99.99.99",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "59.69.79.89",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "109.109.109.109",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "199.199.199.199",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "159.159.159.159",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "209.209.209.209",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "249.249.249.249",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "15.15.15.15",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "95.95.95.95",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "55.65.75.85",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "105.105.105.105",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "195.195.195.195",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "155.155.155.155",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "205.205.205.205",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "245.245.245.245",
+    "valid": true
+  },
+  {
+    "action": "ipv4",
+    "input": "  ",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "\t",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "1",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "-1.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "0..0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "1234.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "1.2.3",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "0.0.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "a.a.a.a",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "+1.2.3.4",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": " 0.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "0.0.0.0 ",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "0.0 0.0",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "0-0-0-0",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "00.00.00.00",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "256.256.256.256",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "-1.-1.-1.-1",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "259.259.259.259",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "09.09.09.09",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "05.05.05.05",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "FE80:0000:0000:0000:0202:B3FF:FE1E:8329",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "fe80::1ff:fe23:4567:890a",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "2001:db8:85a3:8d3:1319:8a2e:370:7348",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "::ffff:192.168.1.1",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "::ffff:0.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ipv4",
+    "input": "::ffff:255.255.255.255",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+    "valid": true
+  },
+  {
+    "action": "ipv6",
+    "input": "FE80:0000:0000:0000:0202:B3FF:FE1E:8329",
+    "valid": true
+  },
+  {
+    "action": "ipv6",
+    "input": "fe80::1ff:fe23:4567:890a",
+    "valid": true
+  },
+  {
+    "action": "ipv6",
+    "input": "2001:db8:85a3:8d3:1319:8a2e:370:7348",
+    "valid": true
+  },
+  {
+    "action": "ipv6",
+    "input": "d329:1be4:25b4:db47:a9d1:dc71:4926:992c:14af",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "d5e7:7214:2b78::3906:85e6:53cc:709:32ba",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "8f69::c757:395e:976e::3441",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "54cb::473f:d516:0.255.256.22",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "54cb::473f:d516:192.168.1",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "test:test:test:test:test:test:test:test",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "192.168.1.1",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "127.0.0.1",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "0.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ipv6",
+    "input": "255.255.255.255",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "192.168.1.1",
+    "valid": true
+  },
+  {
+    "action": "ip",
+    "input": "127.0.0.1",
+    "valid": true
+  },
+  {
+    "action": "ip",
+    "input": "0.0.0.0",
+    "valid": true
+  },
+  {
+    "action": "ip",
+    "input": "255.255.255.255",
+    "valid": true
+  },
+  {
+    "action": "ip",
+    "input": "2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+    "valid": true
+  },
+  {
+    "action": "ip",
+    "input": "FE80:0000:0000:0000:0202:B3FF:FE1E:8329",
+    "valid": true
+  },
+  {
+    "action": "ip",
+    "input": "fe80::1ff:fe23:4567:890a",
+    "valid": true
+  },
+  {
+    "action": "ip",
+    "input": "2001:db8:85a3:8d3:1319:8a2e:370:7348",
+    "valid": true
+  },
+  {
+    "action": "ip",
+    "input": "1",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "-1.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "0..0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "1234.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "256.256.256.256",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "1.2.3",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "0.0.0.0.0",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "a.a.a.a",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "d329:1be4:25b4:db47:a9d1:dc71:4926:992c:14af",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "d5e7:7214:2b78::3906:85e6:53cc:709:32ba",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "8f69::c757:395e:976e::3441",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "54cb::473f:d516:0.255.256.22",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "54cb::473f:d516:192.168.1",
+    "valid": false
+  },
+  {
+    "action": "ip",
+    "input": "test:test:test:test:test:test:test:test",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01-01",
+    "valid": true
+  },
+  {
+    "action": "iso_date",
+    "input": "9999-12-31",
+    "valid": true
+  },
+  {
+    "action": "iso_date",
+    "input": "2024-05-06",
+    "valid": true
+  },
+  {
+    "action": "iso_date",
+    "input": " 0000-01-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01-01 ",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": " 0000-01-01 ",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-0101",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "000001-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "00000101",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000--01-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01--01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000--01--01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000 01 01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000_01_01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000/01/01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000–01–01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000:01:01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "-01-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0-01-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "00-01-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "000-01-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "00000-01-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-1-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-010-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-00-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-13-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-99-01",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01-1",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01-010",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01-00",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01-32",
+    "valid": false
+  },
+  {
+    "action": "iso_date",
+    "input": "0000-01-99",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time",
+    "input": "9999-12-31T23:59",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time",
+    "input": "2023-07-11T19:34",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01 00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time",
+    "input": "2023-07-11 17:26",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time",
+    "input": "9999-12-31 23:59",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time",
+    "input": " 0000-01-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00:00 ",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": " 0000-01-01T00:00 ",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "000001-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-0101T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-0100:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T0000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000 01 01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000–01–01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000/01/01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000_01_01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000:01:01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01A00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01U00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01Z00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01_00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01-00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00 00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00-00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00_00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00–00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00/00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00.00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "-01-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0-01-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "00-01-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "000-01-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "00000-01-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-1-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-010-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-00-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-13-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-99-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-1T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-010T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-00T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-32T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-99T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T0:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T000:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T24:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T99:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00:0",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00:000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00:60",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time",
+    "input": "0000-01-01T00:99",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "9999-12-31T23:59:59",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01 00:00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11 17:26:30",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "9999-12-31 23:59:59",
+    "valid": true
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": " 0000-01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00:00 ",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": " 0000-01-01T00:00:00 ",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "000001-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-0101T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-0100:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T000000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:0000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000 01 01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000–01–01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000/01/01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000_01_01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000:01:01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01A00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01U00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01Z00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01_00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01-00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00 00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00-00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00_00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00–00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00/00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00.00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "-01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0-01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "00-01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "000-01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "00000-01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-1-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-010-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-00-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-13-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-99-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-1T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-010T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-00T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-32T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-99T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T0:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T000:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T24:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T99:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:0:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:000:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:60:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:99:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00:",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00:0",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00:000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00:60",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00:99",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000--01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01--01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01TT00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00::00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00::00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01t00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11t19:34:56",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "9999-12-31t23:59:59",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "+0000-01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "-0000-01-01T00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "+2023-07-11T19:34:56",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "-2023-07-11T19:34:56",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "0000-01-01T00:00:00Z",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56Z",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "9999-12-31T23:59:59Z",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56z",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56+00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56+12:34",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56+0000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56+1234",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56+00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56+12",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56-00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56-12:34",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56-0000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56-1234",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56-00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56-12",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56.0",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56.00",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56.000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56.999999999",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56,000",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_date_time_second",
+    "input": "2023-07-11T19:34:56.000+00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_time",
+    "input": "12:34",
+    "valid": true
+  },
+  {
+    "action": "iso_time",
+    "input": "23:59",
+    "valid": true
+  },
+  {
+    "action": "iso_time",
+    "input": " 00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00:00 ",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": " 00:00 ",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "0000",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "1234",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "2359",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00 00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00-00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00_00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00–00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00/00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00.00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "+00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "-12:34",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "+23:59",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": ":00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "0:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "000:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "24:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "99:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00:",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00:0",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00:000",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00:60",
+    "valid": false
+  },
+  {
+    "action": "iso_time",
+    "input": "00:99",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_time_second",
+    "input": "12:34:56",
+    "valid": true
+  },
+  {
+    "action": "iso_time_second",
+    "input": "23:59:59",
+    "valid": true
+  },
+  {
+    "action": "iso_time_second",
+    "input": " 00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:00:00 ",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": " 00:00:00 ",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "0000:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:0000",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "000000",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00::00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:00::00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00::00::00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00 00 00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00/00/00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00H00M00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00_00_00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00.00.00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "+00:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "-12:34:56",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "+23:59:59",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": ":00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "0:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "000:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "24:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "99:00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00::00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:0:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:000:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:60:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:99:00",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:00:",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:00:0",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:00:000",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:00:60",
+    "valid": false
+  },
+  {
+    "action": "iso_time_second",
+    "input": "00:00:99",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243+12:34",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999+23:59",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+0000",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243+1234",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999+2359",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243+12",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999+23",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000-00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243-12:34",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999-23:59",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000-0000",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243-1234",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999-2359",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000-00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243-12",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999-23",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000000000Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.184618592Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999999999Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01 00:00:00.000Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11 17:26:27.243Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31 23:59:59.999Z",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01 00:00:00.000 +00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01 00:00:00.000 -00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11 17:26:27.243 +0000",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11 17:26:27.243 -0000",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31 23:59:59.999 +00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31 23:59:59.999 -00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000 +00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000 -00:00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243 +0000",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "2023-07-11T17:26:27.243 -0000",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999 +00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "9999-12-31T23:59:59.999 -00",
+    "valid": true
+  },
+  {
+    "action": "iso_timestamp",
+    "input": " 0000-01-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000Z ",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": " 0000-01-01T00:00:00.000Z ",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "000001-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-0101T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-0100:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T0000:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:0000.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.00000:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000--01-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01--01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01TT00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00::00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00::00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00..000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000ZZ",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000++00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000--00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00::00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000  +00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01 00:00:00.000  +00:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000 01 01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000–01–01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000/01/01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000_01_01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000:01:01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01A00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01U00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01Z00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01_00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01-00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00 00 00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00-00-00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00_00_00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00–00–00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00/00/00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00.00.00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00 000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00-000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00_000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00–000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00/000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00:000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "-01-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0-01-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "00-01-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "000-01-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "00000-01-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-1-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-010-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-00-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-13-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-99-01T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-1T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-010T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-00T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-32T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-99T00:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T0:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T000:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T24:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T99:00:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:0:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:000:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:60:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:99:00.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:0.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:000.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:60.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:99.000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.0000000000Z",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000-",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+0:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+000:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+24:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+2400",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+24",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+99:00",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+9900",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+99",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00:",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00:0",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+000",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00:000",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00000",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00:60",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+0060",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+00:99",
+    "valid": false
+  },
+  {
+    "action": "iso_timestamp",
+    "input": "0000-01-01T00:00:00.000+0099",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-W01",
+    "valid": true
+  },
+  {
+    "action": "iso_week",
+    "input": "2023-W29",
+    "valid": true
+  },
+  {
+    "action": "iso_week",
+    "input": "9999-W53",
+    "valid": true
+  },
+  {
+    "action": "iso_week",
+    "input": " 0000-W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-W01 ",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": " 0000-W01 ",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "000001",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000- 01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-A01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-Z01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-w01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000.W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000–W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000 W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000/W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000_W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "-W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0-W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "00-W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "000-W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "00000-W01",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-W",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-W0",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-W000",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-W00",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-W54",
+    "valid": false
+  },
+  {
+    "action": "iso_week",
+    "input": "0000-W99",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "ab.cd.ef",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "abc.def.ghi",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcd.efgh.ijkl",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcdef.ghijkl.mnopqr",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "ab_cd-.ef-gh_.ij_kl-",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcdefgh.ijklmnop.qrstuvwx",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcd.efgh.",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcd..ijkl",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcdef..",
+    "valid": true
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcd.efgh",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "segment.twopart",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "header.payload.signature.extra",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "a.b.c.d",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "a.a.a",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "ab=.cd.ef",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "abc==.def.ghi",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcd.efgh.ijkl==",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": " abcd.efgh.ijkl",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcd.efgh.ijkl ",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcd .efgh.ijkl",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "abcd.efgh.ij@l",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "segment.twopart.si gnature",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "segment.twopart.si\\u00a9gnature",
+    "valid": false
+  },
+  {
+    "action": "jws_compact",
+    "input": "segment.twopart.si©gnature",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DEU671703268",
+    "valid": true
+  },
+  {
+    "action": "isrc",
+    "input": "FRIDO2512641",
+    "valid": true
+  },
+  {
+    "action": "isrc",
+    "input": "GBBPW0700093",
+    "valid": true
+  },
+  {
+    "action": "isrc",
+    "input": "US2S70465020",
+    "valid": true
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-17-03268",
+    "valid": true
+  },
+  {
+    "action": "isrc",
+    "input": "FR-IDO-25-12641",
+    "valid": true
+  },
+  {
+    "action": "isrc",
+    "input": "GB-BPW-07-00093",
+    "valid": true
+  },
+  {
+    "action": "isrc",
+    "input": "US-2S7-04-65020",
+    "valid": true
+  },
+  {
+    "action": "isrc",
+    "input": " DE-U67-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-17-03268 ",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": " DE-U67-17-03268 ",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DEU67-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U6717-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-1703268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE--U67-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67--17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-17--03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE--U67--17--03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE U67 17 03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE/U67/17/03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE_U67_17_03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE–U67–17–03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "D-U67-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DEU-U67-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U6-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67x-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-1-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-170-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-17-0326",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-17-032680",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "0EU671703268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "0E-U67-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DEa671703268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-a67-17-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DEU67A703268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-A7-03268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DEU6717A3268",
+    "valid": false
+  },
+  {
+    "action": "isrc",
+    "input": "DE-U67-17-A3268",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "0ujsswThIGTUYm2K8FjOOfXtY1K",
+    "valid": true
+  },
+  {
+    "action": "ksuid",
+    "input": "2EbKL0J9w8vLcK7BDmFnRQy0w1p",
+    "valid": true
+  },
+  {
+    "action": "ksuid",
+    "input": "1srOrx2ZWZBpBUvZwXKQmoEYga2",
+    "valid": true
+  },
+  {
+    "action": "ksuid",
+    "input": "36QGvpFmeYRDTH3mI14XJz31xUs",
+    "valid": true
+  },
+  {
+    "action": "ksuid",
+    "input": " 0ujsswThIGTUYm2K8FjOOfXtY1K",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "0ujsswThIGTUYm2K8FjOOfXtY1K ",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": " 0ujsswThIGTUYm2K8FjOOfXtY1K ",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "0ujsswThIGTUYm2K8FjOOfXtY1",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "2EbKL0J9w8vLcK7B",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "0ujsswThIGTUYm2K8FjOOfXtY1Ka",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "2EbKL0J9w8vLcK7BDmFnRQy0w1p123456",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "!ujsswThIGTUYm2K8FjOOfXtY1K",
+    "valid": false
+  },
+  {
+    "action": "ksuid",
+    "input": "0ujsswThIGTUYm2K8FjOOfXtY@1",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "b6:05:20:67:f9:58",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "B6:05:20:67:F9:58",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "b6-05-20-67-f9-58",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "B6-05-20-67-F9-58",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "b605.2067.f958",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "B605.2067.F958",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "00:00:00:00:00:00",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "99:99:99:99:99:99",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "aa:aa:aa:aa:aa:aa",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "AA:AA:AA:AA:AA:AA",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "ff:ff:ff:ff:ff:ff",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "FF:FF:FF:FF:FF:FF",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "00-00-00-00-00-00",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "99-99-99-99-99-99",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "aa-aa-aa-aa-aa-aa",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "AA-AA-AA-AA-AA-AA",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "ff-ff-ff-ff-ff-ff",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "FF-FF-FF-FF-FF-FF",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "0000.0000.0000",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "9999.9999.9999",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "aaaa.aaaa.aaaa",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "AAAA.AAAA.AAAA",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "ffff.ffff.ffff",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "FFFF.FFFF.FFFF",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "00:25:96:FF:FE:12:34:56",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "00-1A-2B-3C-4D-5E-6F-70",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "0025.96FF.FE12.3456",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "0025:96FF:FE12:3456",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "00:00:00:00:00:00:00:00",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "99:99:99:99:99:99:99:99",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "aa:aa:aa:aa:aa:aa:aa:aa",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "AA:AA:AA:AA:AA:AA:AA:AA",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "ff:ff:ff:ff:ff:ff:ff:ff",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "FF:FF:FF:FF:FF:FF:FF:FF",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "00-00-00-00-00-00-00-00",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "99-99-99-99-99-99-99-99",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "aa-aa-aa-aa-aa-aa-aa-aa",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "AA-AA-AA-AA-AA-AA-AA-AA",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "ff-ff-ff-ff-ff-ff-ff-ff",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "FF-FF-FF-FF-FF-FF-FF-FF",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "0000.0000.0000.0000",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "9999.9999.9999.9999",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "aaaa.aaaa.aaaa.aaaa",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "AAAA.AAAA.AAAA.AAAA",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "ffff.ffff.ffff.ffff",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "FFFF.FFFF.FFFF.FFFF",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "0000:0000:0000:0000",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "9999:9999:9999:9999",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "aaaa:aaaa:aaaa:aaaa",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "AAAA:AAAA:AAAA:AAAA",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "ffff:ffff:ffff:ffff",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "FFFF:FFFF:FFFF:FFFF",
+    "valid": true
+  },
+  {
+    "action": "mac",
+    "input": "00:1G:2B:3C:4D:5E",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00:1A:2B:3C:4D",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00:1A:2B:3C:4D:5E:6F",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:80",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00-1G-2B-3C-4D-5E",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00-1A-2B-3C-4D",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00-1A-2B-3C-4D-5E-6F",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00-1A-2B-3C-4D-5E-6F-70-80",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "b605-2067-f958",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00_1A_2B_3C_4D_5E",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "001A2B3C4D5E6F",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "ZZ:ZZ:ZZ:ZZ:ZZ:ZZ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:80:90:AB",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "001122334455",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:ZZ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "GHIJ:KLNM:OPQR",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00:00:00:00:00:00:00",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00-00-00-00-00-00-00",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "0:0:0:0:0:0",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "000:000:000:000:000:000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00:00:00:00:00",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "0-0-0-0-0-0",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "000-000-000-000-000-000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00-00-00-00-00",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "000.000.000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00000.00000.00000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "-10:-10:-10:-10:-10:-10",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "100:100:100:100:100:100",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "gg:gg:gg:gg:gg:gg",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "GG:GG:GG:GG:GG:GG",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "zz:zz:zz:zz:zz:zz",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "-10--10--10--10--10--10",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "100-100-100-100-100-100",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "gg-gg-gg-gg-gg-gg",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "GG-GG-GG-GG-GG-GG",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "zz-zz-zz-zz-zz-zz",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "ZZ-ZZ-ZZ-ZZ-ZZ-ZZ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "-1000.-1000.-1000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "10000.10000.10000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "gggg.gggg.gggg",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "GGGG.GGGG.GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "zzzz.zzzz.zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "ZZZZ.ZZZZ.ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "0:0:0:0:0:0:0:0",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "000:000:000:000:000:000:000:000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00:00:00:00:00:00:00:00:00",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "0-0-0-0-0-0-0-0",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "000-000-000-000-000-000-000-000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00-00-00-00-00-00-00-00-00",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "000.000.000.000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00000.00000.00000.00000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "0000.0000.0000.0000.0000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "000:000:000:000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "00000:00000:00000:00000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "0000:0000:0000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "0000:0000:0000:0000:0000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "-10:-10:-10:-10:-10:-10:-10:-10",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "10000:10000:10000:10000:10000:10000:10000:10000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "gggg:gggg:gggg:gggg:gggg:gggg:gggg:gggg",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "GGGG:GGGG:GGGG:GGGG:GGGG:GGGG:GGGG:GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "-10--10--10--10--10--10--10--10",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "10000-10000-10000-10000-10000-10000-10000-10000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "zzzz-zzzz-zzzz-zzzz-zzzz-zzzz-zzzz-zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "ZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "gggg-gggg-gggg-gggg-gggg-gggg-gggg-gggg",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "GGGG-GGGG-GGGG-GGGG-GGGG-GGGG-GGGG-GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "-1000.-1000.-1000.-1000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "10000.10000.10000.10000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "zzzz.zzzz.zzzz.zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "ZZZZ.ZZZZ.ZZZZ.ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "gggg.gggg.gggg.gggg",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "GGGG.GGGG.GGGG.GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "-1000:-1000:-1000:-1000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "10000:10000:10000:10000",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "zzzz:zzzz:zzzz:zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "ZZZZ:ZZZZ:ZZZZ:ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "gggg:gggg:gggg:gggg",
+    "valid": false
+  },
+  {
+    "action": "mac",
+    "input": "GGGG:GGGG:GGGG:GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "b6:05:20:67:f9:58",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "B6:05:20:67:F9:58",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "b6-05-20-67-f9-58",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "B6-05-20-67-F9-58",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "b605.2067.f958",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "B605.2067.F958",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "00:00:00:00:00:00",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "99:99:99:99:99:99",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "aa:aa:aa:aa:aa:aa",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "AA:AA:AA:AA:AA:AA",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "ff:ff:ff:ff:ff:ff",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "FF:FF:FF:FF:FF:FF",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "00-00-00-00-00-00",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "99-99-99-99-99-99",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "aa-aa-aa-aa-aa-aa",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "AA-AA-AA-AA-AA-AA",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "ff-ff-ff-ff-ff-ff",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "FF-FF-FF-FF-FF-FF",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "0000.0000.0000",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "9999.9999.9999",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "aaaa.aaaa.aaaa",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "AAAA.AAAA.AAAA",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "ffff.ffff.ffff",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "FFFF.FFFF.FFFF",
+    "valid": true
+  },
+  {
+    "action": "mac48",
+    "input": "00:25:96:FF:FE:12:34:56",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00-1A-2B-3C-4D-5E-6F-70",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "0025.96FF.FE12.3456",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "0025:96FF:FE12:3456",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00:1G:2B:3C:4D:5E",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00:1A:2B:3C:4D",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00:1A:2B:3C:4D:5E:6F",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:80",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00-1G-2B-3C-4D-5E",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00-1A-2B-3C-4D",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00-1A-2B-3C-4D-5E-6F",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00-1A-2B-3C-4D-5E-6F-70-80",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "b605-2067-f958",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00_1A_2B_3C_4D_5E",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "001A2B3C4D5E6F",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:80:90:AB",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "001122334455",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:ZZ",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "GHIJ:KLNM:OPQR",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00:00:00:00:00:00:00",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00-00-00-00-00-00-00",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "0:0:0:0:0:0",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "000:000:000:000:000:000",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00:00:00:00:00",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "0-0-0-0-0-0",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "000-000-000-000-000-000",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00-00-00-00-00",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "000.000.000",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "00000.00000.00000",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "0000.0000",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "0000.0000.0000.0000",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "-10:-10:-10:-10:-10:-10",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "100:100:100:100:100:100",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "gg:gg:gg:gg:gg:gg",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "GG:GG:GG:GG:GG:GG",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "zz:zz:zz:zz:zz:zz",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "ZZ:ZZ:ZZ:ZZ:ZZ:ZZ",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "-10--10--10--10--10--10",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "100-100-100-100-100-100",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "gg-gg-gg-gg-gg-gg",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "GG-GG-GG-GG-GG-GG",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "zz-zz-zz-zz-zz-zz",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "ZZ-ZZ-ZZ-ZZ-ZZ-ZZ",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "-1000.-1000.-1000",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "10000.10000.10000",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "gggg.gggg.gggg",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "GGGG.GGGG.GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "zzzz.zzzz.zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac48",
+    "input": "ZZZZ.ZZZZ.ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:25:96:FF:FE:12:34:56",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "00-1A-2B-3C-4D-5E-6F-70",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "0025.96FF.FE12.3456",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "0025:96FF:FE12:3456",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "00:00:00:00:00:00:00:00",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "99:99:99:99:99:99:99:99",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "aa:aa:aa:aa:aa:aa:aa:aa",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "AA:AA:AA:AA:AA:AA:AA:AA",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "ff:ff:ff:ff:ff:ff:ff:ff",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "FF:FF:FF:FF:FF:FF:FF:FF",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "00-00-00-00-00-00-00-00",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "99-99-99-99-99-99-99-99",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "aa-aa-aa-aa-aa-aa-aa-aa",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "AA-AA-AA-AA-AA-AA-AA-AA",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "ff-ff-ff-ff-ff-ff-ff-ff",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "FF-FF-FF-FF-FF-FF-FF-FF",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "0000.0000.0000.0000",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "9999.9999.9999.9999",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "aaaa.aaaa.aaaa.aaaa",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "AAAA.AAAA.AAAA.AAAA",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "ffff.ffff.ffff.ffff",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "FFFF.FFFF.FFFF.FFFF",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "0000:0000:0000:0000",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "9999:9999:9999:9999",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "aaaa:aaaa:aaaa:aaaa",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "AAAA:AAAA:AAAA:AAAA",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "ffff:ffff:ffff:ffff",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "FFFF:FFFF:FFFF:FFFF",
+    "valid": true
+  },
+  {
+    "action": "mac64",
+    "input": "b6:05:20:67:f9:58",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "b6-05-20-67-f9-58",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "b605.2067.f958",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "0000.0000.0000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:1G:2B:3C:4D:5E",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:1A:2B:3C:4D",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:1A:2B:3C:4D:5E:6F",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:80",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00-1G-2B-3C-4D-5E",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00-1A-2B-3C-4D",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00-1A-2B-3C-4D-5E-6F",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00-1A-2B-3C-4D-5E-6F-70-80",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "b605-2067-f958",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00_1A_2B_3C_4D_5E",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "001A2B3C4D5E6F",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "ZZ:ZZ:ZZ:ZZ:ZZ:ZZ",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:80:90:AB",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "001122334455",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:1A:2B:3C:4D:5E:6F:70:ZZ",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "GHIJ:KLNM:OPQR",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "0:0:0:0:0:0:0:0",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "000:000:000:000:000:000:000:000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:00:00:00:00:00:00",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00:00:00:00:00:00:00:00:00",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "0-0-0-0-0-0-0-0",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "000-000-000-000-000-000-000-000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00-00-00-00-00-00-00",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00-00-00-00-00-00-00-00-00",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "000.000.000.000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00000.00000.00000.00000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "0000.0000.0000.0000.0000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "000:000:000:000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "00000:00000:00000:00000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "0000:0000:0000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "0000:0000:0000:0000:0000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "-10:-10:-10:-10:-10:-10:-10:-10",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "10000:10000:10000:10000:10000:10000:10000:10000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz:zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ:ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "gggg:gggg:gggg:gggg:gggg:gggg:gggg:gggg",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "GGGG:GGGG:GGGG:GGGG:GGGG:GGGG:GGGG:GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "-10--10--10--10--10--10--10--10",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "10000-10000-10000-10000-10000-10000-10000-10000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "zzzz-zzzz-zzzz-zzzz-zzzz-zzzz-zzzz-zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "ZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZ-ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "gggg-gggg-gggg-gggg-gggg-gggg-gggg-gggg",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "GGGG-GGGG-GGGG-GGGG-GGGG-GGGG-GGGG-GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "-1000.-1000.-1000.-1000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "10000.10000.10000.10000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "zzzz.zzzz.zzzz.zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "ZZZZ.ZZZZ.ZZZZ.ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "gggg.gggg.gggg.gggg",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "GGGG.GGGG.GGGG.GGGG",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "-1000:-1000:-1000:-1000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "10000:10000:10000:10000",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "zzzz:zzzz:zzzz:zzzz",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "ZZZZ:ZZZZ:ZZZZ:ZZZZ",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "gggg:gggg:gggg:gggg",
+    "valid": false
+  },
+  {
+    "action": "mac64",
+    "input": "GGGG:GGGG:GGGG:GGGG",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "x",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "123",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "NOi6NWfhDRpgzBYFRR-uE",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "D7j9AWMA6anLPDE2_2uHz",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "g_Se_MXrTmRJpmcp8cN5m",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "Oc0XNYtCgyrX-x2T33z3E",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "gGCr-6yBmZkOTJQ1oLAFr",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "a",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "z",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "A",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "Z",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "0",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "9",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "_",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "-",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "aa",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "zz",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "AZ",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "09",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "_-",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "9A",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-",
+    "valid": true
+  },
+  {
+    "action": "nanoid",
+    "input": " vM7SGqVFmPS5tw7fII-G",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "BImGM 7USGakXaVhydHgO",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "LBjowKnkbk95kK3IoUV7 ",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "@1o5BK76uGc-mbqeprAvX",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "#Lcb2qbTsjS98y9Vf-G15",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "$3WZ4tXxsuiDBezXIJKlP",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "%gSjBHLFDO67bE-nbgBRi",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "&2zYmqr0APdImhdxC69t4",
+    "valid": false
+  },
+  {
+    "action": "nanoid",
+    "input": "–gGCr6yBmZkOTJQ1oLAFr",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "123",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "0",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "1",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "2",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "3",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "4",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "5",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "6",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "7",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "00",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "12",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "77",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "000000000000000",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "777777777777",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "01234567",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "1234567",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "0o000000000000000",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "0o777777777777",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "0o01234567",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": "0o1234567",
+    "valid": true
+  },
+  {
+    "action": "octal",
+    "input": " 1",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "1 ",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": " 1 ",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "1 2",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "+1",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "-1",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "+123",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "-123",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "0.1",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "123.456",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "1e-3",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "1e+3",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "8",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "9",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "012345678",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "012384567",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "901234567",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "a",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "A",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "b",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "B",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "y",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "Y",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "z",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "Z",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "012345abc67",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "012345ABC68789",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "01234568789abc",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "012345abc68789ABC",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "xyz01234568789abc",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "XYZ012345abc68789",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "123456789abcdefghijklmnopqrstuvwxyz",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "0o",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "0O",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "0h01234567",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "0H01234567",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "0x01234567",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "0X01234567",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "-",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "+",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "#",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "#1",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "$",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "$1",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "%",
+    "valid": false
+  },
+  {
+    "action": "octal",
+    "input": "1%",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "Email@Example.COM",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "a@b.cd",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "_email@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "-email@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "+email@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": ".email@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email_@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email-@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email+@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email.@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "firstname.lastname@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email..email@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "firstname_lastname@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "firstname-lastname@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "firstname+lastname@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "1234567890@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "_______@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "#$&%@example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example-domain.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@subdomain.example.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@subdomain.example-domain.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.technology",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.co.uk",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@subdomain.example.co.uk",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@123.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@xn--exmple-cua.com",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.xn--6frz82g",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.123",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.a",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example",
+    "valid": true
+  },
+  {
+    "action": "rfc_email",
+    "input": "email",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "emailexamplecom",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": " email@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "e mail@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email @example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@ example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@exa mple.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example. com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.com ",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email.example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example..com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@_example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@-example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@+example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@.example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example_.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example-.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example+.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@#$&%.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.#$&%",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "あいうえお@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@あいうえお.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.あいう",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "K@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "ſ@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "Kſ@example.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@K.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@ſ.com",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.Kſ",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "Joe Smith <email@example.com>",
+    "valid": false
+  },
+  {
+    "action": "rfc_email",
+    "input": "email@example.com (Joe Smith)",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "x",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "123",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "z",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "0",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "9",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "az",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "09",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "120",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "abc129",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "968foo",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "foo135bar",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "357ace642",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "collection",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "a-a",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "a_a",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "z-z",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "z_z",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "0-0",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "0_0",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "9-9",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "9_9",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "az-az",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "az_az",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "09-09",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "09_09",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "120-120",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "120_120",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "abc129-abc129",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "abc129_abc129",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "968foo-968foo",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "968foo_968foo",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "foo135bar-foo135bar",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "foo135bar_foo135bar",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "357ace642-357ace642",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "357ace642_357ace642",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "this-that-other-outre-collection",
+    "valid": true
+  },
+  {
+    "action": "slug",
+    "input": "A",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "Z",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": ".",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "~",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": ":",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "/",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "?",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "#",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "[",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "]",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "@",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "!",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "$",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "&",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "'",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "(",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": ")",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "*",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "+",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": ",",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": ";",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "=",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "❤️",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "%40",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "%20",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "%2F%C3%A9",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "helloWorld",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "café",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-A",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-Z",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-.",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-~",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-:",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-/",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-?",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-#",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-[",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-]",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-@",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-!",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-$",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-&",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-'",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-(",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-)",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-*",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-+",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-,",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-;",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-=",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-é",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-❤️",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-%40",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-%20",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "a-%2F%C3%A9",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello world",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello+world",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello%20world",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello--world",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello__world",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello-_world",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello_-world",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "-hello",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "_hello",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "-123",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "_123",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello-",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "hello_",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "123-",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "123_",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "-hello-",
+    "valid": false
+  },
+  {
+    "action": "slug",
+    "input": "_hello_",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01ARZ3NDEKTSV4RRFFQ69G5FAV",
+    "valid": true
+  },
+  {
+    "action": "ulid",
+    "input": "01bx5zzkbkactav9wevgemmvry",
+    "valid": true
+  },
+  {
+    "action": "ulid",
+    "input": "0123456789abcdefghjkmnpqrs",
+    "valid": true
+  },
+  {
+    "action": "ulid",
+    "input": "00000000000000000000000000",
+    "valid": true
+  },
+  {
+    "action": "ulid",
+    "input": "7ZZZZZZZZZZZZZZZZZZZZZZZZZ",
+    "valid": true
+  },
+  {
+    "action": "ulid",
+    "input": "7zzzzzzzzzzzzzzzzzzzzzzzzz",
+    "valid": true
+  },
+  {
+    "action": "ulid",
+    "input": " 01ARZ3NDEKTSV4RRFFQ69G5FAV",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01ARZ3NDEKTSV4RRFFQ69G5FAV ",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": " 01ARZ3NDEKTSV4RRFFQ69G5FAV ",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01ARZ3NDEKTSV4RRFFQ69G5FA",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01bx5zzkbkactav9",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01ARZ3NDEKTSV4RRFFQ69G5FAV1",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01bx5zzkbkactav9wevgemmvry123456789",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01ARZ3NDIKTSV4RRFFQ69G5FAV",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01bx5zikbkactav9wevgemmvry",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "L1ARZ3NDEKTSV4RRFFQ69G5FAV",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "l1bx5zzkbkactav9wevgemmvry",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01ARZ3NDEKTSV4RRFFQ69G5OAV",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01bx5zzkbkactav9wevgemmory",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01ARZ3NDEKTSV4RRFFQ69G5FAU",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "01bx5zzkbkactav9wevgemmvru",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "80000000000000000000000000",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "8ARZ3NDEKTSV4RRFFQ69G5FAV0",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "9ARZ3NDEKTSV4RRFFQ69G5FAV0",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "ABCDEFGHJKMNPQRSTVWXYZ0123",
+    "valid": false
+  },
+  {
+    "action": "ulid",
+    "input": "abcdefghjkmnpqrstvwxyz0123",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "a6021db4-0b07-11ef-9262-0242ac120002",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "bf576dbe-0b07-11ef-9262-0242ac120002",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "bf576fda-0b07-11ef-9262-0242ac120002",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "bf577106-0b07-11ef-9262-0242ac120002",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "bf57721e-0b07-11ef-9262-0242ac120002",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-4611-874d-a4f9cc727e1e",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "95d9d16b-feba-495d-ab7b-07e4212ff3d0",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "c4322ec9-5c1f-4865-b0b1-52298acc5a8e",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "6f66b7d5-8400-4e48-99f9-ae94ba418069",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "779c2294-cb0a-4347-9587-61d4509d32db",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "018f4f48-1658-7538-8aa9-e3b64526bb43",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "018f4f48-9a53-72b6-8ee6-91c47cd95f6f",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "018f4f48-b0a1-75bc-ab3f-11081dfb40b8",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "018f4f48-cecc-7bfc-b0bc-a77fe4d77d66",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "018f4f48-e99c-7008-adbe-e3b7e7497ed8",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "5df41881-3aed-3515-88a7-2f4a814cf09e",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "2ed6657d-e927-568b-95e1-2665a8aea6a2",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "1ec9414c-232a-6b00-b3c8-9f6bdeced846",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "2489e9ad-2ee2-8e00-8ec9-32d5f69181c0",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "C1E12793-2E77-4611-874D-A4F9CC727E1E",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "018F4F48-1658-7538-8AA9-E3B64526BB43",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "00000000-0000-0000-0000-000000000000",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": "FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF",
+    "valid": true
+  },
+  {
+    "action": "uuid",
+    "input": " c1e12793-2e77-4611-874d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-4611-874d-a4f9cc727e1e ",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": " c1e12793-2e77-4611-874d-a4f9cc727e1e ",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e05717b-1020-4f83-8dce-f33dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f17b-100-4f83-8dce-f33dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f17b-1020-f83-8dce-f33dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f17b-1020-4f83-8de-f33dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f17b-1020-4f83-8dce-f3dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f147b-1020-4f83-8dce-f33dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f17b-10220-4f83-8dce-f33dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f17b-1020-4f873-8dce-f33dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f17b-1020-4f83-8dc2e-f33dcac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "e057f17b-1020-4f83-8dce-f33d3cac6c101",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "a6021db4-0b07-11ef-9262-0242ac120002-",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "95d9d16b-feba-495d-ab7b--07e4212ff3d0",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "95d9d16b--feba-495d-ab7b-07e4212ff3d0",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "95d9d16b--feba--495d--ab7b--07e4212ff3d0",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "a6021db4-0b07-11ef-9262-0242ac120002-0",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "95d9d16b-feba-495d-ab7b-07e4212ff3d-0",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e1279-32e77-4611-874d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "d8600862-9dea-4g51-b261-ff899d608069",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "d8600862-9dea-4d51-b261-hf899d608069",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "d8600862-9dea-4d51-k261-ff899d608069",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "d8600862-9dea-4d51-b261-zf899d608069",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "d8600862-9dta-4d51-b261-ff899d608069",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "d8600862-9dex-4d51-b261-ff899d608069",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-0611-874d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-9611-874d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-a611-874d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-f611-874d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-4611-074d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-4611-774d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-4611-c74d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "c1e12793-2e77-4611-f74d-a4f9cc727e1e",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "00000000-0000-0000-0000-000000000001",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "ffffffff-ffff-ffff-ffff-fffffffffffe",
+    "valid": false
+  },
+  {
+    "action": "uuid",
+    "input": "00000000-0000-0000-ffff-ffffffffffff",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "861812069402168",
+    "valid": true
+  },
+  {
+    "action": "imei",
+    "input": "536498459191226",
+    "valid": true
+  },
+  {
+    "action": "imei",
+    "input": "454438576454550",
+    "valid": true
+  },
+  {
+    "action": "imei",
+    "input": "356741089396021",
+    "valid": true
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-940216-8",
+    "valid": true
+  },
+  {
+    "action": "imei",
+    "input": "53-649845-919122-6",
+    "valid": true
+  },
+  {
+    "action": "imei",
+    "input": "45-443857-645455-0",
+    "valid": true
+  },
+  {
+    "action": "imei",
+    "input": "35-674108-939602-1",
+    "valid": true
+  },
+  {
+    "action": "imei",
+    "input": " 861812069402168",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "861812069402168 ",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": " 861812069402168 ",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86181206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-9402168",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86--181206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206--940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-940216--8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86--181206--940216--8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86 181206 940216 8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86/181206/940216/8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86_181206_940216_8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86–181206–940216–8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86181206940216",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "8618120694021683",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "8-181206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "862-181206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-11206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-1817206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-94216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-9408216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-940216",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-940216-",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-940216-82",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "861812A69402168",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "8A-181206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "861812a69402168",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-1a1206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86181206Z402168",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-9402Z6-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86181206z402168",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-940216-z",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "861812069$02168",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-18$206-940216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "861@12069402168",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "86-181206-94@216-8",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "861812069402163",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "536498459191225",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "454438576454552",
+    "valid": false
+  },
+  {
+    "action": "imei",
+    "input": "356741089396029",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "4873118735",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "4-87311-873-5",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "4 87311 873 5",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "020530902X",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "0-205-30902-X",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "0471958697",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "0-306 40615-2",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "978-4873118734",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "9784873118734",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "978-4-87311-873-4",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "978 4 87311 873 4",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "9790000000001",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "9791843123391",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "9783161484100",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "978-0 306 40615-7",
+    "valid": true
+  },
+  {
+    "action": "isbn",
+    "input": "4873118736",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "4 87311 873 6",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "020530902x",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "020530902 x",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "020530902",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "020530902XX",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "X234567890",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "12345X7890",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "9784873118735",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "978 4873118735",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "978487311873",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "97848731187345",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "978030640615X",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "9770000000001",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "9800000000002",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "abc1234567890",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "978abc0000000",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "12345",
+    "valid": false
+  },
+  {
+    "action": "isbn",
+    "input": "97804739123456",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": " ",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "\n",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "x",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "123",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "é",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "🙂",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "378282246310005",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "371449635398431",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "3056930009020004",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "36227206271667",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "6011111111111117",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "6011000990139424",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "6011981111111113",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "3530111333300000",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "3566002020360505",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "5555555555554444",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "2223003122003222",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "5200828282828210",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "5105105105105100",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "6200000000000005",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "6200000000000047",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "6205500000000000004",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "4242424242424242",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "4000056655665556",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "4007000000027",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "4000 0025 0000 1001",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "5555 5525 0000 1001",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "4007 000 000 027",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "4000-0503-6000-0001",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "5555-0503-6000-0080",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "4007-000-000-027",
+    "valid": true
+  },
+  {
+    "action": "credit_card",
+    "input": "DE6200000000000005",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "6011000A90139424",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "37828224631000E",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "40000025 0000-1001",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "5555-55250000 1001",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "5555 55555555-4444",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "4000  0025 0000 1001",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "5555-0503--6000-0080",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "3782822463100",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "3622720627166",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "62055000000000000040",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "7530111333300000",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "1105105105105100",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "9000056655665556",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "5200828282828211",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "371449635398434",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "5100000000003",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "510000000000003",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "51000000000000003",
+    "valid": false
+  },
+  {
+    "action": "credit_card",
+    "input": "5100000000000000003",
+    "valid": false
+  }
+]
