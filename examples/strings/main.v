@@ -2,7 +2,7 @@ module main
 
 import valibro as v
 
-struct EmailTag {}
+type Email = string
 
 fn main() {
 	email := v.pipe(v.string(), v.trim(), v.to_lower_case(), v.email(), v.max_length(254),
@@ -18,7 +18,9 @@ fn main() {
 	boolean := v.pipe_to(v.string(), v.parse_boolean())
 	println(v.parse(boolean, 'YES') or { panic(err) })
 
-	branded := v.pipe_to(email, v.brand[EmailTag]())
-	value := v.parse(branded, 'alex@example.com') or { panic(err) }
-	println(value.value)
+	domain_email := v.pipe_to(email, v.transform_to[string, Email](fn (value string) Email {
+		return Email(value)
+	}))
+	value := v.parse(domain_email, 'alex@example.com') or { panic(err) }
+	println(value)
 }

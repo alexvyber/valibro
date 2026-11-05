@@ -57,6 +57,12 @@ jobs:
           tests/engines/native_cleanup_test.v tests/engines/number_parity_test.v
           tests/primitives/native_array_conversions_test.v tests/engines/native_simplification_test.v
           tests/execution/oracle_metadata_test.v
+      - name: Run shipped examples
+        run: |
+          v -no-parallel run examples/username
+          v -no-parallel run examples/strings
+          v -no-parallel run examples/primitives
+          v -no-parallel run examples/composition
       - name: Check local documentation
         run: |
           VJOBS=1 v -no-parallel test site
