@@ -21,7 +21,7 @@ allowed := {
 	'methods':   ['types', 'internal']
 	'schemas':   ['types', 'internal']
 	'actions':   ['types', 'internal', 'schemas', 'methods', 'unicode', 'jsoncodec']
-	'json':      ['types', 'internal', 'schemas', 'methods']
+	'json':      ['types', 'internal', 'schemas', 'methods', 'jsoncodec']
 	'jsoncodec': ['types', 'internal']
 	'storages':  ['types']
 	'unicode':   []string{}

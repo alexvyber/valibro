@@ -4,7 +4,7 @@ Import `valibro.json` for unknown JSON values and heterogeneous structures. Its 
 
 ## Objects and adapters
 
-`from_schema` adapts a typed schema to runtime JSON. `native` adapts a runtime schema to the typed pipeline machinery. `parse_text` parses JSON text then validates it; `parse` and `safe_parse` operate on an existing JSON value.
+`from_schema` adapts a typed schema to runtime JSON. `native` adapts a runtime schema to the typed pipeline machinery. `parse_text` decodes with `jsoncodec.decode`, preserving exact ties-to-even float rounding, then validates the value. `parse` and `safe_parse` operate on an existing JSON value.
 
 ```v
 import valibro as v
@@ -21,6 +21,41 @@ assert !j.safe_parse(schema, 'wrong type').success
 ```
 
 Ordinary objects strip unknown entries. `strict_object` rejects them, `loose_object` retains them, and `object_with_rest` validates them through a rest schema. `record` validates arbitrary string keys and values.
+
+All object modes, records, and discriminated variants require a JSON object. Arrays, including empty arrays, fail at the object boundary; they are never converted to objects with numeric keys. An object property named `"0"` remains an ordinary string key.
+
+```v
+import valibro.json as j
+import x.json2
+
+schema := j.object({'0': j.string()})
+assert !j.safe_parse(schema, json2.Any([json2.Any('Alex')])).success
+assert j.parse_text(schema, '{"0":"Alex"}')!.as_map().len == 1
+```
+
+## Numeric precision and equality
+
+`equal`, literal/picklist schemas, and native membership checks preserve supplied JSON integer values without converting them to floats. Signed and unsigned integers compare by their exact value. A mixed integer/float pair compares equal only when the float represents that integer exactly; for example, integer 42 equals float 42.0, while integer 9007199254740993 differs from float 9007199254740992.0. These rules also apply inside recursive JSON equality and intersection output merging.
+
+```v
+import math
+import valibro.json as j
+import valibro.types
+import x.json2
+
+left := json2.Any(i64(9007199254740992))
+right := json2.Any(i64(9007199254740993))
+assert !j.equal(left, right)
+assert !j.safe_parse(j.literal(left), right).success
+assert types.new_set([left, right]).values.len == 2
+assert j.equal(json2.Any(42), json2.Any(42.0))
+rounded := j.parse_text(j.number(), '1e23')!
+assert math.f64_bits(rounded.f64()) == u64(4950912855330343670)
+```
+
+Signed zeros compare equal. For supplied nonfinite V values, recursive JSON `equal` keeps NaN unequal, while native membership/set checks treat NaNs as equal. Equal-sign infinities compare equal; an infinity never equals an integer. NaN and Infinity are not accepted as JSON text tokens.
+
+Float decoding rounds once to binary64, including halfway values and subnormals. Dynamic integer-token representation still follows `x.json2`, which can select `f64`; exact comparison cannot recover digits lost during decoding or an explicit `j.number()` conversion to `f64`. For exact large integers arriving as text, use strings plus BigInt conversion or an explicitly typed integer decoder. See [JSON configuration](/guides/json-config/).
 
 ## Shape operations and defaults
 

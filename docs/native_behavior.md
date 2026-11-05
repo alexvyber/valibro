@@ -93,6 +93,18 @@ uses the alternatives selected by `x.json2`; the tested decoder can choose `f64`
 so disabling binary64 projection does not guarantee large-integer parsing.
 Explicit native integer serialization remains exact.
 
+Runtime-schema `json.parse_text` shares `jsoncodec.decode` and its exact float
+rounding at every nesting depth. JSON numeric equality and native membership
+checks compare supplied integers exactly, including mixed signed/unsigned widths.
+An integer equals a float only when their mathematical values are identical;
+distinct large integers are not merged by binary64 rounding. Recursive JSON
+equality keeps NaN unequal; native membership/set equality treats NaNs as equal.
+Signed zeros remain equal under both policies.
+
+JSON object modes, records and variants accept only JSON maps. Arrays are not
+converted into objects with stringified indexes, even when the array is empty.
+Numeric-looking keys in actual objects remain ordinary string keys.
+
 Set, EntryMap, Blob and File values serialize their native struct fields, including
 nested providers, instead of producing empty JavaScript-style objects. For
 example, a Set serializes as `{"values":[1,2]}`. Functions cannot be encoded as

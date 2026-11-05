@@ -39,6 +39,14 @@ regenerate the manifest. Do not add a general input-content exclusion predicate.
 The old heuristic selector is removed. The cleanup restored 3,970 valid composition
 comparisons that broad filters had unnecessarily discarded.
 
+The `json_object_boundary` tag records exactly 5,012 reviewed observations whose
+JavaScript arrays-as-objects behavior differs from native JSON map boundaries:
+4,760 composition, 84 custom-check, and 168 legacy structural observations.
+Only changed observations are tagged; retained observations remain unchanged.
+The legacy structural corpus is now included in the manifest and exact-case
+accounting. Native boundary/composition/callback behavior is tested independently
+in `tests/json/json_precision_boundaries_test.v`.
+
 The manifest command reads fixtures, selection reports and registry hashes. It
 writes only the manifest. The tool tests verify that fixtures, reports, registry
 and generators remain byte-identical. V metadata tests independently check hashes,

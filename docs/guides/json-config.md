@@ -8,6 +8,8 @@ The `jsoncodec` module controls JSON text conversion. Root actions expose these 
 
 Float decoding uses exact ties-to-even rounding. `binary64_numbers` explicitly forces floating-number projection; disabling it does not guarantee an integer alternative. Serialization of explicitly supplied native integers retains precision unless binary64 projection is requested.
 
+Runtime-schema `json.parse_text` uses the same exact decoder as `jsoncodec.decode`, including nested object/array values. JSON numeric equality preserves supplied native integer alternatives; it does not force them through binary64. Explicitly adapting an input through `json.number()` still targets `f64`.
+
 ```v
 import valibro.jsoncodec
 import x.json2

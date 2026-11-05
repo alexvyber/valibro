@@ -7,10 +7,8 @@ import x.json2
 
 pub fn value_equal[T](a T, b T) bool {
 	$if T is json2.Any {
-		if json_number_value(a) && json_number_value(b) {
-			left := a.f64()
-			right := b.f64()
-			return left == right || (math.is_nan(left) && math.is_nan(right))
+		if types.is_json_number(a) && types.is_json_number(b) {
+			return types.native_set_equal[json2.Any](a, b)
 		}
 		return a == b
 	} $else $if T is f32 || T is f64 {
@@ -20,8 +18,4 @@ pub fn value_equal[T](a T, b T) bool {
 	} $else {
 		return a == b
 	}
-}
-
-fn json_number_value(value json2.Any) bool {
-	return types.is_json_number(value)
 }

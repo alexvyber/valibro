@@ -86,10 +86,7 @@ pub fn native_set_equal[T](left T, right T) bool {
 		}
 	} $else $if T is json2.Any {
 		if is_json_number(left) && is_json_number(right) {
-			a := left.f64()
-			b := right.f64()
-			both_nan := math.is_nan(a) && math.is_nan(b)
-			return a == b || both_nan
+			return json_number_equal(left, right)
 		}
 		return left == right
 	} $else $if T is f32 || T is f64 {

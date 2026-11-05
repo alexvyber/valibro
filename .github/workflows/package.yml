@@ -8,6 +8,9 @@ on:
 permissions:
   contents: read
 
+env:
+  V_C_ERROR_BUG_REPORT_DISABLED: '1'
+
 jobs:
   package:
     strategy:
@@ -33,6 +36,7 @@ jobs:
         run: >-
           v test tests/primitives/primitive_schemas_test.v tests/primitives/numeric_checks_test.v
           tests/collections/collections_test.v tests/json/json_schemas_test.v
+          tests/json/json_precision_boundaries_test.v
           tests/composition/native_union_differential_test.v tests/primitives/native_date_validation_differential_test.v
           tests/engines/url_test.v tests/engines/native_dates_test.v tests/engines/native_regex_test.v
           tests/strings/native_words_test.v tests/strings/unicode_conformance_test.v

@@ -1767,7 +1767,7 @@
         "declaration": "fn any_value() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 194
+        "line": 195
     },
     {
         "module_name": "json",
@@ -1787,7 +1787,7 @@
         "declaration": "fn boolean() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 178
+        "line": 179
     },
     {
         "module_name": "json",
@@ -1797,7 +1797,7 @@
         "declaration": "fn custom(predicate fn (json2.Any) bool) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 254
+        "line": 255
     },
     {
         "module_name": "json",
@@ -1827,7 +1827,7 @@
         "declaration": "fn equal(a json2.Any, b json2.Any) bool",
         "comment": "",
         "file": "json/schema.v",
-        "line": 267
+        "line": 268
     },
     {
         "module_name": "json",
@@ -1867,7 +1867,7 @@
         "declaration": "fn from_schema[I, O](schema types.Schema[I, O]) Schema",
         "comment": "from_schema adapts a native pipeline, with runtime JSON type checks at its boundary.",
         "file": "json/schema.v",
-        "line": 104
+        "line": 105
     },
     {
         "module_name": "json",
@@ -1927,7 +1927,7 @@
         "declaration": "fn is_valid(schema Schema, input json2.Any) bool",
         "comment": "",
         "file": "json/schema.v",
-        "line": 69
+        "line": 70
     },
     {
         "module_name": "json",
@@ -1967,7 +1967,7 @@
         "declaration": "fn literal(value json2.Any) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 225
+        "line": 226
     },
     {
         "module_name": "json",
@@ -1997,7 +1997,7 @@
         "declaration": "fn native(schema Schema) types.Schema[json2.Any, json2.Any]",
         "comment": "",
         "file": "json/schema.v",
-        "line": 36
+        "line": 37
     },
     {
         "module_name": "json",
@@ -2007,7 +2007,7 @@
         "declaration": "fn never() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 202
+        "line": 203
     },
     {
         "module_name": "json",
@@ -2047,7 +2047,7 @@
         "declaration": "fn null_value() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 212
+        "line": 213
     },
     {
         "module_name": "json",
@@ -2097,7 +2097,7 @@
         "declaration": "fn number() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 174
+        "line": 175
     },
     {
         "module_name": "json",
@@ -2157,7 +2157,7 @@
         "declaration": "fn parse(schema Schema, input json2.Any) !json2.Any",
         "comment": "",
         "file": "json/schema.v",
-        "line": 53
+        "line": 54
     },
     {
         "module_name": "json",
@@ -2167,7 +2167,7 @@
         "declaration": "fn parse_text(schema Schema, input string) !json2.Any",
         "comment": "",
         "file": "json/schema.v",
-        "line": 65
+        "line": 66
     },
     {
         "module_name": "json",
@@ -2177,7 +2177,7 @@
         "declaration": "fn parse_with_config(schema Schema, input json2.Any, config types.Config) !json2.Any",
         "comment": "",
         "file": "json/schema.v",
-        "line": 314
+        "line": 302
     },
     {
         "module_name": "json",
@@ -2217,7 +2217,7 @@
         "declaration": "fn picklist(values []json2.Any) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 238
+        "line": 239
     },
     {
         "module_name": "json",
@@ -2227,7 +2227,7 @@
         "declaration": "fn pipe(schema Schema, actions ...types.Action[json2.Any]) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 73
+        "line": 74
     },
     {
         "module_name": "json",
@@ -2267,7 +2267,7 @@
         "declaration": "fn safe_parse(schema Schema, input json2.Any) types.SafeParseResult[json2.Any]",
         "comment": "",
         "file": "json/schema.v",
-        "line": 57
+        "line": 58
     },
     {
         "module_name": "json",
@@ -2277,7 +2277,7 @@
         "declaration": "fn safe_parse_checked(schema Schema, input json2.Any, configs ...types.Config) !types.SafeParseResult[json2.Any]",
         "comment": "Validation failures are ordinary results; execution exceptions are returned.",
         "file": "json/schema.v",
-        "line": 310
+        "line": 298
     },
     {
         "module_name": "json",
@@ -2287,7 +2287,7 @@
         "declaration": "fn safe_parse_with_config(schema Schema, input json2.Any, config types.Config) types.SafeParseResult[json2.Any]",
         "comment": "",
         "file": "json/schema.v",
-        "line": 61
+        "line": 62
     },
     {
         "module_name": "json",
@@ -2317,7 +2317,7 @@
         "declaration": "fn string() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 170
+        "line": 171
     },
     {
         "module_name": "json",
@@ -2357,7 +2357,7 @@
         "declaration": "fn unknown() Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 182
+        "line": 183
     },
     {
         "module_name": "json",
@@ -2387,7 +2387,7 @@
         "declaration": "struct Schema {\npub:\n\ttype_name            string\n\tshape_rebuilder      ?ShapeRebuilder\n\texpects              string\n\tmessage              ?types.ErrorMessage\n\tkind                 string = 'schema'\n\tdiscriminator        string\n\tannotations          types.Annotations\n\tnative_examples      types.Examples[json2.Any]\n\tentries              map[string]Schema\n\titems                []Schema\n\twrapped              []Schema\n\toptional             bool\n\tdefault_value        ?json2.Any\n\thas_default_provider bool\n\tdefault_provider     fn (types.Config) json2.Any = absent_json_default\n\tfallback_value       ?json2.Any\n\tfallback_wrapped     []Schema\n\tmode                 string\n\trun                  fn (json2.Any, types.Config) types.Dataset[json2.Any] @[required]\n}",
         "comment": "Schema validates unknown JSON values and retains structure for shape operations.",
         "file": "json/schema.v",
-        "line": 13
+        "line": 14
     },
     {
         "module_name": "json",
@@ -2397,7 +2397,7 @@
         "declaration": "type ShapeRebuilder = fn (entries map[string]Schema) Schema",
         "comment": "",
         "file": "json/schema.v",
-        "line": 10
+        "line": 11
     },
     {
         "module_name": "jsoncodec",

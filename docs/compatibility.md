@@ -106,13 +106,19 @@ for ordinary tests. Unicode data is bundled, so word counts do not depend on
 installed libraries, locale settings or dictionaries.
 
 The [differential manifest](../tests/fixtures/differential_sources.json) records
-**121,780 outcomes across 40 corpora**, along with pinned reference versions,
+**119,434 outcomes across 41 corpora**, along with pinned reference versions,
 fixture paths/hashes and generator paths. Reviewed case-ID exclusions are applied during generation and reported separately.
 Manifest generation reads fixtures without rewriting them; oracle-only numeric spelling adapters
 keep production formatting independent. Date-related oracle generators retain
 only comparable rows through `tools/oracle/shared/native_scope.mjs`. Word-action
 comparisons explicitly exclude Japanese/Thai dictionary tailoring. Native-only
 behavior is tested independently rather than fabricated as Valibot output.
+
+JSON objects, records, and variants require maps. The exact-case registry marks
+5,012 arrays-as-objects observations as native-only; it does not broadly exclude
+array inputs. The manifest now also accounts for the legacy structural corpus.
+Native JSON precision, object boundaries, and callback composition have separate
+V regression tests in `tests/json/json_precision_boundaries_test.v`.
 
 Additional suites cover native URL/Date/regex contracts, numeric parsing/formatting,
 formats, official Unicode conformance, native word counts, compiler contracts and package

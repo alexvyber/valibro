@@ -5,6 +5,7 @@ import x.json2
 import valibro.types
 import valibro.methods
 import valibro.schemas
+import valibro.jsoncodec
 import math
 
 pub type ShapeRebuilder = fn (entries map[string]Schema) Schema
@@ -63,7 +64,7 @@ pub fn safe_parse_with_config(schema Schema, input json2.Any, config types.Confi
 }
 
 pub fn parse_text(schema Schema, input string) !json2.Any {
-	return parse(schema, json2.decode[json2.Any](input)!)
+	return parse(schema, jsoncodec.decode(input)!)
 }
 
 pub fn is_valid(schema Schema, input json2.Any) bool {
@@ -265,8 +266,11 @@ pub fn custom(predicate fn (json2.Any) bool) Schema {
 }
 
 pub fn equal(a json2.Any, b json2.Any) bool {
-	// JSON integer and floating-point representations share numeric equality.
-	if is_numeric(a) && is_numeric(b) { return numeric(a) == numeric(b) }
+	if types.is_json_number(a) && types.is_json_number(b) {
+		// Recursive JSON equality keeps NaN unequal; membership equality accepts it.
+		if (a is f32 || a is f64) && math.is_nan(a.f64()) { return false }
+		return types.native_set_equal[json2.Any](a, b)
+	}
 	if a is map[string]json2.Any && b is map[string]json2.Any {
 		if a.len != b.len { return false }
 		for key, value in a {
@@ -285,24 +289,8 @@ pub fn equal(a json2.Any, b json2.Any) bool {
 	return a == b
 }
 
-fn is_numeric(value json2.Any) bool {
-	return types.is_json_number(value)
-}
-
-fn numeric(value json2.Any) f64 {
-	if types.is_json_number(value) { return value.f64() }
-	return math.nan()
-}
-
 fn object_data(input json2.Any) !map[string]json2.Any {
 	if input is map[string]json2.Any { return input }
-	if input is []json2.Any {
-		mut data := map[string]json2.Any{}
-		for i, value in input {
-			data[i.str()] = value
-		}
-		return data
-	}
 	return error('Expected object')
 }
 

@@ -102,7 +102,7 @@
   "custom_check": {
     "fixture": "tests/fixtures/composition/custom_check_differential.json",
     "generator": "tools/oracle/generators/composition/generate_custom_check_fixtures.mjs",
-    "scope": "Partial readiness, array wildcard paths, empty selections, guard kinds, canonical issues and all abort/message settings."
+    "scope": "Partial readiness, array wildcard paths, empty selections, guard kinds, canonical issues and all abort/message settings. Arrays-as-objects differences are tracked by exact json_object_boundary case IDs and native V callback regressions."
   },
   "default_context": {
     "fixture": "tests/fixtures/composition/default_context_differential.json",
@@ -142,7 +142,7 @@
   "composition": {
     "fixture": "tests/fixtures/composition/composition_differential.json",
     "generator": "tools/oracle/generators/composition/generate_composition_fixtures.mjs",
-    "scope": "531 recursive schema descriptors, all four abort settings, typed state, all JSON-projected outputs and full recursive issue fields. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately."
+    "scope": "531 recursive schema descriptors, all four abort settings, typed state, all JSON-projected outputs and full recursive issue fields. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately. Arrays-as-objects differences are tracked by the json_object_boundary tag and native V regression tests."
   },
   "conversion": {
     "fixture": "tests/fixtures/primitives/conversion_differential.json",
@@ -198,5 +198,10 @@
     "fixture": "tests/fixtures/engines/numbers.json",
     "generator": "tools/oracle/generators/engines/generate_number_fixtures.mjs",
     "scope": "Exact binary64 rounding bits, subnormals, overflow, radix boundaries and 8192 seeded floating inputs. Reviewed native text-policy differences are reported by explicit case ID."
+  },
+  "structural": {
+    "fixture": "tests/fixtures/composition/structural_parity.json",
+    "generator": "tools/oracle/generators/composition/generate_structural_fixtures.mjs",
+    "scope": "Legacy structural schema cases, including object/tuple modes, records, unions and variants. Exact arrays-as-objects observations are tagged native-only; native JSON boundary behavior is covered by separate V regressions."
   }
 }
