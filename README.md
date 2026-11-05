@@ -78,6 +78,18 @@ panics on exceptions. Advanced callbacks can inspect partial datasets through
 - [Compatibility, JSON callbacks, and differential evidence](docs/compatibility.md)
 - [Audit of documented differences](docs/compatibility_audit.md)
 
+## Local documentation site
+
+Run `v run site` and open `http://127.0.0.1:8080` for the guides and full public API
+reference, including implementation modules and receiver methods. The site uses native V with plain
+HTML/CSS and no browser JavaScript. It remains local and unpublished.
+
+Use `v run site inventory` after changing public declarations.
+`v run site check` validates API coverage, signatures, internal links, and executable
+examples; `v test site` tests the renderer, routes, search, and static export.
+`v run site build` writes a local static export to ignored `site/public/`.
+See [site development](site/README.md) for details and current limits.
+
 ## Verification
 
 ```sh
