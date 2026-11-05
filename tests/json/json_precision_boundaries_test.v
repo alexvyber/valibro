@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import math
 import valibro as v
 import valibro.json as j
@@ -43,7 +44,7 @@ fn test_json_numeric_equality_preserves_integer_precision_and_float_boundaries()
 		assert j.equal(item.right, item.left) == item.equal, '${item}'
 		assert types.native_set_equal(item.left, item.right) == item.equal, '${item}'
 		assert types.native_set_equal(item.right, item.left) == item.equal, '${item}'
-		assert v.is_valid(v.literal(item.left), item.right) == item.equal, '${item}'
+		assert support.accepts(v.literal(item.left), item.right) == item.equal, '${item}'
 	}
 	widths := [json2.Any(i8(42)), json2.Any(i16(42)), json2.Any(i32(42)), json2.Any(int(42)),
 		json2.Any(i64(42)), json2.Any(u8(42)), json2.Any(u16(42)), json2.Any(u32(42)), json2.Any(u64(42)),
@@ -64,10 +65,10 @@ fn test_json_numeric_equality_preserves_integer_precision_and_float_boundaries()
 fn test_large_json_integers_remain_distinct_in_schemas_sets_and_nested_values() {
 	left := json2.Any(i64(9007199254740992))
 	right := json2.Any(i64(9007199254740993))
-	assert !j.safe_parse(j.literal(left), right).success
-	assert !j.safe_parse(j.picklist([left]), right).success
-	assert !v.is_valid(v.pipe(v.unknown[json2.Any](), v.values([left])), right)
-	assert !v.is_valid(v.pipe(v.array(v.unknown[json2.Any]()), v.includes_item(left)), [
+	assert !support.observe_json(j.literal(left), right).success
+	assert !support.observe_json(j.picklist([left]), right).success
+	assert !support.accepts(v.pipe(v.schema[json2.Any](), v.values([left])), right)
+	assert !support.accepts(v.pipe(v.array(v.schema[json2.Any]()), v.includes_item(left)), [
 		right,
 	])
 	assert types.new_set([left, right, left, right]).values == [left, right]
@@ -84,14 +85,14 @@ fn test_large_json_integers_remain_distinct_in_schemas_sets_and_nested_values() 
 		'value': json2.Any(42.0)
 	}))
 	intersection := j.intersect([
-		j.from_schema(v.pipe_to(v.unknown[json2.Any](), v.transform_to[json2.Any, json2.Any](fn (input json2.Any) json2.Any {
+		j.from_schema(v.pipe_to(v.schema[json2.Any](), v.transform_to[json2.Any, json2.Any](fn (input json2.Any) json2.Any {
 			return json2.Any(i64(9007199254740992))
 		}))),
-		j.from_schema(v.pipe_to(v.unknown[json2.Any](), v.transform_to[json2.Any, json2.Any](fn (input json2.Any) json2.Any {
+		j.from_schema(v.pipe_to(v.schema[json2.Any](), v.transform_to[json2.Any, json2.Any](fn (input json2.Any) json2.Any {
 			return json2.Any(i64(9007199254740993))
 		}))),
 	])
-	assert !j.safe_parse(intersection, json2.Any(0)).success
+	assert !support.observe_json(intersection, json2.Any(0)).success
 }
 
 fn test_json_object_schemas_reject_arrays_and_other_non_objects() {
@@ -104,11 +105,11 @@ fn test_json_object_schemas_reject_arrays_and_other_non_objects() {
 	invalid := [json2.Any([]json2.Any{}), json2.Any([json2.Any('tag')]), json2.Any(json2.Null{}),
 		json2.Any('tag'), json2.Any(0), json2.Any(true)]
 	for schema in schemas {
-		assert j.safe_parse(schema, json2.Any({
+		assert support.observe_json(schema, json2.Any({
 			'0': json2.Any('tag')
 		})).success
 		for input in invalid {
-			result := j.safe_parse(schema, input)
+			result := support.observe_json(schema, input)
 			assert !result.success, '${schema.type_name}: ${input}'
 			assert !result.typed
 			assert result.exception == none
@@ -118,9 +119,9 @@ fn test_json_object_schemas_reject_arrays_and_other_non_objects() {
 			assert result.issues[0].path.len == 0
 		}
 	}
-	assert j.safe_parse(j.object(map[string]j.Schema{}), json2.Any(map[string]json2.Any{})).success
-	assert !j.safe_parse(j.object(map[string]j.Schema{}), json2.Any([]json2.Any{})).success
-	nested := j.safe_parse(j.object({
+	assert support.observe_json(j.object(map[string]j.Schema{}), json2.Any(map[string]json2.Any{})).success
+	assert !support.observe_json(j.object(map[string]j.Schema{}), json2.Any([]json2.Any{})).success
+	nested := support.observe_json(j.object({
 		'child': j.object(fields)
 	}), json2.Any({
 		'child': json2.Any([json2.Any('tag')])
@@ -168,23 +169,22 @@ fn test_object_boundary_failures_compose_with_collections_alternatives_and_fallb
 				abort_pipe_early: abort_pipe_early
 			}
 			for schema in [j.array(object), j.tuple([object])] {
-				result := j.safe_parse_with_config(schema, json2.Any([input]), config)
+				result := support.observe_json(schema, json2.Any([input]), config)
 				assert !result.success
 				assert result.issues.len == 1
 				assert result.issues[0].code == 'object'
 				assert result.issues[0].path == [types.PathSegment(0)]
 			}
-			choice := j.safe_parse_with_config(j.union([object, j.array(j.string())]), input,
-				config)
+			choice := support.observe_json(j.union([object, j.array(j.string())]), input, config)
 			assert choice.success
 			assert choice.output or { panic('output') } == input
 			fallback := json2.Any({
 				'fallback': json2.Any(true)
 			})
-			assert j.safe_parse_with_config(j.fallback(object, fallback), input, config).output or {
+			assert support.observe_json(j.fallback(object, fallback), input, config).output or {
 				panic('output')
 			} == fallback
-			intersection := j.safe_parse_with_config(j.intersect([object, object]), input, config)
+			intersection := support.observe_json(j.intersect([object, object]), input, config)
 			assert !intersection.success
 			assert intersection.issues.len == if abort_early {
 				1
@@ -214,7 +214,7 @@ fn test_partial_checks_observe_raw_array_boundary_failure_and_respect_readiness(
 					return false
 				})
 				input := json2.Any([]json2.Any{})
-				result := j.safe_parse_with_config(schema, input, v.Config{
+				result := support.observe_json(schema, input, v.Config{
 					abort_early:      abort_early
 					abort_pipe_early: abort_pipe_early
 				})

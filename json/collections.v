@@ -190,13 +190,7 @@ fn missing_result(schema Schema, config types.Config) types.Dataset[json2.Any] {
 			} }
 		return result
 	}
-	if schema.type_name in ['non_optional', 'non_nullish'] {
-		return missing_type_issue(schema)
-	}
-	if schema.type_name in ['optional', 'nullish'] {
-		if schema.has_default_provider {
-			return run_json(schema, schema.default_provider(config), config)
-		}
+	if schema.type_name == 'optional' {
 		if value := schema.default_value { return run_json(schema, value, config) }
 		return types.Dataset[json2.Any]{
 			value: json2.Null{}
@@ -220,7 +214,7 @@ fn missing_result(schema Schema, config types.Config) types.Dataset[json2.Any] {
 			|| (schema.type_name == 'intersect' && schema.items.len == 0)) {
 			issue := result.issues[0]
 			replacement := types.schema_type_issue(issue.code, types.DefaultMessage{},
-				schema.expects, 'undefined', 'type')
+				schema.expects, 'missing', 'type')
 			return types.Dataset[json2.Any]{
 				...result
 				issues: [
@@ -250,7 +244,7 @@ fn missing_type_issue(schema Schema) types.Dataset[json2.Any] {
 		value:  json2.Null{}
 		issues: [
 			types.schema_type_issue(schema.type_name, schema.message or { types.DefaultMessage{} },
-				schema.expects, 'undefined', 'type'),
+				schema.expects, 'missing', 'type'),
 		]
 	}
 }

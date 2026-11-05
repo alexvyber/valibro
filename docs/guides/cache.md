@@ -11,15 +11,15 @@ import valibro as v
 
 schema := v.cache(v.pipe(v.string(), v.trim(), v.min_length(2)), fn (value string) string {
     return value
-}, 16)
+}, max_size: 16)
 assert v.parse(schema, ' Alex ')! == 'Alex'
 assert v.parse(schema, ' Alex ')! == 'Alex'
-assert !v.safe_parse(schema, 'x').success
+assert !v.is_valid(schema, 'x')!
 ```
 
 ## Capacity and expiry
 
-`cache_with_config` accepts `CacheConfig`: maximum size, optional maximum age in milliseconds, and an injectable clock. Capacity zero disables storage; negative capacity is rejected. Expiry occurs strictly after the configured age, so an entry at exactly the age bound remains valid. Validation failures can be cached; runtime exceptions are not cached.
+`cache` accepts a trailing `CacheConfig` parameter struct: maximum size, optional maximum age in milliseconds, and an injectable clock. Capacity zero disables storage; negative capacity is rejected. Expiry occurs strictly after the configured age, so an entry at exactly the age bound remains valid. Validation failures can be cached; runtime exceptions are not cached.
 
 ## Inspect and clear
 

@@ -21,14 +21,6 @@ pub fn custom[T](predicate fn (T) bool, messages ...types.ErrorMessage) types.Sc
 	return schemas.custom[T](predicate, ...messages)
 }
 
-pub fn unknown[T]() types.Schema[T, T] {
-	return schemas.unknown[T]()
-}
-
-pub fn any_value[T]() types.Schema[T, T] {
-	return schemas.any_value[T]()
-}
-
 pub fn never[T](messages ...types.ErrorMessage) types.Schema[T, T] {
 	return schemas.never[T](...messages)
 }
@@ -69,26 +61,6 @@ pub fn date(messages ...types.ErrorMessage) types.Schema[time.Time, time.Time] {
 	return schemas.date(...messages)
 }
 
-pub fn null_schema() types.Schema[types.Null, types.Null] {
-	return schemas.null_schema()
-}
-
-pub fn undefined_schema() types.Schema[types.Undefined, types.Undefined] {
-	return schemas.undefined_schema()
-}
-
-pub fn void_schema() types.Schema[types.Undefined, types.Undefined] {
-	return schemas.void_schema()
-}
-
-pub fn symbol() types.Schema[types.Symbol, types.Symbol] {
-	return schemas.symbol()
-}
-
-pub fn enum_schema[T](values []T, messages ...types.ErrorMessage) types.Schema[T, T] {
-	return schemas.enum_schema[T](values, ...messages)
-}
-
 pub fn field[P, Q, I, O](name string, getter fn (P) I, setter fn (Q, O) Q, schema types.Schema[I, O]) types.Field[P, Q] {
 	return schemas.field[P, Q, I, O](name, getter, setter, schema)
 }
@@ -109,6 +81,6 @@ pub fn file() types.Schema[types.File, types.File] {
 	return schemas.file()
 }
 
-pub fn instance[T]() types.Schema[T, T] {
-	return schemas.instance[T]()
+pub fn schema[T]() types.Schema[T, T] {
+	return schemas.schema[T]()
 }

@@ -4,6 +4,7 @@ import sync
 import time
 import valibro.types
 
+@[params]
 pub struct CacheConfig {
 pub:
 	max_size int = 1000
@@ -124,19 +125,11 @@ pub fn cached[I, O](schema types.Schema[I, O], key fn (I) string, config CacheCo
 	}
 }
 
-pub fn cache_with_config[I, O](schema types.Schema[I, O], key fn (I) string, config CacheConfig) types.Schema[I, O] {
-	return cached[I, O](schema, key, config).schema
-}
-
-pub fn cache[I, O](schema types.Schema[I, O], key fn (I) string, capacity int) types.Schema[I, O] {
-	return cache_with_config[I, O](schema, key, CacheConfig{ max_size: capacity })
-}
-
 fn contains_message_callback(config types.Config) bool {
 	if message := config.message {
 		if unidentified_message(message) { return true }
 	}
-	for _, message in config.messages.global {
+	for _, message in config.messages.defaults {
 		if unidentified_message(message) { return true }
 	}
 	for _, message in config.messages.schema {
@@ -154,4 +147,8 @@ fn unidentified_message(message types.ErrorMessage) bool {
 	if message is types.MessageFunction { return true }
 	if message is types.MessageCallback { return message.cache_identity() == '' }
 	return false
+}
+
+pub fn cache[I, O](schema types.Schema[I, O], key fn (I) string, config CacheConfig) types.Schema[I, O] {
+	return cached[I, O](schema, key, config).schema
 }

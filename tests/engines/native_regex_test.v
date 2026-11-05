@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import valibro as v
 
 fn test_native_regex_search_groups_and_unicode() {
@@ -8,17 +9,17 @@ fn test_native_regex_search_groups_and_unicode() {
 	assert found.text == 'hello'
 	assert found.start == 2 && found.end == 7
 	assert found.groups == ['hello']
-	assert v.is_valid(v.pipe(v.string(), v.regex(r'^[а-яё]+$')), 'ёж')
-	assert v.is_valid(v.pipe(v.string(), v.regex('^.$')), '🙂')
-	assert !v.is_valid(v.pipe(v.string(), v.regex('^..$')), '🙂')
+	assert support.accepts(v.pipe(v.string(), v.regex(r'^[а-яё]+$')), 'ёж')
+	assert support.accepts(v.pipe(v.string(), v.regex('^.$')), '🙂')
+	assert !support.accepts(v.pipe(v.string(), v.regex('^..$')), '🙂')
 }
 
 fn test_native_regex_flags_and_inline_modifiers() {
-	assert v.is_valid(v.pipe(v.string(), v.regex_with_flags('^[a-z]+$', 'i')), 'ABC')
-	assert v.is_valid(v.pipe(v.string(), v.regex('(?i)^[a-z]+$')), 'ABC')
-	assert v.is_valid(v.pipe(v.string(), v.regex_with_flags('a.b', 's')), 'a\nb')
-	assert !v.is_valid(v.pipe(v.string(), v.regex('a.b')), 'a\nb')
-	assert v.is_valid(v.pipe(v.string(), v.regex_with_flags('^b$', 'm')), 'a\nb\nc')
+	assert support.accepts(v.pipe(v.string(), v.regex_with_flags('^[a-z]+$', 'i')), 'ABC')
+	assert support.accepts(v.pipe(v.string(), v.regex('(?i)^[a-z]+$')), 'ABC')
+	assert support.accepts(v.pipe(v.string(), v.regex_with_flags('a.b', 's')), 'a\nb')
+	assert !support.accepts(v.pipe(v.string(), v.regex('a.b')), 'a\nb')
+	assert support.accepts(v.pipe(v.string(), v.regex_with_flags('^b$', 'm')), 'a\nb\nc')
 }
 
 fn test_native_regex_rejects_unsupported_flags_and_constructs() {
@@ -40,36 +41,36 @@ fn test_precompiled_native_regex_has_independent_matches() {
 	first := v.pipe(v.string(), v.regex_object(compiled))
 	second := v.pipe(v.string(), v.regex_object(compiled))
 	for _ in 0 .. 10 {
-		assert v.is_valid(first, 'aba')
-		assert v.is_valid(second, 'aba')
-		assert !v.is_valid(first, 'bbb')
-		assert v.is_valid(first, 'a')
+		assert support.accepts(first, 'aba')
+		assert support.accepts(second, 'aba')
+		assert !support.accepts(first, 'bbb')
+		assert support.accepts(first, 'a')
 	}
 }
 
 fn test_native_regex_strict_anchors_and_messages() {
 	schema := v.pipe(v.string(), v.regex('^a$'))
-	assert v.is_valid(schema, 'a')
-	assert !v.is_valid(schema, 'a\n')
-	assert !v.is_valid(schema, 'a\r\n')
-	result := v.safe_parse(schema, 'b')
+	assert support.accepts(schema, 'a')
+	assert !support.accepts(schema, 'a\n')
+	assert !support.accepts(schema, 'a\r\n')
+	result := support.observe(schema, 'b')
 	assert result.issues[0].code == 'regex'
 	assert result.issues[0].expected == '/^a$/'
 	assert result.issues[0].received == '"b"'
 	assert result.issues[0].message == 'Invalid format: Expected /^a$/ but received "b"'
-	assert v.safe_parse(v.pipe(v.string(), v.regex('a', 'Custom')), 'b').issues[0].message == 'Custom'
+	assert support.observe(v.pipe(v.string(), v.regex('a', 'Custom')), 'b').issues[0].message == 'Custom'
 }
 
 fn test_builtin_formats_use_native_predicates_and_ascii_classes() {
-	assert v.is_valid(v.pipe(v.string(), v.base64()), 'Zm8=')
-	assert !v.is_valid(v.pipe(v.string(), v.base64()), 'dmFſaWJvdA==')
-	assert !v.is_valid(v.pipe(v.string(), v.base64()), 'Km8=')
-	assert !v.is_valid(v.pipe(v.string(), v.base64()), 'Zm8=\n')
-	assert v.is_valid(v.pipe(v.string(), v.bic()), 'DEUTDEFF')
-	assert !v.is_valid(v.pipe(v.string(), v.bic()), 'DEUTDE00')
-	assert v.is_valid(v.pipe(v.string(), v.domain()), 'example.com')
-	assert !v.is_valid(v.pipe(v.string(), v.domain()), 'xn--bcher-kva.example')
-	assert !v.is_valid(v.pipe(v.string(), v.domain()), 'example.com\n')
-	assert v.is_valid(v.pipe(v.string(), v.emoji()), '👩🏽‍💻')
-	assert !v.is_valid(v.pipe(v.string(), v.emoji()), 'hello')
+	assert support.accepts(v.pipe(v.string(), v.base64()), 'Zm8=')
+	assert !support.accepts(v.pipe(v.string(), v.base64()), 'dmFſaWJvdA==')
+	assert !support.accepts(v.pipe(v.string(), v.base64()), 'Km8=')
+	assert !support.accepts(v.pipe(v.string(), v.base64()), 'Zm8=\n')
+	assert support.accepts(v.pipe(v.string(), v.bic()), 'DEUTDEFF')
+	assert !support.accepts(v.pipe(v.string(), v.bic()), 'DEUTDE00')
+	assert support.accepts(v.pipe(v.string(), v.domain()), 'example.com')
+	assert !support.accepts(v.pipe(v.string(), v.domain()), 'xn--bcher-kva.example')
+	assert !support.accepts(v.pipe(v.string(), v.domain()), 'example.com\n')
+	assert support.accepts(v.pipe(v.string(), v.emoji()), '👩🏽‍💻')
+	assert !support.accepts(v.pipe(v.string(), v.emoji()), 'hello')
 }

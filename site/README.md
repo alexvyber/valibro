@@ -25,7 +25,7 @@ No command deploys anything, registers a VPM package, or pushes Git changes.
 ## Content and navigation
 
 Author guides in `docs/guides/` and register their title and summary in
-`site/reference.v`. The original detailed `string`, `pipe`, and `safe_parse` pages
+`site/reference.v`. The original detailed `string`, `pipe`, and `parse` pages
 remain in `docs/api/`. Other reference pages and all module indexes are rendered
 from `site/reference.json`, generated using `v doc -f json`. Their signatures,
 source comments, file locations, and receiver methods come from the V source.
@@ -46,7 +46,7 @@ This is generated declaration coverage plus family-level usage documentation;
 it is not a claim that every overload has its own authored tutorial.
 
 The inventory covers all public declarations exposed by `v doc` in the root,
-`schemas`, `actions`, `methods`, `types`, `json`, `jsoncodec`, `storages`, and
+`schemas`, `actions`, `methods`, `types`, `json`, `jsoncodec`, and
 `unicode` modules. It includes generic receiver methods below synthetic parent
 nodes, aliases, interfaces, and constants. `internal` modules are excluded by the
 package's ownership convention. V-generated public enum conversion methods are

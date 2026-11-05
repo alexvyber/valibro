@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import os
 import x.json2
 import valibro as v
@@ -30,10 +31,10 @@ fn test_message_callback_identity_cache_hits_and_eviction_match_valibot() {
 			return false
 		})), fn (input string) string {
 			return input
-		}, row['capacity']!.int())
+		}, max_size: row['capacity']!.int())
 		for raw_step in row['steps']!.as_array() {
 			step := raw_step.as_map()
-			result := v.safe_parse_with_config(schema, step['input']!.str(), v.Config{
+			result := support.observe(schema, step['input']!.str(), v.Config{
 				lang:    step['lang']!.str()
 				message: callbacks[step['id']!.int()]
 			})

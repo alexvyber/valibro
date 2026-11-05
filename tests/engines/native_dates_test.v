@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import valibro.internal.date as impl_date
 import os
 import time
@@ -30,7 +31,7 @@ fn test_native_dates_reject_legacy_and_invalid_calendars() {
 		'2024-01-01T12:00:00+02:60', '2024-01-01T12:00:00+0200', '2024-01-01T12:00:00.Z',
 		'2024-01-01T12:00:00.1234567890Z', '2024-01-01T12:00.5Z', '2024-01-01T12:00:00Zjunk',
 		'+010000-01-01', ' 2024-01-01', '2024-01-01\n'] {
-		result := v.safe_parse(schema, input)
+		result := support.observe(schema, input)
 		assert !result.success, input
 		assert result.issues[0].code == 'to_date'
 		assert types.value_is[types.InvalidDate](result.raw_output)
@@ -69,21 +70,12 @@ fn test_native_date_adapters_and_numeric_inputs() {
 		assert converted.unix_milli() == milliseconds
 		assert converted.nanosecond >= 0 && converted.nanosecond < 1000000000
 	}
-	input := types.some('2024-02-29')
-	assert v.safe_parse(v.pipe_to(v.unknown[types.Maybe[string]](),
-		v.to_date_from[types.Maybe[string]]()), input).success
-	assert !v.safe_parse(v.pipe_to(v.unknown[[]string](), v.to_date_from[[]string]()), [
+	assert !support.observe(v.pipe_to(v.schema[[]string](), v.to_date_from[[]string]()), [
 		'2024-02-29',
 	]).success
-	assert !v.safe_parse(v.pipe_to(v.unknown[[]string](), v.to_date_from[[]string]()), [
+	assert !support.observe(v.pipe_to(v.schema[[]string](), v.to_date_from[[]string]()), [
 		'42',
 	]).success
-	parsed := impl_date.date_from_string(types.utf16_display(types.utf16_units('1970-01-01'))) or {
-		panic(err)
-	}
-	assert parsed.unix_milli() == 0
-	if _ := impl_date.date_from_string(types.utf16_display([u16(0xd800)])) { assert false
-	 }
 }
 
 fn test_native_iso_fractional_widths_and_calendar_edges() {
@@ -102,10 +94,10 @@ fn test_native_iso_fractional_widths_and_calendar_edges() {
 		assert parsed.nanosecond == expected
 	}
 	for input in ['0000-02-29', '2000-02-29', '2400-02-29', '9999-12-31'] {
-		assert v.safe_parse(v.pipe_to(v.string(), v.to_date()), input).success, input
+		assert support.observe(v.pipe_to(v.string(), v.to_date()), input).success, input
 	}
 	for input in ['1900-02-29', '2100-02-29', '2024-04-31', '2024-06-31', '2024-09-31', '2024-11-31'] {
-		assert !v.safe_parse(v.pipe_to(v.string(), v.to_date()), input).success, input
+		assert !support.observe(v.pipe_to(v.string(), v.to_date()), input).success, input
 	}
 	beyond := impl_date.date_from_string('9999-12-31T23:59:59-23:59') or { panic(err) }
 	assert beyond.year == 10000 && beyond.month == 1 && beyond.day == 1

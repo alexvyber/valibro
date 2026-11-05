@@ -13,26 +13,14 @@ pub fn native_number[T](input T) !f64 {
 		return types.TypeError{
 			message: 'Collections require an explicit numeric conversion'
 		}
-	} $else $if T is types.NativeMaybe {
-		return maybe_number[T](input)
 	} $else $if T is types.NumberProvider {
 		result := input.to_number()!
 		if math.is_nan(result) { return error('NaN') }
 		return result
 	} $else $if T is types.InvalidDate {
 		return error('NaN')
-	} $else $if T is types.Symbol {
-		return types.TypeError{
-			message: 'Cannot convert a Symbol value to a number'
-		}
 	} $else $if T is json2.Any {
 		return json_number(input)
-	} $else $if T is types.Null {
-		return types.TypeError{
-			message: 'Null is not a number'
-		}
-	} $else $if T is types.Undefined {
-		return error('Undefined is not a number')
 	} $else $if T is string {
 		return numbers.number_from_string(input)
 	} $else $if T is bool {
@@ -57,15 +45,12 @@ pub fn native_bigint[T](input T) !big.Integer {
 		return types.TypeError{
 			message: 'Collections require an explicit integer conversion'
 		}
-	} $else $if T is types.NativeMaybe {
-		return maybe_bigint[T](input)
 	} $else $if T is types.BigintProvider {
 		return input.to_bigint()
 	} $else $if T is time.Time {
 		valid := dates.validated_native_date(input)!
 		return native_bigint(valid.unix_milli())
-	} $else $if T is types.Symbol || T is types.Null || T is types.Undefined
-		|| T is types.InvalidDate {
+	} $else $if T is types.InvalidDate {
 		return types.TypeError{
 			message: 'Cannot convert value to BigInt'
 		}
@@ -102,12 +87,8 @@ pub fn native_bigint[T](input T) !big.Integer {
 }
 
 pub fn native_boolean[T](input T) !bool {
-	$if T is types.NativeMaybe {
-		return maybe_boolean[T](input)
-	} $else $if T is json2.Any {
+	$if T is json2.Any {
 		return json_boolean(input)
-	} $else $if T is types.Null || T is types.Undefined {
-		return false
 	} $else $if T is types.BooleanProvider {
 		return input.to_boolean()
 	} $else $if T is string {
@@ -137,13 +118,11 @@ pub fn native_date[T](input T) !time.Time {
 		return types.TypeError{
 			message: 'Collections require an explicit date conversion'
 		}
-	} $else $if T is types.NativeMaybe {
-		return maybe_date[T](input)
 	} $else $if T is types.DateProvider {
 		return dates.validated_native_date(input.to_date()!)
 	} $else $if T is types.InvalidDate {
 		return error('Invalid date')
-	} $else $if T is big.Integer || T is types.Symbol {
+	} $else $if T is big.Integer {
 		return types.TypeError{
 			message: 'Cannot convert value to a number'
 		}
@@ -153,12 +132,6 @@ pub fn native_date[T](input T) !time.Time {
 		return dates.date_from_string(input)
 	} $else $if T is time.Time {
 		return dates.validated_native_date(input)
-	} $else $if T is types.Null {
-		return types.TypeError{
-			message: 'Null is not a date'
-		}
-	} $else $if T is types.Undefined {
-		return error('Invalid date')
 	} $else $if T is bool {
 		return types.TypeError{
 			message: 'Boolean is not a date'
@@ -188,16 +161,8 @@ pub fn native_date[T](input T) !time.Time {
 }
 
 pub fn native_string[T](input T) string {
-	$if T is types.NativeMaybe {
-		return maybe_string[T](input)
-	} $else $if T is types.InvalidDate {
+	$if T is types.InvalidDate {
 		return 'Invalid Date'
-	} $else $if T is types.Null {
-		return 'null'
-	} $else $if T is types.Undefined {
-		return 'undefined'
-	} $else $if T is types.Symbol {
-		return 'Symbol(' + input.description + ')'
 	} $else $if T is time.Time {
 		return dates.native_date_string(input) or { 'Invalid Date' }
 	} $else $if T is string {

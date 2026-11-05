@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import math
 import os
 import x.json2
@@ -66,7 +67,7 @@ fn differential_number_action(name string, req json2.Any, messages []types.Error
 	return match name {
 		'finite' { v.finite(...messages) }
 		'integer' { v.integer(...messages) }
-		'safeInteger' { v.safe_integer(...messages) }
+		'safeInteger' { v.binary64_integer(...messages) }
 		'minValue' { v.min_value(n, ...messages) }
 		'maxValue' { v.max_value(n, ...messages) }
 		'gtValue' { v.gt_value(n, ...messages) }
@@ -121,19 +122,19 @@ fn test_differential_action_results_and_issue_fields() {
 		mut issues := []types.Issue{}
 		match row['domain']!.str() {
 			'string' {
-				result := v.safe_parse_with_config(v.pipe(v.string(), differential_string_action(action,
+				result := support.observe(v.pipe(v.string(), differential_string_action(action,
 					req, messages)), input.str(), settings)
 				success = result.success
 				issues = result.issues.clone()
 			}
 			'number' {
-				result := v.safe_parse_with_config(v.pipe(v.unknown[f64](), differential_number_action(action,
+				result := support.observe(v.pipe(v.schema[f64](), differential_number_action(action,
 					req, messages)), differential_number(input), settings)
 				success = result.success
 				issues = result.issues.clone()
 			}
 			'array' {
-				result := v.safe_parse_with_config(v.pipe(v.unknown[[]json2.Any](), differential_array_action(action,
+				result := support.observe(v.pipe(v.schema[[]json2.Any](), differential_array_action(action,
 					req, messages)), input.as_array(), settings)
 				success = result.success
 				issues = result.issues.clone()
@@ -150,11 +151,11 @@ fn test_differential_action_results_and_issue_fields() {
 			actual := issues[0]
 			if actual.code != row['code']!.str() {
 				reason = 'code'
-			} else if types.utf16_units(actual.expected) != row['expected']!.as_array().map(u16(it.int())) {
+			} else if support.reference_units(actual.expected) != row['expected']!.as_array().map(u16(it.int())) {
 				reason = 'expected'
-			} else if actual.received_units() != row['received']!.as_array().map(u16(it.int())) {
+			} else if support.reference_units(actual.received) != row['received']!.as_array().map(u16(it.int())) {
 				reason = 'received'
-			} else if actual.message_units() != row['message']!.as_array().map(u16(it.int())) {
+			} else if support.reference_units(actual.message) != row['message']!.as_array().map(u16(it.int())) {
 				reason = 'message'
 			}
 		}
@@ -175,11 +176,11 @@ fn test_differential_action_results_and_issue_fields() {
 }
 
 fn test_native_error_fragments_keep_whole_code_points() {
-	result := v.safe_parse(v.pipe(v.string(), v.starts_with('a')), '🙂')
+	result := support.observe(v.pipe(v.string(), v.starts_with('a')), '🙂')
 	issue := result.issues[0]
 	assert issue.received == '"🙂"'
-	assert issue.received_units() == types.utf16_units('"🙂"')
-	assert issue.message_units() == types.utf16_units('Invalid start: Expected "a" but received "🙂"')
+	assert support.reference_units(issue.received) == support.reference_units('"🙂"')
+	assert support.reference_units(issue.message) == support.reference_units('Invalid start: Expected "a" but received "🙂"')
 	wrapped := v.pipe(v.string(), v.message(v.starts_with('a'), 'Wrapped'))
-	assert v.safe_parse(wrapped, '🙂').issues[0].message_units() == types.utf16_units('Wrapped')
+	assert support.observe(wrapped, '🙂').issues[0].message == 'Wrapped'
 }

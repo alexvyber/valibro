@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import math
 import math.big
 import time
@@ -14,7 +15,7 @@ fn test_number_schema_rejects_nan_but_accepts_infinity_and_signed_zero() {
 		assert output == input
 		assert math.signbit(output) == math.signbit(input)
 	}
-	result := v.safe_parse(v.pipe(v.number(), v.check(fn (input f64) bool {
+	result := support.observe(v.pipe(v.number(), v.check(fn (input f64) bool {
 		panic('Check ran after NaN schema failure')
 	})), math.nan())
 	assert !result.success
@@ -24,11 +25,11 @@ fn test_number_schema_rejects_nan_but_accepts_infinity_and_signed_zero() {
 	assert result.issues[0].expected == 'number'
 	assert result.issues[0].received == 'NaN'
 	assert result.issues[0].path.len == 0
-	assert v.safe_parse(v.number('No NaN'), math.nan()).issues[0].message == 'No NaN'
+	assert support.observe(v.number('No NaN'), math.nan()).issues[0].message == 'No NaN'
 	dynamic := v.number(v.message_fn(fn (issue v.Issue) string {
 		return '${issue.code}: ${issue.received}'
 	}))
-	assert v.safe_parse(dynamic, math.nan()).issues[0].message == 'number: NaN'
+	assert support.observe(dynamic, math.nan()).issues[0].message == 'number: NaN'
 }
 
 fn check_native_number_type[T](input T) {
@@ -49,18 +50,18 @@ fn test_native_numeric_schemas_preserve_types_and_full_integer_precision() {
 	check_native_number_type[u64](18446744073709551615)
 	check_native_number_type[f32](1.5)
 	check_native_number_type[f64](1.5)
-	assert !v.safe_parse(v.number_of[f32](), f32(math.nan())).success
-	assert v.safe_parse(v.number_of[f32](), f32(math.inf(1))).success
+	assert !support.observe(v.number_of[f32](), f32(math.nan())).success
+	assert support.observe(v.number_of[f32](), f32(math.inf(1))).success
 }
 
 fn test_boolean_and_bigint_schemas() {
 	assert v.parse(v.boolean(), true) or { panic(err) }
 	assert !(v.parse(v.boolean(), false) or { panic(err) })
-	assert v.safe_parse(v.pipe(v.boolean(), v.value(true)), true).success
-	assert !v.safe_parse(v.pipe(v.boolean(), v.value(true)), false).success
-	assert v.safe_parse(v.pipe(v.boolean(), v.not_value(true)), false).success
-	assert v.safe_parse(v.pipe(v.boolean(), v.values([true, false])), false).success
-	assert !v.safe_parse(v.pipe(v.boolean(), v.not_values([true, false])), false).success
+	assert support.observe(v.pipe(v.boolean(), v.value(true)), true).success
+	assert !support.observe(v.pipe(v.boolean(), v.value(true)), false).success
+	assert support.observe(v.pipe(v.boolean(), v.not_value(true)), false).success
+	assert support.observe(v.pipe(v.boolean(), v.values([true, false])), false).success
+	assert !support.observe(v.pipe(v.boolean(), v.not_values([true, false])), false).success
 	for input in ['0', '-123456789012345678901234567890', '123456789012345678901234567890'] {
 		value := big.integer_from_string(input) or { panic(err) }
 		output := v.parse(v.bigint(), value) or { panic(err) }
@@ -117,7 +118,7 @@ fn test_date_schema_checks_calendar_fields_and_repairs_cached_timestamp() {
 		time.Time{ ...raw, minute: -1 }, time.Time{ ...raw, minute: 60 },
 		time.Time{ ...raw, second: -1 }, time.Time{ ...raw, second: 60 },
 		time.Time{ ...raw, nanosecond: -1 }, time.Time{ ...raw, nanosecond: 1000000000 }] {
-		result := v.safe_parse(v.date('Invalid calendar'), input)
+		result := support.observe(v.date('Invalid calendar'), input)
 		assert !result.success, input.debug()
 		assert result.output == none
 		assert result.issues.len == 1

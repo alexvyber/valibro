@@ -59,3 +59,17 @@ pub fn equal_json_text(actual string, expected string) bool {
 	b := json2.decode[json2.Any](expected) or { return false }
 	return j.equal(a, b)
 }
+
+pub fn reference_units(input string) []u16 {
+	mut output := []u16{}
+	for r in input.runes() {
+		if r > 0xffff {
+			value := u32(r) - 0x10000
+			output << u16(0xd800 + (value >> 10))
+			output << u16(0xdc00 + (value & 1023))
+		} else {
+			output << u16(r)
+		}
+	}
+	return output
+}

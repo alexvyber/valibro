@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import math
 import math.big
 import time
@@ -57,7 +58,7 @@ pub fn (input FailingStringProvider) to_string() !string {
 fn test_typed_providers_preserve_native_precision() {
 	stamp := i64(9007199254740993)
 	input := TypedConversions{stamp}
-	base := v.unknown[TypedConversions]()
+	base := v.schema[TypedConversions]()
 	date := v.parse(v.pipe_to(base, v.to_date_from[TypedConversions]()), input) or { panic(err) }
 	assert date.unix_milli() == stamp
 	integer := v.parse(v.pipe_to(base, v.to_bigint_from[TypedConversions]()), input) or {
@@ -70,9 +71,9 @@ fn test_typed_providers_preserve_native_precision() {
 	assert math.f64_bits(floating) == math.f64_bits(9007199254740992.0)
 	assert v.parse(v.pipe_to(base, v.to_string_from[TypedConversions]()), input) or { panic(err) } == stamp.str()
 	assert v.parse(v.pipe_to(base, v.to_boolean_from[TypedConversions]()), input) or { panic(err) }
-	assert !v.safe_parse(v.pipe_to(v.unknown[BrokenDateProvider](),
+	assert !support.observe(v.pipe_to(v.schema[BrokenDateProvider](),
 		v.to_date_from[BrokenDateProvider]()), BrokenDateProvider{}).success
-	failure := v.safe_parse(v.pipe_to(v.unknown[FailingStringProvider](),
+	failure := support.observe(v.pipe_to(v.schema[FailingStringProvider](),
 		v.to_string_from[FailingStringProvider]('Custom')), FailingStringProvider{})
 	assert !failure.success
 	assert failure.issues[0].message == 'Custom'
@@ -80,23 +81,21 @@ fn test_typed_providers_preserve_native_precision() {
 }
 
 fn test_boolean_conversions_require_supported_native_values() {
-	unsupported := v.safe_parse(v.pipe_to(v.unknown[Unconvertible](),
+	unsupported := support.observe(v.pipe_to(v.schema[Unconvertible](),
 		v.to_boolean_from[Unconvertible]('Choose a boolean explicitly')), Unconvertible{})
 	assert !unsupported.success
 	assert unsupported.issues[0].message == 'Choose a boolean explicitly'
-	assert !v.safe_parse(v.pipe_to(v.date(), v.to_boolean_from[time.Time]()), time.unix(0)).success
-	boxed := v.safe_parse(v.pipe_to(v.unknown[json2.Any](), v.to_boolean_from[json2.Any]()),
+	assert !support.observe(v.pipe_to(v.date(), v.to_boolean_from[time.Time]()), time.unix(0)).success
+	boxed := support.observe(v.pipe_to(v.schema[json2.Any](), v.to_boolean_from[json2.Any]()),
 		json2.Any(time.unix(0)))
 	assert !boxed.success
 	assert types.value_is[json2.Any](boxed.raw_output)
-	assert !v.safe_parse(v.pipe_to(v.symbol(), v.to_boolean_from[types.Symbol]()),
-		types.symbol('x')).success
 	assert !(v.parse(v.pipe_to(v.number(), v.to_boolean_from[f64]()), 0.0) or { panic(err) })
 	assert v.parse(v.pipe_to(v.number(), v.to_boolean_from[f64]()), 1.0) or { panic(err) }
-	assert !(v.parse(v.pipe_to(v.unknown[[]int](), v.to_boolean_from[[]int]()), []int{}) or {
+	assert !(v.parse(v.pipe_to(v.schema[[]int](), v.to_boolean_from[[]int]()), []int{}) or {
 		panic(err)
 	})
-	assert v.parse(v.pipe_to(v.unknown[[]int](), v.to_boolean_from[[]int]()), [0]) or { panic(err) }
+	assert v.parse(v.pipe_to(v.schema[[]int](), v.to_boolean_from[[]int]()), [0]) or { panic(err) }
 }
 
 fn test_forwarding_uses_presence_and_real_container_access() {
@@ -109,7 +108,7 @@ fn test_forwarding_uses_presence_and_real_container_access() {
 		action := v.forward(v.check[json2.Any](fn (input json2.Any) bool {
 			return false
 		}), keys)
-		issue := j.safe_parse(j.pipe(j.unknown(), action), input).issues[0]
+		issue := support.observe_json(j.pipe(j.unknown(), action), input).issues[0]
 		assert issue.path == [types.PathSegment('a')]
 	}
 	assert diagnostics.forward_keys(json2.Any(json2.Null{}), keys) == []
@@ -140,24 +139,6 @@ fn test_f32_formatting_keeps_its_native_shortest_representation() {
 		panic(err)
 	} == '0.1'
 	assert numbers.number_from_string('9007199254740993') or { panic(err) } == 9007199254740992.0
-}
-
-fn test_utf8_output_and_on_demand_unit_accessors() {
-	text := 'ёж🙂\n\t"\\'.repeat(2000)
-	encoded := jsoncodec.stringify(json2.Any(text), v.StringifyJsonConfig{}) or { panic(err) }
-	assert json2.decode[string](encoded) or { panic(err) } == text
-	units := jsoncodec.stringify_utf16(json2.Any(text), v.StringifyJsonConfig{}) or { panic(err) }
-	assert units == types.utf16_units(encoded)
-	assert types.utf16_display(units) == encoded
-	result := v.safe_parse(v.pipe(v.string(), v.starts_with('a')), '🙂')
-	issue := result.issues[0]
-	assert issue.received == '"🙂"'
-	assert issue.received_units() == types.utf16_units(issue.received)
-	assert issue.message_units() == types.utf16_units(issue.message)
-	translated := v.safe_parse_with_config(v.pipe(v.string(), v.starts_with('a')), '🙂', v.Config{
-		message: types.ErrorMessage('Ошибка 🙂')
-	})
-	assert translated.issues[0].message_units() == types.utf16_units('Ошибка 🙂')
 }
 
 fn test_simple_json_float_decoding_retains_exact_rounding() {

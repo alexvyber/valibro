@@ -3,7 +3,7 @@ module types
 // Context owns configuration and localization; no process-global mutable state is required.
 pub struct Messages {
 pub:
-	global   map[string]ErrorMessage
+	defaults map[string]ErrorMessage
 	schema   map[string]ErrorMessage
 	specific map[string]map[string]ErrorMessage
 }

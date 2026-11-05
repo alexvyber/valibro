@@ -159,7 +159,7 @@ fn native_union_issues(issues []types.Issue) json2.Any {
 	return json2.Any(output)
 }
 
-fn native_union_assert[T](row map[string]json2.Any, result types.SafeParseResult[T], calls []string) {
+fn native_union_assert[T](row map[string]json2.Any, result support.Observation[T], calls []string) {
 	placement := (row['placement'] or { panic('placement') }).str()
 	assert result.success == (row['success'] or { panic('success') }).bool(), row.str()
 	assert result.typed == (row['typed'] or { panic('typed') }).bool(), row.str()
@@ -223,7 +223,7 @@ fn test_native_type_changing_unions_match_valibot() {
 		match row['placement']!.str() {
 			'struct' {
 				schema := native_union_struct_schema(item)
-				native_union_assert(row, v.safe_parse_with_config(schema, NativeUnionStructInput{
+				native_union_assert(row, support.observe(schema, NativeUnionStructInput{
 					a: input
 					b: '2'
 				}, config), calls.values)
@@ -241,7 +241,7 @@ fn test_native_type_changing_unions_match_valibot() {
 						}
 					}, child),
 				])
-				native_union_assert(row, v.safe_parse_with_config(schema, NativeUnionNestedInput{
+				native_union_assert(row, support.observe(schema, NativeUnionNestedInput{
 					details: NativeUnionStructInput{
 						a: input
 						b: '2'
@@ -249,23 +249,22 @@ fn test_native_type_changing_unions_match_valibot() {
 				}, config), calls.values)
 			}
 			'root' {
-				native_union_assert(row, v.safe_parse_with_config(item, input, config),
-					calls.values)
+				native_union_assert(row, support.observe(item, input, config), calls.values)
 			}
 			'array' {
-				native_union_assert(row, v.safe_parse_with_config(v.array(item), [
+				native_union_assert(row, support.observe(v.array(item), [
 					input,
 					'2',
 				], config), calls.values)
 			}
 			'map' {
-				native_union_assert(row, v.safe_parse_with_config(v.map_schema(v.string(), item), {
+				native_union_assert(row, support.observe(v.map_schema(v.string(), item), {
 					'a': input
 					'b': '2'
 				}, config), calls.values)
 			}
 			else {
-				native_union_assert(row, v.safe_parse_with_config(v.set(item), types.new_set([
+				native_union_assert(row, support.observe(v.set(item), types.new_set([
 					input,
 					'2',
 				]), config), calls.values)

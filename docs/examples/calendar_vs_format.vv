@@ -3,6 +3,6 @@ import valibro as v
 shape := v.pipe(v.string(), v.iso_date())
 calendar := v.pipe_to(v.string(), v.to_date())
 // The format action checks component ranges, not whether February has 29 days.
-assert v.safe_parse(shape, '2023-02-29').success
-assert !v.safe_parse(calendar, '2023-02-29').success
-assert v.safe_parse(calendar, '2024-02-29').success
+assert v.is_valid(shape, '2023-02-29')!
+assert !v.is_valid(calendar, '2023-02-29')!
+assert v.is_valid(calendar, '2024-02-29')!

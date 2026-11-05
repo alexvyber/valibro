@@ -1,42 +1,25 @@
 module actions
 
 import valibro.internal.diagnostics
+import valibro.internal.date as dates
+import valibro.jsoncodec
+import valibro.types
 import math.big
 import time
-import valibro.jsoncodec
-import valibro.schemas
-import valibro.types
 import x.json2
 
-// On strings, JSON.stringify returns a quoted JSON string.
-pub fn stringify_json() types.Action[string] {
-	return types.Action[string]{
-		kind:      .transformation
-		type_name: 'stringify_json'
-		run:       fn (input string) types.Dataset[string] {
-			return types.Dataset[string]{
-				value: json2.encode(input)
-			}
-		}
-	}
-}
-
-pub fn stringify_json_value[T](messages ...types.ErrorMessage) types.Transformation[T, string] {
-	return stringify_json_value_with_config[T](jsoncodec.StringifyConfig{}, ...messages)
-}
-
-pub fn stringify_json_value_with_config[T](config jsoncodec.StringifyConfig, messages ...types.ErrorMessage) types.Transformation[T, string] {
-	text := custom_message(messages, '')
+// Serialize a native V value; unsupported values return a validation issue.
+pub fn stringify_json_value[T](config jsoncodec.StringifyConfig) types.Transformation[T, string] {
 	return types.Transformation[T, string]{
 		type_name: 'stringify_json'
-		run:       fn [config, text] [T](input T) types.Dataset[string] {
-			value := native_json_source[T](input) or {
+		run:       fn [config] [T](input T) types.Dataset[string] {
+			value := native_json_value(input) or {
 				return conversion_failure_input[T, string](input, 'stringify_json', 'JSON', '',
-					json_failure_received[T](input, err), text)
+					err.msg(), types.DefaultMessage{})
 			}
-			output := jsoncodec.stringify_source(value, config) or {
+			output := jsoncodec.stringify(value, config) or {
 				return conversion_failure_input[T, string](input, 'stringify_json', 'JSON', '',
-					json_failure_received[T](input, err), text)
+					err.msg(), types.DefaultMessage{})
 			}
 			return types.Dataset[string]{
 				value: output
@@ -45,164 +28,53 @@ pub fn stringify_json_value_with_config[T](config jsoncodec.StringifyConfig, mes
 	}
 }
 
-fn native_json_value[T](input T, key string) !json2.Any {
-	$if T is jsoncodec.JsonValueProvider {
-		selected := input.to_json_value(key)!
-		if selected.state in [.missing, .undefined] { return jsoncodec.UndefinedOutput{} }
-		if selected.state == .null { return json2.Null{} }
-		return selected.value
-	} $else $if T is time.Time {
-		date := schemas.date().run(input, types.Config{})
-		if !date.typed { return json2.Null{} }
-		return json2.Any(diagnostics.value_label(date.value))
+fn native_json_value[T](input T) !json2.Any {
+	$if T is $option {
+		return native_json_optional_value(input)
+	} $else $if T is $pointer {
+		if input == unsafe { nil } { return json2.Null{} }
+		return native_json_value(*input)
 	} $else $if T is json2.Any {
 		return input
-	} $else $if T is string || T is bool || T is f64 || T is f32 || T is int || T is i64 || T is u64 {
+	} $else $if T is time.Time {
+		valid := dates.validated_native_date(input)!
+		return json2.Any(diagnostics.value_label(valid))
+	} $else $if T is types.InvalidDate {
+		return json2.Null{}
+	} $else $if T is big.Integer {
+		return error('Convert big.Integer explicitly to a JSON string or number')
+	} $else $if T is string || T is bool || T is f64 || T is f32 || T is int || T is i64 || T is u64
+		|| T is i8 || T is i16 || T is i32 || T is u8 || T is u16 || T is u32 {
 		return json2.Any(input)
 	} $else $if T is isize {
 		return json2.Any(i64(input))
 	} $else $if T is usize {
 		return json2.Any(u64(input))
-	} $else $if T is types.Null {
-		return json2.Null{}
-	} $else $if T is types.Undefined || T is types.Symbol || T is $function {
-		return jsoncodec.UndefinedOutput{}
-	} $else $if T is big.Integer {
-		return error('Do not know how to serialize a BigInt')
-	} $else $if T is $array {
+	} $else $if T is $function {
+		return error('Functions cannot be encoded as JSON')
+	} $else $if T is $array || T is $array_fixed {
 		mut output := []json2.Any{}
-		for index, item in input {
-			child := native_json_value(item, index.str()) or {
-				if err is jsoncodec.UndefinedOutput {
-					output << json2.Any(json2.Null{})
-					continue
-				}
-				return err
-			}
-			output << child
+		for item in input {
+			output << native_json_value(item)!
 		}
 		return json2.Any(output)
 	} $else $if T is $map {
 		mut output := map[string]json2.Any{}
-		for entry_key, item in input {
-			child := native_json_value(item, entry_key.str()) or {
-				if err is jsoncodec.UndefinedOutput { continue
-				 }
-				return err
-			}
-			output[entry_key.str()] = child
+		for key, item in input {
+			output[key.str()] = native_json_value(item)!
 		}
 		return json2.Any(output)
-	} $else {
-		return json2.decode[json2.Any](json2.encode(input))
-	}
-}
-
-fn json_failure_received[T](input T, err IError) string {
-	if err is jsoncodec.UndefinedOutput {
-		$if T is types.Symbol {
-			return 'symbol'
-		} $else $if T is types.Undefined {
-			return 'undefined'
-		} $else $if T is $function {
-			return 'Function'
-		} $else {
-			return diagnostics.issue_value[T](input)
-		}
-	}
-	return '"' + err.msg() + '"'
-}
-
-fn native_json_source[T](input T) !jsoncodec.JsonSource {
-	$if T is $pointer {
-		if input == unsafe { nil } { return jsoncodec.JsonSource{
-				value: json2.Any(json2.Null{})
-			} }
-	}
-	$if T is $option {
-		return native_json_optional_source(input)
-	} $else $if T is types.NativeMaybe {
-		return native_json_maybe_source[T](input)
-	} $else $if T is jsoncodec.JsonValueProvider {
-		return jsoncodec.JsonSource{
-			value: json2.Any(map[string]json2.Any{})
-			hook:  fn [input] [T](key string) !types.Maybe[json2.Any] {
-				return input.to_json_value(key)
-			}
-		}
-	} $else $if T is time.Time || T is types.Null || T is types.Undefined || T is types.Symbol
-		|| T is big.Integer {
-		return native_json_leaf[T](input)
-	} $else $if T is $pointer {
-		if input == unsafe { nil } { return jsoncodec.JsonSource{
-				value: json2.Any(json2.Null{})
-			} }
-		return native_json_source(*input)
-	} $else $if T is $array_fixed {
-		mut values := []json2.Any{}
-		mut children := map[string]jsoncodec.JsonSource{}
-		for index in 0 .. input.len {
-			child := native_json_source(input[index])!
-			values << child.value
-			children[index.str()] = child
-		}
-		return jsoncodec.JsonSource{
-			value:    json2.Any(values)
-			children: children
-		}
-	} $else $if T is $array {
-		mut values := []json2.Any{}
-		mut children := map[string]jsoncodec.JsonSource{}
-		for index, item in input {
-			child := native_json_source(item)!
-			values << child.value
-			children[index.str()] = child
-		}
-		return jsoncodec.JsonSource{
-			value:    json2.Any(values)
-			children: children
-		}
-	} $else $if T is $map {
-		mut values := map[string]json2.Any{}
-		mut children := map[string]jsoncodec.JsonSource{}
-		for key, item in input {
-			child := native_json_source(item)!
-			if child.missing { continue
-			 }
-			values[key.str()] = child.value
-			children[key.str()] = child
-		}
-		return jsoncodec.JsonSource{
-			value:    json2.Any(values)
-			children: children
-		}
 	} $else $if T is json2.JsonEncoder || T is json2.Encodable {
-		return native_json_deferred[T](input, json2.Any(map[string]json2.Any{}))
+		return jsoncodec.decode(json2.encode(input))
 	} $else $if T is $struct {
-		return native_json_struct[T](input, []string{}, '')
+		return native_json_struct(input, []string{}, '')
 	} $else {
-		return native_json_leaf[T](input)
+		return error('Unsupported JSON value')
 	}
 }
 
-fn native_json_leaf[T](input T) !jsoncodec.JsonSource {
-	initial := native_json_value[T](input, '') or { json2.Any(json2.Null{}) }
-	return native_json_deferred[T](input, initial)
-}
-
-fn native_json_deferred[T](input T, initial json2.Any) jsoncodec.JsonSource {
-	return jsoncodec.JsonSource{
-		to_json_applied: false
-		value:           initial
-		hook:            fn [input] [T](key string) !types.Maybe[json2.Any] {
-			return types.some(native_json_value[T](input, key)!)
-		}
-	}
-}
-
-fn native_json_struct[T](input T, inherited []string, prefix string) !jsoncodec.JsonSource {
+fn native_json_struct[T](input T, inherited []string, prefix string) !json2.Any {
 	mut values := map[string]json2.Any{}
-	mut children := map[string]jsoncodec.JsonSource{}
 	mut used := inherited.clone()
 	$for field in T.fields {
 		$if !field.is_embed {
@@ -217,29 +89,26 @@ fn native_json_struct[T](input T, inherited []string, prefix string) !jsoncodec.
 			}
 			if !skip && native_json_field_included(input.$(field.name), field.attrs) {
 				output_key := if key in inherited { prefix + key } else { key }
-				child := native_json_source(input.$(field.name))!
-				if !child.missing {
-					values[output_key] = child.value
-					children[output_key] = child
-					used << key
-				}
+				values[output_key] = native_json_value(input.$(field.name))!
+				used << key
 			}
 		}
 	}
 	$for field in T.fields {
 		$if field.is_embed {
 			embedded := native_json_struct(input.$(field.name), used, prefix + field.name + '.')!
-			for key, child in embedded.children {
-				values[key] = child.value
-				children[key] = child
+			for key, value in embedded.as_map() {
+				values[key] = value
 				used << key
 			}
 		}
 	}
-	return jsoncodec.JsonSource{
-		value:    json2.Any(values)
-		children: children
-	}
+	return json2.Any(values)
+}
+
+fn native_json_optional_value[T](input ?T) !json2.Any {
+	value := input or { return json2.Null{} }
+	return native_json_value(value)
 }
 
 fn native_json_field_included[T](value T, attrs []string) bool {
@@ -268,14 +137,6 @@ fn native_json_empty[T](value T) bool {
 	return false
 }
 
-fn native_json_optional_source[T](input ?T) !jsoncodec.JsonSource {
-	value := input or { return jsoncodec.JsonSource{
-		value: json2.Any(json2.Null{})
-	} }
-
-	return native_json_source[T](value)
-}
-
 fn native_json_optional_empty[T](input ?T) bool {
 	value := input or { return true }
 	return native_json_empty[T](value)
@@ -283,27 +144,4 @@ fn native_json_optional_empty[T](input ?T) bool {
 
 fn native_json_option_none[T](input ?T) bool {
 	return input == none
-}
-
-fn native_json_maybe_source[T](input T) !jsoncodec.JsonSource {
-	state := input.state
-	if state == .null { return jsoncodec.JsonSource{
-			value: json2.Any(json2.Null{})
-		} }
-	if state in [.missing, .undefined] {
-		return jsoncodec.JsonSource{
-			value:   json2.Any(json2.Null{})
-			missing: state == .missing
-			hook:    absent_native_json
-		}
-	}
-	$for field in T.fields {
-		$if field.name == 'value' { return native_json_source(input.$(field.name)) }
-	}
-	return error('Native Maybe has no value field')
-}
-
-fn absent_native_json(key string) !types.Maybe[json2.Any] {
-	_ = key
-	return types.undefined_value[json2.Any]()
 }

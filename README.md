@@ -1,124 +1,48 @@
 # Valibro
 
-Composable validation for V, targeting native V equivalents of Valibot 1.5.0.
-Valibro provides typed schemas, transformations, runtime JSON schemas, structured
-errors, and configuration contexts. Tested with V 0.5.2.
-
-The [inventory](docs/capabilities.json) maps all 272 public runtime exports,
-including aliases and async APIs. [Compatibility and evidence](docs/compatibility.md)
-describes the native value model and the tested behavior.
-
-## Installation
-
-VPM package: **`alexvyber.valibro`**. Version **0.2.0** is prepared for
-publication; the registry command applies after registration:
-
-```sh
-v install alexvyber.valibro
-```
-
-Use `import alexvyber.valibro as v` in consumers. Checkout examples use
-`import valibro as v`. See [installation](docs/install.md) and
-[release preparation](docs/releasing.md).
-
-Use V 0.5.2 and its standard C toolchain. No additional system libraries,
-vendored parser engines or bootstrap steps are required. There is no handwritten
-C/C++ or direct C interop in the package. URLs and Dates use
-native V parsing, regex uses V's `regex.pcre`, and word counts use bundled
-Unicode 17 data with native default word segmentation. See the
-[native URL/Date contract](docs/native_url_date.md) and
-[Unicode behavior](docs/unicode_api.md) for accepted inputs and differences.
+Composable validation for native V values and runtime JSON. Valibro uses the standard V toolchain, with no external VPM dependencies. Tested with V 0.5.2.
 
 ## Quick start
 
 ```v
 import valibro as v
 
-username := v.pipe(v.string(), v.trim(), v.to_lower_case(),
-    v.min_code_points(3, 'Use at least three characters'),
-    v.max_code_points(32), v.regex(r'^[a-z0-9_]+$'))
-result := v.safe_parse(username, '  Alex  ')
-if result.success {
-    println(result.output or { return }) // alex
-} else {
-    for issue in result.issues {
-        println('${issue.code}: ${issue.message}')
-    }
-}
+schema := v.pipe(v.string(), v.trim(), v.to_lower_case(), v.min_length(3))
+name := v.parse(schema, ' Alex ') or { eprintln(err); return }
+println(name) // alex
 ```
 
-Native inputs are statically typed. Use `valibro.json` for unknown JSON inputs,
-heterogeneous objects, tuples, unions, intersections, and discriminated unions.
+Parse returns a native `!T`. ValidationError retains structured issues. Inspect returns `!Dataset[T]` for advanced partial-value inspection. Is_valid returns `!bool`: validation rejection is false and callback errors propagate.
 
 ```v
-age := v.pipe(v.number(), v.integer(), v.min_value(0.0), v.max_value(130.0))
-assert v.parse(age, 42.0) or { panic(err) } == 42.0
-numbers := v.array(v.pipe_to(v.string(), v.to_number()))
-assert v.parse(numbers, ['1', '2']) or { panic(err) } == [1.0, 2.0]
+import valibro as v
+
+age := v.pipe(v.number_of[int](), v.min_value(0), v.max_value(130))
+assert v.parse(age, 42)! == 42
+assert !v.is_valid(age, -1)!
+assert v.inspect(age, -1)!.issues.len == 1
 ```
 
-`pipe` composes same-type actions; `pipe_to` changes output type. Requirements
-must match native types: `min_value(0.0)` targets `f64`, `min_value(0)` targets
-`int`. Typed `_of`, `_for`, and `_from` variants retain explicit types.
+Native options are handled with ordinary V if/or expressions. Native functions and threads belong to the application. Runtime JSON supports missing-field and explicit-null policies through optional and nullable; there is no undefined value model or JavaScript callback protocol.
 
-Failed `safe_parse` results expose issues, typed state, and boxed `.raw_output`;
-the typed `.output` is success-only.
-`parse` returns `!O` and an inspectable `ValidationError`. Runtime exceptions
-propagate through `parse` and `safe_parse_checked`; nonfallible `safe_parse`
-panics on exceptions. Advanced callbacks can inspect partial datasets through
-`types.run`, `raw_check_with_context`, and `raw_transform_with_context`.
+Exact decimal/radix conversion rounds once to binary64 using ties-to-even. Native integer equality and serialization preserve supplied digits. Runtime JSON object schemas reject arrays. UTF-8 strings, native regex, strict calendar validation and bundled Unicode 17 algorithms retain their documented contracts.
 
-## Guides
+## Installation
 
-- [Native behavior and migration](docs/native_behavior.md)
-- [Strings, formats, URLs, and regex](docs/string_api.md)
-- [Primitive schemas and numeric checks](docs/primitive_api.md)
-- [Collections, objects, presence, and execution](docs/composition_api.md)
-- [Unicode and word segmentation](docs/unicode_api.md)
-- [Compatibility, JSON callbacks, and differential evidence](docs/compatibility.md)
-- [Audit of documented differences](docs/compatibility_audit.md)
+The prepared VPM package name is `alexvyber.valibro`. Use `import alexvyber.valibro as v` in consumers, or `import valibro as v` inside a checkout. See [installation](docs/install.md) and [release preparation](docs/releasing.md).
 
-## Local documentation site
+## Documentation
 
-Run `v run site` and open `http://127.0.0.1:8080` for the guides and full public API
-reference, including implementation modules and receiver methods. The site uses native V with plain
-HTML/CSS and no browser JavaScript. It remains local and unpublished.
+Run `V_C_ERROR_BUG_REPORT_DISABLED=1 v run site` for a local native HTTP preview, or `v run site build` for static export. See [site development](site/README.md), [native API migration](docs/native_api_migration.md), [numeric behavior](docs/native_behavior.md), and the [API inventory](site/reference.json).
 
-Use `v run site inventory` after changing public declarations.
-`v run site check` validates API coverage, signatures, internal links, and executable
-examples; `v test site` tests the renderer, routes, search, and static export.
-`v run site build` writes a local static export to ignored `site/public/`.
-See [site development](site/README.md) for details and current limits.
-
-## Verification
+## Validation
 
 ```sh
-v test .
-v fmt -verify .
-v run scripts/check_architecture.vsh
-v run examples/username
-v run examples/strings
-v run examples/primitives
-v run examples/composition
-v run scripts/check_package.vsh
+V_C_ERROR_BUG_REPORT_DISABLED=1 VJOBS=1 v -no-parallel test .
+V_C_ERROR_BUG_REPORT_DISABLED=1 v fmt -verify .
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run scripts/check_architecture.vsh
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run scripts/check_package.vsh
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run site check
 ```
 
-Tests run offline. Native conformance tests cover URLs, ISO Date parsing/display and regex.
-Checked-in reference fixtures cover numbers, Unicode, formats, recursive schemas, collection
-failure outputs, callbacks, JSON configuration, messages, and abort behavior.
-The [differential manifest](tests/fixtures/differential_sources.json) records the
-reference runtime, generators, case counts, scopes, and fixture hashes: 121,780
-outcomes across 40 corpora, alongside native and Unicode conformance suites.
-
-## Layout and license
-
-`schemas`, `actions`, `methods`, and `types` implement the typed core.
-`internal` owns conversions, comparisons, diagnostics, and native adapters.
-Typed conversion interfaces return native values; no compatibility forwarding
-module or string-hint coercion protocol is retained.
-`json` supplies runtime structural validation; `jsoncodec` supplies JSON callback
-configuration. `unicode` contains Unicode 17 data and native algorithms. Public facades
-live in `api_*.v`; `valibro.v` contains shared public aliases. See
-[architecture](docs/architecture.md) for ownership and dependency rules.
-
-MIT. See `LICENSE`, `THIRD_PARTY_NOTICES.md`, and `unicode/LICENSE`.
+The compiler diagnostic-upload flag should be set for all V invocations. The checked-in rounding and Unicode/reference data run offline. Maintainer reference generators are separate from the native package and documentation runtime.

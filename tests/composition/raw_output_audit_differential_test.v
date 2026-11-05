@@ -166,7 +166,7 @@ fn raw_audit_json(value json2.Any) json2.Any {
 	}
 }
 
-fn raw_audit_check[T](result types.SafeParseResult[T], row map[string]json2.Any) {
+fn raw_audit_check[T](result support.Observation[T], row map[string]json2.Any) {
 	assert result.success == (row['success'] or { panic('missing success') }).bool(), row.str()
 	assert result.typed == (row['typed'] or { panic('missing typed') }).bool(), row.str()
 	actual := raw_audit_encode(result.raw_output,
@@ -193,28 +193,28 @@ fn test_failure_outputs_survive_native_type_changes_and_nested_collections() {
 			input := row['input']!.str()
 			match row['action']!.str() {
 				'skipNumber' {
-					raw_audit_check(v.safe_parse_with_config(v.pipe_to(v.pipe(v.string(), v.trim(),
+					raw_audit_check(support.observe(v.pipe_to(v.pipe(v.string(), v.trim(),
 						v.min_length(3)), v.to_number()), input, config), row)
 				}
 				'toNumber' {
-					raw_audit_check(v.safe_parse_with_config(v.pipe_to(v.string(), v.to_number()),
-						input, config), row)
+					raw_audit_check(support.observe(v.pipe_to(v.string(), v.to_number()), input,
+						config), row)
 				}
 				'toBigint' {
-					raw_audit_check(v.safe_parse_with_config(v.pipe_to(v.string(), v.to_bigint()),
-						input, config), row)
+					raw_audit_check(support.observe(v.pipe_to(v.string(), v.to_bigint()), input,
+						config), row)
 				}
 				'toDate' {
-					raw_audit_check(v.safe_parse_with_config(v.pipe_to(v.string(), v.to_date()),
-						input, config), row)
+					raw_audit_check(support.observe(v.pipe_to(v.string(), v.to_date()), input,
+						config), row)
 				}
 				'parseBoolean' {
-					raw_audit_check(v.safe_parse_with_config(v.pipe_to(v.string(),
-						v.parse_boolean()), input, config), row)
+					raw_audit_check(support.observe(v.pipe_to(v.string(), v.parse_boolean()),
+						input, config), row)
 				}
 				else {
-					raw_audit_check(v.safe_parse_with_config(v.pipe_to(v.string(), v.parse_json()),
-						input, config), row)
+					raw_audit_check(support.observe(v.pipe_to(v.string(), v.parse_json()), input,
+						config), row)
 				}
 			}
 
@@ -228,25 +228,23 @@ fn test_failure_outputs_survive_native_type_changes_and_nested_collections() {
 		}
 		match family {
 			'array' {
-				raw_audit_check(v.safe_parse_with_config(v.array(item), input, config), row)
+				raw_audit_check(support.observe(v.array(item), input, config), row)
 			}
 			'nested' {
-				raw_audit_check(v.safe_parse_with_config(v.array(v.array(item)), [
+				raw_audit_check(support.observe(v.array(v.array(item)), [
 					['1'],
 					input,
 				], config), row)
 			}
 			'record' {
-				raw_audit_check(v.safe_parse_with_config(v.record(v.string(), item), object, config),
-					row)
+				raw_audit_check(support.observe(v.record(v.string(), item), object, config), row)
 			}
 			'map' {
-				raw_audit_check(v.safe_parse_with_config(v.map_schema(v.string(), item), object,
-					config), row)
+				raw_audit_check(support.observe(v.map_schema(v.string(), item), object, config),
+					row)
 			}
 			'set' {
-				raw_audit_check(v.safe_parse_with_config(v.set(item), types.new_set(input), config),
-					row)
+				raw_audit_check(support.observe(v.set(item), types.new_set(input), config), row)
 			}
 			else {
 				schema := v.object_from(fn (input RawAuditInput) RawAuditOutput {
@@ -269,7 +267,7 @@ fn test_failure_outputs_survive_native_type_changes_and_nested_collections() {
 						}
 					}, item),
 				])
-				raw_audit_check(v.safe_parse_with_config(schema, RawAuditInput{
+				raw_audit_check(support.observe(schema, RawAuditInput{
 					a: input[0]
 					b: input[1]
 				}, config), row)

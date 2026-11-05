@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import x.json2
 import valibro as v
 import valibro.types
@@ -43,7 +44,7 @@ fn test_measurements_match_supported_counts() {
 
 				for index, action in actions {
 					expected := [count == n, count >= n, count <= n, count != n][index]
-					result := v.safe_parse(v.pipe(v.string(), action), row.input)
+					result := support.observe(v.pipe(v.string(), action), row.input)
 					assert result.success == expected, '${action.type_name}: ${row.input}, count ${count}, requirement ${n}'
 				}
 			}

@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import math
 import math.big
 import valibro as v
@@ -9,19 +10,19 @@ fn test_number_multiple_of_zero_nan_and_infinity_are_execution_checks() {
 	for divisor in [0.0, -0.0, math.nan()] {
 		action := v.multiple_of(divisor)
 		for input in [0.0, 1.0, -1.0, math.inf(1)] {
-			result := v.safe_parse(v.pipe(v.number(), action), input)
+			result := support.observe(v.pipe(v.number(), action), input)
 			assert !result.success
 			assert result.issues[0].code == 'multiple_of'
 		}
 	}
 	for divisor in [math.inf(1), math.inf(-1)] {
 		schema := v.pipe(v.number(), v.multiple_of(divisor))
-		assert v.safe_parse(schema, 0.0).success
-		assert v.safe_parse(schema, -0.0).success
-		assert !v.safe_parse(schema, 1.0).success
+		assert support.observe(schema, 0.0).success
+		assert support.observe(schema, -0.0).success
+		assert !support.observe(schema, 1.0).success
 	}
-	assert !v.safe_parse(v.pipe(v.number_of[int](), v.multiple_of(0)), 0).success
-	issue := v.safe_parse(v.pipe(v.number(), v.multiple_of(0.0)), 1.0).issues[0]
+	assert !support.observe(v.pipe(v.number_of[int](), v.multiple_of(0)), 0).success
+	issue := support.observe(v.pipe(v.number(), v.multiple_of(0.0)), 1.0).issues[0]
 	assert issue.message == 'Invalid multiple: Expected %0 but received 1'
 }
 
@@ -38,7 +39,7 @@ fn test_bigint_division_by_zero_propagates_as_range_error() {
 		exceptions++
 		assert exceptions > 0
 	}
-	v.safe_parse_checked(schema, zero) or {
+	v.inspect(schema, zero) or {
 		assert err is types.RangeError
 		exceptions++
 		assert exceptions > 0
@@ -53,38 +54,7 @@ fn test_bigint_division_by_zero_propagates_as_range_error() {
 		exceptions++
 		assert exceptions > 0
 	}
-	future := v.parse_async(schema, zero)
-	future.await() or {
-		assert err is types.RangeError
-		exceptions++
-		assert exceptions > 0
-	}
-	future.await() or {
-		assert err is types.RangeError
-		exceptions++
-		assert exceptions > 0
-	}
-	awaited := v.pipe_to(v.promise[big.Integer](), v.await_future[big.Integer]())
-	v.parse(awaited, future) or {
-		assert err is types.RangeError
-		exceptions++
-		assert exceptions > 0
-	}
-	assert exceptions == 7
-}
-
-fn test_awaited_validation_rejections_are_exceptions_not_recoverable_issues() {
-	future := v.parse_async(v.pipe(v.string(), v.min_length(5)), 'no')
-	awaited := v.pipe_to(v.promise[string](), v.await_future[string]())
-	data := awaited.run(future, v.Config{})
-	assert data.issues.len == 0
-	exception := data.exception or { panic('Expected rejected future') }
-	assert exception is types.ValidationError
-	v.parse(v.fallback(awaited, 'fallback'), future) or {
-		assert err is types.ValidationError
-		return
-	}
-	assert false, 'Fallback must not swallow rejected futures'
+	assert exceptions == 4
 }
 
 fn test_set_float_membership_uses_same_value_zero() {

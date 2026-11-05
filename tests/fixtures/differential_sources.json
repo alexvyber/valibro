@@ -1,7 +1,7 @@
 {
   "native_cases": {
     "file": "tools/oracle/native_cases.json",
-    "sha256": "91fd18d2b3db1a9ee7b2ad013d130005c1a07463dbdf8150c70740536463efd3"
+    "sha256": "eca5930f7fab1bdd7a57c528b0796bf1f949b09152524f00d18e98587e16f126"
   },
   "upstream": {
     "package": "valibot",
@@ -14,8 +14,8 @@
     "icu": "78.2",
     "unicode": "17.0"
   },
-  "outcomes": 119434,
-  "excluded_outcomes": 10656,
+  "outcomes": 34593,
+  "excluded_outcomes": 4532,
   "fixtures": [
     {
       "fixture": "tests/fixtures/primitives/native_date_validation_differential.json",
@@ -50,56 +50,6 @@
       "sha256": "ac0c60f1cd68b5f847629eb8ee54d8a94f7d58c04ff9b6cc14b69c7bcd0a1412"
     },
     {
-      "fixture": "tests/fixtures/primitives/maybe_conversion_differential.json",
-      "generator": "tools/oracle/generators/primitives/generate_maybe_conversion_fixtures.mjs",
-      "outcomes": 660,
-      "scope": "Transparent native Maybe and nested Maybe Number/BigInt/Boolean/Date/native String/default parseBoolean conversions, absent/null/value states, scalar/date/bigint/symbol/JSON payloads and factory issue fields. Reference rows exclude JavaScript-specific date parsing/display behavior; native Date conformance is tested separately. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately.",
-      "native_profile": {
-        "file": "tests/fixtures/primitives/maybe_conversion_differential.native.json",
-        "sha256": "2fbc6490f6d02bfa4a6169dff0982842ae161dd1cc43c6a335f0b230213e5887",
-        "candidate_outcomes": 764,
-        "excluded_outcomes": 104,
-        "counts_by_tag": {
-          "explicit_scalar_conversion": 44,
-          "explicit_date_conversion": 40,
-          "explicit_boolean_conversion": 16,
-          "native_value_spelling": 4
-        }
-      },
-      "sha256": "4294f00fd999736cdc7e13d5ce5707a49e2e6f02bf5f753df15827c84a570157"
-    },
-    {
-      "fixture": "tests/fixtures/json/maybe_json_differential.json",
-      "generator": "tools/oracle/generators/json/generate_maybe_json_fixtures.mjs",
-      "outcomes": 441,
-      "scope": "Native Maybe missing/undefined/null/value serialization at root, array, map, field and nested positions; hooks, dates, BigInt rejection, callbacks and parseJson-to-stringify pipelines with reviver deletion. Reference rows exclude JavaScript-specific date parsing/display behavior; native Date conformance is tested separately.",
-      "native_profile": {
-        "file": "tests/fixtures/json/maybe_json_differential.native.json",
-        "sha256": "df9a63ff9328100fc9a9f4c1b0a15d6015a6cbf62fa7f627d555f4b2c6964e65",
-        "candidate_outcomes": 441,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "9a025b2796538f2b75732afebe9d3880cffdf5a826bdfadcd5e0fe4933dab0f7"
-    },
-    {
-      "fixture": "tests/fixtures/json/boxed_date_differential.json",
-      "generator": "tools/oracle/generators/json/generate_boxed_date_fixtures.mjs",
-      "outcomes": 194,
-      "scope": "Dates in json2.Any across numeric/boolean/date-copy conversions and JSON serialization phases, provider/replacer ordering, invalid dates and nonprimitive hook rejection. Native Date display and array Date parsing are tested separately. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately.",
-      "native_profile": {
-        "file": "tests/fixtures/json/boxed_date_differential.native.json",
-        "sha256": "70817d18620f702f106e900ca80f7913709aeee96fb13bb0f0ec29f83b19077d",
-        "candidate_outcomes": 378,
-        "excluded_outcomes": 184,
-        "counts_by_tag": {
-          "explicit_boolean_conversion": 48,
-          "native_date_projection": 136
-        }
-      },
-      "sha256": "1ee8ef6ed0f5315fca8ccbfe47e7f860968a4a36af6d38e72446e2d57990772f"
-    },
-    {
       "fixture": "tests/fixtures/primitives/numeric_representation_differential.json",
       "generator": "tools/oracle/generators/primitives/generate_numeric_representation_fixtures.mjs",
       "outcomes": 1739,
@@ -116,20 +66,6 @@
       "sha256": "4a3afdeff1b34f4a81d2bdad5cccc2c539a2dd221375e74acd736300c5a1ae86"
     },
     {
-      "fixture": "tests/fixtures/json/json_interaction_differential.json",
-      "generator": "tools/oracle/generators/json/generate_json_interaction_fixtures.mjs",
-      "outcomes": 228,
-      "scope": "Native value-based descendant hook retention under shallow/deep parent replacements, callback order/errors, nil and non-nil provider/encoder/JSON pointers, field omission and original raw pointer outputs.",
-      "native_profile": {
-        "file": "tests/fixtures/json/json_interaction_differential.native.json",
-        "sha256": "f3cad3845a31e8731c72ff721a9ea3791aa2c24c50df42181fecc4547107dcf5",
-        "candidate_outcomes": 228,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "9c8217783249e0c960edf4936c0f91a719bf134d7cb21a81bbdeb5cdf9662139"
-    },
-    {
       "fixture": "tests/fixtures/collections/partial_equality_differential.json",
       "generator": "tools/oracle/generators/collections/generate_partial_equality_fixtures.mjs",
       "outcomes": 680,
@@ -144,82 +80,6 @@
       "sha256": "ba563d8c381f0bf7db65bee7f3d13761b5f074a5917d63a113c34026ac7df8fd"
     },
     {
-      "fixture": "tests/fixtures/json/json_presence_differential.json",
-      "generator": "tools/oracle/generators/json/generate_json_presence_fixtures.mjs",
-      "outcomes": 108,
-      "scope": "Presence-aware replacer recovery/omission/null/error behavior for undefined and toJSON outputs at root/array/map positions, including callback order and issues.",
-      "native_profile": {
-        "file": "tests/fixtures/json/json_presence_differential.native.json",
-        "sha256": "7f23af55abb628dd799e1cbf2443ea9af288d7bdb7c82d16d0c09332ca8edddd",
-        "candidate_outcomes": 108,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "3c8d06699de33e8ebd7e0df1e183866295cf98bd459d82e2a0bcc580d23f1f2c"
-    },
-    {
-      "fixture": "tests/fixtures/json/struct_json_differential.json",
-      "generator": "tools/oracle/generators/json/generate_struct_json_fixtures.mjs",
-      "outcomes": 150,
-      "scope": "Nested native struct toJSON hooks, V field tags, options, fixed/dynamic arrays, maps, Date/scalars, embedded collisions, whitelist and replacer order/errors. Reference rows exclude JavaScript-specific date parsing/display behavior; native Date conformance is tested separately.",
-      "native_profile": {
-        "file": "tests/fixtures/json/struct_json_differential.native.json",
-        "sha256": "e6d4c0e4f12b1b234f4a79ab0bfc114310ea21652caa1b117e045634cce11943",
-        "candidate_outcomes": 150,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "306cd9595110d1908fe7d88c93f013588caf5fa3eeb50b5fb5a40139cd25bf34"
-    },
-    {
-      "fixture": "tests/fixtures/composition/wrapper_audit_differential.json",
-      "generator": "tools/oracle/generators/composition/generate_wrapper_audit_fixtures.mjs",
-      "outcomes": 2265,
-      "scope": "Original wrapped schemas, shape operations around pipelines/fallbacks, factory messages, introspection and abort behavior.",
-      "native_profile": {
-        "file": "tests/fixtures/composition/wrapper_audit_differential.native.json",
-        "sha256": "1b4065dda194f7d99ee841f72e1fc17a170e2e14be792305709044ca3195b98a",
-        "candidate_outcomes": 2265,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "a96a6a01795e36b3a18ac557d1323c620c67ff03d08a359a83559cee640bb9ca"
-    },
-    {
-      "fixture": "tests/fixtures/json/json_runtime_audit_differential.json",
-      "generator": "tools/oracle/generators/json/generate_json_runtime_audit_fixtures.mjs",
-      "outcomes": 39,
-      "scope": "Iterative deep serialization through depth 4096 and exact UTF-16 indentation output. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately.",
-      "native_profile": {
-        "file": "tests/fixtures/json/json_runtime_audit_differential.native.json",
-        "sha256": "0e06d5528114c86bc0b4614bf6e6888e144ccfae5f4a7a2891c4da4e01075342",
-        "candidate_outcomes": 51,
-        "excluded_outcomes": 12,
-        "counts_by_tag": {
-          "native_indentation": 12
-        }
-      },
-      "sha256": "b3c80388eb4a3e930e94007748f4e21af8b5d94df1b9026d2658d8090732c2b2"
-    },
-    {
-      "fixture": "tests/fixtures/json/native_hook_audit_differential.json",
-      "generator": "tools/oracle/generators/json/generate_native_hook_audit_fixtures.mjs",
-      "outcomes": 210,
-      "scope": "Native primitive/toJSON hooks, hints, lazy replacer/whitelist order, failures, dates and built-in class serialization. Reference rows exclude JavaScript-specific date parsing/display behavior; native Date conformance is tested separately. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately.",
-      "native_profile": {
-        "file": "tests/fixtures/json/native_hook_audit_differential.native.json",
-        "sha256": "c400cc2e2eb53e7b4fc82be993f109911583450d397f381a5cd060d1a8a787f1",
-        "candidate_outcomes": 252,
-        "excluded_outcomes": 42,
-        "counts_by_tag": {
-          "explicit_scalar_conversion": 9,
-          "native_container_json": 21,
-          "native_map_order": 12
-        }
-      },
-      "sha256": "999edc418bd51634f7309b8c86839a30c29a6f3e2d5bb9736e78d40abdc76c5e"
-    },
-    {
       "fixture": "tests/fixtures/execution/cache_identity_audit_differential.json",
       "generator": "tools/oracle/generators/execution/generate_cache_identity_audit_fixtures.mjs",
       "outcomes": 40,
@@ -232,20 +92,6 @@
         "counts_by_tag": {}
       },
       "sha256": "5845c49295ec3dd665e7b00f4c01f35a8c5fa048d240b22ae5a2440900a476ac"
-    },
-    {
-      "fixture": "tests/fixtures/json/json_number_audit_differential.json",
-      "generator": "tools/oracle/generators/json/generate_json_number_audit_fixtures.mjs",
-      "outcomes": 49,
-      "scope": "Opt-in ECMAScript binary64 parsing/stringification, original source spans, overflow and malformed numbers.",
-      "native_profile": {
-        "file": "tests/fixtures/json/json_number_audit_differential.native.json",
-        "sha256": "a383a8bdaf0b8a4ee5ee3d70a1368a6598e2177b9715ce1c2082b251a90acab8",
-        "candidate_outcomes": 49,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "595832226da7508ddc49c306da93d6b78d40ed247d090a9901e12c8565fc0ca6"
     },
     {
       "fixture": "tests/fixtures/composition/raw_output_audit_differential.json",
@@ -274,20 +120,6 @@
         "counts_by_tag": {}
       },
       "sha256": "37e4770a5fb652c016b8cfbb009eb3cd4fd3855ea06d3692da4b6fdeb4c6cef5"
-    },
-    {
-      "fixture": "tests/fixtures/composition/default_state_audit_differential.json",
-      "generator": "tools/oracle/generators/composition/generate_default_state_audit_fixtures.mjs",
-      "outcomes": 104,
-      "scope": "Computed value/null/undefined defaults, contextual introspection and original input states.",
-      "native_profile": {
-        "file": "tests/fixtures/composition/default_state_audit_differential.native.json",
-        "sha256": "2c0f9385355f985048de2a97de12c40e1ca994635fb80f3afff67978b89f9d53",
-        "candidate_outcomes": 104,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "5555c4a2794c55777e09746a4ee40ac74b434a642827a5565d570c46d83a1078"
     },
     {
       "fixture": "tests/fixtures/primitives/native_value_differential.json",
@@ -335,36 +167,6 @@
       "sha256": "dd9e932fdf8a37712711d4ea3ab37513f9522575aa38bd84c7e570d1ffef9e90"
     },
     {
-      "fixture": "tests/fixtures/composition/default_context_differential.json",
-      "generator": "tools/oracle/generators/composition/generate_default_context_fixtures.mjs",
-      "outcomes": 120,
-      "scope": "Computed defaults with input datasets, optional introspection datasets, configuration, callback traces and invalid defaults.",
-      "native_profile": {
-        "file": "tests/fixtures/composition/default_context_differential.native.json",
-        "sha256": "7a00c4f5bc3ab6a7a5abcd32c2ebceefbda3aa4616a46665adc52684cc9e43bc",
-        "candidate_outcomes": 120,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "5dfcf166a8e62f2be3ae93c1b7b6f3c4c1dde298f5b312d71a87295e4ea6f0f3"
-    },
-    {
-      "fixture": "tests/fixtures/json/json_holder_differential.json",
-      "generator": "tools/oracle/generators/json/generate_json_holder_fixtures.mjs",
-      "outcomes": 42,
-      "scope": "Reviver/replacer holder snapshots, sibling values, previous sibling replacements and callback traces. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately.",
-      "native_profile": {
-        "file": "tests/fixtures/json/json_holder_differential.native.json",
-        "sha256": "3c775dd98245222a0c1735157ab3c68456d5bb3adb5882f59736aa88639ee0ef",
-        "candidate_outcomes": 48,
-        "excluded_outcomes": 6,
-        "counts_by_tag": {
-          "native_map_order": 6
-        }
-      },
-      "sha256": "5b34dc5b3f115819d12abab2a7ab377c9e413492d03f3ac19dcd3044dbdec772"
-    },
-    {
       "fixture": "tests/fixtures/execution/error_path_differential.json",
       "generator": "tools/oracle/generators/execution/generate_error_path_fixtures.mjs",
       "outcomes": 16,
@@ -398,20 +200,6 @@
       "sha256": "1132c74f6755e3da7471294129aff7a873ed63cfbf5f80f2e073a72dbb290e76"
     },
     {
-      "fixture": "tests/fixtures/collections/array_callback_differential.json",
-      "generator": "tools/oracle/generators/collections/generate_array_callback_fixtures.mjs",
-      "outcomes": 168,
-      "scope": "Original-array callback arguments, call order, short circuiting and output.",
-      "native_profile": {
-        "file": "tests/fixtures/collections/array_callback_differential.native.json",
-        "sha256": "eabd52fcad7a90defb0f2b083c59c513ee2ace0e8b1ff734625dd085c1db23ad",
-        "candidate_outcomes": 168,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "6c3de443a85b0d4d477ded016d708a06ec1211de922ceaf14b5d003d2e3f3e3f"
-    },
-    {
       "fixture": "tests/fixtures/primitives/boolean_config_differential.json",
       "generator": "tools/oracle/generators/primitives/generate_boolean_config_fixtures.mjs",
       "outcomes": 288,
@@ -424,37 +212,6 @@
         "counts_by_tag": {}
       },
       "sha256": "4117285843ca8118c7a84a9fac7d0d5c44b4c802a71e5b37f8133344dcc3155c"
-    },
-    {
-      "fixture": "tests/fixtures/collections/collection_action_differential.json",
-      "generator": "tools/oracle/generators/collections/generate_collection_action_fixtures.mjs",
-      "outcomes": 954,
-      "scope": "Collection counts, MIME types, item predicates and content checks.",
-      "native_profile": {
-        "file": "tests/fixtures/collections/collection_action_differential.native.json",
-        "sha256": "85e102126401251211e5ba751af759845e5add34d4e8569a1af315ea3ebc48f9",
-        "candidate_outcomes": 954,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "cb363fe5e427ef4b374b3442ba77ced9324b93409d76b450fa1bafb603862e3d"
-    },
-    {
-      "fixture": "tests/fixtures/composition/composition_differential.json",
-      "generator": "tools/oracle/generators/composition/generate_composition_fixtures.mjs",
-      "outcomes": 74518,
-      "scope": "531 recursive schema descriptors, all four abort settings, typed state, all JSON-projected outputs and full recursive issue fields. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately. Arrays-as-objects differences are tracked by the json_object_boundary tag and native V regression tests.",
-      "native_profile": {
-        "file": "tests/fixtures/composition/composition_differential.native.json",
-        "sha256": "aa82c1fd6f5d2bde4f7ea89bcca92bcd5266e5e2bcbad969182ac684724f455c",
-        "candidate_outcomes": 79556,
-        "excluded_outcomes": 5038,
-        "counts_by_tag": {
-          "json_object_boundary": 4760,
-          "ordinary_map_keys": 278
-        }
-      },
-      "sha256": "df748d41c2e98db3636006f0771eb26e5bb51000a431568603ebed0c39c36056"
     },
     {
       "fixture": "tests/fixtures/primitives/conversion_differential.json",
@@ -474,20 +231,6 @@
       "sha256": "ba2f859a1693554c8691d24980e4d363587d2212c0b0644ffb22fa7ac20eb88d"
     },
     {
-      "fixture": "tests/fixtures/composition/fallback_context_differential.json",
-      "generator": "tools/oracle/generators/composition/generate_fallback_context_fixtures.mjs",
-      "outcomes": 40,
-      "scope": "Fallback dataset/config callbacks, introspection and call traces.",
-      "native_profile": {
-        "file": "tests/fixtures/composition/fallback_context_differential.native.json",
-        "sha256": "9b9170c3b1c910ea2b19f2a3de9a1f821c309191910206dc5edc879e7561f697",
-        "candidate_outcomes": 40,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "b01c0b6e37aad6b86708013a8466bcc6fe2cffec97ad99a7a20d5fbef43d52f8"
-    },
-    {
       "fixture": "tests/fixtures/composition/forward_differential.json",
       "generator": "tools/oracle/generators/composition/generate_forward_fixtures.mjs",
       "outcomes": 36,
@@ -502,57 +245,6 @@
         }
       },
       "sha256": "6ae35088fe995c0763794b7c13e5b6049c64a7a8ba9bf94190d5c120824e490f"
-    },
-    {
-      "fixture": "tests/fixtures/composition/introspection_differential.json",
-      "generator": "tools/oracle/generators/composition/generate_introspection_fixtures.mjs",
-      "outcomes": 531,
-      "scope": "Direct and recursive default/fallback getters for every composition descriptor.",
-      "native_profile": {
-        "file": "tests/fixtures/composition/introspection_differential.native.json",
-        "sha256": "d793cf369ac05da8d5dc1eced354143b8174bdacf35824444cbb423c79918c7f",
-        "candidate_outcomes": 531,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "a2a54a5ce9c2fef87152b0d8eb562650d552af0e95fd62de5a47a6ca3f1cb65e"
-    },
-    {
-      "fixture": "tests/fixtures/json/json_coercion_differential.json",
-      "generator": "tools/oracle/generators/json/generate_json_coercion_fixtures.mjs",
-      "outcomes": 447,
-      "scope": "JSON scalar/array/object conversions, nonfinite values and coercion errors. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately.",
-      "native_profile": {
-        "file": "tests/fixtures/json/json_coercion_differential.native.json",
-        "sha256": "6139b5f4883624edfb7df44cd714bdb85762a4978627ac48f72b4049d86c1396",
-        "candidate_outcomes": 648,
-        "excluded_outcomes": 201,
-        "counts_by_tag": {
-          "explicit_scalar_conversion": 99,
-          "explicit_boolean_conversion": 36,
-          "native_value_spelling": 45,
-          "explicit_date_conversion": 21
-        }
-      },
-      "sha256": "8d42f5c21efd6bbbe6a3c0b40a938a0c696621492257f889b33354d8df28aa55"
-    },
-    {
-      "fixture": "tests/fixtures/json/json_config_differential.json",
-      "generator": "tools/oracle/generators/json/generate_json_config_fixtures.mjs",
-      "outcomes": 755,
-      "scope": "Reviver source/order/deletion, replacers, whitelists and indentation. Reviewed observation IDs and native-only tags are listed in tools/oracle/native_cases.json; generation reports retained and excluded outcomes separately.",
-      "native_profile": {
-        "file": "tests/fixtures/json/json_config_differential.native.json",
-        "sha256": "2823ea0f3ab6a6bc8b8bb5ce3b3bf3816ee1e6da5fcf90f36d239e2fbac8d438",
-        "candidate_outcomes": 1124,
-        "excluded_outcomes": 369,
-        "counts_by_tag": {
-          "native_map_order": 5,
-          "native_indentation": 294,
-          "signed_zero_spelling": 70
-        }
-      },
-      "sha256": "95c7e1351f80275a4cb855b20f937d64b4a3c9054851d9c64e0604a6cba0e14e"
     },
     {
       "fixture": "tests/fixtures/execution/message_context_differential.json",
@@ -597,20 +289,6 @@
       "sha256": "7519bcbed5cbec9700ec660d1aace4cf13c352fed9662d86c5c0f7bdbbac8c04"
     },
     {
-      "fixture": "tests/fixtures/composition/presence_differential.json",
-      "generator": "tools/oracle/generators/composition/generate_presence_fixtures.mjs",
-      "outcomes": 320,
-      "scope": "Native Maybe states, defaults, non-presence wrappers, output state and schema issue fields.",
-      "native_profile": {
-        "file": "tests/fixtures/composition/presence_differential.native.json",
-        "sha256": "3606a98bd5ac301ada5188757ad95dbeab84e9f87eeb34a3f74d3afc24241f0d",
-        "candidate_outcomes": 320,
-        "excluded_outcomes": 0,
-        "counts_by_tag": {}
-      },
-      "sha256": "0afbd92717a5b6761ec95a036b72d89f08fb9863d87a488e836ee2fe30f8ba72"
-    },
-    {
       "fixture": "tests/fixtures/engines/numbers.json",
       "generator": "tools/oracle/generators/engines/generate_number_fixtures.mjs",
       "outcomes": 8521,
@@ -626,22 +304,6 @@
         }
       },
       "sha256": "1b1d4f7f40b066223d64ee5b9a5d84672f920ba1ee287f2b4fb271feb4df8ecd"
-    },
-    {
-      "fixture": "tests/fixtures/composition/structural_parity.json",
-      "generator": "tools/oracle/generators/composition/generate_structural_fixtures.mjs",
-      "outcomes": 2498,
-      "scope": "Legacy structural schema cases, including object/tuple modes, records, unions and variants. Exact arrays-as-objects observations are tagged native-only; native JSON boundary behavior is covered by separate V regressions.",
-      "native_profile": {
-        "file": "tests/fixtures/composition/structural_parity.native.json",
-        "sha256": "18c99422bc0b5789016a9cecc673d42eeaa4eefe8e0787394dbe27de953f3268",
-        "candidate_outcomes": 2666,
-        "excluded_outcomes": 168,
-        "counts_by_tag": {
-          "json_object_boundary": 168
-        }
-      },
-      "sha256": "fef62a5f2883fd45854fa56aee7bbc106cc537b4730ca98c55a2ffae0a19b9b6"
     }
   ]
 }

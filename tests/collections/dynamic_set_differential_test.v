@@ -46,7 +46,7 @@ fn test_dynamic_scalar_set_equality_matches_upstream() {
 		row := raw.as_map()
 		input := row['input']!.as_array().map(set_fixture_value(it))
 		native := types.new_set(input)
-		result := v.parse(v.set(v.unknown[json2.Any]()), native) or { panic(err) }
+		result := v.parse(v.set(v.schema[json2.Any]()), native) or { panic(err) }
 		output := result.values.map(set_fixture_output(it))
 		assert j.equal(json2.Any(output), row['output']!), '${row}: ${output}'
 		for value in result.values {

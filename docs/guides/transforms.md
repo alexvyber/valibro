@@ -4,7 +4,7 @@ A same-type action goes into `pipe`. A `Transformation[I, O]` that changes the t
 
 ## Text transformations
 
-Trimming, case conversion, case-style conversion, and Unicode normalization are explicit. `to_string()` is a string-preserving action; use `to_string_from[T]` to convert another type.
+Trimming, case conversion, case-style conversion, and Unicode normalization are explicit. Use `to_string_from[T]` for an actual conversion; a string needs no identity conversion.
 
 ```v
 import valibro as v
@@ -26,7 +26,7 @@ number := v.pipe_to(v.string(), v.to_number())
 assert v.parse(number, '42.5')! == 42.5
 boolean := v.pipe_to(v.string(), v.parse_boolean())
 assert v.parse(boolean, 'true')! == true
-assert !v.safe_parse(boolean, 'perhaps').success
+assert !v.is_valid(boolean, 'perhaps')!
 ```
 
 ## Custom transformations
@@ -58,9 +58,24 @@ pub fn (amount Amount) to_number() !f64 {
 }
 
 fn main() {
-    schema := v.pipe_to(v.unknown[Amount](), v.to_number_from[Amount]())
+    schema := v.pipe_to(v.schema[Amount](), v.to_number_from[Amount]())
     assert v.parse(schema, Amount{value: 42.5})! == 42.5
 }
 ```
 
 See [JSON parsing and serialization](/guides/json-config/) for JSON transformations and [types](/api/types/) for provider declarations.
+
+## Native fallible callbacks
+
+Try_transform composes a native fn (I) !O. Its errors propagate, including through is_valid and fallback wrappers.
+
+```v
+import valibro as v
+
+schema := v.pipe_to(v.string(), v.try_transform[string, int](fn (text string) !int {
+    if text == '' { return error('Empty input') }
+    return text.len
+}))
+assert v.parse(schema, 'Alex')! == 4
+if _ := v.is_valid(schema, '') { assert false } else { assert err.msg() == 'Empty input' }
+```

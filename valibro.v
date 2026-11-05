@@ -30,10 +30,6 @@ pub type ParseJsonConfig = jsoncodec.ParseConfig
 
 pub type StringifyJsonConfig = jsoncodec.StringifyConfig
 
-pub type JsonReviverContext = jsoncodec.ReviverContext
-
-pub type JsonReplacerContext = jsoncodec.ReplacerContext
-
 pub type Regex = pcre.Regex
 
 pub type HashType = types.HashType

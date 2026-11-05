@@ -1,7 +1,8 @@
 # Architecture and ownership
 
 The public facade is `valibro`, with `types`, `schemas`, `actions`, `methods`,
-`json`, `jsoncodec`, `unicode`, and `storages` submodules. The unpublished `utils`
+`json`, `jsoncodec`, and `unicode` submodules. Caller-owned configuration and message
+methods live on `types.Context`. The unpublished `utils`
 compatibility module has been removed. Installed imports add the `alexvyber` publisher prefix.
 
 ## Public facade
@@ -15,9 +16,9 @@ The root module groups forwarding functions by responsibility:
 | `api_checks.v` | Scalar/string/format checks and regex construction |
 | `api_transform.v` | String/scalar conversions and JSON codec entry points |
 | `api_collections.v` | Collection schemas, measurements and array operations |
-| `api_presence.v` | Presence wrappers, defaults, fallbacks, and unwrapping |
-| `api_execution.v` | Parsing, composition, functions, async, cache and contexts |
-| `api_metadata.v` | Annotations, examples, brands, flavors, readonly |
+| `api_presence.v` | Native validation fallbacks |
+| `api_execution.v` | Native parsing, inspection, composition, cache and contexts |
+| `api_metadata.v` | Annotations and typed examples |
 
 Factories are grouped into cohesive files in `actions`. Shared validation helpers
 stay module-private; generated format patterns live in
@@ -34,13 +35,13 @@ avoids a circular dependency between representations and execution.
 `methods` orchestrates parsing and pipelines over those contracts. `schemas`
 constructs typed schemas; `actions` constructs checks/transformations. `json`
 implements runtime structural schemas and adapters; `jsoncodec` owns JSON text
-parsing/stringification and callback traversal.
+decoding and encoding.
 
 Focused implementation modules replace the former utility catch-all:
 
 | Module | Ownership |
 | --- | --- |
-| `internal.coercion` | Native/JSON/Maybe conversions and typed providers |
+| `internal.coercion` | Native/JSON conversions and typed providers |
 | `internal.comparison` | Native value equality and ordering |
 | `internal.diagnostics` | Issue paths, labels, expectations, forwarded paths |
 | `internal.number` | Exact native decimal rounding and compact native formatting |
@@ -51,7 +52,7 @@ Focused implementation modules replace the former utility catch-all:
 
 Implementation code imports these owners directly and uses native map iteration.
 Typed conversion contracts live in `types/conversion.v`. Ordinary JSON output and
-diagnostics use UTF-8; explicit unit getters convert on demand. Pointer/sum-type
+diagnostics use UTF-8. Pointer/sum-type
 branches in value boxing and generic runners retain documented V 0.5.2 compiler
 workarounds; they are independent of the removed forwarding module.
 

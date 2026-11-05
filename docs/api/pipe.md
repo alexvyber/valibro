@@ -19,9 +19,9 @@ import valibro as v
 
 schema := v.pipe(v.string(), v.trim(), v.to_lower_case(),
     v.min_code_points(3), v.regex(r'^[a-z0-9_]+$'))
-result := v.safe_parse(schema, '  Alex_7  ')
-assert result.success
-assert result.output? == 'alex_7'
+result := v.inspect(schema, '  Alex_7  ')!
+assert (result.issues.len == 0 && result.typed)
+assert result.value == 'alex_7'
 ```
 
 
@@ -39,16 +39,16 @@ A new `types.Schema[I, O]`. The original schema remains reusable. The pipeline r
 
 By default, validation actions can collect multiple issues. A transformation encountered after an issue does not run; the pipeline stops there and marks the dataset untyped. Runtime exceptions stop execution and propagate according to the parsing method.
 
-Set `abort_early` or `abort_pipe_early` through `safe_parse_with_config` to skip subsequent pipeline validations after an issue.
+Set `abort_early` or `abort_pipe_early` through `parse with a trailing Config` to skip subsequent pipeline validations after an issue.
 
 ```v
 import valibro as v
 
 schema := v.pipe(v.string(), v.min_code_points(3), v.to_upper_case())
-result := v.safe_parse(schema, 'ab')
-assert !result.success
+result := v.inspect(schema, 'ab')!
+assert !(result.issues.len == 0 && result.typed)
 assert !result.typed
-assert result.output == none
+assert result.issues.len > 0
 assert result.issues.len == 1
 ```
 
@@ -61,12 +61,12 @@ import valibro as v
 
 base := v.string()
 required := v.pipe(base, v.min_code_points(1))
-assert v.safe_parse(base, '').success
-assert !v.safe_parse(required, '').success
+assert v.is_valid(base, '')!
+assert !v.is_valid(required, '')!
 ```
 
 ## Related
 
 - [string](/api/string/): create a string schema.
-- [safe_parse](/api/safe_parse/): execute a pipeline.
+- [parse](/api/parse/): execute a pipeline.
 - [Changing the output type](/guides/quick-start/#changing-the-output-type): use `pipe_to`.

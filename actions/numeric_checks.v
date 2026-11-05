@@ -18,7 +18,7 @@ pub fn integer(messages ...types.ErrorMessage) types.Action[f64] {
 	}, messages)
 }
 
-pub fn safe_integer(messages ...types.ErrorMessage) types.Action[f64] {
+pub fn binary64_integer(messages ...types.ErrorMessage) types.Action[f64] {
 	return value_predicate[f64]('safe_integer', 'safe integer', fn (input f64) bool {
 		return !math.is_nan(input) && !math.is_inf(input, 0) && math.trunc(input) == input
 			&& input >= -9007199254740991.0 && input <= 9007199254740991.0
@@ -52,7 +52,7 @@ pub fn integer_of[T](messages ...types.ErrorMessage) types.Action[T] {
 	}, messages)
 }
 
-pub fn safe_integer_of[T](messages ...types.ErrorMessage) types.Action[T] {
+pub fn binary64_integer_of[T](messages ...types.ErrorMessage) types.Action[T] {
 	return value_predicate[T]('safe_integer', 'safe integer', fn [T](input T) bool {
 		$if T is i64 || T is isize {
 			return i64(input) >= i64(-9007199254740991) && i64(input) <= i64(9007199254740991)

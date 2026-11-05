@@ -15,7 +15,7 @@ fn visit_module(name string, graph map[string][]string, mut marks map[string]int
 
 root := @VMODROOT
 allowed := {
-	'valibro':   ['actions', 'schemas', 'methods', 'types', 'storages', 'jsoncodec', 'unicode']
+	'valibro':   ['actions', 'schemas', 'methods', 'types', 'jsoncodec', 'unicode']
 	'types':     []string{}
 	'internal':  ['internal', 'types', 'unicode']
 	'methods':   ['types', 'internal']
@@ -23,7 +23,6 @@ allowed := {
 	'actions':   ['types', 'internal', 'schemas', 'methods', 'unicode', 'jsoncodec']
 	'json':      ['types', 'internal', 'schemas', 'methods', 'jsoncodec']
 	'jsoncodec': ['types', 'internal']
-	'storages':  ['types']
 	'unicode':   []string{}
 }
 mut graph := map[string][]string{}

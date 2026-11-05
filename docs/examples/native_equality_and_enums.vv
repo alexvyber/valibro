@@ -16,7 +16,6 @@ assert types.raw_set_with[string]([types.value_of('A'), types.value_of('a')], eq
 assert types.ActionKind.from('validation')! == .validation
 assert types.HashType.from('md5')! == .md5
 assert types.IssueKind.from('schema')! == .schema
-assert types.Presence.from('value')! == .value
 assert unicode.NormalizeForm.from('nfc')! == .nfc
 assert unicode.version == '17.0.0'
 assert unicode.is_emoji('🙂')

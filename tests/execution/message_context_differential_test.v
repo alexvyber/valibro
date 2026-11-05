@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import os
 import x.json2
 import valibro as v
@@ -60,13 +61,13 @@ fn test_message_callback_metadata_precedence_and_call_counts_differential() {
 		}
 
 		if mode == 'specific' {
-			v.set_specific_message(mut context, code, traced_message(mut calls, 'specific'), lang)
+			context.set_specific_message(code, traced_message(mut calls, 'specific'), lang)
 		}
 		if mode == 'schema' {
-			v.set_schema_message(mut context, traced_message(mut calls, 'schema'), lang)
+			context.set_schema_message(traced_message(mut calls, 'schema'), lang)
 		}
 		if mode == 'global' {
-			v.set_global_message(mut context, traced_message(mut calls, 'global'), lang)
+			context.set_message(traced_message(mut calls, 'global'), lang)
 		}
 		mut config := v.Config{
 			...context.config
@@ -80,11 +81,11 @@ fn test_message_callback_metadata_precedence_and_call_counts_differential() {
 			} }
 		mut messages := []string{}
 		if name == 'multiple' {
-			result := v.safe_parse_with_config(v.pipe(v.number(), v.multiple_of(2.0, ...factory)),
+			result := support.observe(v.pipe(v.number(), v.multiple_of(2.0, ...factory)),
 				row['input']!.f64(), config)
 			messages = result.issues.map(it.message)
 		} else if name == 'convert' {
-			result := v.safe_parse_with_config(v.pipe_to(v.string(), v.to_bigint(...factory)),
+			result := support.observe(v.pipe_to(v.string(), v.to_bigint(...factory)),
 				row['input']!.str(), config)
 			messages = result.issues.map(it.message)
 		} else {
@@ -117,7 +118,7 @@ fn test_message_callback_metadata_precedence_and_call_counts_differential() {
 				}
 			}
 
-			result := j.safe_parse_with_config(schema, row['input']!, config)
+			result := support.observe_json(schema, row['input']!, config)
 			messages = result.issues.map(it.message)
 		}
 		if !j.equal(json2.Any(messages.map(json2.Any(it))), row['messages']!)

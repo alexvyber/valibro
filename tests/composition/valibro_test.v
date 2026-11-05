@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import valibro as v
 import valibro.actions
 import valibro.methods
@@ -8,7 +9,7 @@ import valibro.types
 
 fn test_username_pipeline() {
 	schema := v.pipe(v.string(), v.trim(), v.to_lower_case(), v.min_length(3), v.max_length(32))
-	result := v.safe_parse(schema, '  Alex  ')
+	result := support.observe(schema, '  Alex  ')
 	assert result.success
 	assert result.output or { panic('Missing output') } == 'alex'
 	assert result.issues.len == 0
@@ -16,7 +17,7 @@ fn test_username_pipeline() {
 }
 
 fn test_failure_has_no_output_and_structured_issues() {
-	result := v.safe_parse(v.pipe(v.string(), v.min_length(3)), 'a')
+	result := support.observe(v.pipe(v.string(), v.min_length(3)), 'a')
 	assert !result.success
 	assert result.output == none
 	assert result.issues.len == 1
@@ -29,9 +30,9 @@ fn test_failure_has_no_output_and_structured_issues() {
 
 fn test_collects_issues_in_order_and_can_abort_early() {
 	schema := v.pipe(v.string(), v.min_length(5), v.starts_with('x'), v.ends_with('z'))
-	result := v.safe_parse(schema, 'a')
+	result := support.observe(schema, 'a')
 	assert result.issues.map(it.code) == ['min_length', 'starts_with', 'ends_with']
-	first := v.safe_parse_with_config(schema, 'a', v.Config{ abort_early: true })
+	first := support.observe(schema, 'a', v.Config{ abort_early: true })
 	assert first.issues.len == 1
 	assert first.issues[0].code == 'min_length'
 }
@@ -46,19 +47,19 @@ fn test_transformations_stop_after_failure() {
 		}
 	}
 	schema := v.pipe(v.string(), v.min_length(3), transform, v.ends_with('z'))
-	result := v.safe_parse(schema, 'a')
+	result := support.observe(schema, 'a')
 	assert result.issues.len == 1
 }
 
 fn test_code_point_lengths_and_boundaries() {
 	schema := v.pipe(v.string(), v.min_code_points(2), v.max_code_points(2))
-	assert v.safe_parse(schema, 'ёж').success
-	assert v.safe_parse(schema, '🙂🙂').success
-	assert !v.safe_parse(schema, '🙂').success
-	assert !v.safe_parse(schema, '🙂🙂🙂').success
-	assert v.safe_parse(v.pipe(v.string(), v.min_code_points(0), v.max_code_points(0)), '').success
+	assert support.observe(schema, 'ёж').success
+	assert support.observe(schema, '🙂🙂').success
+	assert !support.observe(schema, '🙂').success
+	assert !support.observe(schema, '🙂🙂🙂').success
+	assert support.observe(v.pipe(v.string(), v.min_code_points(0), v.max_code_points(0)), '').success
 	// A combining accent is a separate code point.
-	assert v.safe_parse(schema, 'e\u0301').success
+	assert support.observe(schema, 'e\u0301').success
 }
 
 fn test_custom_check_and_message() {
@@ -66,13 +67,13 @@ fn test_custom_check_and_message() {
 		return value != 'admin'
 	}, 'Reserved username')
 	schema := v.pipe(v.string(), rule)
-	assert v.safe_parse(schema, 'alex').success
-	assert v.safe_parse(schema, 'admin').issues[0].message == 'Reserved username'
+	assert support.observe(schema, 'alex').success
+	assert support.observe(schema, 'admin').issues[0].message == 'Reserved username'
 	original := v.min_length(3)
 	custom := v.message(original, 'Too short')
-	assert v.safe_parse(v.pipe(v.string(), custom), 'x').issues[0].message == 'Too short'
-	assert v.safe_parse(v.pipe(v.string(), original), 'x').issues[0].message != 'Too short'
-	assert v.safe_parse(v.pipe(v.string(), custom), 'alex').success
+	assert support.observe(v.pipe(v.string(), custom), 'x').issues[0].message == 'Too short'
+	assert support.observe(v.pipe(v.string(), original), 'x').issues[0].message != 'Too short'
+	assert support.observe(v.pipe(v.string(), custom), 'alex').success
 }
 
 fn test_parse_returns_inspectable_validation_error() {
@@ -90,7 +91,7 @@ fn test_parse_returns_inspectable_validation_error() {
 }
 
 fn test_parse_with_config() {
-	v.parse_with_config(v.pipe(v.string(), v.min_length(3), v.ends_with('z')), 'a', v.Config{
+	v.parse(v.pipe(v.string(), v.min_length(3), v.ends_with('z')), 'a', v.Config{
 		abort_early: true
 	}) or {
 		if err is types.ValidationError {
@@ -106,11 +107,11 @@ fn test_pipeline_reuse_and_nested_composition() {
 	base := v.string()
 	short := v.pipe(base, v.max_length(2))
 	long := v.pipe(base, v.min_length(3))
-	assert v.safe_parse(base, 'abc').success
-	assert !v.safe_parse(short, 'abc').success
-	assert v.safe_parse(long, 'abc').success
-	assert v.safe_parse(short, 'ab').success
-	assert !v.safe_parse(long, 'ab').success
+	assert support.observe(base, 'abc').success
+	assert !support.observe(short, 'abc').success
+	assert support.observe(long, 'abc').success
+	assert support.observe(short, 'ab').success
+	assert !support.observe(long, 'ab').success
 	composed := v.pipe(v.pipe(base, v.trim()), v.to_lower_case(), v.starts_with('a'),
 		v.ends_with('x'))
 	assert v.parse(composed, '  ALEX  ') or { panic(err) } == 'alex'
@@ -135,11 +136,11 @@ fn test_generic_extension_and_structured_paths() {
 		return value > 0
 	}, 'Must be positive'))
 	assert v.parse(positive, 42) or { panic(err) } == 42
-	assert !v.safe_parse(positive, -1).success
+	assert !support.observe(positive, -1).success
 	custom := v.message(v.check(fn (value int) bool {
 		return value > 0
 	}, 'Positive'), 'Custom integer issue')
-	assert v.safe_parse(v.pipe(schema, custom), -1).issues[0].message == 'Custom integer issue'
+	assert support.observe(v.pipe(schema, custom), -1).issues[0].message == 'Custom integer issue'
 	issue := v.Issue{
 		code:    'custom'
 		message: 'Invalid'

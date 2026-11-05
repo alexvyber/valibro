@@ -10,8 +10,8 @@ Native strings must be valid UTF-8. String length/order and whitespace behavior 
 import valibro as v
 
 schema := v.pipe(v.string(), v.regex(r'^[a-z]+$'))
-assert v.safe_parse(schema, 'alex').success
-assert !v.safe_parse(schema, 'ALEX').success
+assert v.is_valid(schema, 'alex')!
+assert !v.is_valid(schema, 'ALEX')!
 ```
 
 ## URLs
@@ -22,8 +22,8 @@ URL validation uses native `net.urllib` parsing with explicit absolute-URI check
 import valibro as v
 
 schema := v.pipe(v.string(), v.url())
-assert v.safe_parse(schema, 'https://example.com/path?q=1').success
-assert !v.safe_parse(schema, '/relative/path').success
+assert v.is_valid(schema, 'https://example.com/path?q=1')!
+assert !v.is_valid(schema, '/relative/path')!
 ```
 
 ## Dates
@@ -38,11 +38,11 @@ output := v.parse(schema, '2024-02-29')!
 assert output.year == 2024
 assert output.month == 2
 assert output.day == 29
-assert !v.safe_parse(schema, 'February 29, 2024').success
+assert !v.is_valid(schema, 'February 29, 2024')!
 ```
 
 ## Numeric precision and explicit conversions
 
 Decimal text conversion rounds exactly to binary64 with ties to even. Native integer comparisons and ordinary integer JSON serialization retain precision. `f32` string conversion uses its own shortest representation. Arrays/maps do not implicitly join into numbers or dates; null does not become zero or the epoch.
 
-Presence is represented explicitly by `Maybe[T]`. Native functions and futures are containers with explicit call/await behavior. Symbols have explicit native identity. See [numbers](/guides/numbers/), [presence](/guides/presence/), [JSON configuration](/guides/json-config/), and [Unicode](/guides/unicode/) for the supported contracts.
+V options, native functions and application-owned threads handle absence, calls and concurrency. See [numbers](/guides/numbers/), [presence](/guides/presence/), [JSON configuration](/guides/json-config/), and [Unicode](/guides/unicode/) for the supported contracts.

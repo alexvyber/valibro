@@ -20,8 +20,8 @@ fn main() {
         return User{...user, name: name}
     }, v.pipe(v.string(), v.trim(), v.min_length(2))))
     assert v.parse(schema, User{name: ' Alex '})!.name == 'Alex'
-    invalid := v.safe_parse(schema, User{name: 'x'})
-    assert !invalid.success
+    invalid := v.inspect(schema, User{name: 'x'})!
+    assert !(invalid.issues.len == 0 && invalid.typed)
     assert v.get_dot_path(invalid.issues[0]) == 'name'
 }
 ```

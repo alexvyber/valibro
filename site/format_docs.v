@@ -87,5 +87,5 @@ fn format_example(name string) string {
 	} else {
 		'x'
 	}
-	return "import valibro as v\n\nschema := v.pipe(v.string(), v.${name}())\nassert v.safe_parse(schema, '${good}').success\nassert !v.safe_parse(schema, '${bad}').success\n"
+	return "import valibro as v\n\nschema := v.pipe(v.string(), v.${name}())\nassert v.is_valid(schema, '${good}')!\nassert !v.is_valid(schema, '${bad}')!\n"
 }

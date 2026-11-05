@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import os
 import math
 import x.json2
@@ -79,7 +80,7 @@ fn check_partial_equality[T](row map[string]json2.Any) {
 	mut issues := []v.Issue{}
 	mut typed := false
 	if (row['family'] or { panic('family') }).str() == 'set' {
-		result := v.safe_parse_with_config(v.set(item), types.new_set(input), config)
+		result := support.observe(v.set(item), types.new_set(input), config)
 		typed = result.typed
 		issues = result.issues.clone()
 		if types.value_is[types.RawSet](result.raw_output) {
@@ -101,7 +102,7 @@ fn check_partial_equality[T](row map[string]json2.Any) {
 				value: index.str()
 			}
 		}
-		result := v.safe_parse_with_config(v.entry_map(item, v.string(), fn [T](left T, right T) bool {
+		result := support.observe(v.entry_map(item, v.string(), fn [T](left T, right T) bool {
 			return types.native_set_equal[T](left, right)
 		}), types.entry_map(entries, fn (left string, right string) bool {
 			return left == right
@@ -145,7 +146,7 @@ fn check_partial_native_map[T](row map[string]json2.Any) {
 	item := v.pipe_to(v.custom[string](fn (value string) bool {
 		return value != 'bad'
 	}), v.transform_to[string, T](equality_output[T]))
-	result := v.safe_parse_with_config(v.map_schema(item, v.string()), input, config)
+	result := support.observe(v.map_schema(item, v.string()), input, config)
 	mut output := []json2.Any{}
 	if types.value_is[types.RawMap](result.raw_output) {
 		raw := types.value_as[types.RawMap](result.raw_output) or { panic(err) }

@@ -31,7 +31,7 @@ pub fn (value NumericRepPrimitive[T]) to_string() !string {
 	return impl_coercion.native_string_checked[T](value.value)
 }
 
-fn numeric_rep_result[T](result types.SafeParseResult[T]) (bool, bool, string, []types.Issue) {
+fn numeric_rep_result[T](result support.Observation[T]) (bool, bool, string, []types.Issue) {
 	if !result.success { return false, result.typed, '', result.issues }
 	value := numeric_rep_unwrap[T](result.output)
 	$if T is time.Time {
@@ -49,7 +49,7 @@ fn numeric_rep_schema[T](action string, messages []types.ErrorMessage) types.Sch
 		'number' { return v.number_of[T](...messages) }
 		'finite' { return v.pipe(base, v.finite_of[T](...messages)) }
 		'integer' { return v.pipe(base, v.integer_of[T](...messages)) }
-		'safeInteger' { return v.pipe(base, v.safe_integer_of[T](...messages)) }
+		'safeInteger' { return v.pipe(base, v.binary64_integer_of[T](...messages)) }
 		'multipleOf' { return v.pipe(base, v.multiple_of(T(2), ...messages)) }
 		'minValue' { return v.pipe(base, v.min_value(T(2), ...messages)) }
 		'maxValue' { return v.pipe(base, v.max_value(T(2), ...messages)) }
@@ -64,34 +64,35 @@ fn numeric_rep_schema[T](action string, messages []types.ErrorMessage) types.Sch
 }
 
 fn numeric_rep_conversion[T](action string, input T, messages []types.ErrorMessage) (bool, bool, string, []types.Issue) {
-	base := v.unknown[T]()
+	base := v.schema[T]()
 	match action {
 		'toNumber' {
-			return numeric_rep_result(v.safe_parse(v.pipe_to(base, v.to_number_from[T](...messages)),
-				input))
+			return numeric_rep_result(support.observe(v.pipe_to(base,
+				v.to_number_from[T](...messages)), input))
 		}
 		'toBigint' {
-			return numeric_rep_result(v.safe_parse(v.pipe_to(base, v.to_bigint_from[T](...messages)),
-				input))
+			return numeric_rep_result(support.observe(v.pipe_to(base,
+				v.to_bigint_from[T](...messages)), input))
 		}
 		'toDate' {
-			return numeric_rep_result(v.safe_parse(v.pipe_to(base, v.to_date_from[T](...messages)),
-				input))
+			return numeric_rep_result(support.observe(v.pipe_to(base,
+				v.to_date_from[T](...messages)), input))
 		}
 		'toString' {
-			return numeric_rep_result(v.safe_parse(v.pipe_to(base, v.to_string_from[T](...messages)),
-				input))
+			return numeric_rep_result(support.observe(v.pipe_to(base,
+				v.to_string_from[T](...messages)), input))
 		}
 		'parseBoolean' {
-			return numeric_rep_result(v.safe_parse(v.pipe_to(base,
+			return numeric_rep_result(support.observe(v.pipe_to(base,
 				v.parse_boolean_from[T](...messages)), input))
 		}
 		'stringifyJson' {
-			return numeric_rep_result(v.safe_parse(v.pipe_to(base,
-				v.stringify_json_value[T](...messages)), input))
+			return numeric_rep_result(support.observe(v.pipe_to(base, v.stringify_json_value[T]()),
+				input))
 		}
 		'toBoolean' {
-			return numeric_rep_result(v.safe_parse(v.pipe_to(base, v.to_boolean_from[T]()), input))
+			return numeric_rep_result(support.observe(v.pipe_to(base, v.to_boolean_from[T]()),
+				input))
 		}
 		else {
 			panic(action)
@@ -130,7 +131,7 @@ fn numeric_rep_case[T](row map[string]json2.Any, input T) {
 	}
 	action := (row['action'] or { panic('action') }).str()
 	if action == 'number' {
-		adapted := j.safe_parse(j.from_schema(v.pipe_to(v.number(),
+		adapted := support.observe_json(j.from_schema(v.pipe_to(v.number(),
 			v.transform_to[f64, T](numeric_rep_convert[T]))), json2.Any(f64(input)))
 		assert adapted.success, row.str()
 		assert j.equal(adapted.output or { panic('output') }, boxed), row.str()
@@ -152,10 +153,11 @@ fn numeric_rep_case[T](row map[string]json2.Any, input T) {
 			assert_numeric_rep(row, hsuccess, htyped, houtput, hissues)
 		}
 	} else {
-		success, typed, output, issues := numeric_rep_result(v.safe_parse(numeric_rep_schema[T](action,
+		success, typed, output, issues := numeric_rep_result(support.observe(numeric_rep_schema[T](action,
 			messages), input))
 		assert_numeric_rep(row, success, typed, output, issues)
-		result := j.safe_parse(j.from_schema(numeric_rep_schema[f64](action, messages)), boxed)
+		result := support.observe_json(j.from_schema(numeric_rep_schema[f64](action, messages)),
+			boxed)
 		jsuccess, jtyped, joutput, jissues := numeric_rep_result(result)
 		assert_numeric_rep(row, jsuccess, jtyped, joutput, jissues)
 	}

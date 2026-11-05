@@ -55,7 +55,7 @@ fn test_http_routes_and_search() {
 			'/assets/site.css': 'body {}'
 		}
 	}
-	for path in ['/', '/guides/quick-start/', '/api/string/', '/api/pipe/', '/api/safe_parse/'] {
+	for path in ['/', '/guides/quick-start/', '/api/string/', '/api/pipe/', '/api/parse/'] {
 		res := app.handle(http.Request{ url: path })
 		assert res.status_code == 200
 		assert res.body.contains('<main id="main"')
@@ -88,7 +88,29 @@ fn test_static_export() {
 		assert os.read_file(os.join_path(folder, markdown_url(page).trim_left('/')))! == page.source
 	}
 	assert os.read_file(os.join_path(folder, 'search/index.html'))!.contains('Documentation index')
-	assert os.read_file(os.join_path(folder, 'llms.txt'))!.contains('/api/safe_parse.md')
+	assert os.read_file(os.join_path(folder, 'llms.txt'))!.contains('/api/parse.md')
 	assert os.is_file(os.join_path(folder, 'assets/site.css'))
 	assert os.is_file(os.join_path(folder, '404.html'))
+}
+
+fn test_rebuilding_export_removes_retired_api_routes_and_preserves_other_files() {
+	folder := os.join_path(os.temp_dir(), 'valibro-retired-routes-${os.getpid()}')
+	os.mkdir_all(folder)!
+	defer { os.rmdir_all(folder) or {} }
+	pages := load_pages(@VMODROOT)!
+	retired := Page{
+		url:      '/api/retired_example/'
+		title:    'Retired example'
+		source:   '# Retired example\n'
+		document: markdown('# Retired example\n')!
+	}
+	mut previous := pages.clone()
+	previous << retired
+	build_site(@VMODROOT, folder, previous)!
+	os.write_file(os.join_path(folder, 'api/retired_example/notes.txt'), 'Keep user files')!
+	build_site(@VMODROOT, folder, pages)!
+	assert !os.exists(os.join_path(folder, 'api/retired_example.md'))
+	assert !os.exists(os.join_path(folder, 'api/retired_example/index.html'))
+	assert os.read_file(os.join_path(folder, 'api/retired_example/notes.txt'))! == 'Keep user files'
+	assert os.is_file(os.join_path(folder, 'api/parse/index.html'))
 }

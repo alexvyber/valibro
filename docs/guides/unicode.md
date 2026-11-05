@@ -11,7 +11,7 @@ import valibro as v
 import valibro.unicode
 
 schema := v.pipe(v.string(), v.bytes(4), v.code_points(1), v.graphemes(1))
-assert v.safe_parse(schema, '🙂').success
+assert v.is_valid(schema, '🙂')!
 assert unicode.grapheme_count('e\u0301') == 1
 assert unicode.grapheme_boundaries('ab') == [0, 1, 2]
 ```
@@ -40,8 +40,8 @@ import valibro.unicode
 
 assert unicode.word_count("don't stop!") == 2
 assert unicode.word_count('🙂 👩🏽‍💻') == 0
-assert v.safe_parse(v.pipe(v.string(), v.words(2)), 'Hello world').success
-assert v.safe_parse(v.pipe(v.string(), v.emoji()), '🙂').success
+assert v.is_valid(v.pipe(v.string(), v.words(2)), 'Hello world')!
+assert v.is_valid(v.pipe(v.string(), v.emoji()), '🙂')!
 ```
 
 Camel, Pascal, kebab, and snake transformations use case-style boundaries, not linguistic word segmentation. See [Unicode reference](/api/unicode/) for direct algorithms and [string actions](/guides/strings/) for pipeline checks.

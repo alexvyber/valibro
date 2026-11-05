@@ -1,51 +1,35 @@
 # Parsing and pipelines
 
-[pipe](/api/pipe/) runs a schema followed by same-output-type actions. `pipe_to` adds a type-changing transformation. Schemas are immutable and reusable.
-
-## Parsing choices
-
-`parse` returns `!O`, using a `ValidationError` for ordinary validation failure. `safe_parse` returns a result with `success`, `typed`, `issues`, `raw_output`, and success-only optional `output`. `is_valid` returns a boolean; `assert_valid` returns a fallible void result. Runtime exceptions still propagate or panic according to the chosen entry point.
+`parse` returns `!O`: V requires an error handler or propagation. ValidationError retains the collected issues. `is_valid` returns `!bool`, returning false for rejection and propagating execution errors. Both accept an optional trailing Config parameter struct.
 
 ```v
 import valibro as v
+import valibro.types
 
-schema := v.pipe(v.string(), v.trim(), v.min_length(2))
+schema := v.pipe(v.string(), v.trim(), v.min_length(3))
 assert v.parse(schema, ' Alex ')! == 'Alex'
-assert v.is_valid(schema, 'Alex')
-v.assert_valid(schema, 'Alex')!
-parser := v.parser(schema)
-assert parser(' Alex ')! == 'Alex'
-safe_parser := v.safe_parser(schema)
-assert !safe_parser('x').success
+assert !v.is_valid(schema, 'x')!
+if _ := v.parse(schema, 'x') { assert false } else { assert err is types.ValidationError }
 ```
 
-## Configuration and stopping
+## Inspection
 
-`config` binds settings to a schema and ignores settings passed later when that configured wrapper runs. `_with_config` parsing functions provide settings for schemas that do not already bind their own configuration. `abort_early` stops after the first issue; `abort_pipe_early` skips later validations in that pipeline. Without these settings, consecutive validations can collect issues.
-
-A transformation after any validation issue does not run and the pipeline stops at that boundary. An exception stops execution independently of issue collection.
+`inspect` returns `!Dataset[O]` for advanced diagnostics. It returns validation issues and partial values; execution errors still propagate. A typed dataset can have validation issues. Read a successful value through parse when failure output is not needed.
 
 ```v
 import valibro as v
+import valibro.types
 
-schema := v.pipe(v.string(), v.min_length(3), v.starts_with('a'))
-assert v.safe_parse(schema, '').issues.len == 2
-assert v.safe_parse_with_config(schema, '', v.Config{abort_pipe_early: true}).issues.len == 1
-configured := v.config(schema, v.Config{abort_early: true})
-assert v.safe_parse(configured, '').issues.len == 1
-```
-
-## Checked parsing
-
-`safe_parse_checked` is the fallible form for catching runtime exceptions while retaining structured validation failures. Nonfallible `safe_parse` panics on an exception. Native callback errors are not JavaScript exceptions or ordinary issues.
-
-```v
-import valibro as v
-
-result := v.safe_parse_checked(v.pipe(v.number(), v.integer()), 1.5)!
-assert !result.success
+schema := v.pipe(v.string(), v.min_length(3), v.ends_with('z'))
+result := v.inspect(schema, 'a')!
+assert result.issues.len == 2
 assert result.typed
-assert result.output == none
+assert result.value == 'a'
+assert v.inspect(schema, 'a', abort_early: true)!.issues.len == 1
 ```
 
-See [errors](/guides/errors/), [configuration](/guides/configuration/), and [async execution](/guides/async/).
+## Concurrency
+
+Applications choose V threads and channels. A validation callback can perform synchronous I/O and return a native error through try_transform. Valibro has no futures, promises, async parsing aliases, or callable containers. See [custom validation](/guides/custom/).
+
+Pipelines reuse immutable schema definitions. Actions run in order; consecutive validations can collect issues. A transformation does not run after validation failure. A schema bound with config uses the captured settings.

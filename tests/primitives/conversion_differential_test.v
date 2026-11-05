@@ -19,7 +19,7 @@ fn conversion_value[T](value ?T) T {
 }
 
 fn conversion_outcome[T](schema types.Schema[string, T], input string, settings v.Config) ConversionOutcome {
-	result := v.safe_parse_with_config[string, T](schema, input, settings)
+	result := support.observe[string, T](schema, input, settings)
 	if !result.success { return ConversionOutcome{
 			issues: result.issues
 		} }

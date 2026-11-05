@@ -1,0 +1,23 @@
+import valibro as v
+import valibro.types
+import math
+
+assert v.is_valid(v.pipe(v.string(), v.empty()), '')!
+assert v.is_valid(v.pipe(v.string(), v.includes('abc')), 'abcdef')!
+assert v.is_valid(v.pipe(v.string(), v.regex_with_flags('abc', 'i')), 'ABC')!
+assert v.is_valid(v.pipe(v.string(), v.hash([types.HashType.md5])), '0123456789abcdef0123456789abcdef')!
+assert v.is_valid(v.pipe(v.number(), v.binary64_integer()), 42.0)!
+assert !v.is_valid(v.pipe(v.number_of[i64](), v.binary64_integer_of[i64]()), i64(9007199254740993))!
+assert v.is_valid(v.pipe(v.number_of[int](), v.integer_of[int](), v.finite_of[int]()), 42)!
+assert v.is_valid(v.pipe(v.number_of[int](), v.value(42), v.not_value(0), v.not_values([0,1])), 42)!
+assert v.is_valid(v.pipe(v.array(v.string()), v.non_empty_of[[]string](), v.includes_item('a'), v.excludes_item('b')), ['a'])!
+assert v.is_valid(v.pipe(v.array(v.string()), v.empty_of[[]string]()), []string{})!
+assert v.is_valid(v.pipe(v.string(), v.guard(fn (value string) bool { return value != '' })), 'ok')!
+assert v.parse(v.pipe_to(v.string(), v.to_bigint()), '9007199254740993')!.str() == '9007199254740993'
+assert v.parse(v.pipe(v.string(), v.to_camel_case()), 'hello-world')! == 'helloWorld'
+assert v.parse(v.pipe(v.string(), v.to_pascal_case()), 'hello-world')! == 'HelloWorld'
+assert v.parse(v.pipe(v.string(), v.to_snake_case()), 'helloWorld')! == 'hello_world'
+assert v.is_valid(v.nan(), math.nan())!
+assert !v.is_valid(v.never[int](), 42)!
+chosen := v.lazy_with(fn (input string) types.Schema[string,string] { return v.literal(input) })
+assert v.parse(chosen, 'ok')! == 'ok'

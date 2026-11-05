@@ -1,5 +1,6 @@
 module valibro_test
 
+import valibro.tests.support
 import valibro.internal.date as impl_date
 import os
 import math.big
@@ -49,14 +50,14 @@ fn test_native_date_and_bigint_value_issues_match_upstream() {
 			input := impl_date.date_from_milliseconds(row['input']!.i64())
 			requirement := impl_date.date_from_milliseconds(row['requirement']!.i64())
 			zero := impl_date.date_from_milliseconds(0)
-			result := v.safe_parse_with_config(v.pipe(v.date(), native_value_check[time.Time](action,
+			result := support.observe(v.pipe(v.date(), native_value_check[time.Time](action,
 				requirement, zero, messages)), input, config)
 			issues = result.issues.clone()
 			success = result.success
 		} else {
 			input := big.integer_from_string(row['input']!.str()) or { panic(err) }
 			requirement := big.integer_from_string(row['requirement']!.str()) or { panic(err) }
-			result := v.safe_parse_with_config(v.pipe(v.bigint(), native_value_check[big.Integer](action,
+			result := support.observe(v.pipe(v.bigint(), native_value_check[big.Integer](action,
 				requirement, big.integer_from_int(0), messages)), input, config)
 			issues = result.issues.clone()
 			success = result.success

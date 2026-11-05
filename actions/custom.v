@@ -131,3 +131,21 @@ pub fn guard[T](predicate fn (T) bool, messages ...types.ErrorMessage) types.Act
 		}
 	}
 }
+
+// Compose a native fallible function; its errors propagate through parse and inspect.
+pub fn try_transform[I, O](operation fn (I) !O) types.Transformation[I, O] {
+	return types.Transformation[I, O]{
+		type_name: 'try_transform'
+		run:       fn [operation] [I, O](input I) types.Dataset[O] {
+			value := operation(input) or {
+				return types.Dataset[O]{
+					typed:     false
+					exception: err
+				}
+			}
+			return types.Dataset[O]{
+				value: value
+			}
+		}
+	}
+}
