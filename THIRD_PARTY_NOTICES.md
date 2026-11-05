@@ -30,3 +30,12 @@ The emoji sequence grammar follows the `emoji-regex-xs` v1.0.0 grammar included
 in the pinned Valibot source. Copyright (c) 2025 Steven Levithan, MIT license;
 see `unicode/EMOJI_REGEX_LICENSE`. The runtime implementation is pure V and uses
 Unicode property tables rather than JavaScript regular expressions.
+
+## IBM Plex documentation fonts
+
+The documentation site bundles unmodified IBM Plex Sans and
+IBM Plex Mono WOFF2 files from https://github.com/IBM/plex. Copyright © 2017 IBM
+Corp. with Reserved Font Name "Plex". Licensed under the SIL Open Font License
+1.1; the full notice and license are in `site/assets/fonts/LICENSE.txt`.
+`site/assets/fonts/SOURCES.json` records the upstream revision and file hashes.
+Fonts are local static assets; no font service or external runtime is required.
