@@ -1,7 +1,7 @@
 # Installation
 
 The VPM package is `alexvyber.valibro`; the repository is
-[alexvyber/valibro](https://github.com/alexvyber/valibro). Version 0.2.0 is prepared
+[alexvyber/valibro](https://github.com/alexvyber/valibro). Version 0.0.0-dev.1 is prepared
 locally; registry installation applies after registration.
 
 Use V **0.5.2**, as recorded in `.v-version`, with its standard C toolchain.

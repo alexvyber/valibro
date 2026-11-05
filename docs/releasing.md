@@ -1,6 +1,6 @@
 # Publishing Valibro on VPM
 
-Release candidate: **0.2.0**. Registry name: **alexvyber.valibro**.
+Development prerelease: **0.0.0-dev.1**. Registry name: **alexvyber.valibro**.
 Repository: **https://github.com/alexvyber/valibro**.
 
 VPM publishes Git repositories, not a separately uploaded package archive. The
@@ -16,18 +16,20 @@ Use the V compiler in `.v-version` and install the system prerequisites from
 [installation](install.md). From the checkout:
 
 ```sh
-v test .
-v fmt -verify .
-v run scripts/check_architecture.vsh
-v run examples/username
-v run examples/strings
-v run examples/primitives
-v run examples/composition
-v run scripts/check_package.vsh
+V_C_ERROR_BUG_REPORT_DISABLED=1 VJOBS=1 v -no-parallel test .
+V_C_ERROR_BUG_REPORT_DISABLED=1 v fmt -verify .
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run scripts/check_architecture.vsh
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run examples/username
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run examples/strings
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run examples/primitives
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run examples/composition
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run scripts/check_package.vsh
 git diff --check
 ```
 
-The package CI workflow checks clean consumer installation on Linux/macOS and
+The package CI workflow downloads the official compiler release named by
+`.v-version`, avoiding a rebuild against a changing bootstrap compiler. It checks
+clean consumer installation on Linux/macOS and
 runs a core regression subset with V 0.5.2. It does not replace the full release
 suite above. Word segmentation uses bundled Unicode 17 default boundaries;
 reference comparisons exclude dictionary tailoring and other documented native
@@ -64,12 +66,12 @@ clone before pushing. The package should build directly from sources without a b
 ```sh
 git clone --no-local /absolute/path/to/valibro /tmp/valibro-release-check
 cd /tmp/valibro-release-check
-v run scripts/check_package.vsh
-v test .
+V_C_ERROR_BUG_REPORT_DISABLED=1 v run scripts/check_package.vsh
+V_C_ERROR_BUG_REPORT_DISABLED=1 VJOBS=1 v -no-parallel test .
 ```
 
 Push the reviewed commit to `main`. After all release checks and CI pass, create
-and push an annotated `v0.2.0` tag. Check that an existing tag is not being replaced.
+and push an annotated `v0.0.0-dev.1` tag. Check that an existing tag is not being replaced.
 The tag records the source release; VPM registration itself is repository-based.
 No workflow in this repository automatically pushes commits, tags, or releases.
 

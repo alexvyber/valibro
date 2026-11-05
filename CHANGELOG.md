@@ -1,30 +1,36 @@
 # Changelog
 
-## [0.2.0] - Unreleased
+## [0.0.0-dev.1] - 2026-11-05
 
-Prepared for publication as `alexvyber.valibro` on VPM.
+Development prerelease of `alexvyber.valibro` for native V. The API is experimental
+and may change between development releases.
 
-- Typed primitive schemas, validation actions, type-changing pipelines, native
-  collections, nested structs, presence states, defaults, and fallbacks.
+- Typed native schemas, validation actions, type-changing pipelines, collections,
+  nested structs, validation fallbacks, and scoped configuration/messages.
+- Native error handling through `parse(...) !T`, `inspect(...) !Dataset[T]`, and
+  `is_valid(...) !bool`; fallible callbacks through `try_transform`.
 - Runtime JSON object/tuple policies, alternatives, intersections, variants,
-  recursive schemas, shape operations, and native adapters.
-- Numeric checks and conversions with native precision and arbitrary BigInts.
-- Unicode 17 normalization, casing, grapheme handling, native default word counts, and
-  Valibot-compatible format validators.
-- Native V URL and strict ISO Date parsing; native V regex validation;
-  native Unicode word segmentation. No external system-library dependency.
-- Configurable JSON revivers/replacers, native providers, presence handling,
-  binary64 mode, and explicit UTF-16 interfaces.
-- Structured errors and partial raw outputs, scoped messages/configuration,
-  metadata, function contracts, Futures, worker parsing, and bounded LRU caching.
-- Mapping of all 272 Valibot 1.5.0 public runtime function exports, with documented
-  native representation choices. The mapping is not a proof of exhaustive parity.
-- Checked-in offline differential fixtures and engine/Unicode conformance tests.
-- Grouped public facades/actions, focused internal implementation modules,
-  feature-organized tests/fixtures, and shared oracle tooling; public signatures
-  and module imports are retained.
-- VPM metadata, installation/release guides, and an isolated consumer package
-  check exercised by Linux/macOS package CI.
+  recursive schemas, shape operations, native adapters, and explicit missing/null
+  field policies.
+- Exact numeric rounding, precision-preserving native integer encoding,
+  arbitrary-precision BigInt conversions, and JSON object boundary regressions.
+- Bundled Unicode 17 normalization, casing, grapheme, word, and emoji algorithms;
+  native URL, regex, and strict calendar validation.
+- JSON encoding with V struct tags, native options, conversion providers,
+  formatting controls, and optional binary64 projection.
+- Structured issues, partial raw outputs, generic metadata, and bounded LRU caching.
+- Native V documentation site with 540 public API references, 569 total pages,
+  executable examples, syntax highlighting, search, static export, and Markdown
+  endpoints. No browser JavaScript or external VPM dependencies.
+- Checked-in offline differential fixtures and native/Unicode conformance tests.
+- Source-only VPM packaging, an isolated consumer check, and Linux/macOS CI.
+
+The former JavaScript-shaped compatibility layer is removed: custom safe-parse
+results, promise/Future and callable containers, undefined/void/symbol schemas,
+custom native presence states, readonly/brands/flavors, redundant collection
+helpers, JSON revivers/replacers, and deferred hooks. Use native V errors,
+options, domain types, callbacks, collection operations, and application-owned
+threads. See the [migration guide](docs/native_api_migration.md).
 
 JavaScript regex compatibility has been removed. `regex` and `regex_with_flags`
 use V's `regex.pcre`; the latter accepts native `i`, `m`, and `s` modifiers only.

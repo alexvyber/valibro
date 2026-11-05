@@ -16,16 +16,30 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-24.04, macos-15]
+        include:
+          - os: ubuntu-24.04
+            v_asset: v_linux.zip
+          - os: macos-15
+            v_asset: v_macos_arm64.zip
     runs-on: ${{ matrix.os }}
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
           persist-credentials: false
-      - uses: vlang/setup-v@f39f0937037ba37f04636f065002867f28c51cc8
-        with:
-          version-file: .v-version
+      - name: Install pinned V release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          V_RELEASE_ASSET: ${{ matrix.v_asset }}
+        run: |
+          compiler_version="$(tr -d '[:space:]' < .v-version)"
+          compiler_dir="$RUNNER_TEMP/valibro-v"
+          mkdir -p "$compiler_dir"
+          gh release download "$compiler_version" --repo vlang/v --pattern "$V_RELEASE_ASSET" --dir "$compiler_dir"
+          unzip -q "$compiler_dir/$V_RELEASE_ASSET" -d "$compiler_dir"
+          chmod +x "$compiler_dir/v/v"
+          "$compiler_dir/v/v" version
+          echo "$compiler_dir/v" >> "$GITHUB_PATH"
       - name: Check module boundaries
         run: v run scripts/check_architecture.vsh
       - name: Verify formatting
@@ -45,6 +59,6 @@ jobs:
           tests/execution/oracle_metadata_test.v
       - name: Check local documentation
         run: |
-          v test site
-          v run site check
-          v run site build
+          VJOBS=1 v -no-parallel test site
+          v -no-parallel run site check
+          v -no-parallel run site build
