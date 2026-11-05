@@ -1,6 +1,6 @@
 # Publishing Valibro on VPM
 
-Development prerelease: **0.0.0-dev.1**. Registry name: **alexvyber.valibro**.
+Published development prerelease: **0.0.0-dev.1**. Registry name: **alexvyber.valibro**.
 Repository: **https://github.com/alexvyber/valibro**.
 
 VPM publishes Git repositories, not a separately uploaded package archive. The
@@ -82,9 +82,11 @@ account. Submit the public repository URL and package name `valibro`, producing
 `alexvyber.valibro` under that account. No registry credentials belong in this
 repository or CI.
 
-After registration, follow the VPM install/bootstrap instructions in
+After registration, follow the VPM install instructions in
 [installation](install.md) in a separate consumer project. Verify the registry
-entry and the publisher-qualified imports. Once registry installation has been
-verified, remove the pre-publication notice in the installation guide and set the
-release date in the changelog. Subsequent source updates still require committing,
-pushing, reviewing compatibility changes, and rerunning the package checks.
+entry and the publisher-qualified imports.
+
+Version `0.0.0-dev.1` has been registered and its pinned installation and isolated
+consumer have been verified. Date each release in the changelog. Subsequent source
+updates still require committing, pushing, reviewing compatibility changes, and
+rerunning the package checks.

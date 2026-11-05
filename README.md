@@ -29,7 +29,7 @@ Exact decimal/radix conversion rounds once to binary64 using ties-to-even. Nativ
 
 ## Installation
 
-The prepared VPM package name is `alexvyber.valibro`. Use `import alexvyber.valibro as v` in consumers, or `import valibro as v` inside a checkout. See [installation](docs/install.md) and [release preparation](docs/releasing.md).
+The VPM package name is `alexvyber.valibro`. Use `import alexvyber.valibro as v` in consumers, or `import valibro as v` inside a checkout. See [installation](docs/install.md) and [release preparation](docs/releasing.md).
 
 ## Documentation
 

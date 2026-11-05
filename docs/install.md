@@ -1,8 +1,8 @@
 # Installation
 
 The VPM package is `alexvyber.valibro`; the repository is
-[alexvyber/valibro](https://github.com/alexvyber/valibro). Version 0.0.0-dev.1 is prepared
-locally; registry installation applies after registration.
+[alexvyber/valibro](https://github.com/alexvyber/valibro). Development prerelease
+`0.0.0-dev.1` is published on [VPM](https://vpm.vlang.io/packages/alexvyber.valibro).
 
 Use V **0.5.2**, as recorded in `.v-version`, with its standard C toolchain.
 The package requires no additional system libraries or package dependencies.
@@ -10,13 +10,13 @@ No handwritten C/C++ sources or direct C calls are shipped. Unicode 17 tables ar
 V implementations. No ICU installation, C++ compiler, parser download or bootstrap
 command is needed.
 
-macOS is locally verified; package CI is configured for macOS and Ubuntu using
-the standard V setup. Windows installation is not verified.
+The package checks pass on macOS and Ubuntu CI with the official V 0.5.2
+compiler releases. Windows installation is not verified.
 
 ## Install and use
 
 ```sh
-v install alexvyber.valibro
+v install alexvyber.valibro@v0.0.0-dev.1
 ```
 
 Consumer imports use the publisher prefix:
@@ -31,11 +31,11 @@ fn main() {
 ```
 
 Submodules use `alexvyber.valibro.json`, `alexvyber.valibro.types`, etc. Declare
-`dependencies: ['alexvyber.valibro']` in the application's `v.mod`. Repository
-guides/examples use the checkout shorthand `import valibro as v`; replace its
+`dependencies: ['alexvyber.valibro@v0.0.0-dev.1']` in the application's `v.mod`.
+Repository guides/examples use the checkout shorthand `import valibro as v`; replace its
 prefix in installed consumer code.
 
-Before registry publication, clone the source repository:
+To work from the source checkout instead:
 
 ```sh
 git clone https://github.com/alexvyber/valibro.git
