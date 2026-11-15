@@ -5,39 +5,48 @@ import valibro.types
 import valibro.unicode
 
 pub fn trim() types.Action[string] {
-	return types.Action[string]{
-		kind:      .transformation
-		type_name: 'trim'
-		run:       fn (input string) types.Dataset[string] {
-			return types.Dataset[string]{
-				value: textops.trim(input, true, true)
-			}
+	return types.contextual_action[string]('trim', .transformation, fn (dataset types.Dataset[string], config types.Config) types.Dataset[string] {
+		if !dataset.typed { return dataset }
+		value := if config.javascript_text {
+			textops.js_trim(dataset.value, true, true)
+		} else {
+			textops.trim(dataset.value, true, true)
 		}
-	}
+		return types.Dataset[string]{
+			...dataset
+			value: value
+		}
+	})
 }
 
 pub fn trim_start() types.Action[string] {
-	return types.Action[string]{
-		kind:      .transformation
-		type_name: 'trim_start'
-		run:       fn (input string) types.Dataset[string] {
-			return types.Dataset[string]{
-				value: textops.trim(input, true, false)
-			}
+	return types.contextual_action[string]('trim_start', .transformation, fn (dataset types.Dataset[string], config types.Config) types.Dataset[string] {
+		if !dataset.typed { return dataset }
+		value := if config.javascript_text {
+			textops.js_trim(dataset.value, true, false)
+		} else {
+			textops.trim(dataset.value, true, false)
 		}
-	}
+		return types.Dataset[string]{
+			...dataset
+			value: value
+		}
+	})
 }
 
 pub fn trim_end() types.Action[string] {
-	return types.Action[string]{
-		kind:      .transformation
-		type_name: 'trim_end'
-		run:       fn (input string) types.Dataset[string] {
-			return types.Dataset[string]{
-				value: textops.trim(input, false, true)
-			}
+	return types.contextual_action[string]('trim_end', .transformation, fn (dataset types.Dataset[string], config types.Config) types.Dataset[string] {
+		if !dataset.typed { return dataset }
+		value := if config.javascript_text {
+			textops.js_trim(dataset.value, false, true)
+		} else {
+			textops.trim(dataset.value, false, true)
 		}
-	}
+		return types.Dataset[string]{
+			...dataset
+			value: value
+		}
+	})
 }
 
 pub fn to_lower_case() types.Action[string] {

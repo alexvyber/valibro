@@ -14,6 +14,8 @@ pub type ShapeRebuilder = fn (entries map[string]Schema) Schema
 pub struct Schema {
 pub:
 	type_name        string
+	rules            []types.Rule
+	literal_values   []json2.Any
 	shape_rebuilder  ?ShapeRebuilder
 	expects          string
 	message          ?types.ErrorMessage
@@ -34,6 +36,7 @@ pub:
 
 pub fn native(schema Schema) types.Schema[json2.Any, json2.Any] {
 	return types.Schema[json2.Any, json2.Any]{
+		rules:           schema.rules.clone()
 		type_name:       schema.type_name
 		expects:         schema.expects
 		message:         schema.message
@@ -53,6 +56,7 @@ pub fn pipe(schema Schema, actions ...types.Action[json2.Any]) Schema {
 		...schema
 		shape_rebuilder: none
 		annotations:     combined.annotations
+		rules:           combined.rules.clone()
 		native_examples: combined.native_examples
 		run:             combined.run
 	}
@@ -88,6 +92,7 @@ pub fn from_schema[I, O](schema types.Schema[I, O]) Schema {
 			present: schema.native_examples.present
 			values:  examples
 		}
+		rules:           schema.rules.clone()
 		type_name:       schema.type_name
 		expects:         schema.expects
 		message:         schema.message
@@ -99,7 +104,10 @@ pub fn from_schema[I, O](schema types.Schema[I, O]) Schema {
 					types.DefaultMessage{}
 				})
 			}
-			result := types.run[I, O](schema, decoded, config)
+			result := types.run[I, O](schema, decoded, types.Config{
+				...config
+				javascript_text: true
+			})
 			if exception := result.exception { return types.Dataset[json2.Any]{
 					typed:     false
 					exception: exception
@@ -193,9 +201,10 @@ pub fn null_value() Schema {
 
 pub fn literal(value json2.Any) Schema {
 	return Schema{
-		type_name: 'literal'
-		expects:   diagnostics.issue_value(value)
-		run:       fn [value] (input json2.Any, config types.Config) types.Dataset[json2.Any] {
+		type_name:      'literal'
+		literal_values: [value]
+		expects:        diagnostics.issue_value(value)
+		run:            fn [value] (input json2.Any, config types.Config) types.Dataset[json2.Any] {
 			if equal(input, value) { return types.Dataset[json2.Any]{
 					value: input
 				} }
@@ -207,9 +216,10 @@ pub fn literal(value json2.Any) Schema {
 pub fn picklist(values []json2.Any) Schema {
 	items := values.clone()
 	return Schema{
-		type_name: 'picklist'
-		expects:   diagnostics.joined_values(items)
-		run:       fn [items] (input json2.Any, config types.Config) types.Dataset[json2.Any] {
+		type_name:      'picklist'
+		literal_values: items.clone()
+		expects:        diagnostics.joined_values(items)
+		run:            fn [items] (input json2.Any, config types.Config) types.Dataset[json2.Any] {
 			for item in items {
 				if equal(input, item) { return types.Dataset[json2.Any]{
 						value: input

@@ -4,11 +4,17 @@ import valibro.types
 
 // pipe_to composes a type-changing transformation without erasing its output type.
 pub fn pipe_to[I, O, N](schema types.Schema[I, O], action types.Transformation[O, N]) types.Schema[I, N] {
+	mut rules := schema.rules.clone()
+	rules << types.Rule{
+		kind:      .transformation
+		type_name: action.type_name
+	}
 	return types.Schema[I, N]{
 		type_name:   schema.type_name
 		expects:     schema.expects
 		message:     schema.message
 		annotations: schema.annotations
+		rules:       rules
 		run:         fn [schema, action] [I, O, N](input I, config types.Config) types.Dataset[N] {
 			dataset := types.run[I, O](schema, input, config)
 			if exception := dataset.exception { return types.Dataset[N]{

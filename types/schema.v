@@ -11,9 +11,17 @@ pub:
 }
 
 // Schema is immutable and can be reused across parsing calls.
+pub struct Rule {
+pub:
+	kind             ActionKind
+	type_name        string
+	requirement_text string
+}
+
 pub struct Schema[I, O] {
 pub:
 	type_name       string
+	rules           []Rule
 	expects         string
 	message         ?ErrorMessage
 	kind            string = 'schema'

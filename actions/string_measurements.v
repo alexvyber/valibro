@@ -1,6 +1,7 @@
 module actions
 
 import valibro.types
+import valibro.internal.text as textops
 
 pub fn bytes(requirement int, messages ...types.ErrorMessage) types.Action[string] {
 	return count_check[string]('bytes', requirement, '=', fn (input string) int {
@@ -91,22 +92,34 @@ fn count_check[T](code string, requirement int, relation string, counter fn (T) 
 	} else {
 		base
 	}
-	return types.Action[T]{
-		kind:      .validation
-		type_name: code
-		run:       fn [code, requirement, relation, counter, text, expected, label] [T](input T) types.Dataset[T] {
-			count := counter(input)
-			valid := match relation {
-				'=' { count == requirement }
-				'!=' { count != requirement }
-				'>=' { count >= requirement }
-				else { count <= requirement }
+	base_action := types.contextual_action[T](code, .validation, fn [code, requirement, relation, counter, text, expected, label] [T](dataset types.Dataset[T], config types.Config) types.Dataset[T] {
+		if !dataset.typed { return dataset }
+		input := dataset.value
+		mut count := counter(input)
+		$if T is string {
+			if config.javascript_text
+				&& code in ['length', 'min_length', 'max_length', 'not_length'] {
+				count = textops.utf16_length(input)
 			}
-
-			if valid { return types.Dataset[T]{
-					value: input
-				} }
-			return validation_failure[T](input, code, label, expected, count.str(), text)
 		}
+		valid := match relation {
+			'=' { count == requirement }
+			'!=' { count != requirement }
+			'>=' { count >= requirement }
+			else { count <= requirement }
+		}
+
+		if valid { return dataset }
+		failure := validation_failure[T](input, code, label, expected, count.str(), text)
+		mut issues := dataset.issues.clone()
+		issues << failure.issues
+		return types.Dataset[T]{
+			...dataset
+			issues: issues
+		}
+	})
+	return types.Action[T]{
+		...base_action
+		requirement_text: requirement.str()
 	}
 }

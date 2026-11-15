@@ -79,9 +79,10 @@ fn value_predicate[T](code string, expected string, predicate fn (T) bool, messa
 		code.replace('_', ' ')
 	}
 	return types.Action[T]{
-		kind:      .validation
-		type_name: code
-		run:       fn [code, expects, predicate, text, label] [T](input T) types.Dataset[T] {
+		kind:             .validation
+		type_name:        code
+		requirement_text: expected
+		run:              fn [code, expects, predicate, text, label] [T](input T) types.Dataset[T] {
 			if predicate(input) { return types.Dataset[T]{
 					value: input
 				} }
