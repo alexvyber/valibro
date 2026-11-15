@@ -27,7 +27,8 @@ fn test_number_string_conversion_rounding_overflow_and_subnormal_boundaries() {
 			continue
 		}
 		if !row.success || math.f64_bits(value).str() != row.bits
-			|| support.reference_number_string(value) != row.text {
+			|| support.reference_number_string(value) != row.text
+			|| impl_number.javascript_number_string(value) != row.text {
 			if failures < 8 {
 				eprintln('Number mismatch ${row.input}: got ${value} (${math.f64_bits(value)}), expected bits ${row.bits}')
 			}

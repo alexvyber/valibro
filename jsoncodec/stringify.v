@@ -130,7 +130,7 @@ fn scalar_token(value json2.Any, binary64_numbers bool) string {
 		number := value.f64()
 		if number == 0 { return '0' }
 		if math.is_nan(number) || math.is_inf(number, 0) { return 'null' }
-		return numbers.native_number_string(number)
+		return numbers.javascript_number_string(number)
 	}
 	match value {
 		json2.Null {
