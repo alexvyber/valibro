@@ -1,6 +1,5 @@
 module json
 
-import valibro.actions
 import valibro.types
 import x.json2
 
@@ -20,16 +19,21 @@ fn collection_measurement(requirement int, minimum bool) types.Action[json2.Any]
 		requirement_text: requirement.str()
 		run:              fn [requirement, minimum] (input json2.Any) types.Dataset[json2.Any] {
 			if input is []json2.Any {
-				action := if minimum {
-					actions.min_length_of[[]json2.Any](requirement)
-				} else {
-					actions.max_length_of[[]json2.Any](requirement)
+				if (minimum && input.len >= requirement) || (!minimum && input.len <= requirement) {
+					return types.Dataset[json2.Any]{
+						value: input
+					}
 				}
-				result := action.run(input)
+				kind := if minimum { 'min_length' } else { 'max_length' }
+				expected := (if minimum { '>=' } else { '<=' }) + requirement.str()
+				received := input.len.str()
 				return types.Dataset[json2.Any]{
 					value:  input
-					typed:  result.typed
-					issues: result.issues
+					issues: [
+						types.new_issue(kind, types.DefaultMessage{
+							text: 'Invalid length: Expected ${expected} but received ${received}'
+						}, expected, received),
+					]
 				}
 			}
 			return type_issue('array', input, 'array')
