@@ -20,8 +20,10 @@ pub:
 
 pub struct Schema[I, O] {
 pub:
-	type_name       string
-	rules           []Rule
+	type_name string
+	rules     []Rule
+	// Direct actions of the outer pipeline, separate from inherited validation rules.
+	pipeline_rules  ?[]Rule
 	expects         string
 	message         ?ErrorMessage
 	kind            string = 'schema'

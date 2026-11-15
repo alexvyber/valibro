@@ -12,17 +12,20 @@ pub fn pipe[I, O](schema types.Schema[I, O], actions ...types.Action[O]) types.S
 pub fn pipe_from_actions[I, O](schema types.Schema[I, O], actions []types.Action[O]) types.Schema[I, O] {
 	items := actions.clone()
 	mut rules := schema.rules.clone()
+	mut pipeline_rules := []types.Rule{}
 	mut annotations := schema.annotations
 	mut native_examples := types.Examples[O]{
 		present: schema.native_examples.present
 		values:  schema.native_examples.values.clone()
 	}
 	for action in items {
-		rules << types.Rule{
+		rule := types.Rule{
 			kind:             action.kind
 			type_name:        action.type_name
 			requirement_text: action.requirement_text
 		}
+		rules << rule
+		pipeline_rules << rule
 		annotations = merge_annotations(annotations, action.annotations)
 		if action.native_examples.present { native_examples = types.Examples[O]{
 				present: true
@@ -34,6 +37,7 @@ pub fn pipe_from_actions[I, O](schema types.Schema[I, O], actions []types.Action
 		type_name:       schema.type_name
 		annotations:     annotations
 		rules:           rules
+		pipeline_rules:  pipeline_rules
 		native_examples: native_examples
 		run:             fn [schema, items] [I, O](input I, config types.Config) types.Dataset[O] {
 			mut dataset := types.run[I, O](schema, input, config)

@@ -10,12 +10,13 @@ pub fn pipe_to[I, O, N](schema types.Schema[I, O], action types.Transformation[O
 		type_name: action.type_name
 	}
 	return types.Schema[I, N]{
-		type_name:   schema.type_name
-		expects:     schema.expects
-		message:     schema.message
-		annotations: schema.annotations
-		rules:       rules
-		run:         fn [schema, action] [I, O, N](input I, config types.Config) types.Dataset[N] {
+		type_name:      schema.type_name
+		expects:        schema.expects
+		message:        schema.message
+		annotations:    schema.annotations
+		rules:          rules
+		pipeline_rules: [types.Rule{ kind: .transformation, type_name: action.type_name }]
+		run:            fn [schema, action] [I, O, N](input I, config types.Config) types.Dataset[N] {
 			dataset := types.run[I, O](schema, input, config)
 			if exception := dataset.exception { return types.Dataset[N]{
 					typed:     false

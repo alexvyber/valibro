@@ -15,6 +15,7 @@ pub struct Schema {
 pub:
 	type_name        string
 	rules            []types.Rule
+	pipeline_rules   ?[]types.Rule
 	literal_values   []json2.Any
 	shape_rebuilder  ?ShapeRebuilder
 	expects          string
@@ -37,6 +38,7 @@ pub:
 pub fn native(schema Schema) types.Schema[json2.Any, json2.Any] {
 	return types.Schema[json2.Any, json2.Any]{
 		rules:           schema.rules.clone()
+		pipeline_rules:  schema.pipeline_rules
 		type_name:       schema.type_name
 		expects:         schema.expects
 		message:         schema.message
@@ -57,6 +59,7 @@ pub fn pipe(schema Schema, actions ...types.Action[json2.Any]) Schema {
 		shape_rebuilder: none
 		annotations:     combined.annotations
 		rules:           combined.rules.clone()
+		pipeline_rules:  combined.pipeline_rules
 		native_examples: combined.native_examples
 		run:             combined.run
 	}
@@ -93,6 +96,7 @@ pub fn from_schema[I, O](schema types.Schema[I, O]) Schema {
 			values:  examples
 		}
 		rules:           schema.rules.clone()
+		pipeline_rules:  schema.pipeline_rules
 		type_name:       schema.type_name
 		expects:         schema.expects
 		message:         schema.message
