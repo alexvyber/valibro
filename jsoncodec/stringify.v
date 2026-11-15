@@ -128,6 +128,7 @@ fn indent_text(space Indent) string {
 fn scalar_token(value json2.Any, binary64_numbers bool) string {
 	if binary64_numbers && types.is_json_number(value) {
 		number := value.f64()
+		if number == 0 { return '0' }
 		if math.is_nan(number) || math.is_inf(number, 0) { return 'null' }
 		return numbers.native_number_string(number)
 	}
