@@ -25,7 +25,8 @@ fn collection_measurement(requirement int, minimum bool) types.Action[json2.Any]
 					}
 				}
 				kind := if minimum { 'min_length' } else { 'max_length' }
-				expected := (if minimum { '>=' } else { '<=' }) + requirement.str()
+				prefix := if minimum { '>=' } else { '<=' }
+				expected := prefix + requirement.str()
 				received := input.len.str()
 				return types.Dataset[json2.Any]{
 					value:  input
