@@ -2,21 +2,42 @@ module actions
 
 import valibro.internal.diagnostics
 import valibro.types
+import x.json2
 
 // check extends validation without modifying the pipeline executor.
 pub fn check[T](predicate fn (T) bool, messages ...types.ErrorMessage) types.Action[T] {
 	message := custom_message(messages, '')
-	return types.Action[T]{
+	$if T is json2.Any {
+		return check_json_value(predicate, message)
+	} $else {
+		return types.Action[T]{
+			kind:      .validation
+			type_name: 'check'
+			run:       fn [predicate, message] [T](input T) types.Dataset[T] {
+				if predicate(input) {
+					return types.Dataset[T]{
+						value: input
+					}
+				}
+				return validation_failure[T](input, 'check', 'input', '',
+					diagnostics.issue_value[T](input), message)
+			}
+		}
+	}
+}
+
+// Keep the JSON sum-type call outside the generic closure: V 0.5.2 otherwise
+// inserts its implicit Any conversion into other specializations of check.
+fn check_json_value(predicate fn (json2.Any) bool, message types.ErrorMessage) types.Action[json2.Any] {
+	return types.Action[json2.Any]{
 		kind:      .validation
 		type_name: 'check'
-		run:       fn [predicate, message] [T](input T) types.Dataset[T] {
-			if predicate(input) {
-				return types.Dataset[T]{
+		run:       fn [predicate, message] (input json2.Any) types.Dataset[json2.Any] {
+			if predicate(input) { return types.Dataset[json2.Any]{
 					value: input
-				}
-			}
-			return validation_failure[T](input, 'check', 'input', '',
-				diagnostics.issue_value[T](input), message)
+				} }
+			return validation_failure[json2.Any](input, 'check', 'input', '',
+				diagnostics.issue_value(input), message)
 		}
 	}
 }
