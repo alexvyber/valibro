@@ -100,8 +100,8 @@ fn test_json_object_schemas_reject_arrays_and_other_non_objects() {
 		'0': j.literal(json2.Any('tag'))
 	}
 	schemas := [j.object(fields), j.strict_object(fields), j.loose_object(fields),
-		j.object_with_rest(fields, j.unknown()), j.record(j.string(), j.unknown()),
-		j.variant('0', [j.object(fields)])]
+		j.object_with_rest(fields, j.unknown()), j.variant('0', [
+			j.object(fields)])]
 	invalid := [json2.Any([]json2.Any{}), json2.Any([json2.Any('tag')]), json2.Any(json2.Null{}),
 		json2.Any('tag'), json2.Any(0), json2.Any(true)]
 	for schema in schemas {

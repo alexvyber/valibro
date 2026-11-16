@@ -5,7 +5,7 @@ import math
 import math.big
 
 pub fn number_from_string(input string) !f64 {
-	s := textops.js_trim(input, true, true)
+	s := textops.trim(input, true, true)
 	if s == '' { return error('Expected a number') }
 	if s in ['Infinity', '+Infinity', '-Infinity'] {
 		return math.inf(if s.starts_with('-') { -1 } else { 1 })
@@ -39,7 +39,7 @@ pub fn number_from_string(input string) !f64 {
 }
 
 pub fn bigint_from_string(input string) !big.Integer {
-	s := textops.js_trim(input, true, true)
+	s := textops.trim(input, true, true)
 	if s == '' { return error('Expected an integer') }
 	if s.len > 2 && s[..2].to_lower() in ['0x', '0o', '0b'] {
 		radix := if s[1] in [`x`, `X`] {
