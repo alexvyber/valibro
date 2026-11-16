@@ -10,13 +10,14 @@ fn test_native_regex_search_groups_and_unicode() {
 	assert found.start == 2 && found.end == 7
 	assert found.groups == ['hello']
 	assert support.accepts(v.pipe(v.string(), v.regex(r'^[а-яё]+$')), 'ёж')
-	assert support.accepts(v.pipe(v.string(), v.regex('^.$')), '🙂')
-	assert !support.accepts(v.pipe(v.string(), v.regex('^..$')), '🙂')
+	assert !support.accepts(v.pipe(v.string(), v.regex('^.$')), '🙂')
+	assert support.accepts(v.pipe(v.string(), v.regex_with_flags('^.$','u')), '🙂')
+	assert support.accepts(v.pipe(v.string(), v.regex('^..$')), '🙂')
 }
 
 fn test_native_regex_flags_and_inline_modifiers() {
 	assert support.accepts(v.pipe(v.string(), v.regex_with_flags('^[a-z]+$', 'i')), 'ABC')
-	assert support.accepts(v.pipe(v.string(), v.regex('(?i)^[a-z]+$')), 'ABC')
+	assert support.accepts(v.pipe(v.string(), v.regex_object(v.compile_regex('(?i)^[a-z]+$', '') or {panic(err)})), 'ABC')
 	assert support.accepts(v.pipe(v.string(), v.regex_with_flags('a.b', 's')), 'a\nb')
 	assert !support.accepts(v.pipe(v.string(), v.regex('a.b')), 'a\nb')
 	assert support.accepts(v.pipe(v.string(), v.regex_with_flags('^b$', 'm')), 'a\nb\nc')

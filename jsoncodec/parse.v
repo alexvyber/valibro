@@ -2,6 +2,7 @@ module jsoncodec
 
 import valibro.internal.number as numbers
 import x.json2
+import strings
 
 struct Scanner {
 	input            string
@@ -104,16 +105,16 @@ fn decode_root(input string, binary64_numbers bool) !json2.Any {
 }
 
 fn validate_binary64_json(input string) ! {
-	mut masked := ''
+	mut masked := strings.new_builder(input.len)
 	mut index := 0
 	mut quoted := false
 	for index < input.len {
 		c := input[index]
 		if quoted {
-			masked += input[index..index + 1]
+			masked.write_u8(c)
 			index++
 			if c == `\\` && index < input.len {
-				masked += input[index..index + 1]
+				masked.write_u8(input[index])
 				index++
 			} else if c == `"` {
 				quoted = false
@@ -122,7 +123,7 @@ fn validate_binary64_json(input string) ! {
 		}
 		if c == `"` {
 			quoted = true
-			masked += '"'
+			masked.write_u8(`"`)
 			index++
 			continue
 		}
@@ -133,13 +134,13 @@ fn validate_binary64_json(input string) ! {
 			}
 			token := input[start..index]
 			if !valid_json_number(token) { return error('Invalid JSON number') }
-			masked += '0'
+			masked.write_u8(`0`)
 			continue
 		}
-		masked += input[index..index + 1]
+		masked.write_u8(c)
 		index++
 	}
-	json2.decode[json2.Any](masked)!
+	json2.decode[json2.Any](masked.str())!
 }
 
 fn valid_json_number(text string) bool {

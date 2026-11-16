@@ -5,5 +5,5 @@ Module {
 	license: 'MIT'
 	repo_url: 'https://github.com/alexvyber/valibro'
 	author: 'alexvyber'
-	dependencies: []
+	dependencies: ['alexvyber.js_runtime']
 }

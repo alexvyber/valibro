@@ -62,3 +62,22 @@ fn test_regex_retains_original_pattern_and_flags_for_wire_export() {
 	assert metadata.as_map()['pattern']! == json2.Any('^clinic\\/[a-z]+$')
 	assert metadata.as_map()['flags']! == json2.Any('i')
 }
+
+fn test_ecmascript_regex_unicode_sets_sticky_global_and_named_groups() ! {
+	for pattern in ['(?<clinic>\\p{Letter}+)', '[[a-z]--[aeiou]]+'] {
+		flags := if pattern.starts_with('[') { 'v' } else { 'u' }
+		schema := j.from_schema(v.pipe(v.string(), v.regex_with_flags(pattern, flags)))
+		assert j.parse(schema, json2.Any('clinic'))! == json2.Any('clinic')
+	}
+	global := j.from_schema(v.pipe(v.string(), v.regex_with_flags('a', 'g')))
+	assert regex_accepts(global, 'a')
+	assert !regex_accepts(global, 'a')
+	assert regex_accepts(global, 'a')
+	sticky := j.from_schema(v.pipe(v.string(), v.regex_with_flags('a', 'y')))
+	assert !regex_accepts(sticky, 'ba')
+}
+
+fn regex_accepts(schema j.Schema, input string) bool {
+	j.parse(schema, json2.Any(input)) or { return false }
+	return true
+}

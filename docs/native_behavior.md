@@ -1,9 +1,11 @@
 # Native behavior and migration
 
 Valibro uses V values, standard-library facilities and bundled Unicode data.
-There is no runtime JavaScript layer, handwritten C/C++, foreign-function call,
-external system-library dependency or bootstrap command. V's standard compiler
-and libraries may themselves use C; the normal V toolchain is still required.
+Regular expressions use the in-process ECMAScript engine from
+`alexvyber.js_runtime`. `regex_with_flags` preserves ECMAScript flags, UTF-16
+matching and stateful `g`/`y` lastIndex behavior. `compile_regex` and `regex_object`
+remain explicit native PCRE extensions. Other validation algorithms use V and
+bundled Unicode data; applications do not require a JavaScript subprocess.
 
 ## Numbers
 

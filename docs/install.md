@@ -5,10 +5,12 @@ The VPM package is `alexvyber.valibro`; the repository is
 `0.0.0-dev.1` is published on [VPM](https://vpm.vlang.io/packages/alexvyber.valibro).
 
 Use V **0.5.2**, as recorded in `.v-version`, with its standard C toolchain.
-The package requires no additional system libraries or package dependencies.
-No handwritten C/C++ sources or direct C calls are shipped. Unicode 17 tables are included; URL, Date, regex and word segmentation use native
-V implementations. No ICU installation, C++ compiler, parser download or bootstrap
-command is needed.
+ECMAScript regular expressions use `alexvyber.js_runtime`, an in-process QuickJS engine.
+Install that V dependency alongside Valibro. Its native engine sources and build
+requirements belong to the js_runtime package. No Node or Bun process is required
+by applications. Unicode 17 tables and URL, Date and word segmentation algorithms
+remain bundled V implementations.
+
 
 The package checks pass on macOS and Ubuntu CI with the official V 0.5.2
 compiler releases. Windows installation is not verified.

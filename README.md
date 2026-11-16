@@ -1,6 +1,6 @@
 # Valibro
 
-Composable validation for native V values and runtime JSON. Valibro uses the standard V toolchain, with no external VPM dependencies. Tested with V 0.5.2.
+Composable validation for native V values and runtime JSON. Valibro uses the standard V toolchain and `alexvyber.js_runtime` for ECMAScript regular expressions. Tested with V 0.5.2.
 
 ## Quick start
 
@@ -25,7 +25,7 @@ assert v.inspect(age, -1)!.issues.len == 1
 
 Native options are handled with ordinary V if/or expressions. Native functions and threads belong to the application. Runtime JSON supports missing-field and explicit-null policies through optional and nullable; there is no undefined value model or JavaScript callback protocol.
 
-Exact decimal/radix conversion rounds once to binary64 using ties-to-even. Native integer equality and serialization preserve supplied digits. Runtime JSON object schemas reject arrays. UTF-8 strings, native regex, strict calendar validation and bundled Unicode 17 algorithms retain their documented contracts.
+Exact decimal/radix conversion rounds once to binary64 using ties-to-even. Native integer equality and serialization preserve supplied digits. Runtime JSON object schemas reject arrays. UTF-8 strings, ECMAScript regex, strict calendar validation and bundled Unicode 17 algorithms retain their documented contracts.
 
 ## Installation
 

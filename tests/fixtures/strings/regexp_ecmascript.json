@@ -1,0 +1,1462 @@
+[
+  {
+    "pattern": "^.$",
+    "flags": "",
+    "expected": "/^.$/",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^.$",
+    "flags": "u",
+    "expected": "/^.$/u",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^..$",
+    "flags": "",
+    "expected": "/^..$/",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "a",
+    "flags": "g",
+    "expected": "/a/g",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "a",
+    "flags": "y",
+    "expected": "/a/y",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "a",
+    "flags": "gy",
+    "expected": "/a/gy",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^\\p{L}+$",
+    "flags": "u",
+    "expected": "/^\\p{L}+$/u",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^[[a-z]--[aeiou]]+$",
+    "flags": "v",
+    "expected": "/^[[a-z]--[aeiou]]+$/v",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "(?<=a)b",
+    "flags": "",
+    "expected": "/(?<=a)b/",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^(?<letter>[a-z])\\k<letter>$",
+    "flags": "i",
+    "expected": "/^(?<letter>[a-z])\\k<letter>$/i",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^a$",
+    "flags": "m",
+    "expected": "/^a$/m",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": ".",
+    "flags": "s",
+    "expected": "/./s",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^\\w+$",
+    "flags": "iu",
+    "expected": "/^\\w+$/iu",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^\\d+$",
+    "flags": "u",
+    "expected": "/^\\d+$/u",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "[/\\n]",
+    "flags": "",
+    "expected": "/[/\\n]/",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "",
+    "flags": "g",
+    "expected": "/(?:)/g",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      }
+    ]
+  },
+  {
+    "pattern": "^.$",
+    "flags": "v",
+    "expected": "/^.$/v",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "[\\uD800-\\uDBFF]",
+    "flags": "",
+    "expected": "/[\\uD800-\\uDBFF]/",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "a.*b",
+    "flags": "s",
+    "expected": "/a.*b/s",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  },
+  {
+    "pattern": "^\\s$",
+    "flags": "u",
+    "expected": "/^\\s$/u",
+    "inputs": [
+      "a",
+      "aa",
+      "ab",
+      "ba",
+      "😀",
+      "é",
+      "Клиника",
+      "bcdf",
+      "aeiou",
+      "ſ",
+      "K",
+      "１２",
+      "\na\n",
+      " ",
+      "/",
+      ""
+    ],
+    "results": [
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": true
+      },
+      {
+        "matched": false
+      },
+      {
+        "matched": false
+      }
+    ]
+  }
+]
