@@ -55,7 +55,7 @@ fn object_mode(entries map[string]Schema, mode string, rest []Schema, messages .
 					} else {
 						issues << types.Issue{
 							...types.schema_type_issue(mode, text, diagnostics.issue_value(key),
-								'undefined', 'key')
+								'missing', 'key')
 							path: [types.PathSegment(key)]
 						}
 						typed = false
