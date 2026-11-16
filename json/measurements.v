@@ -1,6 +1,7 @@
 module json
 
 import valibro.types
+import valibro.internal.text as textops
 import x.json2
 
 // JSON collection measurements retain executable rules and wire metadata.
@@ -18,8 +19,13 @@ fn collection_measurement(requirement int, minimum bool) types.Action[json2.Any]
 		type_name:        if minimum { 'min_length' } else { 'max_length' }
 		requirement_text: requirement.str()
 		run:              fn [requirement, minimum] (input json2.Any) types.Dataset[json2.Any] {
-			if input is []json2.Any {
-				if (minimum && input.len >= requirement) || (!minimum && input.len <= requirement) {
+			if input is []json2.Any || input is string {
+				length := if input is string {
+					textops.utf16_length(input)
+				} else {
+					input.as_array().len
+				}
+				if (minimum && length >= requirement) || (!minimum && length <= requirement) {
 					return types.Dataset[json2.Any]{
 						value: input
 					}
@@ -27,7 +33,7 @@ fn collection_measurement(requirement int, minimum bool) types.Action[json2.Any]
 				kind := if minimum { 'min_length' } else { 'max_length' }
 				prefix := if minimum { '>=' } else { '<=' }
 				expected := prefix + requirement.str()
-				received := input.len.str()
+				received := length.str()
 				return types.Dataset[json2.Any]{
 					value:  input
 					issues: [

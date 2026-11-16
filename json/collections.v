@@ -131,7 +131,7 @@ pub fn record(key_schema Schema, value_schema Schema) Schema {
 		expects:   'Object'
 		items:     [key_schema, value_schema]
 		run:       fn [key_schema, value_schema] (input json2.Any, config types.Config) types.Dataset[json2.Any] {
-			data := object_data(input) or { return type_issue('record', input, 'record') }
+			data := record_data(input) or { return type_issue('record', input, 'record') }
 			mut output := map[string]json2.Any{}
 			mut issues := []types.Issue{}
 			mut typed := true
@@ -247,4 +247,17 @@ fn missing_type_issue(schema Schema) types.Dataset[json2.Any] {
 				schema.expects, 'missing', 'type'),
 		]
 	}
+}
+
+// Valibot records iterate enumerable object keys, including array indices.
+fn record_data(input json2.Any) ?map[string]json2.Any {
+	if input is map[string]json2.Any { return input }
+	if input is []json2.Any {
+		mut result := map[string]json2.Any{}
+		for index, value in input {
+			result[index.str()] = value
+		}
+		return result
+	}
+	return none
 }
