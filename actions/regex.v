@@ -1,6 +1,8 @@
 module actions
 
 import regex.pcre
+import x.json2
+import valibro.jsoncodec
 import valibro.internal.text as textops
 import valibro.types
 
@@ -18,17 +20,25 @@ pub fn regex_with_flags(pattern string, flags string, messages ...types.ErrorMes
 	regexp := compile_regex(pattern, flags) or {
 		panic('Invalid native regular expression: ${err}')
 	}
-	return regex_object(regexp, ...messages)
+	return regex_action(regexp, pattern, flags, ...messages)
 }
 
 // Each find allocates its own match state; schema copies are independent.
 pub fn regex_object(regexp pcre.Regex, messages ...types.ErrorMessage) types.Action[string] {
+	return regex_action(regexp, regexp.pattern, '', ...messages)
+}
+
+fn regex_action(regexp pcre.Regex, pattern string, flags string, messages ...types.ErrorMessage) types.Action[string] {
 	text := custom_message(messages, '')
-	expected := '/' + regexp.pattern + '/'
+	expected := '/' + pattern + '/' + flags
 	return types.Action[string]{
-		kind:      .validation
-		type_name: 'regex'
-		run:       fn [regexp, text, expected] (input string) types.Dataset[string] {
+		kind:             .validation
+		type_name:        'regex'
+		requirement_text: jsoncodec.stringify(json2.Any({
+			'pattern': json2.Any(pattern)
+			'flags':   json2.Any(flags)
+		})) or { panic(err) }
+		run:              fn [regexp, text, expected] (input string) types.Dataset[string] {
 			matched := regexp.find(input) != none
 			if matched { return types.Dataset[string]{
 					value: input

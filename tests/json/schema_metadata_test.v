@@ -53,3 +53,9 @@ fn test_nested_pipeline_metadata_keeps_direct_actions_and_all_validators() ! {
 	}
 	assert long_rejected
 }
+
+fn test_regex_retains_original_pattern_and_flags_for_wire_export() {
+	schema := j.from_schema(v.pipe(v.string(), v.regex_with_flags('^clinic/[a-z]+$', 'i')))
+	assert schema.rules[0].type_name == 'regex'
+	assert schema.rules[0].requirement_text == '{"pattern":"^clinic/[a-z]+$","flags":"i"}'
+}
