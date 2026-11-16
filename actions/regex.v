@@ -30,13 +30,17 @@ pub fn regex_object(regexp pcre.Regex, messages ...types.ErrorMessage) types.Act
 
 fn regex_action(regexp pcre.Regex, pattern string, flags string, messages ...types.ErrorMessage) types.Action[string] {
 	text := custom_message(messages, '')
-	expected := '/' + pattern + '/' + flags
+	source := regex_source(pattern)
+	mut sorted_flags := flags.bytes()
+	sorted_flags.sort()
+	canonical_flags := sorted_flags.bytestr()
+	expected := '/' + source + '/' + canonical_flags
 	return types.Action[string]{
 		kind:             .validation
 		type_name:        'regex'
 		requirement_text: jsoncodec.stringify(json2.Any({
-			'pattern': json2.Any(pattern)
-			'flags':   json2.Any(flags)
+			'pattern': json2.Any(source)
+			'flags':   json2.Any(canonical_flags)
 		})) or { panic(err) }
 		run:              fn [regexp, text, expected] (input string) types.Dataset[string] {
 			matched := regexp.find(input) != none
@@ -57,4 +61,28 @@ fn regex_action(regexp pcre.Regex, pattern string, flags string, messages ...typ
 			}
 		}
 	}
+}
+
+// RegExp.source escapes delimiters and line terminators without changing matches.
+fn regex_source(pattern string) string {
+	if pattern == '' { return '(?:)' }
+	mut output := ''
+	mut backslashes := 0
+	for character in pattern.runes() {
+		if character == `/` && backslashes % 2 == 0 {
+			output += '\\/'
+		} else if character == `\n` {
+			output += '\\n'
+		} else if character == `\r` {
+			output += '\\r'
+		} else if character == rune(0x2028) {
+			output += '\\u2028'
+		} else if character == rune(0x2029) {
+			output += '\\u2029'
+		} else {
+			output += character.str()
+		}
+		backslashes = if character == `\\` { backslashes + 1 } else { 0 }
+	}
+	return output
 }
